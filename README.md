@@ -1,5 +1,5 @@
 # Icon picker dialog
-A fully customizable icon picker dialog that provides easy access to a load of quality icons without having to include them in your probject. Icons used by this library are all part of the [Material Design Icons](https://github.com/Templarian/MaterialDesign) set, made by Google as well as several contributors.
+A fully customizable icon picker dialog that provides easy access to a load of quality icons without having to include them in your probject. Icons used by this library are all part of the [Material Design Icons](https://github.com/Templarian/MaterialDesign) set, made by Google as well as several contributors. The picker include a default set of 976 icons as of 1.0.0 but custom icons can be added.
 
 ### Gradle dependency
 `compile 'com.maltaisn:icondialog:1.0.0'`
