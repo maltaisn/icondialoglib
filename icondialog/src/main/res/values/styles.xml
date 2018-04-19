@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <public name="IcdStyle" type="style"/>
+    <style name="IcdStyle">
+        <item name="icdBackgroundColor">?android:attr/colorBackgroundFloating</item>
+        <item name="icdMaxWidth">400dp</item>
+        <item name="icdMaxHeight">500dp</item>
+        <item name="icdIconSize">50dp</item>
+        <item name="icdIconStyle">@style/IcdIconStyle</item>
+        <item name="icdIconColor">?android:attr/textColorSecondary</item>
+        <item name="icdSelectedIconColor">?attr/colorAccent</item>
+        <item name="icdListHeaderStyle">@style/IcdListHeaderStyle</item>
+        <item name="icdListStickyHeaderStyle">@style/IcdListStickyHeaderStyle</item>
+        <item name="icdDividerDrawable">?android:attr/listDivider</item>
+        <item name="icdSearchBarStyle">@style/IcdSearchBarStyle</item>
+        <item name="icdSearchIconStyle">@style/IcdSearchIconStyle</item>
+        <item name="icdCancelSearchIconStyle">@style/IcdCancelSearchIconStyle</item>
+        <item name="icdNoResultLabelStyle">@style/IcdNoResultLabelStyle</item>
+        <item name="icdDialogButtonStyle">@style/IcdButtonStyle</item>
+        <item name="icdDialogTitleStyle">@style/IcdTitleStyle</item>
+        <item name="icdDialogListStyle">@style/IcdListStyle</item>
+        <item name="icdDialogBtnTextSelect">@string/icd_action_select</item>
+        <item name="icdDialogBtnTextCancel">@string/icd_action_cancel</item>
+        <item name="icdDialogBtnTextSelectNone">@string/icd_action_clear</item>
+    </style>
+
+    <public name="IcdIconStyle" type="style"/>
+    <style name="IcdIconStyle">
+        <item name="android:padding">8dp</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <public name="IcdListHeaderStyle" type="style"/>
+    <style name="IcdListHeaderStyle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body2</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">?attr/icdBackgroundColor</item>
+    </style>
+
+    <public name="IcdListStickyHeaderStyle" type="style"/>
+    <style name="IcdListStickyHeaderStyle" parent="IcdListHeaderStyle">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <public name="IcdSearchBarStyle" type="style"/>
+    <style name="IcdSearchBarStyle">
+        <item name="android:hint">@string/icd_search_hint</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:maxLength">32</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <public name="IcdSearchIconStyle" type="style"/>
+    <style name="IcdSearchIconStyle">
+        <item name="srcCompat">@drawable/icd_ic_search</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="tint">?android:attr/textColorSecondary</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <public name="IcdCancelSearchIconStyle" type="style"/>
+    <style name="IcdCancelSearchIconStyle">
+        <item name="srcCompat">@drawable/icd_ic_close</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="tint">?android:attr/textColorSecondary</item>
+        <item name="android:disabledAlpha">1.0</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <public name="IcdButtonStyle" type="style"/>
+    <style name="IcdButtonStyle" parent="Base.Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <!-- Nothing -->
+    </style>
+
+    <public name="IcdTitleStyle" type="style"/>
+    <style name="IcdTitleStyle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:minLines">1</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:text">@string/icd_title</item>
+    </style>
+
+    <public name="IcdListStyle" type="style"/>
+    <style name="IcdListStyle">
+        <item name="android:padding">8dp</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <public name="IcdNoResultLabelStyle" type="style"/>
+    <style name="IcdNoResultLabelStyle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:text">@string/icd_no_result</item>
+    </style>
+
+</resources>

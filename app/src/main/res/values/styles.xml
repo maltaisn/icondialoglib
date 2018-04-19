@@ -1,0 +1,28 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--<item name="icdStyle">@style/CustomIconDialogStyle</item>-->
+    </style>
+
+    <!-- Your custom dialog style, don't forget to specify the parent style! -->
+    <!--
+    <style name="CustomIconDialogStyle" parent="IcdStyle">
+        <item name="icdIconSize">30dp</item>
+        <item name="icdIconColor">#000000</item>
+        <item name="icdListHeaderStyle">@style/CustomHeaderStyle</item>
+    </style>
+    -->
+
+    <!-- Custom style for the list headers, again don't forget the parent! -->
+    <!--
+    <style name="CustomHeaderStyle" parent="IcdListHeaderStyle">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+    -->
+
+</resources>

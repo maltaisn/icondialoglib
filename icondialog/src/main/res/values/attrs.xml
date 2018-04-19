@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <attr name="icdStyle" format="reference"/>
+    
+    <declare-styleable name="IconDialog">
+        <attr name="icdBackgroundColor" format="color|reference"/>
+        <attr name="icdMaxWidth" format="dimension|reference"/>
+        <attr name="icdMaxHeight" format="dimension|reference"/>
+        <attr name="icdIconSize" format="dimension|reference"/>
+        <attr name="icdIconStyle" format="reference"/>
+        <attr name="icdIconColor" format="color|reference"/>
+        <attr name="icdSelectedIconColor" format="color|reference"/>
+        <attr name="icdListHeaderStyle" format="reference"/>
+        <attr name="icdListStickyHeaderStyle" format="reference"/>
+        <attr name="icdDividerDrawable" format="reference"/>
+        <attr name="icdSearchBarStyle" format="reference"/>
+        <attr name="icdSearchIconStyle" format="reference"/>
+        <attr name="icdCancelSearchIconStyle" format="reference"/>
+        <attr name="icdNoResultLabelStyle" format="reference"/>
+        <attr name="icdDialogButtonStyle" format="reference"/>
+        <attr name="icdDialogTitleStyle" format="reference"/>
+        <attr name="icdDialogListStyle" format="reference"/>
+        <attr name="icdDialogBtnTextSelect" format="string|reference"/>
+        <attr name="icdDialogBtnTextCancel" format="string|reference"/>
+        <attr name="icdDialogBtnTextSelectNone" format="string|reference"/>
+    </declare-styleable>
+
+</resources>

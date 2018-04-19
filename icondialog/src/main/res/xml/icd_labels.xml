@@ -1,0 +1,1149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+    <label name="3d">3D</label>
+    <label name="account">Account</label>
+    <label name="add">Add</label>
+    <label name="adjust">
+        <alias>Adjust</alias>
+        <alias>Tune</alias>
+    </label>
+    <label name="agriculture">Agriculture</label>
+    <label name="air_conditioner">Air conditioner</label>
+    <label name="airplane">Airplane</label>
+    <label name="airport">Airport</label>
+    <label name="alarm">Alarm</label>
+    <label name="album">Album</label>
+    <label name="alert">Alert</label>
+    <label name="alien">Alien</label>
+    <label name="all">All</label>
+    <label name="altimeter">Altimeter</label>
+    <label name="ambulance">Ambulance</label>
+    <label name="amplifier">Amplifier</label>
+    <label name="angle">Angle</label>
+    <label name="animal">Animal</label>
+    <label name="anvil">Anvil</label>
+    <label name="apple">Apple</label>
+    <label name="application">Application</label>
+    <label name="arrow">Arrow</label>
+    <label name="art">Art</label>
+    <label name="artificial_intelligence">Artificial intelligence</label>
+    <label name="artist">Artist</label>
+    <label name="asterisk">Asterisk</label>
+    <label name="at_sign">At</label>
+    <label name="atom">Atom</label>
+    <label name="audio">
+        <alias>Audio</alias>
+        <alias>@label/music</alias>
+        <alias>@label/sound</alias>
+    </label>
+    <label name="avenue">Avenue</label>
+    <label name="axe">Axe</label>
+    <label name="baby">Baby</label>
+    <label name="backspace">Backspace</label>
+    <label name="backup">Backup</label>
+    <label name="badminton">Badminton</label>
+    <label name="ball">Ball</label>
+    <label name="bank">Bank</label>
+    <label name="barcode">Barcode</label>
+    <label name="barley">Barley</label>
+    <label name="barrel">
+        <alias>Barrel</alias>
+        <alias>Keg</alias>
+    </label>
+    <label name="baseball">Baseball</label>
+    <label name="baseball_bat">Baseball bat</label>
+    <label name="basket">Basket</label>
+    <label name="bath">Bath</label>
+    <label name="battery">Battery</label>
+    <label name="bauble">Bauble</label>
+    <label name="beach">Beach</label>
+    <label name="beaker">Beaker</label>
+    <label name="bear">Bear</label>
+    <label name="bed">Bed</label>
+    <label name="beer">Beer</label>
+    <label name="beetle">Beetle</label>
+    <label name="bell">Bell</label>
+    <label name="bible">Bible</label>
+    <label name="bicycle">
+        <alias>Bicycle</alias>
+        <alias>Bike</alias>
+    </label>
+    <label name="binary">Binary</label>
+    <label name="binoculars">Binoculars</label>
+    <label name="biology">Biology</label>
+    <label name="bird">Bird</label>
+    <label name="birthday">
+        <alias>Birthday</alias>
+        <alias>Anniversary</alias>
+    </label>
+    <label name="blacksmith">Blacksmith</label>
+    <label name="blank">
+        <alias>Blank</alias>
+        <alias>@label/empty</alias>
+    </label>
+    <label name="blind">Blind</label>
+    <label name="bluetooth">Bluetooth</label>
+    <label name="boat">Boat</label>
+    <label name="bomb">Bomb</label>
+    <label name="bone">Bone</label>
+    <label name="book">Book</label>
+    <label name="bookmark">Bookmark</label>
+    <label name="boombox">Boombox</label>
+    <label name="boulevard">Boulevard</label>
+    <label name="bounce">Bounce</label>
+    <label name="bow_tie">Bow tie</label>
+    <label name="bowl">Bowl</label>
+    <label name="bowling">Bowling</label>
+    <label name="box">Box</label>
+    <label name="braces">Braces</label>
+    <label name="brackets">Brackets</label>
+    <label name="branch">Branch</label>
+    <label name="bread">Bread</label>
+    <label name="breakfast">Breakfast</label>
+    <label name="bricks">Bricks</label>
+    <label name="bridge">Bridge</label>
+    <label name="briefcase">Briefcase</label>
+    <label name="brightness">Brightness</label>
+    <label name="broken">Broken</label>
+    <label name="broom">Broom</label>
+    <label name="brush">Brush</label>
+    <label name="bubble">Bubble</label>
+    <label name="bucket">Bucket</label>
+    <label name="buggy">Buggy</label>
+    <label name="building">Building</label>
+    <label name="bulletin_board">Bulletin board</label>
+    <label name="bullhorn">
+        <alias>Bullhorn</alias>
+        <alias>Megaphone</alias>
+    </label>
+    <label name="bullseye">Bullseye</label>
+    <label name="bus">Bus</label>
+    <label name="business">Business</label>
+    <label name="cable_car">
+        <alias>Cable car</alias>
+        <alias>Gondola lift</alias>
+    </label>
+    <label name="cactus">Cactus</label>
+    <label name="cake">Cake</label>
+    <label name="calculator">Calculator</label>
+    <label name="calendar">Calendar</label>
+    <label name="call">Call</label>
+    <label name="camcorder">Camcorder</label>
+    <label name="camera">Camera</label>
+    <label name="camping">Camping</label>
+    <label name="cancel">Cancel</label>
+    <label name="candle">Candle</label>
+    <label name="candy">Candy</label>
+    <label name="candycane">Candycane</label>
+    <label name="cannabis">
+        <alias>Cannabis</alias>
+        <alias>Marijuana</alias>
+    </label>
+    <label name="car">Car</label>
+    <label name="car_convertable">Convertable car</label>
+    <label name="car_estate">Estate car</label>
+    <label name="car_hatchback">Hatchback car</label>
+    <label name="car_jeep">Jeep car</label>
+    <label name="car_pickup">Pickup truck</label>
+    <label name="car_sport">Sport car</label>
+    <label name="caravan">Caravan</label>
+    <label name="card">Card</label>
+    <label name="cards_club">Club</label>
+    <label name="cards_diamond">Diamond</label>
+    <label name="cards_heart">@label/heart</label>
+    <label name="cards_spade">Spade</label>
+    <label name="carrot">Carrot</label>
+    <label name="cart">Cart</label>
+    <label name="cash">Cash</label>
+    <label name="castle">Castle</label>
+    <label name="cat">Cat</label>
+    <label name="category">Category</label>
+    <label name="ceiling">Ceiling</label>
+    <label name="celsius">Celsius</label>
+    <label name="center">Center</label>
+    <label name="certificate">Certificate</label>
+    <label name="chain">Chain</label>
+    <label name="chair">Chair</label>
+    <label name="champagne">Champagne</label>
+    <label name="chandelier">Chandelier</label>
+    <label name="charge_battery">Charge</label>
+    <label name="chart">Chart</label>
+    <label name="chart_arc">Arc chart</label>
+    <label name="chart_bar">Bar chart</label>
+    <label name="chart_bubble">Bubble chart</label>
+    <label name="chart_line">Line chart</label>
+    <label name="chart_pie">Pie chart</label>
+    <label name="chat">Chat</label>
+    <label name="check">Check</label>
+    <label name="checkerboard">Checkerboard</label>
+    <label name="chemical">Chemical</label>
+    <label name="chemistry">Chemistry</label>
+    <label name="chess">Chess</label>
+    <label name="chess_bishop">Bishop</label>
+    <label name="chess_king">@label/king</label>
+    <label name="chess_knight">Knight</label>
+    <label name="chess_pawn">Pawn</label>
+    <label name="chess_queen">Queen</label>
+    <label name="chess_rook">Rook</label>
+    <label name="chessboard">Chessboard</label>
+    <label name="chevron">Chevron</label>
+    <label name="child">Child</label>
+    <label name="chili_food">Chili</label>
+    <label name="christianism">Christianism</label>
+    <label name="christmas">Christmas</label>
+    <label name="church">Church</label>
+    <label name="cinema">Cinema</label>
+    <label name="circle">Circle</label>
+    <label name="city">City</label>
+    <label name="click">Click</label>
+    <label name="clipboard">Clipboard</label>
+    <label name="clock">Clock</label>
+    <label name="closed">Closed</label>
+    <label name="clothes">Clothes</label>
+    <label name="cloud">Cloud</label>
+    <label name="clover">Clover</label>
+    <label name="co2">
+        <alias>CO2</alias>
+        <alias>Carbon dioxide</alias>
+    </label>
+    <label name="cool_qualitative">Cool</label>
+    <label name="cocktail">Cocktail</label>
+    <label name="coffee">Coffee</label>
+    <label name="coin">Coin</label>
+    <label name="cold">Cold</label>
+    <label name="collapse_content">Collapse</label>
+    <label name="comparison">Comparison</label>
+    <label name="compass">Compass</label>
+    <label name="computer">Computer</label>
+    <label name="computer_tower">Computer tower</label>
+    <label name="confirm">Confirm</label>
+    <label name="confirmation">Confirmation</label>
+    <label name="conifer">Conifer</label>
+    <label name="connected">Connected</label>
+    <label name="connection">Connection</label>
+    <label name="console">Console</label>
+    <label name="console_controller">Console controller</label>
+    <label name="construction">Construction</label>
+    <label name="cook">Cook</label>
+    <label name="cookie">Cookie</label>
+    <label name="copyright">Copyright</label>
+    <label name="corn">Corn</label>
+    <label name="counter">Counter</label>
+    <label name="couple">Couple</label>
+    <label name="coupon">Coupon</label>
+    <label name="cow">Cow</label>
+    <label name="cowboy">Cowboy</label>
+    <label name="crane">Crane</label>
+    <label name="creation">Creation</label>
+    <label name="credit_card">Credit card</label>
+    <label name="croissant">Croissant</label>
+    <label name="crop">Crop</label>
+    <label name="cross">Cross</label>
+    <label name="crosshairs">Crosshairs</label>
+    <label name="crown">Crown</label>
+    <label name="cryptocurrency">Cryptocurrency</label>
+    <label name="cube">Cube</label>
+    <label name="cup">Cup</label>
+    <label name="cupcake">Cupcake</label>
+    <label name="curling">Curling</label>
+    <label name="curr_bdt">Bangladeshi</label>
+    <label name="curr_btc">Bitcoin</label>
+    <label name="curr_cny">Chinese yuan</label>
+    <label name="curr_chf">Swiss franc</label>
+    <label name="curr_dollar">Dollar</label>
+    <label name="curr_eur">Euro</label>
+    <label name="curr_gbp">
+        <alias>British pound</alias>
+        <alias>Pound sterling</alias>
+    </label>
+    <label name="curr_inr">Indian rupee</label>
+    <label name="curr_jpy">Japenese yen</label>
+    <label name="curr_kzt">Kazakhstani tenge</label>
+    <label name="curr_krw">South korean won</label>
+    <label name="curr_ngn">Nigerian naira</label>
+    <label name="curr_rub">Russian ruble</label>
+    <label name="curr_twd">Taiwan dollar</label>
+    <label name="curr_try">Turkish lira</label>
+    <label name="currency">Currency</label>
+    <label name="curve">Curve</label>
+    <label name="cut">Cut</label>
+    <label name="cutter">Cutter</label>
+    <label name="cycling">Cycling</label>
+    <label name="cylinder">Cylinder</label>
+    <label name="danger">
+        <alias>Danger</alias>
+        <alias>Hazard</alias>
+    </label>
+    <label name="darts">Darts</label>
+    <label name="data">Data</label>
+    <label name="database">Database</label>
+    <label name="death">Death</label>
+    <label name="decimal">Decimal</label>
+    <label name="decision">Decision</label>
+    <label name="delete">
+        <alias>Delete</alias>
+        <alias>Remove</alias>
+    </label>
+    <label name="delivery">Delivery</label>
+    <label name="dentist">Dentist</label>
+    <label name="desert">Desert</label>
+    <label name="desk">Desk</label>
+    <label name="dessert">Dessert</label>
+    <label name="details">Details</label>
+    <label name="devil">Devil</label>
+    <label name="developper">Developper</label>
+    <label name="dial">Dial</label>
+    <label name="diamond">Diamond</label>
+    <label name="dice">
+        <alias>Dice</alias>
+        <alias>Die</alias>
+    </label>
+    <label name="diesel">Diesel</label>
+    <label name="direction">Direction</label>
+    <label name="disconnected">Disconnected</label>
+    <label name="dislike">Dislike</label>
+    <label name="dna">DNA</label>
+    <label name="dock">
+        <alias>Dock</alias>
+        <alias>Pier</alias>
+    </label>
+    <label name="document">Document</label>
+    <label name="dog">Dog</label>
+    <label name="donkey">Donkey</label>
+    <label name="door">Door</label>
+    <label name="dots">Dots</label>
+    <label name="down">Down</label>
+    <label name="draw">Draw</label>
+    <label name="dribble">Dribble</label>
+    <label name="drink">Drink</label>
+    <label name="drone">Drone</label>
+    <label name="dropper">Dropper</label>
+    <label name="drug">Drug</label>
+    <label name="drying_machine">Dryer</label>
+    <label name="duck">Duck</label>
+    <label name="dumbbell">Dumbbell</label>
+    <label name="duration">
+        <alias>Duration</alias>
+        <alias>Period</alias>
+        <alias>Timelapse</alias>
+    </label>
+    <label name="ear">Ear</label>
+    <label name="earth">Earth</label>
+    <label name="eclipse">Eclipse</label>
+    <label name="editing">Editing</label>
+    <label name="education">Education</label>
+    <label name="egg_cell">Egg cell</label>
+    <label name="eject">Eject</label>
+    <label name="electric_guitar">Electric guitar</label>
+    <label name="electric_power">Power</label>
+    <label name="electrical_plug">Electrical plug</label>
+    <label name="electrical_socket">
+        <alias>Electrical socket</alias>
+        <alias>Electrical outlet</alias>
+    </label>
+    <label name="electricity">Electricity</label>
+    <label name="electronic_chip">Electrical chip</label>
+    <label name="electronic_circuit">Electrical circuit</label>
+    <label name="elephant">Elephant</label>
+    <label name="ellipsis">Ellipsis</label>
+    <label name="email">Email</label>
+    <label name="emoticon">Emoticon</label>
+    <label name="empty">Empty</label>
+    <label name="engine">Engine</label>
+    <label name="environment">Environment</label>
+    <label name="equality">Equality</label>
+    <label name="eraser">Eraser</label>
+    <label name="erlenmeyer">Erlenmeyer</label>
+    <label name="event">Event</label>
+    <label name="evil">Evil</label>
+    <label name="exclamation_mark">Exclamation mark</label>
+    <label name="expand_content">Expand</label>
+    <label name="export">Export</label>
+    <label name="extension">Extension</label>
+    <label name="eye">Eye</label>
+    <label name="face">Face</label>
+    <label name="factory">Factory</label>
+    <label name="fahrenheit">Fahrenheit</label>
+    <label name="fan">Fan</label>
+    <label name="fast">Fast</label>
+    <label name="fastfood">
+        <alias>Fastfood</alias>
+        <alias>Junkfood</alias>
+    </label>
+    <label name="faucet">
+        <alias>Faucet</alias>
+        <alias>Tap</alias>
+    </label>
+    <label name="fax">Fax</label>
+    <label name="feather">Feather</label>
+    <label name="female">Female</label>
+    <label name="fence">Fence</label>
+    <label name="fencing">Fencing</label>
+    <label name="ferry">Ferry</label>
+    <label name="field">Field</label>
+    <label name="fighting">Fighting</label>
+    <label name="file">File</label>
+    <label name="fill">Fill</label>
+    <label name="film">Film</label>
+    <label name="filter">Filter</label>
+    <label name="finance">Finance</label>
+    <label name="fingerprint">Fingerprint</label>
+    <label name="fir_tree">Fir</label>
+    <label name="fire">Fire</label>
+    <label name="fire_truck">Fire truck</label>
+    <label name="firework">Firework</label>
+    <label name="fish">Fish</label>
+    <label name="fish_hook">Fish hook</label>
+    <label name="fishing">Fishing</label>
+    <label name="fitness">Fitness</label>
+    <label name="flag">Flag</label>
+    <label name="flash">Flash</label>
+    <label name="flashlight">Flashlight</label>
+    <label name="flask">Flask</label>
+    <label name="floor">Floor</label>
+    <label name="floppy_disk">Floppy disk</label>
+    <label name="flower">Flower</label>
+    <label name="fog">Fog</label>
+    <label name="folder">Folder</label>
+    <label name="font">Font</label>
+    <label name="food">Food</label>
+    <label name="foot">
+        <alias>Foot</alias>
+        <alias>Feet</alias>
+    </label>
+    <label name="football">Football</label>
+    <label name="fork">Fork</label>
+    <label name="fork_content">Fork</label>
+    <label name="forklift">Forklift</label>
+    <label name="format">Format</label>
+    <label name="forum">Forum</label>
+    <label name="frame">Frame</label>
+    <label name="fridge">Fridge</label>
+    <label name="front">Front</label>
+    <label name="fruit">Fruit</label>
+    <label name="fuel">Fuel</label>
+    <label name="full">Full</label>
+    <label name="fullscreen">Fullscreen</label>
+    <label name="funnel">Funnel</label>
+    <label name="future">Future</label>
+    <label name="gambling">Gambling</label>
+    <label name="game">Game</label>
+    <label name="game_console">Game console</label>
+    <label name="garage">Garage</label>
+    <label name="gas">Gas</label>
+    <label name="gate">Gate</label>
+    <label name="gauge">Gauge</label>
+    <label name="gavel">Gavel</label>
+    <label name="gear">
+        <alias>Gear</alias>
+        <alias>Cog</alias>
+    </label>
+    <label name="gem">
+        <alias>Gem</alias>
+        <alias>Jewel</alias>
+    </label>
+    <label name="gender">
+        <alias>Gender</alias>
+        <alias>Sex</alias>
+    </label>
+    <label name="genetic">Genetic</label>
+    <label name="geometry">Geometry</label>
+    <label name="gesture">Gesture</label>
+    <label name="ghost">Ghost</label>
+    <label name="gift">
+        <alias>Gift</alias>
+        <alias>Present</alias>
+    </label>
+    <label name="giftcard">Giftcard</label>
+    <label name="glass">Glass</label>
+    <label name="glass_flute">Glass flute</label>
+    <label name="glasses">Glasses</label>
+    <label name="golf">Golf</label>
+    <label name="gps">GPS</label>
+    <label name="grade">Grade</label>
+    <label name="graduation">Graduation</label>
+    <label name="graffiti">Graffiti</label>
+    <label name="grease_pen">Grease pen</label>
+    <label name="greek_letter">Greek letter</label>
+    <label name="greek_letter_alpha">Alpha</label>
+    <label name="greek_letter_beta">Beta</label>
+    <label name="greek_letter_delta">Delta</label>
+    <label name="greek_letter_lambda">Lambda</label>
+    <label name="greek_letter_omega">Omega</label>
+    <label name="greek_letter_sigma">Sigma</label>
+    <label name="greeting">Greeting</label>
+    <label name="grid">Grid</label>
+    <label name="grocery">Grocery</label>
+    <label name="group">Group</label>
+    <label name="guitar">Guitar</label>
+    <label name="gun">Gun</label>
+    <label name="h2o">
+        <alias>H2O</alias>
+        <alias>@label/water</alias>
+    </label>
+    <label name="hamburger">Hamburger</label>
+    <label name="hammer">Hammer</label>
+    <label name="hand">Hand</label>
+    <label name="hanger">Hanger</label>
+    <label name="happy">Happy</label>
+    <label name="hard_disk">Hard disk</label>
+    <label name="hat">Hat</label>
+    <label name="headphones">
+        <alias>Headphones</alias>
+        <alias>Headset</alias>
+        <alias>Earphones</alias>
+        <alias>Earbuds</alias>
+    </label>
+    <label name="health">Health</label>
+    <label name="hear">Hear</label>
+    <label name="hearing">Hearing</label>
+    <label name="heart">Heart</label>
+    <label name="heat">Heat</label>
+    <label name="heavy">Heavy</label>
+    <label name="helicopter">Helicopter</label>
+    <label name="helmet">Helmet</label>
+    <label name="help">Help</label>
+    <label name="hexagon">Hexagon</label>
+    <label name="hidden">Hidden</label>
+    <label name="hierarchy">Hierarchy</label>
+    <label name="high">High</label>
+    <label name="highlighter">Highlighter</label>
+    <label name="highway">Highway</label>
+    <label name="histogram">Histogram</label>
+    <label name="history">History</label>
+    <label name="hockey">Hockey</label>
+    <label name="hockey_puck">Hockey puck</label>
+    <label name="hockey_stick">Hockey stick</label>
+    <label name="home">Home</label>
+    <label name="home_appliance">Home appliance</label>
+    <label name="horn">Horn</label>
+    <label name="horse">Horse</label>
+    <label name="hospital">Hospital</label>
+    <label name="hot">Hot</label>
+    <label name="hot_air_balloon">Hot air balloon</label>
+    <label name="hot_tub">Hot tub</label>
+    <label name="hotdog">Hot-dog</label>
+    <label name="hotel">Hotel</label>
+    <label name="hour">Hour</label>
+    <label name="hourglass">Hourglass</label>
+    <label name="house">House</label>
+    <label name="housework">Housework</label>
+    <label name="human">Human</label>
+    <label name="hurricane">Hurricane</label>
+    <label name="hyperlink">Hyperlink</label>
+    <label name="icecream">Icecream</label>
+    <label name="icecream_cone">Icecream cone</label>
+    <label name="icecube">Icecube</label>
+    <label name="image">
+        <alias>Image</alias>
+        <alias>Picture</alias>
+    </label>
+    <label name="incognito">Incognito</label>
+    <label name="infinity">Infinity</label>
+    <label name="information">Information</label>
+    <label name="insect">
+        <alias>Insect</alias>
+        <alias>Bug</alias>
+    </label>
+    <label name="insomnia">Insomnia</label>
+    <label name="instrument">Instrument</label>
+    <label name="insurance">Insurance</label>
+    <label name="internet">Internet</label>
+    <label name="intersection">Intersection</label>
+    <label name="inverse">Inverse</label>
+    <label name="investment">Investment</label>
+    <label name="items">Items</label>
+    <label name="json">JSON</label>
+    <label name="judaism">Judaism</label>
+    <label name="jupiter">Jupiter</label>
+    <label name="karate">Karate</label>
+    <label name="kelvin">Kelvin</label>
+    <label name="kettle">Kettle</label>
+    <label name="key">Key</label>
+    <label name="keyboard">Keyboard</label>
+    <label name="kg">KG</label>
+    <label name="king">King</label>
+    <label name="knife">Knife</label>
+    <label name="ladybug">Ladybug</label>
+    <label name="lamp">Lamp</label>
+    <label name="landing">Landing</label>
+    <label name="landscape">Landscape</label>
+    <label name="language">Language</label>
+    <label name="laptop">Laptop</label>
+    <label name="layer">Layer</label>
+    <label name="leaf">Leaf</label>
+    <label name="leaking">Leaking</label>
+    <label name="left">Left</label>
+    <label name="leg">Leg</label>
+    <label name="length">Length</label>
+    <label name="letter">Letter</label>
+    <label name="library">Library</label>
+    <label name="license">License</label>
+    <label name="license_copyright">@label/license</label>
+    <label name="lifebuoy">Lifebuoy</label>
+    <label name="lightbulb">Lightbulb</label>
+    <label name="lightning">Lightning</label>
+    <label name="lightning_led">LED</label>
+    <label name="like">Like</label>
+    <label name="link">Link</label>
+    <label name="liquid">Liquid</label>
+    <label name="list">List</label>
+    <label name="livestock">
+        <alias>Livestock</alias>
+        <alias>Cattle</alias>
+    </label>
+    <label name="loading">Loading</label>
+    <label name="location">Location</label>
+    <label name="lock">Lock</label>
+    <label name="locked">Locked</label>
+    <label name="logic_gate">Logic gate</label>
+    <label name="loop">Loop</label>
+    <label name="love">Love</label>
+    <label name="low">Low</label>
+    <label name="luck">Luck</label>
+    <label name="magic">Magic</label>
+    <label name="magnet">Magnet</label>
+    <label name="magnifying_glass">Magnifying glass</label>
+    <label name="mail">Mail</label>
+    <label name="mailbox">Mailbox</label>
+    <label name="male">Male</label>
+    <label name="mallet">Mallet</label>
+    <label name="man">Man</label>
+    <label name="map">Map</label>
+    <label name="martial_arts">Martial arts</label>
+    <label name="martini">Martini</label>
+    <label name="mask">Mask</label>
+    <label name="math">Mathematics</label>
+    <label name="math_addition">Addition</label>
+    <label name="math_division">Division</label>
+    <label name="math_equal">Equal</label>
+    <label name="math_exponent">Exponent</label>
+    <label name="math_formula">Formula</label>
+    <label name="math_function">Function</label>
+    <label name="math_multiplication">Multiplication</label>
+    <label name="math_not_equal">Not equal</label>
+    <label name="math_square">@label/square</label>
+    <label name="math_square_root">Square root</label>
+    <label name="math_subtraction">Subtraction</label>
+    <label name="meal">Meal</label>
+    <label name="measurement">Measurement</label>
+    <label name="medal">Medal</label>
+    <label name="media">Media</label>
+    <label name="media_fast_forward">Fast forward</label>
+    <label name="media_pause">Pause</label>
+    <label name="media_play">Play</label>
+    <label name="media_resume">Resume</label>
+    <label name="media_rewind">Rewind</label>
+    <label name="media_shuffle">Shuffle</label>
+    <label name="media_skip_backward">Skip backward</label>
+    <label name="media_skip_forward">Skip forward</label>
+    <label name="media_skip_next">Skip next</label>
+    <label name="media_skip_previous">Skip previous</label>
+    <label name="medication">
+        <alias>Medication</alias>
+        <alias>@label/drug</alias>
+    </label>
+    <label name="medium">Medium</label>
+    <label name="membership">Membership</label>
+    <label name="memory">Memory</label>
+    <label name="menu">Menu</label>
+    <label name="merge">Merge</label>
+    <label name="message">Message</label>
+    <label name="metronome">Metronome</label>
+    <label name="microorganism">Microorganism</label>
+    <label name="microphone">Microphone</label>
+    <label name="microscope">Microscope</label>
+    <label name="military">Military</label>
+    <label name="milk">Milk</label>
+    <label name="mining">Mining</label>
+    <label name="minus">Minus</label>
+    <label name="missed">Missed</label>
+    <label name="mobile">Mobile</label>
+    <label name="money">Money</label>
+    <label name="monitor">Monitor</label>
+    <label name="moon">Moon</label>
+    <label name="more_options">More options</label>
+    <label name="mortgage">Mortgage</label>
+    <label name="motorbike">
+        <alias>Motorbike</alias>
+        <alias>Motorcycle</alias>
+    </label>
+    <label name="mountain">Mountain</label>
+    <label name="mouse">Mouse</label>
+    <label name="mouse_pointer">
+        <alias>Pointer</alias>
+        <alias>Cursor</alias>
+    </label>
+    <label name="movement">Mouvement</label>
+    <label name="movie">Film</label>
+    <label name="muffin">Muffin</label>
+    <label name="mug">@label/cup</label>
+    <label name="multiple">Multiple</label>
+    <label name="mushroom">Mushroom</label>
+    <label name="music">Music</label>
+    <label name="mute">Mute</label>
+    <label name="nature">Nature</label>
+    <label name="navigation">Navigation</label>
+    <label name="needle">Needle</label>
+    <label name="network">Network</label>
+    <label name="neutral">Neutral</label>
+    <label name="news">News</label>
+    <label name="newspaper">Newspaper</label>
+    <label name="ninja">Ninja</label>
+    <label name="none">None</label>
+    <label name="note">Note</label>
+    <label name="notebook">Notebook</label>
+    <label name="notification">Notification</label>
+    <label name="nuclear">Nuclear</label>
+    <label name="nucleus">Nucleus</label>
+    <label name="nuke">Nuke</label>
+    <label name="number">Number</label>
+    <label name="numeric">Numeric</label>
+    <label name="nut">Nut</label>
+    <label name="nutrition">Nutrition</label>
+    <label name="oar">Oar</label>
+    <label name="octagon">Octagon</label>
+    <label name="off">Off</label>
+    <label name="oil">Oil</label>
+    <label name="on">On</label>
+    <label name="onion">Onion</label>
+    <label name="opened">Opened</label>
+    <label name="orbit">Orbit</label>
+    <label name="order_content">Order</label>
+    <label name="ornament">Ornament</label>
+    <label name="outdoors">Outdoors</label>
+    <label name="owl">Owl</label>
+    <label name="package">Package</label>
+    <label name="paint">Paint</label>
+    <label name="palette">Palette</label>
+    <label name="palm_tree">Palm</label>
+    <label name="panda">Panda</label>
+    <label name="panorama">Panorama</label>
+    <label name="paper">Paper</label>
+    <label name="paperclip">Paperclip</label>
+    <label name="parentheses">Parentheses</label>
+    <label name="parking">Parking</label>
+    <label name="passport">Passport</label>
+    <label name="password">Password</label>
+    <label name="past">Past</label>
+    <label name="pasta">Pasta</label>
+    <label name="paste">Paste</label>
+    <label name="pastry">Pastry</label>
+    <label name="pathway">Pathway</label>
+    <label name="paw">Paw</label>
+    <label name="peace">Peace</label>
+    <label name="pen">Pen</label>
+    <label name="penguin">Penguin</label>
+    <label name="pencil">Pencil</label>
+    <label name="pentagon">Pentagon</label>
+    <label name="pepper">Pepper</label>
+    <label name="percent">Percent</label>
+    <label name="periodic_table">Periodic table</label>
+    <label name="person">
+        <alias>Person</alias>
+        <alias>People</alias>
+    </label>
+    <label name="pet">Pet</label>
+    <label name="petrol">
+        <alias>Petrol</alias>
+        <alias>@label/oil</alias>
+        <alias>@label/gas</alias>
+    </label>
+    <label name="pharmacy">Pharmacy</label>
+    <label name="phone">
+        <alias>Cellphone</alias>
+        <alias>Telephone</alias>
+    </label>
+    <label name="photo">Photo</label>
+    <label name="physics">Physics</label>
+    <label name="pi">Pi</label>
+    <label name="piano">Piano</label>
+    <label name="pick">Pick</label>
+    <label name="pickaxe">Pickaxe</label>
+    <label name="pie">Pie</label>
+    <label name="pig">Pig</label>
+    <label name="piggy_bank">Piggy bank</label>
+    <label name="pill">Pill</label>
+    <label name="pillar">Pillar</label>
+    <label name="pin">Pin</label>
+    <label name="pine_tree">Pine</label>
+    <label name="pipe">Pipe</label>
+    <label name="pistol">Pistol</label>
+    <label name="pizza">Pizza</label>
+    <label name="place">Place</label>
+    <label name="planet">Planet</label>
+    <label name="planned">Planned</label>
+    <label name="plant">Plant</label>
+    <label name="playing_cards">Playing cards</label>
+    <label name="playlist">Playlist</label>
+    <label name="plugin">Plugin</label>
+    <label name="plus">Plus</label>
+    <label name="pocket">Pocket</label>
+    <label name="poker">Poker</label>
+    <label name="police">Police</label>
+    <label name="polygon">Polygon</label>
+    <label name="pool">Pool</label>
+    <label name="popcorn">Popcorn</label>
+    <label name="postage_stamp">Postage stamp</label>
+    <label name="pot">Pot</label>
+    <label name="pound">Pound</label>
+    <label name="precipitation">Precipitation</label>
+    <label name="pregnant">Pregnant</label>
+    <label name="presentation">Presentation</label>
+    <label name="printer">Printer</label>
+    <label name="prize">
+        <alias>Prize</alias>
+        <alias>Award</alias>
+    </label>
+    <label name="profile">Profile</label>
+    <label name="programming">
+        <alias>Programming</alias>
+        <alias>Code</alias>
+    </label>
+    <label name="programming_c">C</label>
+    <label name="programming_cplusplus">C++</label>
+    <label name="programming_csharp">C#</label>
+    <label name="programming_html">HTML</label>
+    <label name="programming_javascript">JavaScript</label>
+    <label name="programming_lua">Lua</label>
+    <label name="programming_php">PHP</label>
+    <label name="programming_python">Python</label>
+    <label name="programming_swift">Swift</label>
+    <label name="programming_xml">XML</label>
+    <label name="prohibition">
+        <alias>Prohibition</alias>
+        <alias>No</alias>
+        <alias>Banned</alias>
+    </label>
+    <label name="projector">Projector</label>
+    <label name="pulse">Pulse</label>
+    <label name="pump">Pump</label>
+    <label name="puzzle">Puzzle</label>
+    <label name="qrcode">QR Code</label>
+    <label name="quadcopter">Quadcopter</label>
+    <label name="question">Question</label>
+    <label name="question_mark">Question mark</label>
+    <label name="rabbit">
+        <alias>Rabbit</alias>
+        <alias>Hare</alias>
+    </label>
+    <label name="radar">Radar</label>
+    <label name="radiator">
+        <alias>Radiator</alias>
+        <alias>Heating</alias>
+    </label>
+    <label name="radio">Radio</label>
+    <label name="radioactivity">Radioactive</label>
+    <label name="rainbow">Rainbow</label>
+    <label name="raspberrypi">RaspberryPi</label>
+    <label name="reaction">Reaction</label>
+    <label name="reading">Reading</label>
+    <label name="recycling">Recycle</label>
+    <label name="redo">Redo</label>
+    <label name="religion">Religion</label>
+    <label name="reminder">Reminder</label>
+    <label name="remote">Remote</label>
+    <label name="repeat">
+        <alias>Repeat</alias>
+        <alias>Refresh</alias>
+        <alias>Reload</alias>
+        <alias>Restart</alias>
+        <alias>@label/loop</alias>
+    </label>
+    <label name="reproduction">Reproduction</label>
+    <label name="rescue">Rescue</label>
+    <label name="rest">Rest</label>
+    <label name="restaurant">Restaurant</label>
+    <label name="restore">Restore</label>
+    <label name="review">Review</label>
+    <label name="rhombus">Rhombus</label>
+    <label name="ribbon">Ribbon</label>
+    <label name="rice">Rice</label>
+    <label name="right">Right</label>
+    <label name="ring">Ring</label>
+    <label name="road">Road</label>
+    <label name="robot">Robot</label>
+    <label name="rocket">Rocket</label>
+    <label name="roller">Roller</label>
+    <label name="rope">
+        <alias>Rope</alias>
+        <alias>String</alias>
+    </label>
+    <label name="rotation">Rotation</label>
+    <label name="router">Router</label>
+    <label name="rowing">Rowing</label>
+    <label name="ruler">Ruler</label>
+    <label name="run">Run</label>
+    <label name="sad">Sad</label>
+    <label name="sandcastle">Sandcastle</label>
+    <label name="satellite">Satellite</label>
+    <label name="sauce">Sauce</label>
+    <label name="sausage">Sausage</label>
+    <label name="save">Save</label>
+    <label name="savings">Savings</label>
+    <label name="saw">Saw</label>
+    <label name="saxophone">Saxophone</label>
+    <label name="scale">
+        <alias>Scale</alias>
+        <alias>Balance</alias>
+    </label>
+    <label name="scan">Scan</label>
+    <label name="scanner">Scanner</label>
+    <label name="school">School</label>
+    <label name="schredder">Schredder</label>
+    <label name="science">Science</label>
+    <label name="scissors">Scissors</label>
+    <label name="screen">Screen</label>
+    <label name="screen_cast">Cast</label>
+    <label name="screwdriver">Screwdriver</label>
+    <label name="script">Script</label>
+    <label name="sd_card">
+        <alias>SD Card</alias>
+        <alias>Micro SD</alias>
+    </label>
+    <label name="seal">Seal</label>
+    <label name="search">
+        <alias>Search</alias>
+        <alias>Find</alias>
+    </label>
+    <label name="seat">Seat</label>
+    <label name="security">Security</label>
+    <label name="select">Select</label>
+    <label name="send">Send</label>
+    <label name="server">Server</label>
+    <label name="settings">
+        <alias>Settings</alias>
+        <alias>Options</alias>
+        <alias>Configuration</alias>
+    </label>
+    <label name="shape">Shape</label>
+    <label name="share">Share</label>
+    <label name="sheet_music">Sheet music</label>
+    <label name="shield">Shield</label>
+    <label name="ship">Ship</label>
+    <label name="ship_anchor">Anchor</label>
+    <label name="shopping">Shopping</label>
+    <label name="shovel">Shovel</label>
+    <label name="sign">Sign</label>
+    <label name="signal">Signal</label>
+    <label name="sim_card">Sim card</label>
+    <label name="sit">Sit</label>
+    <label name="skull">Skull</label>
+    <label name="sleep">Sleep</label>
+    <label name="smile">Smile</label>
+    <label name="smoking">Smoking</label>
+    <label name="snooze">Snooze</label>
+    <label name="snow">Snow</label>
+    <label name="snowflake">Snowflake</label>
+    <label name="snowman">Snowman</label>
+    <label name="soccer">
+        <alias>Soccer</alias>
+        <alias>@label/football</alias>
+    </label>
+    <label name="sock">
+        <alias>Sock</alias>
+        <alias>Stocking</alias>
+    </label>
+    <label name="sofa">
+        <alias>Sofa</alias>
+        <alias>Couch</alias>
+    </label>
+    <label name="sort">Sort</label>
+    <label name="sound">Sound</label>
+    <label name="sound_ring">Ring</label>
+    <label name="source">Source</label>
+    <label name="space">Space</label>
+    <label name="speak">Speak</label>
+    <label name="speaker">Speaker</label>
+    <label name="speedometer">Speedometer</label>
+    <label name="spellcheck">Spellcheck</label>
+    <label name="spermatozoid">Spermatozoid</label>
+    <label name="spicy">Spicy</label>
+    <label name="spoon">Spoon</label>
+    <label name="sport">Sport</label>
+    <label name="spotlight">Spotlight</label>
+    <label name="spray">Spray</label>
+    <label name="spreadsheet">Spreadsheet</label>
+    <label name="spy">Spy</label>
+    <label name="square">Square</label>
+    <label name="stack">Stack</label>
+    <label name="stadium">Stadium</label>
+    <label name="stairs">Stairs</label>
+    <label name="stamper">Stamper</label>
+    <label name="standing">Standing</label>
+    <label name="star">Star</label>
+    <label name="steering">Steering</label>
+    <label name="stethoscope">Stethoscope</label>
+    <label name="sticker">Sticker</label>
+    <label name="stop">Stop</label>
+    <label name="stopwatch">Stopwatch</label>
+    <label name="computer_storage">Storage</label>
+    <label name="store">
+        <alias>Store</alias>
+        <alias>Shop</alias>
+    </label>
+    <label name="storm">Storm</label>
+    <label name="stove">
+        <alias>Stove</alias>
+        <alias>Oven</alias>
+    </label>
+    <label name="street">Street</label>
+    <label name="structure">Structure</label>
+    <label name="style">Style</label>
+    <label name="subway">Subway</label>
+    <label name="suit">Suit</label>
+    <label name="summit">Summit</label>
+    <label name="sunglasses">Sunglasses</label>
+    <label name="sunrise">Sunrise</label>
+    <label name="sunset">Sunset</label>
+    <label name="superscript">Superscript</label>
+    <label name="surveillance">Surveillance</label>
+    <label name="swap">Swap</label>
+    <label name="swimming">Swimming</label>
+    <label name="sword">Sword</label>
+    <label name="symbol">Symbol</label>
+    <label name="synchronisation">Synchronisation</label>
+    <label name="syringe">Syringe</label>
+    <label name="table">Table</label>
+    <label name="tablet">Tablet</label>
+    <label name="taco">Taco</label>
+    <label name="taekwondo">Taekwondo</label>
+    <label name="tag">Tag</label>
+    <label name="take_off">Take off</label>
+    <label name="talking">Talking</label>
+    <label name="tank_container">Tank</label>
+    <label name="taxi">Taxi</label>
+    <label name="tea">Tea</label>
+    <label name="teach">Teach</label>
+    <label name="teapot">Teapot</label>
+    <label name="technology">Technology</label>
+    <label name="television">
+        <alias>Television</alias>
+        <alias>TV</alias>
+    </label>
+    <label name="temperature">Temperature</label>
+    <label name="tennis">Tennis</label>
+    <label name="tent">Tent</label>
+    <label name="terminal">Terminal</label>
+    <label name="terrain">Terrain</label>
+    <label name="test_tube">Test tube</label>
+    <label name="text">Text</label>
+    <label name="textbox">Textbox</label>
+    <label name="theater">Theater</label>
+    <label name="thermometer">Thermometer</label>
+    <label name="thermostat">Thermostat</label>
+    <label name="think">Think</label>
+    <label name="thought">Thought</label>
+    <label name="thumb">Thumb</label>
+    <label name="thunderstorm">Thunderstorm</label>
+    <label name="ticket">Ticket</label>
+    <label name="tie">Tie</label>
+    <label name="tilde">Tilde</label>
+    <label name="time">Time</label>
+    <label name="time_day">Day</label>
+    <label name="time_night">Night</label>
+    <label name="timeline">Timeline</label>
+    <label name="timer">
+        <alias>Timer</alias>
+        <alias>Chronometer</alias>
+        <alias>@label/stopwatch</alias>
+    </label>
+    <label name="tongue">Tongue</label>
+    <label name="tool">Tool</label>
+    <label name="toolbox">Toolbox</label>
+    <label name="tooth">Tooth</label>
+    <label name="tortoise">Tortoise</label>
+    <label name="touch_screen">Touch</label>
+    <label name="tower">Tower</label>
+    <label name="towing">Towing</label>
+    <label name="toy">Toy</label>
+    <label name="tractor">Tractor</label>
+    <label name="traffic">Traffic</label>
+    <label name="traffic_light">Traffic light</label>
+    <label name="trailer">Trailer</label>
+    <label name="train">Train</label>
+    <label name="tramway">Tramway</label>
+    <label name="transfer">Transfer</label>
+    <label name="transgender">Transgender</label>
+    <label name="transit">Transit</label>
+    <label name="translate">Translate</label>
+    <label name="transport">Transport</label>
+    <label name="trash">Trash</label>
+    <label name="travel">Travel</label>
+    <label name="tree">Tree</label>
+    <label name="trending">Trending</label>
+    <label name="triangle">Triangle</label>
+    <label name="trophy">Trophy</label>
+    <label name="truck">Truck</label>
+    <label name="turbine">Turbine</label>
+    <label name="turtle">Turtle</label>
+    <label name="typing">Typing</label>
+    <label name="umbrella_rain">Umbrella</label>
+    <label name="umbrella_sun">@label/umbrella_rain</label>
+    <label name="undo">Undo</label>
+    <label name="unmerge">Unmerge</label>
+    <label name="up">Up</label>
+    <label name="update">Update</label>
+    <label name="usb">USB</label>
+    <label name="user">User</label>
+    <label name="utensil">Utensil</label>
+    <label name="vacation">Vacation</label>
+    <label name="vaccine">Vaccine</label>
+    <label name="van">Van</label>
+    <label name="vanish">Vanish</label>
+    <label name="variable">Variable</label>
+    <label name="vegetable">Vegetable</label>
+    <label name="vehicle">Vehicle</label>
+    <label name="vehicle_wheel">Wheel</label>
+    <label name="vibrate">Vibrate</label>
+    <label name="video">Video</label>
+    <label name="violin">Violin</label>
+    <label name="virus">Virus</label>
+    <label name="vision">Vision</label>
+    <label name="volleyball">Volleyball</label>
+    <label name="volume">Volume</label>
+    <label name="walking">Walking</label>
+    <label name="wall">Wall</label>
+    <label name="wallet">Wallet</label>
+    <label name="wand">Wand</label>
+    <label name="wash">Wash</label>
+    <label name="washing_machine">Washing machine</label>
+    <label name="watch">Watch</label>
+    <label name="water">Water</label>
+    <label name="wave">Wave</label>
+    <label name="weapon">Weapon</label>
+    <label name="weather">Weather</label>
+    <label name="weather_hail">Hail</label>
+    <label name="weather_lightning">@label/lightning</label>
+    <label name="weather_rainy">Rainy</label>
+    <label name="weather_snowy">Snowy</label>
+    <label name="weather_sunny">Sunny</label>
+    <label name="web">Web</label>
+    <label name="webcam">Webcam</label>
+    <label name="wedding">Wedding</label>
+    <label name="week">Week</label>
+    <label name="weight">
+        <alias>Weight</alias>
+        <alias>Mass</alias>
+    </label>
+    <label name="wheat">Wheat</label>
+    <label name="wifi">Wi-Fi</label>
+    <label name="wind">Wind</label>
+    <label name="windmill">Windmill</label>
+    <label name="wind_turbine">Wind turbine</label>
+    <label name="window">Window</label>
+    <label name="wine">Wine</label>
+    <label name="winter">Winter</label>
+    <label name="wireless">Wireless</label>
+    <label name="woman">Woman</label>
+    <label name="work">Work</label>
+    <label name="worker">Worker</label>
+    <label name="wrench">Wrench</label>
+    <label name="writing">Writing</label>
+    <label name="yeast">Yeast</label>
+    <label name="yin_yang">Yin yang</label>
+    <label name="zoom">
+        <alias>Zoom</alias>
+        <alias>Magnify</alias>
+    </label>
+</list>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="icd_title">Sélectionner une icône</string>
+    <string name="icd_search_hint">Rechercher des icônes</string>
+    <string name="icd_action_clear">Effacer</string>
+    <string name="icd_action_select">OK</string>
+    <string name="icd_action_cancel">Annuler</string>
+    <string name="icd_no_result">Aucune icône trouvée</string>
+
+    <string name="icd_category_people">Famille et personnes</string>
+    <string name="icd_category_home">Vie et domicile</string>
+    <string name="icd_category_leisure">Loisir</string>
+    <string name="icd_category_transport">Transport et voyage</string>
+    <string name="icd_category_food">Nourriture et boissons</string>
+    <string name="icd_category_buildings">Lieux et bâtiments</string>
+    <string name="icd_category_arts">Arts</string>
+    <string name="icd_category_sports">Sports</string>
+    <string name="icd_category_audio">Musique et son</string>
+    <string name="icd_category_photo_video">Photo et vidéo</string>
+    <string name="icd_category_nature">Nature et animaux</string>
+    <string name="icd_category_science">Math et science</string>
+    <string name="icd_category_time">Temps</string>
+    <string name="icd_category_tools">Outils</string>
+    <string name="icd_category_computer">Ordinateur</string>
+    <string name="icd_category_arrows">Flèches</string>
+    <string name="icd_category_symbols">Symboles et charactères</string>
+    <string name="icd_category_finance">Finance et achats</string>
+    <string name="icd_category_technology">Technologie</string>
+</resources>
