@@ -109,6 +109,7 @@
     <label name="brush">Brush</label>
     <label name="bubble">Bubble</label>
     <label name="bucket">Bucket</label>
+    <label name="buddhism">Buddhism</label>
     <label name="buggy">Buggy</label>
     <label name="building">Building</label>
     <label name="bulletin_board">Bulletin board</label>
@@ -187,7 +188,10 @@
     <label name="chess_rook">Rook</label>
     <label name="chessboard">Chessboard</label>
     <label name="chevron">Chevron</label>
-    <label name="child">Child</label>
+    <label name="child">
+        <alias>Child</alias>
+        <alias>Kid</alias>
+    </label>
     <label name="chili_food">Chili</label>
     <label name="christianism">Christianism</label>
     <label name="christmas">Christmas</label>
@@ -301,7 +305,9 @@
     <label name="diesel">Diesel</label>
     <label name="direction">Direction</label>
     <label name="disconnected">Disconnected</label>
+    <label name="disk">Disk</label>
     <label name="dislike">Dislike</label>
+    <label name="distance">Distance</label>
     <label name="dna">DNA</label>
     <label name="dock">
         <alias>Dock</alias>
@@ -313,6 +319,7 @@
     <label name="door">Door</label>
     <label name="dots">Dots</label>
     <label name="down">Down</label>
+    <label name="download">Download</label>
     <label name="draw">Draw</label>
     <label name="dribble">Dribble</label>
     <label name="drink">Drink</label>
@@ -509,6 +516,7 @@
     <label name="high">High</label>
     <label name="highlighter">Highlighter</label>
     <label name="highway">Highway</label>
+    <label name="hinduism">Hinduism</label>
     <label name="histogram">Histogram</label>
     <label name="history">History</label>
     <label name="hockey">Hockey</label>
@@ -552,6 +560,7 @@
     <label name="intersection">Intersection</label>
     <label name="inverse">Inverse</label>
     <label name="investment">Investment</label>
+    <label name="islam">Islam</label>
     <label name="items">Items</label>
     <label name="json">JSON</label>
     <label name="judaism">Judaism</label>
@@ -632,6 +641,7 @@
     <label name="media_fast_forward">Fast forward</label>
     <label name="media_pause">Pause</label>
     <label name="media_play">Play</label>
+    <label name="media_player">Media player</label>
     <label name="media_resume">Resume</label>
     <label name="media_rewind">Rewind</label>
     <label name="media_shuffle">Shuffle</label>
@@ -674,8 +684,8 @@
         <alias>Pointer</alias>
         <alias>Cursor</alias>
     </label>
-    <label name="movement">Mouvement</label>
-    <label name="movie">Film</label>
+    <label name="movement">Movement</label>
+    <label name="movie">Movie</label>
     <label name="muffin">Muffin</label>
     <label name="mug">@label/cup</label>
     <label name="multiple">Multiple</label>
@@ -924,6 +934,7 @@
     <label name="ship_anchor">Anchor</label>
     <label name="shopping">Shopping</label>
     <label name="shovel">Shovel</label>
+    <label name="shower">Shower</label>
     <label name="sign">Sign</label>
     <label name="signal">Signal</label>
     <label name="sim_card">Sim card</label>
@@ -1048,6 +1059,7 @@
         <alias>Chronometer</alias>
         <alias>@label/stopwatch</alias>
     </label>
+    <label name="toilet">Toilet</label>
     <label name="tongue">Tongue</label>
     <label name="tool">Tool</label>
     <label name="toolbox">Toolbox</label>
@@ -1127,6 +1139,7 @@
         <alias>Mass</alias>
     </label>
     <label name="wheat">Wheat</label>
+    <label name="whistle">Whistle</label>
     <label name="wifi">Wi-Fi</label>
     <label name="wind">Wind</label>
     <label name="windmill">Windmill</label>

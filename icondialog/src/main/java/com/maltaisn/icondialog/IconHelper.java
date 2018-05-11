@@ -27,6 +27,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.XmlRes;
 import android.util.Log;
@@ -91,23 +92,15 @@ public class IconHelper {
 
     private @XmlRes int extraIconsXml;
     private @XmlRes int extraLabelsXml;
+    private boolean extraIconsLoaded;
 
     private IconHelper(Context context) {
         this.context = context.getApplicationContext();
 
-        extraIconsXml = 0;
-        extraLabelsXml = 0;
+        extraIconsLoaded = false;
 
         loadLabels(R.xml.icd_labels, false);
         loadIcons(R.xml.icd_icons, false);
-
-        context.registerReceiver(new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                // Language was changed
-                reloadLabels();
-            }
-        }, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
     }
 
     /**
@@ -115,7 +108,7 @@ public class IconHelper {
      * @param context any context
      * @return the instance
      */
-    public static IconHelper getInstance(Context context) {
+    public static synchronized IconHelper getInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = new IconHelper(context.getApplicationContext());
         }
@@ -163,18 +156,18 @@ public class IconHelper {
     }
 
     /**
-     * Add extra icons for the dialog. This can only be called once.
+     * Add extra icons for the dialog.
+     * This can only be called once, subsequent calls will have no effect
      * Both files must be valid, no error checking is done
      * @param iconXml xml file containing the icons
      * @param labelXml xml file containing the labels used by the icons
      */
-    public void addExtraIcons(@XmlRes int iconXml, @XmlRes int labelXml) {
-        if (extraIconsXml != 0) {
-            throw new IllegalStateException("Extra icons can only be added once.");
-        }
+    public synchronized void addExtraIcons(@XmlRes int iconXml, @XmlRes int labelXml) {
+        if (extraIconsLoaded) return;
 
         extraIconsXml = iconXml;
         extraLabelsXml = labelXml;
+        extraIconsLoaded = true;
 
         loadLabels(extraLabelsXml, true);
         loadIcons(extraIconsXml, true);
@@ -182,12 +175,12 @@ public class IconHelper {
 
     /**
      * Load label names from XML file
-     * When system language is changed, this gets called automatically
-     * If you are changing your app language without a restart, this must be called.
+     * This must be called by a language BroadcastListener and manually
+     * if you change your app's language without restarting.
      */
-    public void reloadLabels() {
+    public synchronized void reloadLabels() {
         loadLabels(R.xml.icd_labels, false);
-        if (extraLabelsXml != 0) {
+        if (extraIconsLoaded) {
             loadLabels(extraLabelsXml, true);
         }
     }
@@ -373,18 +366,8 @@ public class IconHelper {
 
                 } else if (eventType == XmlPullParser.TEXT) {
                     String text = parser.getText();
-                    if (text.startsWith("@label/") || text.startsWith("@icd:label/")) {
-                        // Label references another label, which may not exist yet
-                        int startPos = text.indexOf('/');
-                        String ref = text.substring(startPos + 1);
-
-                        int sepPos = ref.indexOf('$');
-                        int refAlias = LabelRef.REF_ALIAS_NONE;
-                        if (sepPos != -1) {
-                            refAlias = Integer.valueOf(ref.substring(sepPos + 1));
-                            ref = ref.substring(0, sepPos);
-                        }
-                        labelRefs.add(new LabelRef(name, newLabel, ref, refAlias, startPos == 10));
+                    if (text.charAt(0) == '@') {
+                        labelRefs.add(new LabelRef(name, newLabel, text));
 
                     } else {
                         // Replace character used to imitate apostrophe because apostrophe can't be
@@ -494,19 +477,27 @@ public class IconHelper {
 
         /**
          * Create new reference to a label
-         * @param name name of the label to be created. If null, parent mustn't be
-         * @param parent label to add alias to. If null, name musn't be
-         * @param ref name of the referenced label
-         * @param refAlias index of the referenced alias
-         * @param refDefault if true and referenced label was overwritten,
-         *                   will reference the default value, not the overwritten one
+         * @param name name of the label to be created. If null, parent mustn't be null
+         * @param parent label to add alias to. If null, name musn't be null
+         * @param refText reference raw text
          */
-        LabelRef(@Nullable String name, @Nullable Label parent, String ref, int refAlias, boolean refDefault) {
+        LabelRef(@Nullable String name, @Nullable Label parent, @NonNull String refText) {
             this.name = name;
             this.parent = parent;
+
+            int startPos = refText.indexOf('/');
+            String ref = refText.substring(startPos + 1);
+            int sepPos = ref.indexOf('$');
+
+            if (sepPos != -1) {
+                refAlias = Integer.valueOf(ref.substring(sepPos + 1));
+                ref = ref.substring(0, sepPos);
+            } else {
+                refAlias = REF_ALIAS_NONE;
+            }
+
+            refDefault = (startPos == 10);  // true to reference the default value, not the overwritten one
             this.ref = ref;
-            this.refAlias = refAlias;
-            this.refDefault = refDefault;
         }
 
     }

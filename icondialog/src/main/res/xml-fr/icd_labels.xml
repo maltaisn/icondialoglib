@@ -107,6 +107,7 @@
     <label name="brush">Brosse</label>
     <label name="bubble">Bulle</label>
     <label name="bucket">Seau</label>
+    <label name="buddhism">Bouddhisme</label>
     <label name="buggy">Poussette</label>
     <label name="building">Bâtiment</label>
     <label name="bulletin_board">Babillard</label>
@@ -168,7 +169,7 @@
         <alias>Roulotte</alias>
     </label>
     <label name="card">Carte</label>
-    <label name="cards_club">Trèfle</label>
+    <label name="cards_club">@label/clover</label>
     <label name="cards_diamond">Carreau</label>
     <label name="cards_heart">@label/heart</label>
     <label name="cards_spade">Pique</label>
@@ -333,7 +334,9 @@
     <label name="diesel">Diésel</label>
     <label name="direction">Direction</label>
     <label name="disconnected">Déconnecté</label>
+    <label name="disk">Disque</label>
     <label name="dislike">Ne pas aimer</label>
+    <label name="distance">Distance</label>
     <label name="dna">ADN</label>
     <label name="dock">
         <alias>Quai</alias>
@@ -345,6 +348,7 @@
     <label name="door">Porte</label>
     <label name="dots">Points</label>
     <label name="down">Bas</label>
+    <label name="download">Téléchargement</label>
     <label name="draw">Dessiner</label>
     <label name="dribble">Dribble</label>
     <label name="drink">Boisson</label>
@@ -552,6 +556,7 @@
     <label name="high">Élevé</label>
     <label name="highlighter">Surligneur</label>
     <label name="highway">Autoroute</label>
+    <label name="hinduism">Hindouisme</label>
     <label name="histogram">Histogramme</label>
     <label name="history">Historique</label>
     <label name="hockey">Hockey</label>
@@ -595,6 +600,7 @@
     <label name="intersection">Intersection</label>
     <label name="inverse">Inverse</label>
     <label name="investment">Investissement</label>
+    <label name="islam">Islam</label>
     <label name="items">Items</label>
     <label name="json">JSON</label>
     <label name="judaism">Judaïsme</label>
@@ -672,6 +678,7 @@
     <label name="media_fast_forward">Avancer rapidement</label>
     <label name="media_pause">Pause</label>
     <label name="media_play">Jouer</label>
+    <label name="media_player">Lecteur média</label>
     <label name="media_resume">Reprendre</label>
     <label name="media_rewind">Rembobiner</label>
     <label name="media_shuffle">Mélanger</label>
@@ -964,6 +971,7 @@
         <alias>Magasinage</alias>
     </label>
     <label name="shovel">Pelle</label>
+    <label name="shower">Douche</label>
     <label name="sign">Pancarte</label>
     <label name="signal">Signal</label>
     <label name="sim_card">Carte Sim</label>
@@ -1098,6 +1106,7 @@
         <alias>Minuterie</alias>
         <alias>@label/stopwatch</alias>
     </label>
+    <label name="toilet">Toilette</label>
     <label name="tongue">Langue</label>
     <label name="tool">Outil</label>
     <label name="toolbox">Boîte à outil</label>
@@ -1190,6 +1199,7 @@
         <alias>Masse</alias>
     </label>
     <label name="wheat">Blé</label>
+    <label name="whistle">Sifflet</label>
     <label name="wifi">Wi-Fi</label>
     <label name="wind">Vent</label>
     <label name="windmill">Moulin à vent</label>

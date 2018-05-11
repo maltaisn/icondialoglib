@@ -79,8 +79,9 @@ public class IconFilter extends BaseIconFilter {
      * This is usually for debug purposes
      * @param enabled whether to enable or not
      */
-    public void setIdSearchEnabled(boolean enabled) {
+    public IconFilter setIdSearchEnabled(boolean enabled) {
         enabledIdSearch = enabled;
+        return this;
     }
 
     /**

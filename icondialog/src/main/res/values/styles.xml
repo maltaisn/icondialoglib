@@ -23,6 +23,7 @@
         <item name="icdDialogBtnTextSelect">@string/icd_action_select</item>
         <item name="icdDialogBtnTextCancel">@string/icd_action_cancel</item>
         <item name="icdDialogBtnTextSelectNone">@string/icd_action_clear</item>
+        <item name="icdMaxSelectionMessage">@string/icd_max_sel_message</item>
     </style>
 
     <public name="IcdIconStyle" type="style"/>
@@ -55,6 +56,7 @@
         <item name="android:maxLines">1</item>
         <item name="android:maxLength">32</item>
         <item name="android:background">@null</item>
+        <item name="android:imeOptions">actionSearch</item>
     </style>
 
     <public name="IcdSearchIconStyle" type="style"/>

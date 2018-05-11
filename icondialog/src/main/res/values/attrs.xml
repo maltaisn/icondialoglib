@@ -24,6 +24,7 @@
         <attr name="icdDialogBtnTextSelect" format="string|reference"/>
         <attr name="icdDialogBtnTextCancel" format="string|reference"/>
         <attr name="icdDialogBtnTextSelectNone" format="string|reference"/>
+        <attr name="icdMaxSelectionMessage" format="string|reference"/>
     </declare-styleable>
 
 </resources>

@@ -67,6 +67,7 @@ public class Icon {
         this.category = category;
         this.labels = labels;
         this.pathData = pathData;
+        noDrawable = false;
     }
 
     /**
@@ -98,7 +99,7 @@ public class Icon {
      * @param context any context
      * @return the drawable
      */
-    public Drawable getDrawable(@NonNull Context context) {
+    public synchronized Drawable getDrawable(@NonNull Context context) {
         if (drawable == null) {
             byte[] binXml = createBinaryDrawableXml(pathData);
             try {

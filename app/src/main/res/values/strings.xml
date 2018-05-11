@@ -14,7 +14,8 @@
     <string name="settings">Icon dialog settings</string>
     <string name="option_show_headers">Show category headers</string>
     <string name="option_sticky_headers">Sticky</string>
-    <string name="option_allow_multiple">Allow multiple selection</string>
+    <string name="option_max_sel">Max selection:</string>
+    <string name="option_max_sel_message">Show message</string>
     <string name="option_show_select">Show selection</string>
     <string name="option_disabled_categories">Disabled categories:</string>
     <string name="option_title_visibility">Title visibility:</string>

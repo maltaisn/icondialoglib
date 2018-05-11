@@ -6,6 +6,7 @@
     <string name="icd_action_select">Select</string>
     <string name="icd_action_cancel">Cancel</string>
     <string name="icd_no_result">No icons found for this search</string>
+    <string name="icd_max_sel_message">The maximum number of selected icons has been reached</string>
 
     <!-- CATEGORY NAMES -->
     <string name="icd_category_people">Family and people</string>

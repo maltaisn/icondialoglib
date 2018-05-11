@@ -1,10 +1,10 @@
 # Icon picker dialog
-A fully customizable icon picker dialog that provides easy access to a load of quality icons without having to include them in your probject. Icons used by this library are all part of the [Material Design Icons](https://github.com/Templarian/MaterialDesign) set, made by Google as well as several contributors. The picker include a default set of 976 icons as of 1.0.0 but custom icons can be added.
+A fully customizable icon picker dialog that provides easy access to a load of quality icons without having to include them in your probject. Icons used by this library are all part of the [Material Design Icons](https://github.com/Templarian/MaterialDesign) set, made by Google as well as several contributors. The picker include a default set of 988 icons as of 1.0.1 but custom icons can be added. Some additional icons released on MDI can also be added in new versions.
 
-All icons are SVG files from which only the path was kept, which allow for a very small size. Adding this library to your app should result in a 220kB increase in size, 130kB from the icons, 30kB from each language of the labels and 60kB from the code itself.
+All icons are SVG files from which only the path was kept, which allow for a very small size. Adding this library to your app should result in a 220kB total increase in size: 130kB from the icons, 30kB from each language of the labels and 60kB from the code itself. Performance should not be a problem on most phones, and drawables are cached.
 
 ### Gradle dependency
-`compile 'com.maltaisn:icondialog:1.0.0'`
+`compile 'com.maltaisn:icondialog:1.0.1'`
 
 ## Tutorial
 All documentation and examples on usage and customization available on [the wiki](https://github.com/maltaisn/icondialoglib/wiki).

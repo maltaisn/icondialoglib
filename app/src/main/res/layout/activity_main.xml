@@ -71,23 +71,13 @@
             app:layout_constraintTop_toBottomOf="@+id/rcv_selected_icons"/>
 
         <CheckBox
-            android:id="@+id/ckb_allow_multiple"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/option_allow_multiple"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txv_settings"/>
-
-        <CheckBox
             android:id="@+id/ckb_show_selection"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_marginStart="8dp"
             android:text="@string/option_show_select"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ckb_allow_multiple"/>
+            app:layout_constraintTop_toBottomOf="@+id/txv_settings"/>
 
         <CheckBox
             android:id="@+id/ckb_show_headers"
@@ -116,6 +106,42 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ckb_show_headers"/>
 
+        <CheckBox
+            android:id="@+id/ckb_max_sel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:labelFor="@id/edt_max_sel"
+            android:text="@string/option_max_sel"
+            app:layout_constraintBottom_toBottomOf="@id/edt_max_sel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edt_max_sel"/>
+
+        <EditText
+            android:id="@+id/edt_max_sel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:inputType="text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            app:layout_constraintEnd_toStartOf="@+id/ckb_max_sel_message"
+            app:layout_constraintStart_toEndOf="@id/ckb_max_sel"
+            app:layout_constraintTop_toBottomOf="@+id/ckb_show_clear_btn"
+            tools:text="1"/>
+
+        <CheckBox
+            android:id="@+id/ckb_max_sel_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/option_max_sel_message"
+            app:layout_constraintBottom_toBottomOf="@id/edt_max_sel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/edt_max_sel"
+            app:layout_constraintTop_toTopOf="@id/edt_max_sel"/>
+
         <TextView
             android:id="@+id/txv_search_visb"
             android:layout_width="wrap_content"
@@ -140,7 +166,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txv_search_visb"
-            app:layout_constraintTop_toBottomOf="@+id/ckb_show_clear_btn"
+            app:layout_constraintTop_toBottomOf="@+id/edt_max_sel"
             tools:text="If language available"/>
 
         <TextView

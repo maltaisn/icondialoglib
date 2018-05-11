@@ -41,13 +41,17 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.view.ContextThemeWrapper;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -77,6 +81,8 @@ public class IconDialog extends DialogFragment {
     @IntDef(value = {VISIBILITY_ALWAYS, VISIBILITY_NEVER, VISIBILITY_IF_NO_SEARCH})
     public @interface TitleVisibility {}
 
+    public static final int MAX_SELECTION_NONE = -1;
+
     // Delay after the last search character is typed when search is made
     private static final int SEARCH_DELAY = 250;
 
@@ -96,7 +102,9 @@ public class IconDialog extends DialogFragment {
     private boolean showHeaders;
     private boolean stickyHeaders;
     private boolean showSelectBtn;
-    private boolean allowMultipleSelection;
+    private int maxSelection;
+    private boolean maxSelShowMessage;
+    private @Nullable String maxSelMessage;
     private boolean showClearBtn;
     private @TitleVisibility int dialogTitleVisibility;
     private @Nullable String dialogTitle;
@@ -124,7 +132,8 @@ public class IconDialog extends DialogFragment {
         dialogTitle = null;
 
         showSelectBtn = true;
-        allowMultipleSelection = false;
+        maxSelection = 1;
+        maxSelShowMessage = false;
         showClearBtn = false;
         selectedItems = new ArrayList<>();
         selectedIconsId = null;
@@ -155,6 +164,8 @@ public class IconDialog extends DialogFragment {
                 ta.getColor(R.styleable.IconDialog_icdIconColor, 0),
                 ta.getColor(R.styleable.IconDialog_icdSelectedIconColor, 0),
         };
+
+        maxSelMessage = ta.getString(R.styleable.IconDialog_icdMaxSelectionMessage);
 
         if (loadIconDrawables) {
             iconHelper.loadIconDrawables();
@@ -262,6 +273,26 @@ public class IconDialog extends DialogFragment {
                     searchHandler.postDelayed(searchRunnable, SEARCH_DELAY);
                 }
                 searchText = text.toString();
+            }
+        });
+        searchEdt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    // Hide keyboard
+                    searchEdt.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) context
+                            .getSystemService(Context.INPUT_METHOD_SERVICE);
+                    //noinspection ConstantConditions
+                    imm.hideSoftInputFromWindow(searchEdt.getWindowToken(), 0);
+
+                    // Do search
+                    searchHandler.removeCallbacks(searchRunnable);
+                    searchHandler.post(searchRunnable);
+
+                    return true;
+                }
+                return false;
             }
         });
 
@@ -439,8 +470,9 @@ public class IconDialog extends DialogFragment {
         List<Item> items = new ArrayList<>(matchingIcons.size());
         if (selectedIconsId != null && selectedIconsId.length > 0) {
             // Set initial selection
-            if (!allowMultipleSelection && selectedIconsId.length > 1) {
-                selectedIconsId = new int[]{selectedIconsId[0]};
+            if (maxSelection != MAX_SELECTION_NONE && selectedIconsId.length > maxSelection) {
+                // Truncate too big initial selection
+                selectedIconsId = Arrays.copyOf(selectedIconsId, maxSelection);
             }
 
             int selectedIndex = 0;
@@ -560,7 +592,7 @@ public class IconDialog extends DialogFragment {
 
             // Check if search language is among the languages the library is translated in
             String searchLang = searchLanguage.getLanguage();
-            for (String lang : BuildConfig.AVAILABLE_LANG) {  // See module gradle file for this
+            for (String lang : BuildConfig.ICD_LANG) {  // See module gradle file for this
                 if (searchLang.equalsIgnoreCase(lang)) {
                     return true;
                 }
@@ -625,15 +657,16 @@ public class IconDialog extends DialogFragment {
      * @return the dialog
      */
     public IconDialog setShowSelectButton(boolean show) {
-        showSelectBtn = allowMultipleSelection || show;
+        showSelectBtn = maxSelection > 1 || show;
         return this;
     }
 
     /**
      * Set initial selected icons
-     * @param iconIds array of icons id, null or empty array for no initial selection
+     * @param iconIds varargs of icons id, null or empty array for no initial selection
+     * @return the dialog
      */
-    public IconDialog setSelectedIcons(@Nullable int[] iconIds) {
+    public IconDialog setSelectedIcons(@Nullable int... iconIds) {
         selectedIconsId = iconIds;
         if (iconIds != null && iconIds.length > 1) {
             Arrays.sort(iconIds);
@@ -644,9 +677,10 @@ public class IconDialog extends DialogFragment {
 
     /**
      * Set initial selected icons
-     * @param icons array of icons, null or empty array for no initial selection
+     * @param icons varargs of icons, null or empty array for no initial selection
+     * @return the dialog
      */
-    public IconDialog setSelectedIcons(@Nullable Icon[] icons) {
+    public IconDialog setSelectedIcons(@Nullable Icon... icons) {
         if (icons != null) {
             int[] ids = new int[icons.length];
             for (int i = 0; i < icons.length; i++) {
@@ -663,14 +697,25 @@ public class IconDialog extends DialogFragment {
     }
 
     /**
-     * Set if dialog allows multiple selection
-     * By default, it is not allowed
-     * @param allow whether to allow it or not
+     * Set maximum number of icons that can be selected
+     * @param max maximum number
+     * @param showMessage If true, a message will be shown when maximum selection is reached
+     *                    User will need to deselect icons to select others
+     *                    If false, no message will be shown and first selected icon will
+     *                    be deselect to allow new selection
      * @return the dialog
      */
-    public IconDialog setAllowMultipleSelection(boolean allow) {
-        allowMultipleSelection = allow;
-        showSelectBtn = true;
+    public IconDialog setMaxSelection(int max, boolean showMessage) {
+        if (max != MAX_SELECTION_NONE && max <= 0) {
+            throw new IllegalArgumentException("Max selection must be MAX_SELECTION_NONE or strictly positive.");
+        }
+
+        maxSelection = max;
+        maxSelShowMessage = showMessage;
+
+        // If selecting more than one icon or showing max selection message, dialog buttons must be shown
+        if (max > 1 || showMessage) showSelectBtn = true;
+
         return this;
     }
 
@@ -752,6 +797,7 @@ public class IconDialog extends DialogFragment {
 
         int getId() {
             if (type == TYPE_ICON) {
+                //noinspection ConstantConditions
                 return icon.id;
             } else {
                 return -(category.id + 1);
@@ -799,29 +845,34 @@ public class IconDialog extends DialogFragment {
                         // Icon clicked, select it
                         if (showSelectBtn) {
                             int itemPos = getAdapterPosition();
-                            if (allowMultipleSelection) {
-                                if (item.isSelected) {
-                                    item.isSelected = false;
-                                    selectedItems.remove(item);
+
+                            if (item.isSelected) {
+                                item.isSelected = false;
+                                selectedItems.remove(item);
+                            } else {
+                                if (selectedItems.size() == maxSelection) {
+                                    if (maxSelShowMessage) {
+                                        // Show message and don't select icon
+                                        Toast.makeText(context, maxSelMessage, Toast.LENGTH_SHORT).show();
+                                        return;
+                                    } else {
+                                        // Remove first selected icon, select new one
+                                        Item first = selectedItems.remove(0);
+                                        int pos = getItemsPosition(first)[0];
+                                        first.isSelected = false;
+                                        notifyItemChanged(pos);
+
+                                        item.isSelected = true;
+                                        selectedItems.add(item);
+                                    }
                                 } else {
                                     item.isSelected = true;
                                     selectedItems.add(item);
                                 }
-                                notifyItemChanged(itemPos);
-
-                            } else if (!item.isSelected) {
-                                if (selectedItems.size() > 0) {
-                                    int oldPos = getItemsPosition(selectedItems.get(0))[0];
-                                    Item oldItem = selectedItems.remove(0);
-                                    oldItem.isSelected = false;
-                                    notifyItemChanged(oldPos);
-                                }
-
-                                item.isSelected = true;
-                                selectedItems.add(item);
-                                notifyItemChanged(itemPos);
                             }
+                            notifyItemChanged(itemPos);
 
+                            // Update dialog buttons
                             selectBtn.setEnabled(selectedItems.size() > 0);
                             if (showClearBtn) {
                                 clearBtn.setVisibility(selectedItems.size() > 0 ? View.VISIBLE : View.GONE);

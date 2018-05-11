@@ -38,6 +38,7 @@ import android.widget.Toast;
 
 import com.maltaisn.icondialog.Icon;
 import com.maltaisn.icondialog.IconDialog;
+import com.maltaisn.icondialog.IconFilter;
 import com.maltaisn.icondialog.IconHelper;
 import com.maltaisn.icondialog.Label;
 import com.maltaisn.icondialog.LabelValue;
@@ -80,11 +81,16 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(state);
         setContentView(R.layout.activity_main);
 
+        if (state != null) {
+            extraIconsLoaded = state.getBoolean("extraIconsLoaded");
+        }
+
         // Parse all icons and labels XML at start; takes 200-400 ms
         long time = System.nanoTime();
         final IconHelper iconHelper = IconHelper.getInstance(this);
-        if (state != null) extraIconsLoaded = state.getBoolean("extraIconsLoaded");
-        if (extraIconsLoaded) iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
+        if (extraIconsLoaded) {
+            iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
+        }
         Toast.makeText(this, MessageFormat.format(getString(R.string.load_time_fmt),
                 ((System.nanoTime() - time) / 1000000.0)), Toast.LENGTH_SHORT).show();
 
@@ -97,7 +103,9 @@ public class MainActivity extends AppCompatActivity implements
         final Button addExtraBtn = findViewById(R.id.btn_add_extra);
         RecyclerView selListRcv = findViewById(R.id.rcv_selected_icons);
         selNoneTxv = findViewById(R.id.txv_none_selected);
-        final CheckBox allowMulCkb = findViewById(R.id.ckb_allow_multiple);
+        final CheckBox maxSelCkb = findViewById(R.id.ckb_max_sel);
+        final EditText maxSelEdt = findViewById(R.id.edt_max_sel);
+        final CheckBox maxSelMessageCkb = findViewById(R.id.ckb_max_sel_message);
         final CheckBox showSelCkb = findViewById(R.id.ckb_show_selection);
         final CheckBox showHeadersCkb = findViewById(R.id.ckb_show_headers);
         final CheckBox stickyHeadersCkb = findViewById(R.id.ckb_sticky_headers);
@@ -109,8 +117,19 @@ public class MainActivity extends AppCompatActivity implements
         openBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int maxSel;
+                if (maxSelCkb.isChecked()) {
+                    try {
+                        maxSel = Integer.valueOf(maxSelEdt.getText().toString());
+                    } catch (Exception e) {
+                        maxSel = 1;
+                    }
+                } else {
+                    maxSel = IconDialog.MAX_SELECTION_NONE;
+                }
+
                 iconDialog.setSelectedIcons(selectedIconIds)
-                        .setAllowMultipleSelection(allowMulCkb.isChecked())
+                        .setMaxSelection(maxSel, maxSelMessageCkb.isChecked())
                         .setShowSelectButton(showSelCkb.isChecked())
                         .setShowClearButton(showUnselBtnCkb.isChecked())
                         .setShowHeaders(showHeadersCkb.isChecked(), stickyHeadersCkb.isChecked())
@@ -125,8 +144,12 @@ public class MainActivity extends AppCompatActivity implements
                         pos++;
                     }
                 }
+
                 //iconDialog.setIconFilter(new PriorityIconFilter());
-                iconDialog.getIconFilter().setDisabledCategories(disabled);
+
+                IconFilter filter = (IconFilter) iconDialog.getIconFilter();
+                filter.setDisabledCategories(disabled);
+                filter.setIdSearchEnabled(true);
 
                 iconDialog.show(getSupportFragmentManager(), "icon_dialog");
             }
@@ -152,26 +175,18 @@ public class MainActivity extends AppCompatActivity implements
         selListRcv.setLayoutManager(new LinearLayoutManager(
                 this, LinearLayoutManager.HORIZONTAL, false));
 
-        allowMulCkb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    showSelCkb.setChecked(true);
-                }
-            }
-        });
-        showSelCkb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!isChecked) {
-                    allowMulCkb.setChecked(false);
-                }
-            }
-        });
         showHeadersCkb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 stickyHeadersCkb.setEnabled(isChecked);
+            }
+        });
+
+        maxSelCkb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                maxSelEdt.setEnabled(isChecked);
+                maxSelMessageCkb.setEnabled(isChecked);
             }
         });
 
@@ -208,11 +223,14 @@ public class MainActivity extends AppCompatActivity implements
         disabledCatgFmt = new MessageFormat(getString(R.string.option_disabled_catg_fmt));
 
         if (state == null) {
-            allowMulCkb.setChecked(false);
             showSelCkb.setChecked(true);
             showHeadersCkb.setChecked(true);
             stickyHeadersCkb.setChecked(true);
             showUnselBtnCkb.setChecked(false);
+
+            maxSelCkb.setChecked(true);
+            maxSelMessageCkb.setChecked(false);
+            maxSelEdt.setText("1");
 
             setSearchVisb(IconDialog.VISIBILITY_IF_LANG_AVAILABLE);
             setTitleVisb(IconDialog.VISIBILITY_IF_NO_SEARCH);
