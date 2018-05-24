@@ -13,7 +13,7 @@ android {
 
         // A new entry to this array must be added for every new search translation!
         // The array is used by the dialog to know which languages are available for search
-        def lang = ["en", "fr", "pt"]
+        def lang = ["en", "fr"]
 
         buildConfigField "String[]", "ICD_LANG", "new String[]{\"" + lang.join("\",\"") + "\"}"
         resConfigs lang
