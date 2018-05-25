@@ -29,7 +29,7 @@ import xml.etree.ElementTree
 current_path = os.getcwd()
 default_label_path = os.path.join(current_path, "..\\src\\main\\res\\xml") 
 default_label_file = "icd_labels.xml"
-default_lang = ["", "-fr"]
+default_lang = ["", "-fr", "-pt"]
 
 # Settings to analyse custom icons and labels
 # is_extra_icons = True
