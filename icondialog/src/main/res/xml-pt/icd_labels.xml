@@ -3,7 +3,10 @@
     <label name="3d">3D</label>
     <label name="account">Conta</label>
     <label name="add">Adicionar</label>
-    <label name="adjust">Ajustar</label>
+    <label name="adjust">
+        <alias>Ajustar</alias>
+        <alias>Consertar</alias>
+    </label>
     <label name="agriculture">Agricultura</label>
     <label name="air_conditioner">Ar condicionado</label>
     <label name="airplane">Avião</label>
@@ -46,13 +49,16 @@
     <label name="bank">Banco</label>
     <label name="barcode">Código de barras</label>
     <label name="barley">Ramo</label>
-    <label name="barrel">Barril</label>
-    <label name="baseball">Beisebol</label>
-    <label name="baseball_bat">Bastão de beisebol</label>
+    <label name="barrel">
+        <alias>Barril</alias>
+        <alias>Óleo</alias>
+    </label>
+    <label name="baseball">Baseball</label>
+    <label name="baseball_bat">Bastão de baseball</label>
     <label name="basket">Basquete</label>
     <label name="bath">Banho</label>
     <label name="battery">Batería</label>
-    <label name="bauble">@label/ball</label>
+    <label name="bauble">Bola</label>
     <label name="beach">Praia</label>
     <label name="beaker">Forno</label>
     <label name="bear">Urso</label>
@@ -64,13 +70,17 @@
     <label name="bicycle">
         <alias>Bicicleta</alias>
         <alias>Bike</alias>
+        <alias>Ciclismo</alias>
     </label>
     <label name="binary">Binário</label>
     <label name="binoculars">Binóculo</label>
     <label name="biology">Biologia</label>
     <label name="bird">Pássaro</label>
-    <label name="birthday">Aniversário</label>
-    <label name="blacksmith">@label/blacksmith</label>
+    <label name="birthday">
+        <alias>Aniversário</alias>
+        <alias>Niver</alias>
+    </label>
+    <label name="blacksmith">Ferreiro</label>
     <label name="blank">
         <alias>Branco</alias>
         <alias>@label/empty</alias>
@@ -461,10 +471,7 @@
         <alias>Gás</alias>
         <alias>Gasolina</alias>
     </label>
-    <label name="gate">
-        <alias>Portão</alias>
-        <alias>Cerca</alias>
-    </label>
+    <label name="gate">Portão</label>
     <label name="gauge">Indicador</label>
     <label name="gavel">Martelinho de juíz</label>
     <label name="gear">@label/gem</label>
@@ -557,7 +564,7 @@
     <label name="hour">Hora</label>
     <label name="hourglass">Ampulheta</label>
     <label name="house">Casa</label>
-    <label name="housework">@label/housework</label>
+    <label name="housework">Faxina</label>
     <label name="human">Pessoa</label>
     <label name="hurricane">Furacão</label>
     <label name="hyperlink">Hyperlink</label>
