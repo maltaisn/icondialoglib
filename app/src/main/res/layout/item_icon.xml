@@ -9,7 +9,7 @@
     android:gravity="center_horizontal"
     android:padding="8dp">
 
-    <android.support.v7.widget.AppCompatImageView
+    <com.maltaisn.icondialog.IconView
         android:id="@+id/imv_icon"
         android:layout_width="80dp"
         android:layout_height="80dp"

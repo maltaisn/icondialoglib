@@ -1,3 +1,8 @@
+## v1.1.0
+- Added Portuguese translation
+- Added IconView, wrapper around ImageView to set icons by XML
+- Fixed `IconHelper.reloadLabels()` not working
+
 ### v1.0.1
 - Added 12 icons, updated 4 icons.
 - Added convenience method `setSelectedIcon(int iconId)`` for selecting a single icon

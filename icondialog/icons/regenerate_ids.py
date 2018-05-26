@@ -1,6 +1,4 @@
-import sys
 import os
-import bisect
 import xml.etree.ElementTree
 
 # This script sort icons by category, then by labels and then by ID

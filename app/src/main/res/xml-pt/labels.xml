@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <list>
 
-    <!-- Each label must have a name and a value
-         Extra labels can also reference default labels with @icd:label/name
-         By referencing a label, the value or the aliases are copied -->
-
     <label name="bit_not">NOT</label>
     <label name="bit_or">OR</label>
     <label name="bit_nor">NOR</label>
@@ -13,31 +9,18 @@
     <label name="bit_xor">XOR</label>
     <label name="bit_xnor">XNOR</label>
 
-    <!-- Labels can also be overwritten -->
     <label name="3d">Three-Deee</label>
 
-    <!-- Labels with synonyms can be defined with aliases to
-         avoid using multiple labels with the same meaning.
-         Here, "luck" is also overwritten from default one,
-         referencing the default value as the first alias -->
     <label name="luck">
         <alias>@icd:label/luck</alias>
         <alias>Fortune</alias>
     </label>
 
-    <!-- This label has one alias that inherits the value of the overwritten parent
-         In English, this parent already has two aliases: die and dice, both are copied
-         The second alias references another default label without aliases, the value is copied
-         So, this overwriting label has three aliases: die, dice and cube
-    -->
     <label name="dice">
         <alias>@label/dice</alias>
         <alias>@icd:label/cube</alias>
     </label>
 
-    <!-- This label overwrites a default label but isn't used by extra icons
-         First alias is copied from the default "adjust" label alias at index 0
-         Second alias is copied from this file's "3d" label -->
     <label name="adjust">
         <alias>@icd:label/adjust$0</alias>
         <alias>@label/3d</alias>

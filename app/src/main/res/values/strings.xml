@@ -5,7 +5,6 @@
     <string name="action_cancel">Cancel</string>
 
     <string name="btn_open">Open dialog</string>
-
     <string name="btn_add_extra">Add extra icons</string>
 
     <string name="selected_icons">Selected icons</string>
@@ -15,7 +14,7 @@
     <string name="option_show_headers">Show category headers</string>
     <string name="option_sticky_headers">Sticky</string>
     <string name="option_max_sel">Max selection:</string>
-    <string name="option_max_sel_message">Show message</string>
+    <string name="option_max_sel_message">Show message when reached</string>
     <string name="option_show_select">Show selection</string>
     <string name="option_disabled_categories">Disabled categories:</string>
     <string name="option_title_visibility">Title visibility:</string>
@@ -62,9 +61,7 @@
     <string name="option_disabled_catg_fmt">{0,choice,0#No categories|1#1 category|1&lt;{0} categories}</string>
     <string name="selected_icon_id_fmt">ID {0}</string>
     <string name="icon_info_fmt">ID: {0}\nCategory: {1}\nLabels: {2}</string>
-
     <string name="load_time_fmt">Icons loaded in {0,number,#.#} ms</string>
-
 
     <string name="category_3d">3D icons</string>
     <string name="category_science">Mathemathics, biology and chemistry</string>

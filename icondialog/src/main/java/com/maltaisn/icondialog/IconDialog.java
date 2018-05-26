@@ -28,6 +28,7 @@ import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -833,12 +834,19 @@ public class IconDialog extends DialogFragment {
             }
 
             void bindViewHolder(final Item item) {
-                iconImv.setImageDrawable(item.icon.getDrawable(context));
+                //noinspection ConstantConditions
+                final Drawable iconDrw = item.icon.getDrawable(context);
+                if (iconDrw == null) {
+                    iconImv.setImageResource(R.drawable.icd_ic_unavailable);
+                } else {
+                    iconImv.setImageDrawable(iconDrw);
+                }
+
                 iconImv.setOnClickListener(new View.OnClickListener() {
                     @SuppressWarnings("ConstantConditions")
                     @Override
                     public void onClick(View v) {
-                        if (item.icon.noDrawable) {
+                        if (iconDrw == null) {
                             return;  // Can't select unavailable icon
                         }
 
@@ -894,7 +902,7 @@ public class IconDialog extends DialogFragment {
                 });
 
 
-                iconImv.setAlpha(item.icon.noDrawable ? 0.3f : 1.0f);
+                iconImv.setAlpha(iconDrw == null ? 0.3f : 1.0f);
                 if (item.isSelected) {
                     // Icon is selected
                     iconImv.setColorFilter(iconColors[1], PorterDuff.Mode.SRC_IN);

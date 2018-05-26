@@ -1,6 +1,5 @@
-import sys
-import os
 import bisect
+import os
 import xml.etree.ElementTree
 
 # This script checks label usage in icons to determine which icons has less labels

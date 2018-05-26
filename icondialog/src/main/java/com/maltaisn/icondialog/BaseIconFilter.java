@@ -98,7 +98,10 @@ public abstract class BaseIconFilter implements Comparator<Icon> {
             int len1 = icon1.labels.length;
             int len2 = icon2.labels.length;
             for (int i = 0; i < Math.min(len1, len2); i++) {
-                result = icon1.labels[i].compareTo(icon2.labels[i]);
+                Label label1 = icon1.labels[i];
+                Label label2 = icon2.labels[i];
+                if (label1 == null || label2 == null) continue;
+                result = label1.compareTo(label2);
                 if (result != 0) {
                     break;
                 }

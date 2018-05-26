@@ -94,6 +94,14 @@ public class Label implements Comparable<Object> {
         return overwritten;
     }
 
+    /**
+     * Check if this label is a group label (no values, only for ordering)
+     * @return true if it is.
+     */
+    public boolean isGroupLabel() {
+        return value == null && aliases == null;
+    }
+
     @Override
     public int compareTo(@NonNull Object label) {
         String name = (label instanceof String ? (String) label : ((Label) label).name);

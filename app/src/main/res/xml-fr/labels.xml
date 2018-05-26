@@ -9,8 +9,7 @@
     <label name="bit_xor">XOR</label>
     <label name="bit_xnor">XNOR</label>
 
-    <!-- Labels can also be overwritten -->
-    <label name="3d">Trois-dééé</label>
+    <label name="3d">Troois-déééé</label>
 
     <label name="luck">
         <alias>@icd:label/luck</alias>
@@ -18,12 +17,12 @@
     </label>
 
     <label name="dice">
-        <alias>@icd:label/dice</alias>
+        <alias>@label/dice</alias>
         <alias>@icd:label/cube</alias>
     </label>
 
     <label name="adjust">
-        <alias>@icd:label/audio$1</alias>
+        <alias>@icd:label/adjust$0</alias>
         <alias>@label/3d</alias>
     </label>
 

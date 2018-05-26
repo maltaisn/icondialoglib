@@ -23,10 +23,7 @@ package com.maltaisn.icondialog;
 
 
 import android.annotation.SuppressLint;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.XmlRes;
@@ -183,6 +180,18 @@ public class IconHelper {
         if (extraIconsLoaded) {
             loadLabels(extraLabelsXml, true);
         }
+
+        // Replace old labels references to new ones
+        for (int i = 0; i < icons.size(); i++) {
+            Icon icon = icons.valueAt(i);
+            for (int j = 0; j < icon.labels.length; j++) {
+                Label label = icon.labels[j];
+                if (!label.isGroupLabel()) {
+                    int index = Collections.binarySearch(labels, label.name);
+                    icon.labels[j] = (index >= 0 ? labels.get(index) : null);
+                }
+            }
+        }
     }
 
     /**
@@ -243,7 +252,7 @@ public class IconHelper {
                             }  // else icon is missing attribute, error
                         }
 
-                        Category iconCatg = null;
+                        Category iconCatg;
                         if (catgStr != null && category == null) {
                             iconCatg = categories.get(Integer.valueOf(catgStr));
                         } else {

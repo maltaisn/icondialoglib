@@ -1,7 +1,6 @@
-import os
 import bisect
+import os
 import xml.etree.ElementTree
-
 
 # This script is used to automatically create XML entries for the icons in the \new folder
 # All files except those beginning with "$" will be assigned a new unused ID

@@ -28,7 +28,8 @@
     android:layout_height="match_parent"
     android:background="?attr/icdBackgroundColor"
     android:paddingTop="8dp"
-    tools:theme="@style/IcdStyle">
+    tools:theme="@style/IcdStyle"
+    tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/txv_title"
@@ -103,7 +104,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_header"/>
+        app:layout_constraintTop_toBottomOf="@+id/div_header"
+        tools:listitem="@layout/icd_item_icon"
+        tools:layoutManager="android.support.v7.widget.GridLayoutManager"
+        tools:spanCount="6"
+        tools:itemCount="20"/>
 
     <TextView
         android:id="@+id/txv_no_result"
@@ -112,6 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:visibility="gone"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/div_header"/>

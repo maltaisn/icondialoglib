@@ -21,11 +21,18 @@
 
 package com.maltaisn.icondialoglib;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.os.ConfigurationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -40,6 +47,7 @@ import com.maltaisn.icondialog.Icon;
 import com.maltaisn.icondialog.IconDialog;
 import com.maltaisn.icondialog.IconFilter;
 import com.maltaisn.icondialog.IconHelper;
+import com.maltaisn.icondialog.IconView;
 import com.maltaisn.icondialog.Label;
 import com.maltaisn.icondialog.LabelValue;
 
@@ -51,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements
         IconDialog.Callback, SingleChoiceDialog.Callback, MultiChoiceDialog.Callback {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    private BroadcastReceiver localeReceiver;
 
     private int[] selectedIconIds;
 
@@ -93,6 +103,15 @@ public class MainActivity extends AppCompatActivity implements
         }
         Toast.makeText(this, MessageFormat.format(getString(R.string.load_time_fmt),
                 ((System.nanoTime() - time) / 1000000.0)), Toast.LENGTH_SHORT).show();
+
+        // Register listener for locale change to reload labels
+        localeReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                iconHelper.reloadLabels();
+            }
+        };
+        registerReceiver(localeReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
 
         final IconDialog iconDialog = new IconDialog();
 
@@ -255,6 +274,13 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
+    protected void onDestroy() {
+        unregisterReceiver(localeReceiver);
+        localeReceiver = null;
+        super.onDestroy();
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
 
@@ -343,7 +369,7 @@ public class MainActivity extends AppCompatActivity implements
 
         class IconViewHolder extends RecyclerView.ViewHolder {
 
-            private ImageView iconImv;
+            private IconView iconImv;
             private TextView idTxv;
 
             IconViewHolder(View view) {
@@ -353,7 +379,7 @@ public class MainActivity extends AppCompatActivity implements
             }
 
             void bindViewHolder(final Icon icon) {
-                iconImv.setImageDrawable(icon.getDrawable(MainActivity.this));
+                iconImv.setIcon(icon);
                 iconImv.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         // Print detailed info about the icon

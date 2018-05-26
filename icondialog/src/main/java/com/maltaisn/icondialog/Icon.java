@@ -53,7 +53,6 @@ public class Icon {
     final byte[] pathData;
 
     Drawable drawable;
-    boolean noDrawable;
 
     /**
      * Create new icon
@@ -67,7 +66,6 @@ public class Icon {
         this.category = category;
         this.labels = labels;
         this.pathData = pathData;
-        noDrawable = false;
     }
 
     /**
@@ -97,7 +95,7 @@ public class Icon {
     /**
      * Get icon's vector drawable
      * @param context any context
-     * @return the drawable
+     * @return the drawable, or null if drawable couldn't be loaded
      */
     public synchronized Drawable getDrawable(@NonNull Context context) {
         if (drawable == null) {
@@ -127,10 +125,9 @@ public class Icon {
                 }
 
             } catch (Exception e) {
-                // Could not load icon, use replacement icon
-                drawable = context.getDrawable(R.drawable.icd_ic_unavailable);
-                noDrawable = true;
+                // Could not load icon
                 Log.e(TAG, "Could not create vector drawable for icon " + id, e);
+                return null;
             }
         }
 

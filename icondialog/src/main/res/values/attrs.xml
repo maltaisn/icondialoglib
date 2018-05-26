@@ -27,4 +27,8 @@
         <attr name="icdMaxSelectionMessage" format="string|reference"/>
     </declare-styleable>
 
+    <declare-styleable name="IconView">
+        <attr name="icdIcon" format="integer"/>
+    </declare-styleable>
+
 </resources>
