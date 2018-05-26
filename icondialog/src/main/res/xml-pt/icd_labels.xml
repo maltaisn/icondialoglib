@@ -3,10 +3,7 @@
     <label name="3d">3D</label>
     <label name="account">Conta</label>
     <label name="add">Adicionar</label>
-    <label name="adjust">
-        <alias>Ajustar</alias>
-        <alias>Consertar</alias>
-    </label>
+    <label name="adjust">Ajustar</label>
     <label name="agriculture">Agricultura</label>
     <label name="air_conditioner">Ar condicionado</label>
     <label name="airplane">Avião</label>
@@ -70,16 +67,12 @@
     <label name="bicycle">
         <alias>Bicicleta</alias>
         <alias>Bike</alias>
-        <alias>Ciclismo</alias>
     </label>
     <label name="binary">Binário</label>
     <label name="binoculars">Binóculo</label>
     <label name="biology">Biologia</label>
     <label name="bird">Pássaro</label>
-    <label name="birthday">
-        <alias>Aniversário</alias>
-        <alias>Niver</alias>
-    </label>
+    <label name="birthday">Aniversário</label>
     <label name="blacksmith">Ferreiro</label>
     <label name="blank">
         <alias>Branco</alias>
@@ -1214,7 +1207,7 @@
     <label name="web">Web</label>
     <label name="webcam">Webcam</label>
     <label name="wedding">Casamento</label>
-    <label name="week">Semanda</label>
+    <label name="week">Semana</label>
     <label name="weight">Peso</label>
     <label name="wheat">Trigo</label>
     <label name="whistle">Assoviar</label>
