@@ -4,7 +4,7 @@ A fully customizable icon picker dialog that provides easy access to a load of q
 All icons are SVG files from which only the path was kept, which allow for a very small size. Adding this library to your app should result in a 220kB total increase in size: 130kB from the icons, 30kB from each language of the labels and 60kB from the code itself. Performance should not be a problem on most phones, and drawables are cached.
 
 ### Gradle dependency
-`compile 'com.maltaisn:icondialog:1.0.1'`
+`compile 'com.maltaisn:icondialog:1.1.0'`
 
 ## Tutorial
 All documentation and examples on usage and customization available on [the wiki](https://github.com/maltaisn/icondialoglib/wiki).
