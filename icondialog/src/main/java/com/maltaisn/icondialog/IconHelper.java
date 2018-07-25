@@ -153,6 +153,13 @@ public class IconHelper {
     }
 
     /**
+     * @return the number of loaded icons
+     */
+    public int getIconCount() {
+        return icons.size();
+    }
+
+    /**
      * Add extra icons for the dialog.
      * This can only be called once, subsequent calls will have no effect
      * Both files must be valid, no error checking is done

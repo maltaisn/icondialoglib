@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <list>
+
     <label name="3d">3D</label>
+    <label name="accessibility">Acessibilidade</label>
     <label name="account">Conta</label>
     <label name="add">Adicionar</label>
     <label name="adjust">Ajustar</label>
@@ -43,6 +45,7 @@
     <label name="backup">Backup</label>
     <label name="badminton">Peteca</label>
     <label name="ball">Bola</label>
+    <label name="ballot">Votação</label>
     <label name="bank">Banco</label>
     <label name="barcode">Código de barras</label>
     <label name="barley">Ramo</label>
@@ -97,6 +100,8 @@
     <label name="box">Caixa</label>
     <label name="braces">Chaves</label>
     <label name="brackets">Colchetes</label>
+    <label name="braille">Braile</label>
+    <label name="brain">Cérebro</label>
     <label name="branch">Galho</label>
     <label name="bread">Pão</label>
     <label name="breakfast">Café da manhã</label>
@@ -159,6 +164,7 @@
     <label name="carrot">Cenoura</label>
     <label name="cart">Carrinho</label>
     <label name="cash">Dinheiro</label>
+    <label name="cassette">Cassete</label>
     <label name="castle">Castélo</label>
     <label name="cat">Gato</label>
     <label name="category">Categoria</label>
@@ -216,7 +222,6 @@
         <alias>CO2</alias>
         <alias>Dióxido de carbono</alias>
     </label>
-    <label name="cool_qualitative">Legal</label>
     <label name="cocktail">Coquetel</label>
     <label name="coffee">Café</label>
     <label name="coin">Moeda</label>
@@ -225,6 +230,7 @@
     <label name="comparison">Comparação</label>
     <label name="compass">Compasso</label>
     <label name="computer">Computador</label>
+    <label name="computer_storage">Armazenamento</label>
     <label name="computer_tower">Gabinete</label>
     <label name="confirm">Confirmar</label>
     <label name="confirmation">Confirmação</label>
@@ -236,6 +242,7 @@
     <label name="construction">Construção</label>
     <label name="cook">Cozinhar</label>
     <label name="cookie">Biscoito</label>
+    <label name="cool_qualitative">Legal</label>
     <label name="copyright">Copyright</label>
     <label name="corn">Milho</label>
     <label name="counter">Contador</label>
@@ -264,20 +271,31 @@
     <label name="curling">Curling</label>
     <label name="curr_bdt">Bangladesh</label>
     <label name="curr_btc">Bitcoin</label>
-    <label name="curr_cny">Yuan chinês</label>
     <label name="curr_chf">Swiss francês</label>
+    <label name="curr_cny">Yuan chinês</label>
     <label name="curr_dollar">Dólar</label>
     <label name="curr_eur">Euro</label>
     <label name="curr_gbp">Libra inglesa</label>
     <label name="curr_inr">Iupee indiano</label>
     <label name="curr_jpy">Yen japonês</label>
-    <label name="curr_kzt">Kazakhstani tenge</label>
     <label name="curr_krw">Won sul-coreano</label>
+    <label name="curr_kzt">Kazakhstani tenge</label>
     <label name="curr_ngn">Naira nigeriano</label>
+    <label name="curr_php">Peso filipino</label>
     <label name="curr_rub">Ruble russo</label>
-    <label name="curr_twd">Dólar taiwanês</label>
     <label name="curr_try">Lira turco</label>
+    <label name="curr_twd">Dólar taiwanês</label>
     <label name="currency">@label/coin</label>
+    <label name="current_ac">
+        <alias>AC</alias>
+        <alias>CA</alias>
+        <alias>Corrente alternada</alias>
+    </label>
+    <label name="current_dc">
+        <alias>DC</alias>
+        <alias>CC</alias>
+        <alias>Corrente contínua</alias>
+    </label>
     <label name="curve">Curva</label>
     <label name="cut">@label/crop</label>
     <label name="cutter">Cortador</label>
@@ -303,8 +321,8 @@
     <label name="desk">Mesa</label>
     <label name="dessert">Sobremesa</label>
     <label name="details">Detalhes</label>
-    <label name="devil">Maligno</label>
     <label name="developper">Desenvolvedor</label>
+    <label name="devil">Maligno</label>
     <label name="dial">Teclado</label>
     <label name="diamond">Diamante</label>
     <label name="dice">Dados</label>
@@ -364,6 +382,7 @@
     <label name="education">Educação</label>
     <label name="egg_cell">Óvulo</label>
     <label name="eject">Ejetar</label>
+    <label name="election">Eleição</label>
     <label name="electric_guitar">Guitarra</label>
     <label name="electric_power">Energia elétrica</label>
     <label name="electrical_plug">Tomada</label>
@@ -445,8 +464,10 @@
     <label name="fork">Garfo</label>
     <label name="fork_content">Fork</label>
     <label name="forklift">Empilhadeira</label>
+    <label name="form">Formulários</label>
     <label name="format">Formato</label>
     <label name="forum">Fórum</label>
+    <label name="fountain">Fonte</label>
     <label name="frame">Quadro</label>
     <label name="fridge">Geladeira</label>
     <label name="front">Frente carro</label>
@@ -548,6 +569,7 @@
     <label name="home_appliance">Eletrodoméstico</label>
     <label name="horn">Bozina</label>
     <label name="horse">Cavalo</label>
+    <label name="horseshoe">Ferradura</label>
     <label name="hospital">Hospital</label>
     <label name="hot">Quente</label>
     <label name="hot_air_balloon">Balão de ar quente</label>
@@ -620,6 +642,7 @@
     <label name="license_copyright">@label/license</label>
     <label name="lifebuoy">Boia</label>
     <label name="lightbulb">Lâmpada</label>
+    <label name="lighthouse">Farol</label>
     <label name="lightning">Iluminação</label>
     <label name="lightning_led">LED</label>
     <label name="like">
@@ -774,6 +797,7 @@
     <label name="paper">Papel</label>
     <label name="paperclip">Clip</label>
     <label name="parentheses">Parenteses</label>
+    <label name="park">Parque</label>
     <label name="parking">Estacionamento</label>
     <label name="passport">Passaporte</label>
     <label name="password">Senha</label>
@@ -788,8 +812,8 @@
     </label>
     <label name="peace">Paz</label>
     <label name="pen">Caneta</label>
-    <label name="penguin">Pinguim</label>
     <label name="pencil">Lápis</label>
+    <label name="penguin">Pinguim</label>
     <label name="pentagon">Pentágono</label>
     <label name="pepper">Pimenta</label>
     <label name="percent">
@@ -829,6 +853,7 @@
     <label name="pin">Pino</label>
     <label name="pine_tree">Pinho</label>
     <label name="pipe">Cano</label>
+    <label name="pirate">Pirate</label>
     <label name="pistol">Pistóla</label>
     <label name="pizza">Pizza</label>
     <label name="place">Lugar</label>
@@ -1033,13 +1058,13 @@
     <label name="sticker">Adesivo</label>
     <label name="stop">Pare</label>
     <label name="stopwatch">Cronômetro</label>
-    <label name="computer_storage">Armazenamento</label>
     <label name="store">Loja</label>
     <label name="storm">Tempestade</label>
     <label name="stove">Fogão</label>
     <label name="street">Rua</label>
     <label name="structure">Estrutura</label>
     <label name="style">Estilo</label>
+    <label name="subtitles">Legendas</label>
     <label name="subway">Metrô</label>
     <label name="suit">Terno</label>
     <label name="summit">@label/pick</label>
@@ -1053,6 +1078,7 @@
     <label name="surveillance">Vigilância</label>
     <label name="swap">Troca</label>
     <label name="swimming">Natação</label>
+    <label name="switch">Interruptor</label>
     <label name="sword">Espada</label>
     <label name="symbol">Símbolo</label>
     <label name="synchronisation">Sincronização</label>
@@ -1113,6 +1139,7 @@
         <alias>Cronômetro</alias>
         <alias>@label/stopwatch</alias>
     </label>
+    <label name="toggle">Alternar</label>
     <label name="toilet">
         <alias>Toalete</alias>
         <alias>Banheiro</alias>
@@ -1148,6 +1175,7 @@
     <label name="triangle">Triangulo</label>
     <label name="trophy">Troféu</label>
     <label name="truck">Caminhão</label>
+    <label name="tulip">Tulipa</label>
     <label name="turbine">Turbina</label>
     <label name="turtle">Tartaruga</label>
     <label name="typing">Digitar</label>
@@ -1179,6 +1207,7 @@
     <label name="vision">Visão</label>
     <label name="volleyball">Voleibol</label>
     <label name="volume">Volume</label>
+    <label name="vote">Voto</label>
     <label name="walking">
         <alias>Andar</alias>
         <alias>Caminhar</alias>
@@ -1210,11 +1239,12 @@
     <label name="week">Semana</label>
     <label name="weight">Peso</label>
     <label name="wheat">Trigo</label>
+    <label name="wheelchair">Cadeira de rodas</label>
     <label name="whistle">Assoviar</label>
     <label name="wifi">Wi-Fi</label>
     <label name="wind">Vento</label>
-    <label name="windmill">Moinho de vento</label>
     <label name="wind_turbine">Turbina de vento</label>
+    <label name="windmill">Moinho de vento</label>
     <label name="window">Janela</label>
     <label name="wine">Vinho</label>
     <label name="winter">Inverno</label>
@@ -1230,4 +1260,5 @@
     <label name="yeast">Fermento</label>
     <label name="yin_yang">Yin yang</label>
     <label name="zoom">Zoom</label>
+
 </list>

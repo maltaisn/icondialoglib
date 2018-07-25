@@ -1,5 +1,6 @@
 import bisect
 import os
+import codecs
 import xml.etree.ElementTree
 
 # This script is used to automatically create XML entries for the icons in the \new folder
@@ -59,7 +60,7 @@ def main():
                 os.replace(icon_path, new_path)
                 print("Renamed \"{}\" to \"{}\"".format(name, new_name))
 
-    icon_file = open(output_xml, "w")
+    icon_file = codecs.open(output_xml, "w", "utf-8")
     icon_file.write(xml_icons)
     icon_file.close()
 

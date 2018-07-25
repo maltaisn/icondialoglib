@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements
 
         Button openBtn = findViewById(R.id.btn_open);
         final Button addExtraBtn = findViewById(R.id.btn_add_extra);
+        final TextView iconCountTxv = findViewById(R.id.txv_icon_count);
         RecyclerView selListRcv = findViewById(R.id.rcv_selected_icons);
         selNoneTxv = findViewById(R.id.txv_none_selected);
         final CheckBox maxSelCkb = findViewById(R.id.ckb_max_sel);
@@ -181,9 +182,13 @@ public class MainActivity extends AppCompatActivity implements
                 iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
                 Toast.makeText(MainActivity.this, MessageFormat.format(getString(R.string.load_time_fmt),
                         ((System.nanoTime() - time) / 1000000.0)), Toast.LENGTH_SHORT).show();
+
+                iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
             }
         });
         addExtraBtn.setEnabled(!extraIconsLoaded);
+
+        iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
 
         iconAdapter = new IconAdapter();
         selListRcv.setAdapter(iconAdapter);

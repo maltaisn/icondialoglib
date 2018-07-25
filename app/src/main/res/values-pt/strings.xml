@@ -62,6 +62,7 @@
     <string name="selected_icon_id_fmt">ID {0}</string>
     <string name="icon_info_fmt">ID: {0}\nCategoria: {1}\nPalavras-chave: {2}</string>
     <string name="load_time_fmt">Ícones carregados em {0,number,#.#} ms</string>
+    <string name="icon_count_fmt">{0,number} ícones carregados</string>
 
     <string name="category_3d">Ícones em 3D</string>
     <string name="category_science">Matemática, biologia e química</string>

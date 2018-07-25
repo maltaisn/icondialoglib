@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <list>
+
     <label name="3d">3D</label>
+    <label name="accessibility">Accessibility</label>
     <label name="account">Account</label>
     <label name="add">Add</label>
     <label name="adjust">
@@ -43,6 +45,7 @@
     <label name="backup">Backup</label>
     <label name="badminton">Badminton</label>
     <label name="ball">Ball</label>
+    <label name="ballot">Ballot</label>
     <label name="bank">Bank</label>
     <label name="barcode">Barcode</label>
     <label name="barley">Barley</label>
@@ -97,6 +100,8 @@
     <label name="box">Box</label>
     <label name="braces">Braces</label>
     <label name="brackets">Brackets</label>
+    <label name="braille">Braille</label>
+    <label name="brain">Brain</label>
     <label name="branch">Branch</label>
     <label name="bread">Bread</label>
     <label name="breakfast">Breakfast</label>
@@ -156,6 +161,7 @@
     <label name="carrot">Carrot</label>
     <label name="cart">Cart</label>
     <label name="cash">Cash</label>
+    <label name="cassette">Cassette</label>
     <label name="castle">Castle</label>
     <label name="cat">Cat</label>
     <label name="category">Category</label>
@@ -210,7 +216,6 @@
         <alias>CO2</alias>
         <alias>Carbon dioxide</alias>
     </label>
-    <label name="cool_qualitative">Cool</label>
     <label name="cocktail">Cocktail</label>
     <label name="coffee">Coffee</label>
     <label name="coin">Coin</label>
@@ -219,6 +224,7 @@
     <label name="comparison">Comparison</label>
     <label name="compass">Compass</label>
     <label name="computer">Computer</label>
+    <label name="computer_storage">Storage</label>
     <label name="computer_tower">Computer tower</label>
     <label name="confirm">Confirm</label>
     <label name="confirmation">Confirmation</label>
@@ -230,6 +236,7 @@
     <label name="construction">Construction</label>
     <label name="cook">Cook</label>
     <label name="cookie">Cookie</label>
+    <label name="cool_qualitative">Cool</label>
     <label name="copyright">Copyright</label>
     <label name="corn">Corn</label>
     <label name="counter">Counter</label>
@@ -252,8 +259,8 @@
     <label name="curling">Curling</label>
     <label name="curr_bdt">Bangladeshi</label>
     <label name="curr_btc">Bitcoin</label>
-    <label name="curr_cny">Chinese yuan</label>
     <label name="curr_chf">Swiss franc</label>
+    <label name="curr_cny">Chinese yuan</label>
     <label name="curr_dollar">Dollar</label>
     <label name="curr_eur">Euro</label>
     <label name="curr_gbp">
@@ -262,13 +269,22 @@
     </label>
     <label name="curr_inr">Indian rupee</label>
     <label name="curr_jpy">Japenese yen</label>
-    <label name="curr_kzt">Kazakhstani tenge</label>
     <label name="curr_krw">South korean won</label>
+    <label name="curr_kzt">Kazakhstani tenge</label>
     <label name="curr_ngn">Nigerian naira</label>
+    <label name="curr_php">Philippine Piso</label>
     <label name="curr_rub">Russian ruble</label>
-    <label name="curr_twd">Taiwan dollar</label>
     <label name="curr_try">Turkish lira</label>
+    <label name="curr_twd">Taiwan dollar</label>
     <label name="currency">Currency</label>
+    <label name="current_ac">
+        <alias>AC</alias>
+        <alias>Alternating current</alias>
+    </label>
+    <label name="current_dc">
+        <alias>DC</alias>
+        <alias>Direct current</alias>
+    </label>
     <label name="curve">Curve</label>
     <label name="cut">Cut</label>
     <label name="cutter">Cutter</label>
@@ -294,8 +310,8 @@
     <label name="desk">Desk</label>
     <label name="dessert">Dessert</label>
     <label name="details">Details</label>
-    <label name="devil">Devil</label>
     <label name="developper">Developper</label>
+    <label name="devil">Devil</label>
     <label name="dial">Dial</label>
     <label name="diamond">Diamond</label>
     <label name="dice">
@@ -341,6 +357,7 @@
     <label name="education">Education</label>
     <label name="egg_cell">Egg cell</label>
     <label name="eject">Eject</label>
+    <label name="election">Election</label>
     <label name="electric_guitar">Electric guitar</label>
     <label name="electric_power">Power</label>
     <label name="electrical_plug">Electrical plug</label>
@@ -422,8 +439,10 @@
     <label name="fork">Fork</label>
     <label name="fork_content">Fork</label>
     <label name="forklift">Forklift</label>
+    <label name="form">Form</label>
     <label name="format">Format</label>
     <label name="forum">Forum</label>
+    <label name="fountain">Fountain</label>
     <label name="frame">Frame</label>
     <label name="fridge">Fridge</label>
     <label name="front">Front</label>
@@ -526,6 +545,7 @@
     <label name="home_appliance">Home appliance</label>
     <label name="horn">Horn</label>
     <label name="horse">Horse</label>
+    <label name="horseshoe">Horseshoe</label>
     <label name="hospital">Hospital</label>
     <label name="hot">Hot</label>
     <label name="hot_air_balloon">Hot air balloon</label>
@@ -591,6 +611,7 @@
     <label name="license_copyright">@label/license</label>
     <label name="lifebuoy">Lifebuoy</label>
     <label name="lightbulb">Lightbulb</label>
+    <label name="lighthouse">Lighthouse</label>
     <label name="lightning">Lightning</label>
     <label name="lightning_led">LED</label>
     <label name="like">Like</label>
@@ -732,6 +753,7 @@
     <label name="paper">Paper</label>
     <label name="paperclip">Paperclip</label>
     <label name="parentheses">Parentheses</label>
+    <label name="park">Park</label>
     <label name="parking">Parking</label>
     <label name="passport">Passport</label>
     <label name="password">Password</label>
@@ -743,8 +765,8 @@
     <label name="paw">Paw</label>
     <label name="peace">Peace</label>
     <label name="pen">Pen</label>
-    <label name="penguin">Penguin</label>
     <label name="pencil">Pencil</label>
+    <label name="penguin">Penguin</label>
     <label name="pentagon">Pentagon</label>
     <label name="pepper">Pepper</label>
     <label name="percent">Percent</label>
@@ -778,6 +800,7 @@
     <label name="pin">Pin</label>
     <label name="pine_tree">Pine</label>
     <label name="pipe">Pipe</label>
+    <label name="pirate">Pirate</label>
     <label name="pistol">Pistol</label>
     <label name="pizza">Pizza</label>
     <label name="place">Place</label>
@@ -988,7 +1011,6 @@
     <label name="sticker">Sticker</label>
     <label name="stop">Stop</label>
     <label name="stopwatch">Stopwatch</label>
-    <label name="computer_storage">Storage</label>
     <label name="store">
         <alias>Store</alias>
         <alias>Shop</alias>
@@ -1001,6 +1023,7 @@
     <label name="street">Street</label>
     <label name="structure">Structure</label>
     <label name="style">Style</label>
+    <label name="subtitles">Subtitles</label>
     <label name="subway">Subway</label>
     <label name="suit">Suit</label>
     <label name="summit">Summit</label>
@@ -1011,6 +1034,7 @@
     <label name="surveillance">Surveillance</label>
     <label name="swap">Swap</label>
     <label name="swimming">Swimming</label>
+    <label name="switch">Switch</label>
     <label name="sword">Sword</label>
     <label name="symbol">Symbol</label>
     <label name="synchronisation">Synchronisation</label>
@@ -1059,6 +1083,7 @@
         <alias>Chronometer</alias>
         <alias>@label/stopwatch</alias>
     </label>
+    <label name="toggle">Toggle</label>
     <label name="toilet">Toilet</label>
     <label name="tongue">Tongue</label>
     <label name="tool">Tool</label>
@@ -1087,6 +1112,7 @@
     <label name="triangle">Triangle</label>
     <label name="trophy">Trophy</label>
     <label name="truck">Truck</label>
+    <label name="tulip">Tulip</label>
     <label name="turbine">Turbine</label>
     <label name="turtle">Turtle</label>
     <label name="typing">Typing</label>
@@ -1114,6 +1140,7 @@
     <label name="vision">Vision</label>
     <label name="volleyball">Volleyball</label>
     <label name="volume">Volume</label>
+    <label name="vote">Vote</label>
     <label name="walking">Walking</label>
     <label name="wall">Wall</label>
     <label name="wallet">Wallet</label>
@@ -1139,11 +1166,12 @@
         <alias>Mass</alias>
     </label>
     <label name="wheat">Wheat</label>
+    <label name="wheelchair">Wheelchair</label>
     <label name="whistle">Whistle</label>
     <label name="wifi">Wi-Fi</label>
     <label name="wind">Wind</label>
-    <label name="windmill">Windmill</label>
     <label name="wind_turbine">Wind turbine</label>
+    <label name="windmill">Windmill</label>
     <label name="window">Window</label>
     <label name="wine">Wine</label>
     <label name="winter">Winter</label>
@@ -1159,4 +1187,5 @@
         <alias>Zoom</alias>
         <alias>Magnify</alias>
     </label>
+
 </list>

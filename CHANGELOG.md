@@ -1,3 +1,9 @@
+## v1.1.1
+- Added 21 icons (1010 icons total): ballot, braille, brain, cassette, currency-php, current-ac, current-dc, desk-lamp, dog, dog-side, tulip, fountain, hand, horseshoe, lighthouse, lighthouse-on, pirate, subtitles, toggle-switch, camera-vintage, vote
+- Updated 11 icons: medal (60), tumble dryer (92), silverware (452), angle (666), plus-minus (672), exponent (676), not-equal (678), knife-1 (758), knife-2 (760), arrow-unmerge (864), table-search (975)
+- Added 21 labels: accessibility, ballot, braille, brain, cassette, curr_php, current_ac, current_dc, election, form, fountain, horseshoe, lighthouse, park, pirate, subtitles, switch, toggle, tulip, vote, wheelchair
+- Added `IconHelper.getIconCount()`
+
 ## v1.1.0
 - Added Portuguese translation
 - Added IconView, wrapper around ImageView to set icons by XML
