@@ -3,7 +3,7 @@
 
     <public name="IcdStyle" type="style"/>
     <style name="IcdStyle">
-        <item name="icdBackgroundColor">?android:attr/colorBackgroundFloating</item>
+        <item name="icdBackgroundColor">?attr/colorBackgroundFloating</item>
         <item name="icdMaxWidth">400dp</item>
         <item name="icdMaxHeight">500dp</item>
         <item name="icdIconSize">50dp</item>
@@ -29,7 +29,7 @@
     <public name="IcdIconStyle" type="style"/>
     <style name="IcdIconStyle">
         <item name="android:padding">8dp</item>
-        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 
     <public name="IcdListHeaderStyle" type="style"/>
@@ -62,7 +62,7 @@
     <public name="IcdSearchIconStyle" type="style"/>
     <style name="IcdSearchIconStyle">
         <item name="srcCompat">@drawable/icd_ic_search</item>
-        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="tint">?android:attr/textColorSecondary</item>
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
@@ -71,7 +71,7 @@
     <public name="IcdCancelSearchIconStyle" type="style"/>
     <style name="IcdCancelSearchIconStyle">
         <item name="srcCompat">@drawable/icd_ic_close</item>
-        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="tint">?android:attr/textColorSecondary</item>
         <item name="android:disabledAlpha">1.0</item>
         <item name="android:paddingStart">8dp</item>

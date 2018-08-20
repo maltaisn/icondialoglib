@@ -46,6 +46,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -367,6 +368,7 @@ public class IconDialog extends DialogFragment {
 
         // Set up dialog
         final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);  // Required on API 21
         dialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @SuppressWarnings("ConstantConditions")
             @Override

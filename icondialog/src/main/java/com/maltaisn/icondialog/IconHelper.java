@@ -566,7 +566,7 @@ public class IconHelper {
     static String normalizeText(String text) {
         // NOTE: Might have to change this method if more translations are made
         // For example, right now it would remove all chinese and arabic characters
-        text = text.toLowerCase();
+        text = text.toLowerCase().trim();
         String normalized = Normalizer.normalize(text, Normalizer.Form.NFKD);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < normalized.length(); i++) {

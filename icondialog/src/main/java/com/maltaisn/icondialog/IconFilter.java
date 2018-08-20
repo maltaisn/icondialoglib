@@ -110,16 +110,20 @@ public class IconFilter extends BaseIconFilter {
         String[] searchTerms = null;
         if (search != null) {
             // Split search into terms
+            search = search.trim();
             if (termPattern == null) {
                 searchTerms = new String[]{search};
             } else {
                 searchTerms = search.split(termPattern);
             }
 
-            if (normalizeSearch) {
-                search = IconHelper.normalizeText(search);
-            } else {
-                search = search.toLowerCase();
+            // Normalize search terms
+            for (int i = 0; i < searchTerms.length; i++) {
+                if (normalizeSearch) {
+                    searchTerms[i] = IconHelper.normalizeText(searchTerms[i]);
+                } else {
+                    searchTerms[i] = searchTerms[i].toLowerCase();
+                }
             }
         }
 
