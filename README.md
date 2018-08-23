@@ -4,7 +4,9 @@ A fully customizable icon picker dialog that provides easy access to a load of q
 All icons are SVG files from which only the path was kept, which allow for a very small size. Adding this library to your app should result in a 290kB total increase in size: ~140kB from the icons, ~30kB from each language of the labels and 60kB from the code itself. Performance should not be a problem on most phones, and drawables are cached. For comparison, if vector drawable files were used instead of only paths, the size only for the icons would be over 400kB.
 
 ### Gradle dependency
-`compile 'com.maltaisn:icondialog:2.0.0'`
+`compile 'com.maltaisn:icondialog:X.Y.Z'`
+
+Replace `X.Y.Z` with lastest version number: [ ![Download](https://api.bintray.com/packages/maltaisn/icon-dialog/icon-dialog/images/download.svg) ](https://bintray.com/maltaisn/icon-dialog/icon-dialog/_latestVersion)
 
 Minimum API is [21](https://twitter.com/minSdkVersion/status/988538738639765505), and older APIs will never be supported.
 
