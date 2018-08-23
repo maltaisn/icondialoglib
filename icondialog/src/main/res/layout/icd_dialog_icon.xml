@@ -29,89 +29,96 @@
     android:background="?attr/icdBackgroundColor"
     android:paddingTop="8dp"
     tools:theme="@style/IcdStyle"
-    tools:ignore="Overdraw">
+    tools:ignore="Overdraw"
+    >
 
     <TextView
-        android:id="@+id/txv_title"
+        android:id="@+id/icd_txv_title"
         style="?attr/icdDialogTitleStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/edt_search"
+        app:layout_constraintBottom_toTopOf="@+id/icd_edt_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <EditText
-        android:id="@+id/edt_search"
+        android:id="@+id/icd_edt_search"
         style="?attr/icdSearchBarStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/div_header"
-        app:layout_constraintEnd_toStartOf="@+id/imv_cancel_search"
+        app:layout_constraintBottom_toTopOf="@+id/icd_div_header"
+        app:layout_constraintEnd_toStartOf="@+id/icd_imv_cancel_search"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imv_search"
-        app:layout_constraintTop_toBottomOf="@+id/txv_title"
+        app:layout_constraintStart_toEndOf="@+id/icd_imv_search"
+        app:layout_constraintTop_toBottomOf="@+id/icd_txv_title"
         app:layout_constraintVertical_chainStyle="spread_inside"
-        tools:ignore="LabelFor,TextFields"/>
+        tools:ignore="LabelFor,TextFields"
+        />
 
     <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/imv_search"
+        android:id="@+id/icd_imv_search"
         style="?attr/icdSearchIconStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/edt_search"
+        app:layout_constraintBottom_toBottomOf="@+id/icd_edt_search"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edt_search"
-        tools:ignore="ContentDescription"/>
+        app:layout_constraintTop_toTopOf="@+id/icd_edt_search"
+        tools:ignore="ContentDescription"
+        />
 
     <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/imv_cancel_search"
+        android:id="@+id/icd_imv_cancel_search"
         style="?attr/icdCancelSearchIconStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/edt_search"
+        app:layout_constraintBottom_toBottomOf="@+id/icd_edt_search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edt_search"
-        tools:ignore="ContentDescription"/>
+        app:layout_constraintTop_toTopOf="@+id/icd_edt_search"
+        tools:ignore="ContentDescription"
+        />
 
     <View
-        android:id="@+id/div_header"
+        android:id="@+id/icd_div_header"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
         android:background="?attr/icdDividerDrawable"
-        app:layout_constraintBottom_toTopOf="@+id/rcv_icon_list"
+        app:layout_constraintBottom_toTopOf="@+id/icd_rcv_icon_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_search"
-        tools:background="#1f000000"/>
+        app:layout_constraintTop_toBottomOf="@+id/icd_edt_search"
+        tools:background="#1f000000"
+        />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rcv_icon_list"
+        android:id="@+id/icd_rcv_icon_list"
         style="?attr/icdDialogListStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/div_footer"
+        app:layout_constraintBottom_toTopOf="@+id/icd_div_footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_header"
+        app:layout_constraintTop_toBottomOf="@+id/icd_div_header"
         tools:listitem="@layout/icd_item_icon"
         tools:layoutManager="android.support.v7.widget.GridLayoutManager"
         tools:spanCount="6"
-        tools:itemCount="20"/>
+        tools:itemCount="20"
+        />
 
     <TextView
-        android:id="@+id/txv_no_result"
+        android:id="@+id/icd_txv_no_result"
         style="?attr/icdNoResultLabelStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -120,22 +127,39 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_header"/>
+        app:layout_constraintTop_toBottomOf="@+id/icd_div_header"
+        />
+
+    <ProgressBar
+        android:id="@+id/icd_pb_load"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:indeterminate="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/icd_rcv_icon_list"
+        app:layout_constraintTop_toTopOf="@+id/icd_rcv_icon_list"
+        android:visibility="gone"
+        />
 
     <View
-        android:id="@+id/div_footer"
+        android:id="@+id/icd_div_footer"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="?attr/icdDividerDrawable"
-        app:layout_constraintBottom_toTopOf="@+id/btn_cancel"
+        app:layout_constraintBottom_toTopOf="@+id/icd_btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rcv_icon_list"
-        tools:background="#1f000000"/>
+        app:layout_constraintTop_toBottomOf="@+id/icd_rcv_icon_list"
+        tools:background="#1f000000"
+        />
 
     <Button
-        android:id="@+id/btn_clear"
+        android:id="@+id/icd_btn_clear"
         style="?attr/icdDialogButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -143,28 +167,31 @@
         android:text="?attr/icdDialogBtnTextSelectNone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_footer"/>
+        app:layout_constraintTop_toBottomOf="@+id/icd_div_footer"
+        />
 
     <Button
-        android:id="@+id/btn_cancel"
+        android:id="@+id/icd_btn_cancel"
         style="?attr/icdDialogButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:text="?attr/icdDialogBtnTextCancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_select"
-        app:layout_constraintTop_toBottomOf="@+id/div_footer"/>
+        app:layout_constraintEnd_toStartOf="@+id/icd_btn_select"
+        app:layout_constraintTop_toBottomOf="@+id/icd_div_footer"
+        />
 
     <Button
-        android:id="@+id/btn_select"
+        android:id="@+id/icd_btn_select"
         style="?attr/icdDialogButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:text="?attr/icdDialogBtnTextSelect"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/icd_btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_cancel"/>
+        app:layout_constraintTop_toTopOf="@+id/icd_btn_cancel"
+        />
 
 </android.support.constraint.ConstraintLayout>

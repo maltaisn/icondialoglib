@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--@formatter:off-->
 <list>
 
     <label name="3d">3D</label>
@@ -17,6 +18,7 @@
     <label name="all">Tout</label>
     <label name="altimeter">Altimètre</label>
     <label name="ambulance">Ambulance</label>
+    <label name="ampersand">Esperluette</label>
     <label name="amplifier">Amplificateur</label>
     <label name="angle">Angle</label>
     <label name="animal">Animal</label>
@@ -41,7 +43,11 @@
     <label name="backspace">Retour arrière</label>
     <label name="backup">Sauvegarde</label>
     <label name="badminton">Badminton</label>
-    <label name="ball">Balle</label>
+    <label name="ball">
+        <alias>Balle</alias>
+        <alias>Ballon</alias>
+    </label>
+    <label name="balloon">@label/ball$1</label>
     <label name="ballot">Bulletin de vote</label>
     <label name="bank">Banque</label>
     <label name="barcode">Code barre</label>
@@ -86,6 +92,7 @@
     <label name="book">Livre</label>
     <label name="bookmark">Signet</label>
     <label name="boombox">Radiocassette</label>
+    <label name="bottle">Bouteille</label>
     <label name="boulevard">Boulevard</label>
     <label name="bounce">Rebond</label>
     <label name="bow_tie">Noeud papillon</label>
@@ -339,6 +346,7 @@
     </label>
     <label name="delivery">Livraison</label>
     <label name="dentist">Dentiste</label>
+    <label name="deposit">Dépôt</label>
     <label name="desert">Désert</label>
     <label name="desk">Bureau</label>
     <label name="dessert">Dessert</label>
@@ -351,6 +359,7 @@
     <label name="diesel">Diésel</label>
     <label name="direction">Direction</label>
     <label name="disconnected">Déconnecté</label>
+    <label name="dishwasher">Lave-vaisselle</label>
     <label name="disk">Disque</label>
     <label name="dislike">Ne pas aimer</label>
     <label name="distance">Distance</label>
@@ -359,6 +368,7 @@
         <alias>Quai</alias>
         <alias>Jetée</alias>
     </label>
+    <label name="doctor">Docteur</label>
     <label name="document">Document</label>
     <label name="dog">Chien</label>
     <label name="donkey">Âne</label>
@@ -382,9 +392,11 @@
     </label>
     <label name="ear">Oreille</label>
     <label name="earth">Terre</label>
+    <label name="easter">Pâques</label>
     <label name="eclipse">Éclipse</label>
     <label name="editing">Éditer</label>
     <label name="education">Éducation</label>
+    <label name="egg">Oeuf</label>
     <label name="egg_cell">Ovule</label>
     <label name="eject">Éjecter</label>
     <label name="election">Élection</label>
@@ -419,7 +431,10 @@
         <alias>Yeux</alias>
     </label>
     <label name="face">Visage</label>
-    <label name="factory">Usine</label>
+    <label name="factory">
+        <alias>Usine</alias>
+        <alias>Manufacture</alias>
+    </label>
     <label name="fahrenheit">Fahrenheit</label>
     <label name="fan">Ventilateur</label>
     <label name="fast">Rapide</label>
@@ -610,6 +625,7 @@
         <alias>Image</alias>
         <alias>@label/photo</alias>
     </label>
+    <label name="import">Importer</label>
     <label name="incognito">Incognito</label>
     <label name="infinity">Infini</label>
     <label name="information">Information</label>
@@ -634,6 +650,7 @@
     <label name="kg">KG</label>
     <label name="king">Roi</label>
     <label name="knife">Couteau</label>
+    <label name="label">Étiquette</label>
     <label name="ladybug">Coccinelle</label>
     <label name="lamp">Lampe</label>
     <label name="landing">Atterissage</label>
@@ -765,6 +782,7 @@
     <label name="nuke">Bombe nucléaire</label>
     <label name="number">Nombre</label>
     <label name="numeric">Numérique</label>
+    <label name="nurse">Infirmière</label>
     <label name="nut">Écrou</label>
     <label name="nutrition">Nutrition</label>
     <label name="oar">Rame</label>
@@ -851,6 +869,7 @@
     <label name="pocket">Poche</label>
     <label name="poker">Poker</label>
     <label name="police">Police</label>
+    <label name="pollution">Pollution</label>
     <label name="polygon">Polygone</label>
     <label name="pool">Piscine</label>
     <label name="popcorn">
@@ -860,6 +879,7 @@
     <label name="postage_stamp">Timbre de poste</label>
     <label name="pot">Pot</label>
     <label name="pound">Livre</label>
+    <label name="power_state">Allumer</label>
     <label name="precipitation">Précipitation</label>
     <label name="pregnant">Enceinte</label>
     <label name="presentation">Présentation</label>
@@ -878,6 +898,7 @@
     <label name="programming_csharp">C#</label>
     <label name="programming_html">HTML</label>
     <label name="programming_javascript">JavaScript</label>
+    <label name="programming_language">Langage de programmation</label>
     <label name="programming_lua">Lua</label>
     <label name="programming_php">PHP</label>
     <label name="programming_python">Python</label>
@@ -916,6 +937,7 @@
     <label name="religion">Religion</label>
     <label name="reminder">Rappel</label>
     <label name="remote">Télécommande</label>
+    <label name="renewable_energy">Énergie renouvelable</label>
     <label name="repeat">
         <alias>Répéter</alias>
         <alias>Rafraîchir</alias>
@@ -947,6 +969,7 @@
     <label name="ruler">Règle</label>
     <label name="run">Courir</label>
     <label name="sad">Triste</label>
+    <label name="safe">Coffre-fort</label>
     <label name="sandcastle">Château de sable</label>
     <label name="satellite">Satellite</label>
     <label name="sauce">Sauce</label>
@@ -1003,6 +1026,8 @@
     <label name="skull">Crâne</label>
     <label name="sleep">Dormir</label>
     <label name="smile">Sourire</label>
+    <label name="smog">Smog</label>
+    <label name="smoke">Fumée</label>
     <label name="smoking">Fumer</label>
     <label name="snooze">Roupiller</label>
     <label name="snow">Neige</label>
@@ -1018,6 +1043,7 @@
         <alias>Divan</alias>
         <alias>Canapé</alias>
     </label>
+    <label name="solar_power">Énergie solaire</label>
     <label name="sort">Trier</label>
     <label name="sound">Son</label>
     <label name="sound_ring">Sonner</label>
@@ -1089,7 +1115,6 @@
     <label name="tablet">Tablette</label>
     <label name="taco">Taco</label>
     <label name="taekwondo">Taekwondo</label>
-    <label name="tag">Étiquette</label>
     <label name="take_off">Envol</label>
     <label name="talking">@label/speak</label>
     <label name="tank_container">Réservoir</label>
@@ -1166,6 +1191,10 @@
     <label name="triangle">Triangle</label>
     <label name="trophy">Trophée</label>
     <label name="truck">Camion</label>
+    <label name="tshirt">
+        <alias>Chandail</alias>
+        <alias>T-shirt</alias>
+    </label>
     <label name="tulip">Tulipe</label>
     <label name="turbine">Turbine</label>
     <label name="turtle">Tortue</label>
@@ -1231,12 +1260,14 @@
     <label name="whistle">Sifflet</label>
     <label name="wifi">Wi-Fi</label>
     <label name="wind">Vent</label>
+    <label name="wind_power">Énergie éolienne</label>
     <label name="wind_turbine">Éolienne</label>
     <label name="windmill">Moulin à vent</label>
     <label name="window">Fenêtre</label>
     <label name="wine">Vin</label>
     <label name="winter">Hiver</label>
     <label name="wireless">Sans fil</label>
+    <label name="withdraw">Retrait</label>
     <label name="woman">Femme</label>
     <label name="work">Travail</label>
     <label name="worker">

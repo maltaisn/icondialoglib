@@ -52,6 +52,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -151,6 +152,14 @@ public class IconDialog extends DialogFragment {
         setRetainInstance(true);
 
         iconHelper = IconHelper.getInstance(getActivity());
+        iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
+            @Override
+            public void onDataLoaded() {
+                if (loadIconDrawables) {
+                    iconHelper.loadIconDrawables();
+                }
+            }
+        });
 
         iconFilter.iconHelper = iconHelper;
 
@@ -169,30 +178,30 @@ public class IconDialog extends DialogFragment {
 
         maxSelMessage = ta.getString(R.styleable.IconDialog_icdMaxSelectionMessage);
 
-        if (loadIconDrawables) {
-            iconHelper.loadIconDrawables();
-        }
-
         ta.recycle();
     }
 
     @Override
-    public @NonNull Dialog onCreateDialog(Bundle state) {
+    public @NonNull Dialog onCreateDialog(final Bundle state) {
         LayoutInflater inflater = LayoutInflater.from(context);
         @SuppressLint("InflateParams")
         final View view = inflater.inflate(R.layout.icd_dialog_icon, null);
 
-        TextView titleTxv = view.findViewById(R.id.txv_title);
-        final EditText searchEdt = view.findViewById(R.id.edt_search);
-        final ImageView searchImv = view.findViewById(R.id.imv_search);
-        final ImageView cancelSearchImv = view.findViewById(R.id.imv_cancel_search);
-        final RecyclerView iconListRcv = view.findViewById(R.id.rcv_icon_list);
-        final TextView noResultTxv = view.findViewById(R.id.txv_no_result);
-        final Button cancelBtn = view.findViewById(R.id.btn_cancel);
-        selectBtn = view.findViewById(R.id.btn_select);
-        clearBtn = view.findViewById(R.id.btn_clear);
+        final TextView titleTxv = view.findViewById(R.id.icd_txv_title);
+        final EditText searchEdt = view.findViewById(R.id.icd_edt_search);
+        final ImageView searchImv = view.findViewById(R.id.icd_imv_search);
+        final ImageView cancelSearchImv = view.findViewById(R.id.icd_imv_cancel_search);
+        final RecyclerView iconListRcv = view.findViewById(R.id.icd_rcv_icon_list);
+        final TextView noResultTxv = view.findViewById(R.id.icd_txv_no_result);
+        final Button cancelBtn = view.findViewById(R.id.icd_btn_cancel);
+        selectBtn = view.findViewById(R.id.icd_btn_select);
+        clearBtn = view.findViewById(R.id.icd_btn_clear);
 
-        // Show search bar if necessary
+        // Progress bar
+        final ProgressBar loadPb = view.findViewById(R.id.icd_pb_load);
+        loadPb.setVisibility(View.VISIBLE);
+
+        // Search
         final boolean searchShown = isSearchAvailable();
         if (searchShown) {
             searchEdt.setVisibility(View.VISIBLE);
@@ -202,7 +211,7 @@ public class IconDialog extends DialogFragment {
             searchImv.setVisibility(View.GONE);
         }
 
-        // Show title if necessary
+        // Title
         boolean titleShown = dialogTitleVisibility == VISIBILITY_ALWAYS ||
                 dialogTitleVisibility == VISIBILITY_IF_NO_SEARCH && !searchShown;
         if (titleShown) {
@@ -212,7 +221,7 @@ public class IconDialog extends DialogFragment {
         } else {
             titleTxv.setVisibility(View.GONE);
             if (!searchShown) {
-                view.findViewById(R.id.div_header).setVisibility(View.GONE);
+                view.findViewById(R.id.icd_div_header).setVisibility(View.GONE);
             }
         }
 
@@ -220,83 +229,6 @@ public class IconDialog extends DialogFragment {
             // Remove ConstraintLayout padding to have no space when scrolling the list
             view.setPadding(0, 0, 0, 0);
         }
-
-        // Set up icon recycler view layout and adapter
-        final IconAdapter adapter = new IconAdapter();
-        iconListRcv.setAdapter(adapter);
-
-        iconListLayout = new IconLayoutManager(context, iconSize);
-        iconListLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                if (position < listItems.size() && adapter.getItemViewType(position) == Item.TYPE_HEADER) {
-                    return iconListLayout.getSpanCount();
-                } else {
-                    return 1;
-                }
-            }
-        });
-        iconListRcv.setLayoutManager(iconListLayout);
-
-        if (stickyHeaders) {
-            iconListRcv.addItemDecoration(new StickyHeaderDecoration(iconListRcv, adapter));
-        }
-
-        // Set up search bar
-        final Handler searchHandler = new Handler();
-        final Runnable searchRunnable = new Runnable() {
-            @Override
-            public void run() {
-                listItems = getListItems(searchEdt.getText().toString());
-                adapter.notifyDataSetChanged();
-
-                noResultTxv.setVisibility(listItems.size() > 0 ? View.GONE : View.VISIBLE);
-            }
-        };
-        searchEdt.setText(searchText);
-        searchEdt.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable text) {
-                if (text.length() > 0) {
-                    cancelSearchImv.setVisibility(View.VISIBLE);
-                } else if (text.length() == 0) {
-                    cancelSearchImv.setVisibility(View.GONE);
-                }
-
-                searchHandler.removeCallbacks(searchRunnable);
-                if (searchIgnoreDelay) {
-                    searchHandler.post(searchRunnable);
-                    searchIgnoreDelay = false;
-                } else {
-                    searchHandler.postDelayed(searchRunnable, SEARCH_DELAY);
-                }
-                searchText = text.toString();
-            }
-        });
-        searchEdt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    // Hide keyboard
-                    searchEdt.clearFocus();
-                    InputMethodManager imm = (InputMethodManager) context
-                            .getSystemService(Context.INPUT_METHOD_SERVICE);
-                    //noinspection ConstantConditions
-                    imm.hideSoftInputFromWindow(searchEdt.getWindowToken(), 0);
-
-                    // Do search
-                    searchHandler.removeCallbacks(searchRunnable);
-                    searchHandler.post(searchRunnable);
-
-                    return true;
-                }
-                return false;
-            }
-        });
 
         // Set cancel search icon to remove search if clicked
         cancelSearchImv.setOnClickListener(new View.OnClickListener() {
@@ -322,49 +254,144 @@ public class IconDialog extends DialogFragment {
             }
         });
 
-        clearBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Unselect all selected icons
-                int[] pos = getItemsPosition(selectedItems.toArray(new Item[selectedItems.size()]));
-                for (int p : pos) {
-                    listItems.get(p).isSelected = false;
-                    adapter.notifyItemChanged(p);
-                }
-                selectedItems.clear();
 
-                clearBtn.setVisibility(View.GONE);
-                selectBtn.setEnabled(false);
+        iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
+            @Override
+            public void onDataLoaded() {
+                loadPb.setVisibility(View.GONE);
+
+                final EditText searchEdt = view.findViewById(R.id.icd_edt_search);
+                final ImageView searchImv = view.findViewById(R.id.icd_imv_search);
+                final ImageView cancelSearchImv = view.findViewById(R.id.icd_imv_cancel_search);
+                final RecyclerView iconListRcv = view.findViewById(R.id.icd_rcv_icon_list);
+                final TextView noResultTxv = view.findViewById(R.id.icd_txv_no_result);
+                final Button cancelBtn = view.findViewById(R.id.icd_btn_cancel);
+                selectBtn = view.findViewById(R.id.icd_btn_select);
+                clearBtn = view.findViewById(R.id.icd_btn_clear);
+
+                // Set up icon recycler view layout and adapter
+                final IconAdapter adapter = new IconAdapter();
+                iconListRcv.setAdapter(adapter);
+
+                iconListLayout = new IconLayoutManager(context, iconSize);
+                iconListLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                    @Override
+                    public int getSpanSize(int position) {
+                        if (position < listItems.size() && adapter.getItemViewType(position) == Item.TYPE_HEADER) {
+                            return iconListLayout.getSpanCount();
+                        } else {
+                            return 1;
+                        }
+                    }
+                });
+                iconListRcv.setLayoutManager(iconListLayout);
+
+                if (stickyHeaders) {
+                    iconListRcv.addItemDecoration(new StickyHeaderDecoration(iconListRcv, adapter));
+                }
+
+                // Set up search bar
+                final Handler searchHandler = new Handler();
+                final Runnable searchRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        listItems = getListItems(searchEdt.getText().toString());
+                        adapter.notifyDataSetChanged();
+
+                        noResultTxv.setVisibility(listItems.size() > 0 ? View.GONE : View.VISIBLE);
+                    }
+                };
+                searchEdt.setText(searchText);
+                searchEdt.addTextChangedListener(new TextWatcher() {
+                    @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+                    @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+                    @Override
+                    public void afterTextChanged(Editable text) {
+                        if (text.length() > 0) {
+                            cancelSearchImv.setVisibility(View.VISIBLE);
+                        } else if (text.length() == 0) {
+                            cancelSearchImv.setVisibility(View.GONE);
+                        }
+
+                        searchHandler.removeCallbacks(searchRunnable);
+                        if (searchIgnoreDelay) {
+                            searchHandler.post(searchRunnable);
+                            searchIgnoreDelay = false;
+                        } else {
+                            searchHandler.postDelayed(searchRunnable, SEARCH_DELAY);
+                        }
+                        searchText = text.toString();
+                    }
+                });
+                searchEdt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                            // Hide keyboard
+                            searchEdt.clearFocus();
+                            InputMethodManager imm = (InputMethodManager) context
+                                    .getSystemService(Context.INPUT_METHOD_SERVICE);
+                            //noinspection ConstantConditions
+                            imm.hideSoftInputFromWindow(searchEdt.getWindowToken(), 0);
+
+                            // Do search
+                            searchHandler.removeCallbacks(searchRunnable);
+                            searchHandler.post(searchRunnable);
+
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+
+                clearBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Unselect all selected icons
+                        int[] pos = getItemsPosition(selectedItems.toArray(new Item[selectedItems.size()]));
+                        for (int p : pos) {
+                            listItems.get(p).isSelected = false;
+                            adapter.notifyItemChanged(p);
+                        }
+                        selectedItems.clear();
+
+                        clearBtn.setVisibility(View.GONE);
+                        selectBtn.setEnabled(false);
+                    }
+                });
+
+                // Hide button bar if no preview is shown
+                if (!showSelectBtn) {
+                    cancelBtn.setVisibility(View.GONE);
+                    selectBtn.setVisibility(View.GONE);
+                    view.findViewById(R.id.icd_div_footer).setVisibility(View.GONE);
+                }
+
+                if (state == null) {
+                    listItems = getListItems(null);
+                    if (selectedItems.size() > 0) {
+                        int firstSelectedPos = getItemsPosition(selectedItems.get(0))[0];
+                        iconListLayout.scrollToPositionWithOffset(firstSelectedPos, iconSize);
+                        // Arbitrary offset just so list doesn't scroll right under sticky header
+                    } else {
+                        selectBtn.setEnabled(false);
+                    }
+
+                } else {
+                    if (searchText != null && !searchText.isEmpty()) {
+                        cancelSearchImv.setVisibility(View.VISIBLE);
+                    }
+
+                    iconListLayout.onRestoreInstanceState(state.getParcelable("listLayoutState"));
+                }
+
+                boolean showClear = showClearBtn && selectedItems.size() > 0;
+                clearBtn.setVisibility(showClear ? View.VISIBLE : View.GONE);
             }
         });
-
-        // Hide button bar if no preview is shown
-        if (!showSelectBtn) {
-            cancelBtn.setVisibility(View.GONE);
-            selectBtn.setVisibility(View.GONE);
-            view.findViewById(R.id.div_footer).setVisibility(View.GONE);
-        }
-
-        if (state == null) {
-            listItems = getListItems(null);
-            if (selectedItems.size() > 0) {
-                int firstSelectedPos = getItemsPosition(selectedItems.get(0))[0];
-                iconListLayout.scrollToPositionWithOffset(firstSelectedPos, iconSize);
-                // Arbitrary offset just so list doesn't scroll right under sticky header
-            } else {
-                selectBtn.setEnabled(false);
-            }
-
-        } else {
-            if (searchText != null && !searchText.isEmpty()) {
-                cancelSearchImv.setVisibility(View.VISIBLE);
-            }
-
-            iconListLayout.onRestoreInstanceState(state.getParcelable("listLayoutState"));
-        }
-
-        boolean showClear = showClearBtn && selectedItems.size() > 0;
-        clearBtn.setVisibility(showClear ? View.VISIBLE : View.GONE);
 
         // Set up dialog
         final Dialog dialog = new Dialog(context);
@@ -920,7 +947,7 @@ public class IconDialog extends DialogFragment {
             HeaderViewHolder(View view) {
                 // Used with both "icd_item_header" and "icd_item_sticky_header" layouts
                 super(view);
-                headerTxv = view.findViewById(R.id.header_txv);
+                headerTxv = view.findViewById(R.id.icd_header_txv);
             }
 
             void bindViewHolder(final Item item) {

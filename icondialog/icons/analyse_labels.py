@@ -6,7 +6,7 @@ import xml.etree.ElementTree
 # and to identify labels that could be removed
 
 current_path = os.getcwd()
-icons_file = os.path.join(current_path, "..\\src\\main\\res\\xml\\icons.xml")
+icons_file = os.path.join(current_path, "..\\src\\main\\res\\xml\\icd_icons.xml")
 
 class Icon:
     

@@ -29,7 +29,7 @@
     tools:theme="@style/IcdStyle">
 
     <TextView
-        android:id="@+id/header_txv"
+        android:id="@+id/icd_header_txv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="?attr/icdListStickyHeaderStyle"

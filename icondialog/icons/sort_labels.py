@@ -5,7 +5,7 @@ from xml.etree import ElementTree
 # This script sort a XML label file alphabetically
 
 current_path = os.getcwd()
-labels_file = os.path.join(current_path, "..\\src\\main\\res\\xml-pt\\icd_labels.xml")
+labels_file = os.path.join(current_path, "..\\src\\main\\res\\xml-fr\\icd_labels.xml")
         
 class Label:
 
@@ -40,7 +40,7 @@ def main():
 
     label_list.sort()
     
-    xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<list>\n\n"
+    xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!--@formatter:off-->\n<list>\n\n"
     for label in label_list:
         xml += "    <label name=\"" + label.name + "\">" + label.body + "</label>\n"
     xml += "\n</list>"

@@ -87,28 +87,6 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(state);
         setContentView(R.layout.activity_main);
 
-        if (state != null) {
-            extraIconsLoaded = state.getBoolean("extraIconsLoaded");
-        }
-
-        // Parse all icons and labels XML at start; takes 200-400 ms
-        long time = System.nanoTime();
-        final IconHelper iconHelper = IconHelper.getInstance(this);
-        if (extraIconsLoaded) {
-            iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
-        }
-        Toast.makeText(this, MessageFormat.format(getString(R.string.load_time_fmt),
-                ((System.nanoTime() - time) / 1000000.0)), Toast.LENGTH_SHORT).show();
-
-        // Register listener for locale change to reload labels
-        localeReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                iconHelper.reloadLabels();
-            }
-        };
-        registerReceiver(localeReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
-
         final IconDialog iconDialog = new IconDialog();
 
         final SingleChoiceDialog visbDialog = new SingleChoiceDialog();
@@ -117,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements
         Button openBtn = findViewById(R.id.btn_open);
         final Button addExtraBtn = findViewById(R.id.btn_add_extra);
         final TextView iconCountTxv = findViewById(R.id.txv_icon_count);
-        RecyclerView selListRcv = findViewById(R.id.rcv_selected_icons);
+        final RecyclerView selListRcv = findViewById(R.id.rcv_selected_icons);
         selNoneTxv = findViewById(R.id.txv_none_selected);
         final CheckBox maxSelCkb = findViewById(R.id.ckb_max_sel);
         final EditText maxSelEdt = findViewById(R.id.edt_max_sel);
@@ -170,30 +148,6 @@ public class MainActivity extends AppCompatActivity implements
                 iconDialog.show(getSupportFragmentManager(), "icon_dialog");
             }
         });
-
-        addExtraBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                extraIconsLoaded = true;
-                addExtraBtn.setEnabled(false);
-
-                // Load extra icons
-                long time = System.nanoTime();
-                iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
-                Toast.makeText(MainActivity.this, MessageFormat.format(getString(R.string.load_time_fmt),
-                        ((System.nanoTime() - time) / 1000000.0)), Toast.LENGTH_SHORT).show();
-
-                iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
-            }
-        });
-        addExtraBtn.setEnabled(!extraIconsLoaded);
-
-        iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
-
-        iconAdapter = new IconAdapter();
-        selListRcv.setAdapter(iconAdapter);
-        selListRcv.setLayoutManager(new LinearLayoutManager(
-                this, LinearLayoutManager.HORIZONTAL, false));
 
         showHeadersCkb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -257,21 +211,67 @@ public class MainActivity extends AppCompatActivity implements
             setDisabledCategories(0);
 
             selectedIconIds = new int[0];
-            selectedIcons = new Icon[0];
 
         } else {
             setSearchVisb(state.getInt("searchVisb"));
             setTitleVisb(state.getInt("titleVisb"));
             setDisabledCategories(state.getInt("disabledCatg"));
 
+            extraIconsLoaded = state.getBoolean("extraIconsLoaded");
             selectedIconIds = state.getIntArray("selectedIconIds");
-            selectedIcons = new Icon[selectedIconIds.length];
-            for (int i = 0; i < selectedIcons.length; i++) {
-                selectedIcons[i] = iconHelper.getIcon(selectedIconIds[i]);
-            }
         }
 
-        selectIcons();
+        // Load icons and labels
+        final IconHelper iconHelper = IconHelper.getInstance(this);
+        if (extraIconsLoaded) {
+            iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
+        }
+
+        iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
+            @Override
+            public void onDataLoaded() {
+                selectedIcons = new Icon[selectedIconIds.length];
+                for (int i = 0; i < selectedIcons.length; i++) {
+                    selectedIcons[i] = iconHelper.getIcon(selectedIconIds[i]);
+                }
+
+                iconAdapter = new IconAdapter();
+                selListRcv.setAdapter(iconAdapter);
+                selListRcv.setLayoutManager(new LinearLayoutManager(
+                        MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+
+                iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
+
+                addExtraBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        extraIconsLoaded = true;
+                        addExtraBtn.setEnabled(false);
+
+                        // Load extra icons
+                        iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
+                        iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
+                            @Override
+                            public void onDataLoaded() {
+                                iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
+                            }
+                        });
+                    }
+                });
+                addExtraBtn.setEnabled(!extraIconsLoaded);
+
+                selectIcons();
+            }
+        });
+
+        // Register listener for locale change to reload labels
+        localeReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                iconHelper.reloadLabels();
+            }
+        };
+        registerReceiver(localeReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
     }
 
     @Override
