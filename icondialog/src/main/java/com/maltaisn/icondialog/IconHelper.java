@@ -139,6 +139,13 @@ public class IconHelper {
     }
 
     /**
+     * @return true if data is loaded, false if not loaded, i.e currently loading icons or labels
+     */
+    public boolean isDataLoaded() {
+        return dataLoaded;
+    }
+
+    /**
      * Get an icon
      * @param id id of the icon
      * @return the icon, null if it doesn't exist or if data isn't loaded
