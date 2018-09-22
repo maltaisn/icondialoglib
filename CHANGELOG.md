@@ -1,3 +1,7 @@
+### v2.0.1
+- Fixed library dependencies not being added to the project
+- Removed unused dependencies
+
 ## v2.0.0
 - Breaking change: IconHelper data is now loaded asynchronously (was previously loaded on the UI thread and it took 200 - 600 ms). If trying to get icon, label or category before data is loaded, null will be returned.
 When data is loaded (after the initial call to `getInstance`, `addExtraIcons` or `reloadLabels`), all `LoadCallback`s attached with `addLoadCallback` will be called. If a callback is attached when data is already loaded, it is automatically called. A callback is removed after being called once. To avoid NPEs, do not use any `get` method if you are unsure whether data is loaded or not.
