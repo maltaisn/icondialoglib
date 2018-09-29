@@ -114,11 +114,11 @@ public class IconHelper {
                     extraIconsLoadPending = false;
                     loadExtraIcons();
                 }
+                dataLoaded = true;
             }
         }, new TaskExecutor.Callback() {
             @Override
             public void onDone() {
-                dataLoaded = true;
                 callLoadCallbacks();
             }
         });

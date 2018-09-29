@@ -46,4 +46,8 @@ public class Category {
         return context.getString(nameResId);
     }
 
+    @Override
+    public String toString() {
+        return "Category " + id;
+    }
 }

@@ -1,3 +1,6 @@
+### v2.0.2
+- `dataChanged` field is now updated asynchronously in IconHelper
+
 ### v2.0.1
 - Fixed library dependencies not being added to the project
 - Removed unused dependencies

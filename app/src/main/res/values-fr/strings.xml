@@ -33,7 +33,7 @@
     <string-array name="option_title_visibility">
         <item>Toujours</item>
         <item>Jamais</item>
-        <item>Si la recherche n'est pas visible</item>
+        <item>Si la recherche n\'est pas visible</item>
     </string-array>
 
     <string name="dialog_disabled_catg">Catégories désactivées</string>

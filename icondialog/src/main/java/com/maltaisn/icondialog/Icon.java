@@ -235,7 +235,6 @@ public class Icon {
 
     @Override
     public String toString() {
-        return "[id=" + String.valueOf(id) + ", category=" + String.valueOf(category)
-                + ", " + String.valueOf(labels.length) + " labels]";
+        return "[id=" + id + ", category=" + category.id + ", " + labels.length + " labels]";
     }
 }
