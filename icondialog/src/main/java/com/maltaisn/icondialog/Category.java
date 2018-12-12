@@ -23,7 +23,7 @@ package com.maltaisn.icondialog;
 
 
 import android.content.Context;
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 /**
  * Simple class that define a category

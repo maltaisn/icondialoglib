@@ -25,15 +25,15 @@ ext {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
 
         versionCode libraryVersionCode
         versionName libraryVersion
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // A new entry to this array must be added for every new search translation!
         // The array is used by the dialog to know which languages are available for search
@@ -54,12 +54,11 @@ android {
 
 dependencies {
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test:runner:1.1.1-beta01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1-beta01'
 
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
 }
 
 apply from: 'maven-install.gradle'

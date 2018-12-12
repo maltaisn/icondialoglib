@@ -22,7 +22,7 @@
 package com.maltaisn.icondialog;
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Defines a label value made of a normal string and a normalized string

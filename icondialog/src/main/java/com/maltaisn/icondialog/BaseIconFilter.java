@@ -22,8 +22,8 @@
 package com.maltaisn.icondialog;
 
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.Nullable;
+import androidx.annotation.CallSuper;
+import androidx.annotation.Nullable;
 import android.util.SparseArray;
 
 import java.util.ArrayList;
