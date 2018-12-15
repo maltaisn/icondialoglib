@@ -1,6 +1,7 @@
 import bisect
 import os
 import xml.etree.ElementTree
+import sys
 
 # This script checks for errors in XML files
 # -> icons.xml
@@ -25,6 +26,7 @@ import xml.etree.ElementTree
 #
 # IMPORTANT: Script made hastily, may not work as expected
 
+os.chdir(sys.path[0])
 current_path = os.getcwd()
 default_label_path = os.path.join(current_path, "..\\src\\main\\res\\xml") 
 default_label_file = "icd_labels.xml"

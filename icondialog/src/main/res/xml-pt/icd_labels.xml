@@ -21,6 +21,7 @@
     <label name="ampersand">Ampersand</label>
     <label name="amplifier">Amplificador</label>
     <label name="angle">Ângulo</label>
+    <label name="angry">Zangado</label>
     <label name="animal">Animal</label>
     <label name="anvil">Bigorna</label>
     <label name="apple">Maçã</label>
@@ -52,13 +53,16 @@
     <label name="bank">Banco</label>
     <label name="barcode">Código de barras</label>
     <label name="barley">Ramo</label>
+    <label name="barn">Celeiro</label>
     <label name="barrel">
         <alias>Barril</alias>
         <alias>Óleo</alias>
     </label>
     <label name="baseball">Baseball</label>
     <label name="baseball_bat">Bastão de baseball</label>
-    <label name="basket">Basquete</label>
+    <label name="basket">Cesto</label>
+    <label name="basketball">Basquetebol</label>
+    <label name="basketball_hoop">Cesto de basquetebol</label>
     <label name="bath">Banho</label>
     <label name="battery">Batería</label>
     <label name="bauble">Bola</label>
@@ -121,6 +125,7 @@
     <label name="buddhism">Leme</label>
     <label name="buggy">Carrinho</label>
     <label name="building">Prédio</label>
+    <label name="bulldozer">Buldôzer</label>
     <label name="bulletin_board">
         <alias>Marcação</alias>
         <alias>Quadro</alias>
@@ -268,6 +273,7 @@
         <alias>@label/location</alias>
     </label>
     <label name="crown">Coroa</label>
+    <label name="cry">Chorar</label>
     <label name="cryptocurrency">Cryptomoeda</label>
     <label name="cube">Cubo</label>
     <label name="cup">Copo</label>
@@ -426,6 +432,7 @@
     </label>
     <label name="fahrenheit">Fahrenheit</label>
     <label name="fan">Ventilador</label>
+    <label name="farm">Fazenda</label>
     <label name="fast">Rápido</label>
     <label name="fastfood">Fastfood</label>
     <label name="faucet">Torneira</label>
@@ -478,6 +485,7 @@
     <label name="forklift">Empilhadeira</label>
     <label name="form">Formulários</label>
     <label name="format">Formato</label>
+    <label name="fortuneteller">Cartomante</label>
     <label name="forum">Fórum</label>
     <label name="fountain">Fonte</label>
     <label name="frame">Quadro</label>
@@ -566,6 +574,7 @@
     <label name="hidden">Escondido</label>
     <label name="hierarchy">Hierarquia</label>
     <label name="high">Alto</label>
+    <label name="high_heel">Salto alto</label>
     <label name="highlighter">Marcador</label>
     <label name="highway">Rodovia</label>
     <label name="hinduism">Hinduísmo</label>
@@ -629,6 +638,10 @@
     <label name="keyboard">@label/dial</label>
     <label name="kg">KG</label>
     <label name="king">Rei</label>
+    <label name="kiss">
+        <alias>Beijar</alias>
+        <alias>Beijo</alias>
+    </label>
     <label name="knife">Faca</label>
     <label name="label">Etiqueta</label>
     <label name="ladybug">Joaninha</label>
@@ -691,6 +704,7 @@
     <label name="mallet">Marreta</label>
     <label name="man">Homem</label>
     <label name="map">Mapa</label>
+    <label name="maple">Bordo</label>
     <label name="martial_arts">Artes marciais</label>
     <label name="martini">Martini</label>
     <label name="mask">Máscara</label>
@@ -708,6 +722,7 @@
     <label name="math_subtraction">Subtração</label>
     <label name="meal">Refeição</label>
     <label name="measurement">Medição</label>
+    <label name="measuring_tape">Fita métrica</label>
     <label name="medal">Medalha</label>
     <label name="media">Mídia</label>
     <label name="media_fast_forward">Avanço rápido</label>
@@ -811,6 +826,7 @@
     <label name="panorama">Panorama</label>
     <label name="paper">Papel</label>
     <label name="paperclip">Clip</label>
+    <label name="parachute">Pára-quedas</label>
     <label name="parentheses">Parenteses</label>
     <label name="park">Parque</label>
     <label name="parking">Estacionamento</label>
@@ -1010,6 +1026,7 @@
         <alias>Pesquisar</alias>
     </label>
     <label name="seat">Assento</label>
+    <label name="seatbelt">Cinto de segurança</label>
     <label name="security">Segurança</label>
     <label name="select">Selecionar</label>
     <label name="send">Enviar</label>
@@ -1021,10 +1038,15 @@
     </label>
     <label name="shape">Forma</label>
     <label name="share">Compartilhar</label>
+    <label name="sheep">Ovelha</label>
     <label name="sheet_music">Partitura</label>
     <label name="shield">Escudo</label>
     <label name="ship">Navio</label>
     <label name="ship_anchor">Âncora</label>
+    <label name="shoe">
+        <alias>Sapato</alias>
+        <alias>Calçado</alias>
+    </label>
     <label name="shopping">Compras</label>
     <label name="shovel">Pá</label>
     <label name="shower">Chuveiro</label>
@@ -1118,6 +1140,7 @@
     <label name="teach">Professor</label>
     <label name="teapot">Bule</label>
     <label name="technology">Tecnologia</label>
+    <label name="telescope">Telescópio</label>
     <label name="television">
         <alias>Televisão</alias>
         <alias>TV</alias>
@@ -1271,6 +1294,7 @@
     <label name="windmill">Moinho de vento</label>
     <label name="window">Janela</label>
     <label name="wine">Vinho</label>
+    <label name="wink">Piscar</label>
     <label name="winter">Inverno</label>
     <label name="wireless">
         <alias>Wireless</alias>

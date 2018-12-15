@@ -1,11 +1,13 @@
 import os
 import codecs
+import sys
 from xml.etree import ElementTree
 
 # This script sort a XML label file alphabetically
 
+os.chdir(sys.path[0])
 current_path = os.getcwd()
-labels_file = os.path.join(current_path, "..\\src\\main\\res\\xml-fr\\icd_labels.xml")
+labels_file = os.path.join(current_path, "..\\src\\main\\res\\xml-pt\\icd_labels.xml")
         
 class Label:
 

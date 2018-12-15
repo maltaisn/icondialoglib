@@ -1,3 +1,11 @@
+## v2.1.0
+- Migrated to AndroidX
+- Selecting an icon with keyboard open after search now closes it.
+
+- Updated 8 icons: emoticon-tongue (15), network-access (187), home-insurance (298), bread-slice (407), bullhorn (577), tortoise (616), turtle (617), link (827).
+- Added 18 icons: barn, basketball-hoop, parachute, bulldozer, seatbelt, chat-round, crystal-ball, emoticon-angry, emoticon-cry, emoticon-kiss, emoticon-wink, shoe-formal, shoe-heel, fountain-pen, maple-leaf, sheep, measuring-tape, telescope.
+- Added 19 labels.
+
 ### v2.0.2
 - `dataChanged` field is now updated asynchronously in IconHelper
 
