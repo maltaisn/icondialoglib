@@ -282,7 +282,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onSaveInstanceState(Bundle state) {
+    public void onSaveInstanceState(@NonNull Bundle state) {
         super.onSaveInstanceState(state);
 
         state.putInt("searchVisb", searchVisb);

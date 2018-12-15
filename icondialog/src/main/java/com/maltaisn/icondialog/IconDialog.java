@@ -93,6 +93,7 @@ public class IconDialog extends DialogFragment {
     private IconHelper iconHelper;
 
     private IconLayoutManager iconListLayout;
+    private EditText searchEdt;
     private Button selectBtn;
     private Button clearBtn;
 
@@ -188,12 +189,12 @@ public class IconDialog extends DialogFragment {
         final View view = inflater.inflate(R.layout.icd_dialog_icon, null);
 
         final TextView titleTxv = view.findViewById(R.id.icd_txv_title);
-        final EditText searchEdt = view.findViewById(R.id.icd_edt_search);
         final ImageView searchImv = view.findViewById(R.id.icd_imv_search);
         final ImageView cancelSearchImv = view.findViewById(R.id.icd_imv_cancel_search);
         final RecyclerView iconListRcv = view.findViewById(R.id.icd_rcv_icon_list);
         final TextView noResultTxv = view.findViewById(R.id.icd_txv_no_result);
         final Button cancelBtn = view.findViewById(R.id.icd_btn_cancel);
+        searchEdt = view.findViewById(R.id.icd_edt_search);
         selectBtn = view.findViewById(R.id.icd_btn_select);
         clearBtn = view.findViewById(R.id.icd_btn_clear);
 
@@ -329,12 +330,7 @@ public class IconDialog extends DialogFragment {
                     @Override
                     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                            // Hide keyboard
-                            searchEdt.clearFocus();
-                            InputMethodManager imm = (InputMethodManager) context
-                                    .getSystemService(Context.INPUT_METHOD_SERVICE);
-                            //noinspection ConstantConditions
-                            imm.hideSoftInputFromWindow(searchEdt.getWindowToken(), 0);
+                            hideKeyboard();
 
                             // Do search
                             searchHandler.removeCallbacks(searchRunnable);
@@ -351,7 +347,7 @@ public class IconDialog extends DialogFragment {
                     @Override
                     public void onClick(View v) {
                         // Unselect all selected icons
-                        int[] pos = getItemsPosition(selectedItems.toArray(new Item[selectedItems.size()]));
+                        int[] pos = getItemsPosition(selectedItems.toArray(new Item[0]));
                         for (int p : pos) {
                             listItems.get(p).isSelected = false;
                             adapter.notifyItemChanged(p);
@@ -422,7 +418,7 @@ public class IconDialog extends DialogFragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle state) {
+    public void onSaveInstanceState(@NonNull Bundle state) {
         super.onSaveInstanceState(state);
 
         state.putParcelable("listLayoutState", iconListLayout.onSaveInstanceState());
@@ -439,7 +435,7 @@ public class IconDialog extends DialogFragment {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
         // Wrap icon dialog's theme to context
@@ -458,11 +454,21 @@ public class IconDialog extends DialogFragment {
     }
 
     @Override
-    public void onDismiss(DialogInterface dialog) {
+    public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
 
         searchText = null;
         selectedItems = new ArrayList<>();
+    }
+
+    private void hideKeyboard() {
+        if (searchEdt.hasFocus()) {
+            // Hide keyboard
+            searchEdt.clearFocus();
+            InputMethodManager imm = (InputMethodManager) context
+                    .getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(searchEdt.getWindowToken(), 0);
+        }
     }
 
     private void callSelectCallback() {
@@ -503,6 +509,7 @@ public class IconDialog extends DialogFragment {
             if (maxSelection != MAX_SELECTION_NONE && selectedIconsId.length > maxSelection) {
                 // Truncate too big initial selection
                 selectedIconsId = Arrays.copyOf(selectedIconsId, maxSelection);
+                assert selectedIconsId != null;
             }
 
             int selectedIndex = 0;
@@ -525,6 +532,7 @@ public class IconDialog extends DialogFragment {
             Collections.sort(selectedItems, new Comparator<Item>() {
                 @Override
                 public int compare(Item i1, Item i2) {
+                    //noinspection ConstantConditions
                     return Integer.compare(i1.icon.id, i2.icon.id);
                 }
             });
@@ -878,6 +886,9 @@ public class IconDialog extends DialogFragment {
                         if (iconDrw == null) {
                             return;  // Can't select unavailable icon
                         }
+
+                        // If keyboard was shown from search, hide it.
+                        hideKeyboard();
 
                         // Icon clicked, select it
                         if (showSelectBtn) {

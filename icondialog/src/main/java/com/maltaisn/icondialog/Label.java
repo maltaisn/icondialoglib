@@ -28,8 +28,6 @@ import java.util.List;
 
 public class Label implements Comparable<Object> {
 
-    private static final String TAG = Label.class.getSimpleName();
-
     final String name;
     @Nullable LabelValue value;
     @Nullable List<LabelValue> aliases;
@@ -83,7 +81,7 @@ public class Label implements Comparable<Object> {
      *         string array of aliases otherwise
      */
     public @Nullable LabelValue[] getAliases() {
-        return aliases == null ? null : aliases.toArray(new LabelValue[aliases.size()]);
+        return aliases == null ? null : aliases.toArray(new LabelValue[0]);
     }
 
     /**
@@ -108,6 +106,7 @@ public class Label implements Comparable<Object> {
         return this.name.compareTo(name);
     }
 
+    @NonNull
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

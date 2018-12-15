@@ -23,6 +23,8 @@ package com.maltaisn.icondialog;
 
 
 import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
 /**
@@ -46,6 +48,7 @@ public class Category {
         return context.getString(nameResId);
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Category " + id;

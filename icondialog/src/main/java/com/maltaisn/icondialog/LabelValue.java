@@ -46,6 +46,7 @@ public class LabelValue {
         return normValue;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return value;

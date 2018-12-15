@@ -45,13 +45,15 @@ class StickyHeaderDecoration extends RecyclerView.ItemDecoration {
         stickyHeaderImpl = impl;
 
         parent.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView,
+                                                 @NonNull MotionEvent motionEvent) {
                 // Intercept click if it's on sticky header, doesn't intercept scrolling event
                 return motionEvent.getAction() == MotionEvent.ACTION_DOWN
                         && motionEvent.getY() <= stickyHeaderHeight;
             }
 
-            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {}
+            public void onTouchEvent(@NonNull RecyclerView recyclerView,
+                                     @NonNull MotionEvent motionEvent) {}
 
             public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {}
         });
@@ -60,8 +62,9 @@ class StickyHeaderDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
-        super.onDrawOver(c, parent, state);
+    public void onDrawOver(@NonNull Canvas canvas, @NonNull RecyclerView parent,
+                           @NonNull RecyclerView.State state) {
+        super.onDrawOver(canvas, parent, state);
 
         View topChild = parent.getChildAt(0);
         if (topChild == null) {
@@ -87,19 +90,19 @@ class StickyHeaderDecoration extends RecyclerView.ItemDecoration {
                 }
 
                 // If item in contact is another header, draw translated header to create push effect
-                c.save();
-                c.translate(0, childInContact.getTop() - headerViewHolder.itemView.getHeight());
-                headerViewHolder.itemView.draw(c);
-                c.restore();
+                canvas.save();
+                canvas.translate(0, childInContact.getTop() - headerViewHolder.itemView.getHeight());
+                headerViewHolder.itemView.draw(canvas);
+                canvas.restore();
                 return;
             }
         }
 
         // Draw header on top
-        c.save();
-        c.translate(0, 0);
-        headerViewHolder.itemView.draw(c);
-        c.restore();
+        canvas.save();
+        canvas.translate(0, 0);
+        headerViewHolder.itemView.draw(canvas);
+        canvas.restore();
     }
 
     private void setHeaderViewHolder(int position, View parent) {

@@ -32,7 +32,6 @@ import java.util.List;
  * Can be subclassed to provide custom implementation of {@link #matchesSearch(String[], LabelValue)},
  * used for matching search terms with icon labels.
  */
-@SuppressWarnings({"WeakerAccess", "unused"})
 public class IconFilter extends BaseIconFilter {
 
     private static final String TAG = IconFilter.class.getSimpleName();

@@ -33,7 +33,7 @@ class IconLayoutManager extends GridLayoutManager {
     private int iconSize;
 
     IconLayoutManager(Context context, int iconSize) {
-        super(context, -1, GridLayoutManager.VERTICAL, false);
+        super(context, -1, RecyclerView.VERTICAL, false);
         this.iconSize = iconSize;
     }
 

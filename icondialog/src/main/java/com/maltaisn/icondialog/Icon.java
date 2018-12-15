@@ -233,6 +233,7 @@ public class Icon {
         return bb.array();
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "[id=" + id + ", category=" + category.id + ", " + labels.length + " labels]";

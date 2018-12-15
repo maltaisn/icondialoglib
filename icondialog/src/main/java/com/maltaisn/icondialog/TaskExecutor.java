@@ -19,7 +19,7 @@ class TaskExecutor {
      * @param r runnable task
      * @param cb callback to call when done
      */
-    public void execute(final Runnable r, @Nullable final Callback cb) {
+    void execute(final Runnable r, @Nullable final Callback cb) {
         isRunning = true;
         backgroundThread = new Thread("taskExecutor") {
             @Override
@@ -39,18 +39,18 @@ class TaskExecutor {
         backgroundThread.start();
     }
 
-    public void interrupt() {
+    void interrupt() {
         if (backgroundThread != null && backgroundThread.isAlive()) {
             backgroundThread.interrupt();
         }
         isRunning = false;
     }
 
-    public boolean isRunning() {
+    boolean isRunning() {
         return isRunning;
     }
 
-    public interface Callback {
+    interface Callback {
         void onDone();
     }
 
