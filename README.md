@@ -8,6 +8,8 @@ All icons are SVG files from which only the path was kept, which allow for a ver
 
 Replace `X.Y.Z` with lastest version number: [ ![Download](https://api.bintray.com/packages/maltaisn/icon-dialog/icon-dialog/images/download.svg) ](https://bintray.com/maltaisn/icon-dialog/icon-dialog/_latestVersion)
 
+If you haven't migrated to AndroidX, use version 2.0.2. Versions 2.1.0 and up use AndroidX.
+
 Minimum API is [21](https://twitter.com/minSdkVersion/status/988538738639765505), and older APIs will never be supported.
 
 ## Tutorial
