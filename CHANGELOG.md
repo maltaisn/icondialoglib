@@ -1,3 +1,7 @@
+## v2.2.0
+- Support for API 19
+- German translation
+
 ## v2.1.0
 - Migrated to AndroidX
 - Selecting an icon with keyboard open after search now closes it.
