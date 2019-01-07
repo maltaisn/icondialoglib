@@ -1,0 +1,32 @@
+<resources>
+
+    <string name="icd_title">Icons auswählen</string>
+    <string name="icd_search_hint">Icons suchen</string>
+    <string name="icd_action_clear">Auswahl löschen</string>
+    <string name="icd_action_select">Auswählen</string>
+    <string name="icd_action_cancel">Abbrechen</string>
+    <string name="icd_no_result">Für diesen Suchbegriff wurden keine Icons gefunden</string>
+    <string name="icd_max_sel_message">Die maximale Anzahl an Icons wurde ausgewählt</string>
+
+    <!-- CATEGORY NAMES -->
+    <string name="icd_category_people">Familie und Menschen</string>
+    <string name="icd_category_home">Wohnen und Leben</string>
+    <string name="icd_category_technology">Technik</string>
+    <string name="icd_category_finance">Finanzen und Shopping</string>
+    <string name="icd_category_leisure">Freizeit</string>
+    <string name="icd_category_transport">Verkehr und Reisen</string>
+    <string name="icd_category_food">Nahrungsmittel</string>
+    <string name="icd_category_buildings">Orte und Gebäude</string>
+    <string name="icd_category_arts">Kultur</string>
+    <string name="icd_category_sports">Sport</string>
+    <string name="icd_category_audio">Musik und Audio</string>
+    <string name="icd_category_photo_video">Foto und Video</string>
+    <string name="icd_category_nature">Natur und Tiere</string>
+    <string name="icd_category_science">Wissenschaft</string>
+    <string name="icd_category_time">Zeit</string>
+    <string name="icd_category_tools">Tools</string>
+    <string name="icd_category_computer">Computer</string>
+    <string name="icd_category_arrows">Pfeile</string>
+    <string name="icd_category_symbols">Symbole</string>
+
+</resources>
