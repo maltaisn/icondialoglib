@@ -79,7 +79,7 @@
     </style>
 
     <public name="IcdButtonStyle" type="style"/>
-    <style name="IcdButtonStyle" parent="Base.Widget.AppCompat.Button.ButtonBar.AlertDialog">
+    <style name="IcdButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <!-- Nothing -->
     </style>
 
