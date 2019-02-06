@@ -1,6 +1,7 @@
 ## v2.3.0
 - Added dismiss listener.
 - Improved nullity annotations for Kotlin.
+- Updated 1 icon: wind-turbine (251).
 
 ## v2.2.0
 - Support for API 19
