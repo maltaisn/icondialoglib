@@ -129,7 +129,8 @@
             app:layout_constraintStart_toEndOf="@id/ckb_max_sel"
             app:layout_constraintTop_toBottomOf="@+id/ckb_show_clear_btn"
             tools:text="1"
-            tools:ignore="LabelFor"/>
+            tools:ignore="Autofill,LabelFor"
+            />
 
         <CheckBox
             android:id="@+id/ckb_max_sel_message"
@@ -166,7 +167,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txv_search_visb"
             app:layout_constraintTop_toBottomOf="@+id/ckb_max_sel_message"
-            tools:text="If language available"/>
+            tools:text="If language available"
+            tools:ignore="Autofill"
+            />
 
         <TextView
             android:id="@+id/txv_title_visb"
@@ -196,7 +199,9 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/txv_title_visb"
             app:layout_constraintTop_toBottomOf="@+id/edt_search_visb"
-            tools:text="If search not available"/>
+            tools:text="If search not available"
+            tools:ignore="Autofill"
+            />
 
         <TextView
             android:id="@+id/txv_disabled_catg"
@@ -226,7 +231,9 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/txv_disabled_catg"
             app:layout_constraintTop_toBottomOf="@+id/edt_title_visb"
-            tools:text="No categories"/>
+            tools:text="No categories"
+            tools:ignore="Autofill"
+            />
 
         <Button
             android:id="@+id/btn_add_extra"

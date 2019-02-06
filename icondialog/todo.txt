@@ -1,1 +1,3 @@
-replace allow multiple selection with setmaxselectionsize
+- Remove setRetainInstance, use MVP instead (like calcdialog)
+- Use enums instead of intdefs, enums can be serialized to bundle.
+- taskexecutor is likely somewhat bad practice.

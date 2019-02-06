@@ -30,6 +30,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -52,7 +54,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity implements
-        IconDialog.Callback, SingleChoiceDialog.Callback, MultiChoiceDialog.Callback {
+        IconDialog.Callback, IconDialog.DismissCallback,
+        SingleChoiceDialog.Callback, MultiChoiceDialog.Callback {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -293,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onIconDialogIconsSelected(Icon[] icons) {
+    public void onIconDialogIconsSelected(@NonNull Icon[] icons) {
         // Sort selected icons by ID
         Arrays.sort(icons, new Comparator<Icon>() {
             @Override
@@ -309,6 +312,11 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         selectIcons();
+    }
+
+    @Override
+    public void onIconDialogDismissed() {
+        // Nothing to do
     }
 
     @Override

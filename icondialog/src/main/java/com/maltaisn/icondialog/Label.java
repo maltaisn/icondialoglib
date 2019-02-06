@@ -21,14 +21,14 @@
 
 package com.maltaisn.icondialog;
 
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.List;
-
 public class Label implements Comparable<Object> {
 
-    final String name;
+    @NonNull final String name;
     @Nullable LabelValue value;
     @Nullable List<LabelValue> aliases;
 
@@ -36,13 +36,13 @@ public class Label implements Comparable<Object> {
 
     /**
      * Create new label
-     * @param name name of the label
-     * @param value label value. Can be null if there are aliases
-     *              or if label is a group label
+     * @param name    name of the label
+     * @param value   label value. Can be null if there are aliases
+     *                or if label is a group label
      * @param aliases alias values. Can be null if there are no aliases
      *                or if label is a group label
      */
-    Label(String name, @Nullable LabelValue value, @Nullable List<LabelValue> aliases) {
+    Label(@NonNull String name, @Nullable LabelValue value, @Nullable List<LabelValue> aliases) {
         this.name = name;
         this.value = value;
         this.aliases = aliases;
@@ -50,7 +50,7 @@ public class Label implements Comparable<Object> {
 
     /**
      * Overwrite label. Overwritten values can still be found with {@link Label#overwritten}
-     * @param value new value
+     * @param value   new value
      * @param aliases new aliases
      */
     void overwrite(@Nullable LabelValue value, @Nullable List<LabelValue> aliases) {
@@ -62,6 +62,7 @@ public class Label implements Comparable<Object> {
     /**
      * @return the label name, not localized
      */
+    @NonNull
     public String getName() {
         return name;
     }
@@ -69,18 +70,20 @@ public class Label implements Comparable<Object> {
     /**
      * Get label localized value
      * @return null if label has no value (group label or label has aliases)
-     *         otherwise return the value string
+     * otherwise return the value string
      */
-    public @Nullable LabelValue getValue() {
+    @Nullable
+    public LabelValue getValue() {
         return value;
     }
 
     /**
      * Get the localized alias values for this label
      * @return null if label has no aliases
-     *         string array of aliases otherwise
+     * string array of aliases otherwise
      */
-    public @Nullable LabelValue[] getAliases() {
+    @Nullable
+    public LabelValue[] getAliases() {
         return aliases == null ? null : aliases.toArray(new LabelValue[0]);
     }
 
@@ -88,7 +91,8 @@ public class Label implements Comparable<Object> {
      * @return If extra icons are defined and this label has been overwritten, get a label object
      * containing the data of the overwritten label. Otherwise null.
      */
-    public @Nullable Label getOverwrittenLabel() {
+    @Nullable
+    public Label getOverwrittenLabel() {
         return overwritten;
     }
 

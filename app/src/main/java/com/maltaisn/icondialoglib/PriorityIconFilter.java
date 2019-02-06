@@ -25,12 +25,14 @@ package com.maltaisn.icondialoglib;
 import com.maltaisn.icondialog.Icon;
 import com.maltaisn.icondialog.IconFilter;
 
+import androidx.annotation.NonNull;
+
 public class PriorityIconFilter extends IconFilter {
 
     private static final int CUSTOM_CATEGORY_ID = 100;
 
     @Override
-    public int compare(Icon icon1, Icon icon2) {
+    public int compare(@NonNull Icon icon1, @NonNull Icon icon2) {
         int categoryId1 = icon1.getCategory().getId();
         int categoryId2 = icon2.getCategory().getId();
         if (categoryId1 == CUSTOM_CATEGORY_ID && categoryId2 != CUSTOM_CATEGORY_ID) {

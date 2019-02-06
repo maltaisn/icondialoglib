@@ -23,6 +23,7 @@ package com.maltaisn.icondialog;
 
 
 import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.util.SparseArray;
 
@@ -63,6 +64,7 @@ public abstract class BaseIconFilter implements Comparator<Icon> {
      *         from the list returned by BaseIconFilter to keep the sorted order.
      */
     @CallSuper
+    @NonNull
     public List<Icon> getIconsForSearch(@Nullable String search) {
         if (iconHelper == null) {
             throw new IllegalStateException("Icon helper was not set for icon filter.");
@@ -92,7 +94,7 @@ public abstract class BaseIconFilter implements Comparator<Icon> {
      * @return -1 to show icon1 before icon2, otherwise 1
      */
     @Override
-    public int compare(Icon icon1, Icon icon2) {
+    public int compare(@NonNull Icon icon1, @NonNull Icon icon2) {
         int result = Integer.compare(icon1.category.id, icon2.category.id);
         if (result == 0) {
             int len1 = icon1.labels.length;

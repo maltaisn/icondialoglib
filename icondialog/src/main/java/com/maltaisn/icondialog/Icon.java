@@ -26,6 +26,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -48,11 +49,10 @@ public class Icon {
 
     final int id;
     Label[] labels;
-    final Category category;
+    @NonNull final Category category;
 
-    final byte[] pathData;
-
-    Drawable drawable;
+    @NonNull final byte[] pathData;
+    @Nullable Drawable drawable;
 
     /**
      * Create new icon
@@ -61,7 +61,7 @@ public class Icon {
      * @param labels array of labels
      * @param pathData icon path data, {@link String#getBytes()}
      */
-    Icon(int id, Category category, Label[] labels, byte[] pathData) {
+    Icon(int id, @NonNull Category category, Label[] labels, @NonNull byte[] pathData) {
         this.id = id;
         this.category = category;
         this.labels = labels;
@@ -80,6 +80,7 @@ public class Icon {
      * Get icon category.
      * @return the category object
      */
+    @NonNull
     public Category getCategory() {
         return category;
     }
@@ -88,6 +89,7 @@ public class Icon {
      * Get the labels of this icon
      * @return the array of labels
      */
+    @NonNull
     public Label[] getLabels() {
         return Arrays.copyOf(labels, labels.length);
     }

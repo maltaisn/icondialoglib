@@ -44,7 +44,8 @@ public class Category {
         return id;
     }
 
-    public String getName(Context context) {
+    @NonNull
+    public String getName(@NonNull Context context) {
         return context.getString(nameResId);
     }
 

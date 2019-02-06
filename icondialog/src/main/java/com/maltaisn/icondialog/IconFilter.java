@@ -22,6 +22,7 @@
 package com.maltaisn.icondialog;
 
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -87,6 +88,7 @@ public class IconFilter extends BaseIconFilter {
      * {@inheritDoc}
      */
     @Override
+    @NonNull
     public List<Icon> getIconsForSearch(@Nullable String search) {
         if (enabledIdSearch && search != null && search.startsWith("#")) {
             try {

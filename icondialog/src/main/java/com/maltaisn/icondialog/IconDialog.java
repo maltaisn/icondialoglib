@@ -461,6 +461,13 @@ public class IconDialog extends DialogFragment {
 
         searchText = null;
         selectedItems = new ArrayList<>();
+
+        // Call the dismiss callback.
+        try {
+            ((DismissCallback) getCaller()).onIconDialogDismissed();
+        } catch (ClassCastException e) {
+            // Callback interface is not implemented by caller
+        }
     }
 
     private void hideKeyboard() {
@@ -479,18 +486,22 @@ public class IconDialog extends DialogFragment {
             for (int i = 0; i < icons.length; i++) {
                 icons[i] = selectedItems.get(i).icon;
             }
-
-            if (getTargetFragment() != null) {
-                // Caller was a fragment
-                ((Callback) getTargetFragment()).onIconDialogIconsSelected(icons);
-            } else {
-                // Caller was an activity
-                //noinspection ConstantConditions
-                ((Callback) getActivity()).onIconDialogIconsSelected(icons);
-            }
-
+            ((Callback) getCaller()).onIconDialogIconsSelected(icons);
         } catch (ClassCastException e) {
             // Callback interface is not implemented by caller
+        }
+    }
+
+    private Object getCaller() {
+        if (getTargetFragment() != null) {
+            // Caller was a fragment that used setTargetFragment.
+            return getTargetFragment();
+        } else if (getParentFragment() != null) {
+            // Caller was a fragment using its child fragment manager.
+            return getParentFragment();
+        } else {
+            // Caller was an activity.
+            return getActivity();
         }
     }
 
@@ -560,6 +571,7 @@ public class IconDialog extends DialogFragment {
         Collections.sort(items, new Comparator<Item>() {
             @Override
             public int compare(Item i1, Item i2) {
+                assert i1.icon != null && i2.icon != null;
                 return iconFilter.compare(i1.icon, i2.icon);
             }
         });
@@ -1038,7 +1050,21 @@ public class IconDialog extends DialogFragment {
     }
 
     public interface Callback {
-        void onIconDialogIconsSelected(Icon[] icons);
+        /**
+         * Called on the target fragment, parent fragment or parent activity when
+         * icons are selected and user confirms the selection.
+         * @param icons selected icons, never null.
+         */
+        void onIconDialogIconsSelected(@NonNull Icon[] icons);
+    }
+
+    public interface DismissCallback {
+        /**
+         * Called when user dismissed the dialog.
+         * Called when clicked outside, when cancelled and when icons are selected
+         * (after {@link Callback#onIconDialogIconsSelected(Icon[])}).
+         */
+        void onIconDialogDismissed();
     }
 
 }

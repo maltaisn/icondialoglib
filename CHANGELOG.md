@@ -1,3 +1,7 @@
+## v2.3.0
+- Added dismiss listener.
+- Improved nullity annotations for Kotlin.
+
 ## v2.2.0
 - Support for API 19
 - German translation

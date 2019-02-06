@@ -30,18 +30,21 @@ import androidx.annotation.NonNull;
  */
 public class LabelValue {
 
-    final String value;
-    final String normValue;
+    @NonNull final String value;
+
+    @NonNull final String normValue;
 
     LabelValue(@NonNull String value, @NonNull String normValue) {
         this.value = value;
         this.normValue = normValue;
     }
 
+    @NonNull
     public String getValue() {
         return value;
     }
 
+    @NonNull
     public String getNormalizedValue() {
         return normValue;
     }

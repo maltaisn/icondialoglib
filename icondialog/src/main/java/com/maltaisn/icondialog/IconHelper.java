@@ -150,6 +150,7 @@ public class IconHelper {
      * @param id id of the icon
      * @return the icon, null if it doesn't exist or if data isn't loaded
      */
+    @Nullable
     public Icon getIcon(int id) {
         if (!dataLoaded) return null;
         return icons.get(id);
@@ -164,6 +165,7 @@ public class IconHelper {
      * @param name name of the label
      * @return the label, null if it doesn't exist or if data isn't loaded
      */
+    @Nullable
     public Label getLabel(String name) {
         if (!dataLoaded) return null;
 
@@ -188,6 +190,7 @@ public class IconHelper {
      * @param id id of the category
      * @return the category or null if it doesn't exist or if data isn't loaded
      */
+    @Nullable
     public Category getCategory(int id) {
         if (!dataLoaded) return null;
         return categories.get(id);
@@ -339,11 +342,13 @@ public class IconHelper {
                                 pathData = parent.pathData;
                             }  // else icon is missing attribute, error
                         }
+                        assert pathData != null;
 
                         Category iconCatg;
                         if (catgStr != null && category == null) {
                             iconCatg = categories.get(Integer.valueOf(catgStr));
                         } else {
+                            assert category != null;
                             iconCatg = category;
                         }
 
@@ -682,6 +687,10 @@ public class IconHelper {
     }
 
     public interface LoadCallback {
+        /**
+         * Called when icon data is done loading.
+         * All calls to get icons, labels and categories will return null before this is called.
+         */
         void onDataLoaded();
     }
 
