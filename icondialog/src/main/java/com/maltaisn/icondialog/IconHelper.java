@@ -309,7 +309,15 @@ public class IconHelper {
                         String idStr = parser.getAttributeValue(null, XML_ATTR_ID);
                         String nameStr = parser.getAttributeValue(null, XML_ATTR_NAME);
                         int id = Integer.valueOf(idStr);
-                        int resId = (nameStr == null ? 0 : Integer.valueOf(nameStr.substring(1)));
+                        int resId = 0;
+                        if (nameStr != null) {
+                            if (nameStr.startsWith("@string/")) {
+                                resId = context.getResources().getIdentifier(
+                                        nameStr.substring(8), "string", context.getPackageName());
+                            } else {
+                                resId = Integer.valueOf(nameStr.substring(1));
+                            }
+                        }
 
                         category = categories.get(id);
                         if (category == null) {
