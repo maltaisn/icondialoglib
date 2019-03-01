@@ -1,3 +1,6 @@
+### v2.3.1
+- Prevented ADB bug where category string references weren't changed to an ID.
+
 ## v2.3.0
 - Added dismiss listener.
 - Improved nullity annotations for Kotlin.

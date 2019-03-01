@@ -312,6 +312,8 @@ public class IconHelper {
                         int resId = 0;
                         if (nameStr != null) {
                             if (nameStr.startsWith("@string/")) {
+                                // There's an ADB bug where the string reference isn't changed to an ID.
+                                // This detects and prevents it.
                                 resId = context.getResources().getIdentifier(
                                         nameStr.substring(8), "string", context.getPackageName());
                             } else {
