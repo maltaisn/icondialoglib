@@ -24,9 +24,6 @@ package com.maltaisn.icondialog;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.XmlRes;
 import android.util.Log;
 import android.util.SparseArray;
 
@@ -38,6 +35,10 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.XmlRes;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class IconHelper {
@@ -55,25 +56,25 @@ public class IconHelper {
     private static final String XML_ATTR_PATH = "path";
     private static final String XML_ATTR_CATEGORY = "category";
 
-    public static final int CATEGORY_PEOPLE =     0;
-    public static final int CATEGORY_HOME =       1;
+    public static final int CATEGORY_PEOPLE = 0;
+    public static final int CATEGORY_HOME = 1;
     public static final int CATEGORY_TECHNOLOGY = 2;
-    public static final int CATEGORY_FINANCE =    3;
-    public static final int CATEGORY_LEISURE =    4;
-    public static final int CATEGORY_TRANSPORT =  5;
-    public static final int CATEGORY_FOOD =       6;
-    public static final int CATEGORY_BUILDINGS =  7;
-    public static final int CATEGORY_ARTS =       8;
-    public static final int CATEGORY_SPORTS =     9;
-    public static final int CATEGORY_AUDIO =      10;
-    public static final int CATEGORY_PHOTO =      11;
-    public static final int CATEGORY_NATURE =     12;
-    public static final int CATEGORY_SCIENCE =    13;
-    public static final int CATEGORY_TIME =       14;
-    public static final int CATEGORY_TOOLS =      15;
-    public static final int CATEGORY_COMPUTER =   16;
-    public static final int CATEGORY_ARROWS =     17;
-    public static final int CATEGORY_SYMBOLS =    18;
+    public static final int CATEGORY_FINANCE = 3;
+    public static final int CATEGORY_LEISURE = 4;
+    public static final int CATEGORY_TRANSPORT = 5;
+    public static final int CATEGORY_FOOD = 6;
+    public static final int CATEGORY_BUILDINGS = 7;
+    public static final int CATEGORY_ARTS = 8;
+    public static final int CATEGORY_SPORTS = 9;
+    public static final int CATEGORY_AUDIO = 10;
+    public static final int CATEGORY_PHOTO = 11;
+    public static final int CATEGORY_NATURE = 12;
+    public static final int CATEGORY_SCIENCE = 13;
+    public static final int CATEGORY_TIME = 14;
+    public static final int CATEGORY_TOOLS = 15;
+    public static final int CATEGORY_COMPUTER = 16;
+    public static final int CATEGORY_ARROWS = 17;
+    public static final int CATEGORY_SYMBOLS = 18;
 
     // Warning here is ignored see: http://stackoverflow.com/a/40235834/5288316
     @SuppressLint("StaticFieldLeak")
@@ -85,8 +86,10 @@ public class IconHelper {
     private List<Label> groupLabels;
     private SparseArray<Category> categories;
 
-    private @XmlRes int extraIconsXml;
-    private @XmlRes int extraLabelsXml;
+    private @XmlRes
+    int extraIconsXml;
+    private @XmlRes
+    int extraLabelsXml;
     private boolean extraIconsSet;
     private boolean extraIconsLoadPending;
 
@@ -128,6 +131,7 @@ public class IconHelper {
 
     /**
      * Get the instance of IconHelper
+     *
      * @param context any context
      * @return the instance
      */
@@ -147,6 +151,7 @@ public class IconHelper {
 
     /**
      * Get an icon
+     *
      * @param id id of the icon
      * @return the icon, null if it doesn't exist or if data isn't loaded
      */
@@ -162,6 +167,7 @@ public class IconHelper {
 
     /**
      * Get a label by name
+     *
      * @param name name of the label
      * @return the label, null if it doesn't exist or if data isn't loaded
      */
@@ -187,6 +193,7 @@ public class IconHelper {
 
     /**
      * Get a category
+     *
      * @param id id of the category
      * @return the category or null if it doesn't exist or if data isn't loaded
      */
@@ -198,7 +205,7 @@ public class IconHelper {
 
     /**
      * @return the number of loaded icons
-     *         Returns 0 if data is not loaded
+     * Returns 0 if data is not loaded
      */
     public int getIconCount() {
         if (!dataLoaded) return 0;
@@ -209,7 +216,8 @@ public class IconHelper {
      * Add extra icons for the dialog.
      * This can only be called once, subsequent calls will have no effect
      * Both XML resources must be valid, no error checking is done
-     * @param iconXml xml file containing the icons
+     *
+     * @param iconXml  xml file containing the icons
      * @param labelXml xml file containing the labels used by the icons
      */
     public synchronized void addExtraIcons(@XmlRes int iconXml, @XmlRes int labelXml) {
@@ -435,8 +443,9 @@ public class IconHelper {
 
     /**
      * Load labels from XML
+     *
      * @param xmlFile xml file to load from
-     * @param append if true, new labels will be appended to old ones
+     * @param append  if true, new labels will be appended to old ones
      */
     @SuppressWarnings({"ConstantConditions", "unchecked"})
     private void loadLabels(@XmlRes int xmlFile, boolean append) {
@@ -589,6 +598,7 @@ public class IconHelper {
 
         /**
          * Create new reference to a label
+         *
          * @param name    name of the label to be created. If null, parent mustn't be null
          * @param parent  label to add alias to. If null, name musn't be null
          * @param refText reference raw text
@@ -617,6 +627,7 @@ public class IconHelper {
     /**
      * Normalize given text, removing all diacritics, all
      * unicode characters, hyphens, apostrophes and more
+     *
      * @param text text
      * @return normalized text
      */
@@ -674,7 +685,7 @@ public class IconHelper {
     public void addLoadCallback(@NonNull LoadCallback cb) {
         if (dataLoaded) {
             // Data is already loaded: call callback without adding it
-            cb.onDataLoaded();
+            cb.onDataLoaded(this);
             return;
         }
 
@@ -690,7 +701,7 @@ public class IconHelper {
     private void callLoadCallbacks() {
         if (loadCallbacks != null) {
             for (LoadCallback cb : loadCallbacks) {
-                cb.onDataLoaded();
+                cb.onDataLoaded(this);
             }
             loadCallbacks.clear();
         }
@@ -701,7 +712,7 @@ public class IconHelper {
          * Called when icon data is done loading.
          * All calls to get icons, labels and categories will return null before this is called.
          */
-        void onDataLoaded();
+        void onDataLoaded(IconHelper helper);
     }
 
 }
