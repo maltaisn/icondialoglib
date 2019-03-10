@@ -78,11 +78,13 @@ public class IconDialog extends DialogFragment {
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef(value = {VISIBILITY_ALWAYS, VISIBILITY_NEVER, VISIBILITY_IF_LANG_AVAILABLE})
-    public @interface SearchVisibility {}
+    public @interface SearchVisibility {
+    }
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef(value = {VISIBILITY_ALWAYS, VISIBILITY_NEVER, VISIBILITY_IF_NO_SEARCH})
-    public @interface TitleVisibility {}
+    public @interface TitleVisibility {
+    }
 
     public static final int MAX_SELECTION_NONE = -1;
 
@@ -101,23 +103,29 @@ public class IconDialog extends DialogFragment {
     private int iconSize;
     private int[] iconColors;
 
-    private @SearchVisibility int searchVisibility;
-    private @Nullable Locale searchLanguage;
+    private @SearchVisibility
+    int searchVisibility;
+    private @Nullable
+    Locale searchLanguage;
     private boolean showHeaders;
     private boolean stickyHeaders;
     private boolean showSelectBtn;
     private int maxSelection;
     private boolean maxSelShowMessage;
-    private @Nullable String maxSelMessage;
+    private @Nullable
+    String maxSelMessage;
     private boolean showClearBtn;
-    private @TitleVisibility int dialogTitleVisibility;
-    private @Nullable String dialogTitle;
+    private @TitleVisibility
+    int dialogTitleVisibility;
+    private @Nullable
+    String dialogTitle;
     private BaseIconFilter iconFilter;
     private boolean loadIconDrawables;
 
     private List<Item> listItems;
     private List<Item> selectedItems;
-    private @Nullable int[] selectedIconsId;
+    private @Nullable
+    int[] selectedIconsId;
     private String searchText;
 
     private boolean searchIgnoreDelay;
@@ -155,9 +163,9 @@ public class IconDialog extends DialogFragment {
         iconHelper = IconHelper.getInstance(getActivity());
         iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
             @Override
-            public void onDataLoaded() {
+            public void onDataLoaded(IconHelper helper) {
                 if (loadIconDrawables) {
-                    iconHelper.loadIconDrawables();
+                    helper.loadIconDrawables();
                 }
             }
         });
@@ -258,7 +266,7 @@ public class IconDialog extends DialogFragment {
 
         iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
             @Override
-            public void onDataLoaded() {
+            public void onDataLoaded(IconHelper helper) {
                 loadPb.setVisibility(View.GONE);
 
                 final EditText searchEdt = view.findViewById(R.id.icd_edt_search);
@@ -305,10 +313,12 @@ public class IconDialog extends DialogFragment {
                 searchEdt.setText(searchText);
                 searchEdt.addTextChangedListener(new TextWatcher() {
                     @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    }
 
                     @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) { }
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    }
 
                     @Override
                     public void afterTextChanged(Editable text) {
@@ -507,6 +517,7 @@ public class IconDialog extends DialogFragment {
 
     /**
      * Get the list of icons matching search with category headers
+     *
      * @param search null to get whole list, or text to search among icon labels to filter icons
      * @return the list of items
      */
@@ -597,6 +608,7 @@ public class IconDialog extends DialogFragment {
 
     /**
      * Get the position of items in the adapter
+     *
      * @param items array of icon items (varargs)
      * @return the array of positions
      */
@@ -622,6 +634,7 @@ public class IconDialog extends DialogFragment {
     /**
      * Depending on the setting set at {@link #setSearchEnabled(int, Locale)}, checks
      * whether search will be enabled or not
+     *
      * @return true if search is enabled
      */
     public boolean isSearchAvailable() {
@@ -658,6 +671,7 @@ public class IconDialog extends DialogFragment {
      * Set whether search is enabled or not
      * By default, search is only enabled if device's language is available
      * When search is not enabled, a title will be shown on the dialog instead of the search bar
+     *
      * @param visibility {@link #VISIBILITY_ALWAYS} to always enable search.
      *                   {@link #VISIBILITY_NEVER} to always disable search.
      *                   {@link #VISIBILITY_IF_LANG_AVAILABLE} to enable search only if the language is available
@@ -676,6 +690,7 @@ public class IconDialog extends DialogFragment {
 
     /**
      * Set the title of the dialog and when it is shown
+     *
      * @param visibility {@link #VISIBILITY_ALWAYS} to always show the title
      *                   {@link #VISIBILITY_NEVER} to never show the title
      *                   {@link #VISIBILITY_IF_NO_SEARCH} to only show the title if search is not available
@@ -691,6 +706,7 @@ public class IconDialog extends DialogFragment {
     /**
      * Set list header options
      * By default, headers are shown and are sticky
+     *
      * @param show   whether to show the headers or not
      * @param sticky if headers are shown, whether they appear on top of the list when scrolling down
      * @return the dialog
@@ -705,6 +721,7 @@ public class IconDialog extends DialogFragment {
      * Set whether the select button and the other dialog dialog buttons are shown
      * If not, dialog will be dismissed immediately after an icon is clicked.
      * By default, selection is shown. It is always shown if multiple selection is allowed
+     *
      * @param show whether select button is shown or not
      * @return the dialog
      */
@@ -715,6 +732,7 @@ public class IconDialog extends DialogFragment {
 
     /**
      * Set initial selected icons
+     *
      * @param iconIds varargs of icons id, null or empty array for no initial selection
      * @return the dialog
      */
@@ -729,6 +747,7 @@ public class IconDialog extends DialogFragment {
 
     /**
      * Set initial selected icons
+     *
      * @param icons varargs of icons, null or empty array for no initial selection
      * @return the dialog
      */
@@ -750,6 +769,7 @@ public class IconDialog extends DialogFragment {
 
     /**
      * Set maximum number of icons that can be selected
+     *
      * @param max         maximum number
      * @param showMessage If true, a message will be shown when maximum selection is reached
      *                    User will need to deselect icons to select others
@@ -774,6 +794,7 @@ public class IconDialog extends DialogFragment {
     /**
      * Set whether to show the neutral clear button to unselect all icons
      * By default, this button is not shown.
+     *
      * @param show whether to show it or not
      * @return the dialog
      */
@@ -788,6 +809,7 @@ public class IconDialog extends DialogFragment {
      * and will be sorted by category, then by labels and then by ID
      * in its value. Multiple search terms can be separated with either " ", "," or ";"
      * A custom icon searcher can be set by subclassing {@link IconFilter}
+     *
      * @param filter icon filter
      * @return the dialog
      */
@@ -802,6 +824,7 @@ public class IconDialog extends DialogFragment {
     /**
      * Get the IconFilter used to search and sort icons.
      * You can set additionnal settings with it
+     *
      * @return the icon searcher
      * @see IconFilter#setDisabledCategories(int...)
      * @see IconFilter#setDisabledIcons(int...)
@@ -814,6 +837,7 @@ public class IconDialog extends DialogFragment {
     /**
      * Set whether all icon drawables will be preloaded when dialog is shown to allow a smoother
      * scrolling in the icon list. By default, drawables are preloaded.
+     *
      * @param load whether to load them or not
      * @return the dialog
      * @see IconHelper#loadIconDrawables()
@@ -1053,6 +1077,7 @@ public class IconDialog extends DialogFragment {
         /**
          * Called on the target fragment, parent fragment or parent activity when
          * icons are selected and user confirms the selection.
+         *
          * @param icons selected icons, never null.
          */
         void onIconDialogIconsSelected(@NonNull Icon[] icons);
