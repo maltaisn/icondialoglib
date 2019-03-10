@@ -86,10 +86,12 @@ public class IconHelper {
     private List<Label> groupLabels;
     private SparseArray<Category> categories;
 
-    private @XmlRes
-    int extraIconsXml;
-    private @XmlRes
-    int extraLabelsXml;
+    @XmlRes
+    private int extraIconsXml;
+
+    @XmlRes
+    private int extraLabelsXml;
+
     private boolean extraIconsSet;
     private boolean extraIconsLoadPending;
 
@@ -711,6 +713,7 @@ public class IconHelper {
         /**
          * Called when icon data is done loading.
          * All calls to get icons, labels and categories will return null before this is called.
+         * @param helper The icon helper instance.
          */
         void onDataLoaded(IconHelper helper);
     }
