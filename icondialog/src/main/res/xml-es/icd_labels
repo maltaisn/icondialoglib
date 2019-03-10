@@ -3,140 +3,140 @@
 <list>
 
     <label name="3d">3D</label>
-    <label name="accessibility">Accessibility</label>
-    <label name="account">Account</label>
-    <label name="add">Add</label>
+    <label name="accessibility">Accesibilidad</label>
+    <label name="account">Cuenta</label>
+    <label name="add">Añadir</label>
     <label name="adjust">
-        <alias>Adjust</alias>
-        <alias>Tune</alias>
+        <alias>Ajustar</alias>
+        <alias>Tunear</alias>
     </label>
-    <label name="agriculture">Agriculture</label>
-    <label name="air_conditioner">Air conditioner</label>
-    <label name="airplane">Airplane</label>
-    <label name="airport">Airport</label>
-    <label name="alarm">Alarm</label>
+    <label name="agriculture">Agricultura</label>
+    <label name="air_conditioner">Aire acondicionado</label>
+    <label name="airplane">Avión</label>
+    <label name="airport">Aereopuerto</label>
+    <label name="alarm">Alarma</label>
     <label name="album">Album</label>
-    <label name="alert">Alert</label>
+    <label name="alert">Alerta</label>
     <label name="alien">Alien</label>
-    <label name="all">All</label>
-    <label name="altimeter">Altimeter</label>
-    <label name="ambulance">Ambulance</label>
+    <label name="all">Todo</label>
+    <label name="altimeter">Altímetro</label>
+    <label name="ambulance">Ambulancia</label>
     <label name="ampersand">Ampersand</label>
-    <label name="amplifier">Amplifier</label>
-    <label name="angle">Angle</label>
-    <label name="angry">Angry</label>
+    <label name="amplifier">Amplificador</label>
+    <label name="angle">Angulo</label>
+    <label name="angry">Enfadado</label>
     <label name="animal">Animal</label>
-    <label name="anvil">Anvil</label>
-    <label name="apple">Apple</label>
-    <label name="application">Application</label>
-    <label name="arrow">Arrow</label>
-    <label name="art">Art</label>
-    <label name="artificial_intelligence">Artificial intelligence</label>
-    <label name="artist">Artist</label>
-    <label name="asterisk">Asterisk</label>
-    <label name="at_sign">At</label>
-    <label name="atom">Atom</label>
+    <label name="anvil">Yunque</label>
+    <label name="apple">Manzana</label>
+    <label name="application">Solicitud</label>
+    <label name="arrow">Flecha</label>
+    <label name="art">Arte</label>
+    <label name="artificial_intelligence">Inteligencia artificial</label>
+    <label name="artist">Artista</label>
+    <label name="asterisk">Asterisco</label>
+    <label name="at_sign">Arroba</label>
+    <label name="atom">Atomo</label>
     <label name="audio">
         <alias>Audio</alias>
         <alias>@label/music</alias>
         <alias>@label/sound</alias>
     </label>
-    <label name="avenue">Avenue</label>
-    <label name="axe">Axe</label>
-    <label name="baby">Baby</label>
-    <label name="backspace">Backspace</label>
-    <label name="backup">Backup</label>
-    <label name="badminton">Badminton</label>
-    <label name="ball">Ball</label>
-    <label name="balloon">Balloon</label>
-    <label name="ballot">Ballot</label>
-    <label name="bank">Bank</label>
-    <label name="barcode">Barcode</label>
-    <label name="barley">Barley</label>
-    <label name="barn">Barn</label>
+    <label name="avenue">Avenida</label>
+    <label name="axe">Hacha</label>
+    <label name="baby">Bebé</label>
+    <label name="backspace">Retroceso</label>
+    <label name="backup">Copia de seguridad</label>
+    <label name="badminton">Bádminton</label>
+    <label name="ball">Bola</label>
+    <label name="balloon">BGlobo</label>
+    <label name="ballot">Voto</label>
+    <label name="bank">Banco</label>
+    <label name="barcode">Código de barras</label>
+    <label name="barley">Cebada</label>
+    <label name="barn">Granero</label>
     <label name="barrel">
-        <alias>Barrel</alias>
-        <alias>Keg</alias>
+        <alias>Barril</alias>
+        <alias>Barrilete</alias>
     </label>
-    <label name="baseball">Baseball</label>
-    <label name="baseball_bat">Baseball bat</label>
-    <label name="basket">Basket</label>
-    <label name="basketball">Basketball</label>
-    <label name="basketball_hoop">Basketball hoop</label>
-    <label name="bath">Bath</label>
-    <label name="battery">Battery</label>
-    <label name="bauble">Bauble</label>
-    <label name="beach">Beach</label>
-    <label name="beaker">Beaker</label>
-    <label name="bear">Bear</label>
-    <label name="bed">Bed</label>
-    <label name="beer">Beer</label>
-    <label name="beetle">Beetle</label>
-    <label name="bell">Bell</label>
-    <label name="bible">Bible</label>
+    <label name="baseball">Béibol</label>
+    <label name="baseball_bat">Bate de béisbol</label>
+    <label name="basket">Canasta</label>
+    <label name="basketball">Baloncesto</label>
+    <label name="basketball_hoop">Aro de baloncesto</label>
+    <label name="bath">Baño</label>
+    <label name="battery">Batería</label>
+    <label name="bauble">Chuchería</label>
+    <label name="beach">Playa</label>
+    <label name="beaker">Probeta</label>
+    <label name="bear">Oso</label>
+    <label name="bed">Cama</label>
+    <label name="beer">Cerveza</label>
+    <label name="beetle">Escarabajo</label>
+    <label name="bell">Campana</label>
+    <label name="bible">Biblia</label>
     <label name="bicycle">
-        <alias>Bicycle</alias>
-        <alias>Bike</alias>
+        <alias>Bicicleta</alias>
+        <alias>Bici</alias>
     </label>
-    <label name="binary">Binary</label>
-    <label name="binoculars">Binoculars</label>
-    <label name="biology">Biology</label>
-    <label name="bird">Bird</label>
+    <label name="binary">Binario</label>
+    <label name="binoculars">Binoculares</label>
+    <label name="biology">Biología</label>
+    <label name="bird">Pájaro</label>
     <label name="birthday">
-        <alias>Birthday</alias>
-        <alias>Anniversary</alias>
+        <alias>Cumpleaños</alias>
+        <alias>Aniversario</alias>
     </label>
-    <label name="blacksmith">Blacksmith</label>
+    <label name="blacksmith">Herrero</label>
     <label name="blank">
-        <alias>Blank</alias>
+        <alias>Vacío</alias>
         <alias>@label/empty</alias>
     </label>
-    <label name="blind">Blind</label>
+    <label name="blind">Ciego</label>
     <label name="bluetooth">Bluetooth</label>
-    <label name="boat">Boat</label>
-    <label name="bomb">Bomb</label>
-    <label name="bone">Bone</label>
-    <label name="book">Book</label>
-    <label name="bookmark">Bookmark</label>
+    <label name="boat">Bote</label>
+    <label name="bomb">Bomba</label>
+    <label name="bone">Hueso</label>
+    <label name="book">Libro</label>
+    <label name="bookmark">Marcador</label>
     <label name="boombox">Boombox</label>
-    <label name="bottle">Bottle</label>
-    <label name="boulevard">Boulevard</label>
-    <label name="bounce">Bounce</label>
-    <label name="bow_tie">Bow tie</label>
-    <label name="bowl">Bowl</label>
-    <label name="bowling">Bowling</label>
-    <label name="box">Box</label>
-    <label name="braces">Braces</label>
-    <label name="brackets">Brackets</label>
+    <label name="bottle">Botella</label>
+    <label name="boulevard">Bulevar</label>
+    <label name="bounce">Rebote</label>
+    <label name="bow_tie">Corbata</label>
+    <label name="bowl">Bolo</label>
+    <label name="bowling">Bolos</label>
+    <label name="box">Caja</label>
+    <label name="braces">Tirantes</label>
+    <label name="brackets">Soportes</label>
     <label name="braille">Braille</label>
-    <label name="brain">Brain</label>
-    <label name="branch">Branch</label>
-    <label name="bread">Bread</label>
-    <label name="breakfast">Breakfast</label>
-    <label name="bricks">Bricks</label>
-    <label name="bridge">Bridge</label>
-    <label name="briefcase">Briefcase</label>
-    <label name="brightness">Brightness</label>
-    <label name="broken">Broken</label>
-    <label name="broom">Broom</label>
-    <label name="brush">Brush</label>
-    <label name="bubble">Bubble</label>
-    <label name="bucket">Bucket</label>
-    <label name="buddhism">Buddhism</label>
-    <label name="buggy">Buggy</label>
-    <label name="building">Building</label>
+    <label name="brain">Cerebro</label>
+    <label name="branch">Rama</label>
+    <label name="bread">Pan</label>
+    <label name="breakfast">Desayuno</label>
+    <label name="bricks">Ladrillos</label>
+    <label name="bridge">Puente</label>
+    <label name="briefcase">Maletín</label>
+    <label name="brightness">Brillo</label>
+    <label name="broken">Roto</label>
+    <label name="broom">Escoba</label>
+    <label name="brush">Brocha</label>
+    <label name="bubble">Burbuja</label>
+    <label name="bucket">Cubo</label>
+    <label name="buddhism">Budismo</label>
+    <label name="buggy">Carruaje</label>
+    <label name="building">Edificio</label>
     <label name="bulldozer">Bulldozer</label>
-    <label name="bulletin_board">Bulletin board</label>
+    <label name="bulletin_board">Tablón de anuncios</label>
     <label name="bullhorn">
-        <alias>Bullhorn</alias>
-        <alias>Megaphone</alias>
+        <alias>Megáfono</alias>
+        <alias>Altavoz</alias>
     </label>
-    <label name="bullseye">Bullseye</label>
+    <label name="bullseye">Diana</label>
     <label name="bus">Bus</label>
-    <label name="business">Business</label>
+    <label name="business">Negocio</label>
     <label name="cable_car">
-        <alias>Cable car</alias>
-        <alias>Gondola lift</alias>
+        <alias>Teleférico</alias>
+        <alias>Gondola</alias>
     </label>
     <label name="cactus">Cactus</label>
     <label name="cake">Cake</label>
