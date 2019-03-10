@@ -7,7 +7,7 @@
     <string name="icd_action_select">Seleccionar</string>
     <string name="icd_action_cancel">Cancelar</string>
     <string name="icd_no_result">Iconos no encontrados en esta búsqueda</string>
-    <string name="icd_max_sel_message">Máximo de iconos seleccionados alcanzado
+    <string name="icd_max_sel_message">Máximo de iconos seleccionados alcanzado</string>
     <!-- CATEGORY NAMES -->
     <string name="icd_category_people">Familia y gente</string>
     <string name="icd_category_home">Hogar y vida</string>
