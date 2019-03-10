@@ -1,7 +1,7 @@
 
 <resources>
 
-    <string name="icd_title">Selecione icono</string>
+    <string name="icd_title">Selecionar icono</string>
     <string name="icd_search_hint">Buscar iconos</string>
     <string name="icd_action_clear">Limpiar</string>
     <string name="icd_action_select">Seleccionar</string>
