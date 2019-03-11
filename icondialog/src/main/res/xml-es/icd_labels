@@ -136,175 +136,175 @@
     <label name="business">Negocio</label>
     <label name="cable_car">
         <alias>Teleférico</alias>
-        <alias>Gondola</alias>
+        <alias>Góndola</alias>
     </label>
     <label name="cactus">Cactus</label>
-    <label name="cake">Cake</label>
-    <label name="calculator">Calculator</label>
-    <label name="calendar">Calendar</label>
-    <label name="call">Call</label>
-    <label name="camcorder">Camcorder</label>
-    <label name="camera">Camera</label>
+    <label name="cake">Pastel</label>
+    <label name="calculator">Calculadora</label>
+    <label name="calendar">Calendario</label>
+    <label name="call">Llamar</label>
+    <label name="camcorder">Videocámara</label>
+    <label name="camera">Camara</label>
     <label name="camping">Camping</label>
-    <label name="cancel">Cancel</label>
-    <label name="candle">Candle</label>
-    <label name="candy">Candy</label>
-    <label name="candycane">Candycane</label>
+    <label name="cancel">Cancelar</label>
+    <label name="candle">Vela</label>
+    <label name="candy">Caramelo</label>
+    <label name="candycane">Bastón de caramelo</label>
     <label name="cannabis">
         <alias>Cannabis</alias>
-        <alias>Marijuana</alias>
+        <alias>Marihuana</alias>
     </label>
-    <label name="car">Car</label>
-    <label name="car_convertable">Convertable car</label>
-    <label name="car_estate">Estate car</label>
-    <label name="car_hatchback">Hatchback car</label>
-    <label name="car_jeep">Jeep car</label>
-    <label name="car_pickup">Pickup truck</label>
-    <label name="car_sport">Sport car</label>
-    <label name="caravan">Caravan</label>
-    <label name="card">Card</label>
-    <label name="cards_club">Club</label>
-    <label name="cards_diamond">Diamond</label>
-    <label name="cards_heart">@label/heart</label>
-    <label name="cards_spade">Spade</label>
-    <label name="carrot">Carrot</label>
-    <label name="cart">Cart</label>
-    <label name="cash">Cash</label>
-    <label name="cassette">Cassette</label>
-    <label name="castle">Castle</label>
-    <label name="cat">Cat</label>
-    <label name="category">Category</label>
-    <label name="ceiling">Ceiling</label>
+    <label name="car">Coche</label>
+    <label name="car_convertable">Descapotable</label>
+    <label name="car_estate">Coche familiar</label>
+    <label name="car_hatchback">Coche compacto</label>
+    <label name="car_jeep">Todoterreno</label>
+    <label name="car_pickup">Ranchera</label>
+    <label name="car_sport">Deportivo</label>
+    <label name="caravan">Caravana</label>
+    <label name="card">Tarjeta</label>
+    <label name="cards_club">Trébol</label>
+    <label name="cards_diamond">Diamante</label>
+    <label name="cards_heart">Corazón</label>
+    <label name="cards_spade">Picas</label>
+    <label name="carrot">Zanahoria</label>
+    <label name="cart">Carro</label>
+    <label name="cash">Efectivo</label>
+    <label name="cassette">Casete</label>
+    <label name="castle">Castillo</label>
+    <label name="cat">Gato</label>
+    <label name="category">Categoría</label>
+    <label name="ceiling">Techo</label>
     <label name="celsius">Celsius</label>
-    <label name="center">Center</label>
-    <label name="certificate">Certificate</label>
-    <label name="chain">Chain</label>
-    <label name="chair">Chair</label>
+    <label name="center">Centro</label>
+    <label name="certificate">Certificado</label>
+    <label name="chain">Cadena</label>
+    <label name="chair">Silla</label>
     <label name="champagne">Champagne</label>
-    <label name="chandelier">Chandelier</label>
-    <label name="charge_battery">Charge</label>
-    <label name="chart">Chart</label>
-    <label name="chart_arc">Arc chart</label>
-    <label name="chart_bar">Bar chart</label>
-    <label name="chart_bubble">Bubble chart</label>
-    <label name="chart_line">Line chart</label>
-    <label name="chart_pie">Pie chart</label>
+    <label name="chandelier">Candelabro</label>
+    <label name="charge_battery">Cargar</label>
+    <label name="chart">Gráfica</label>
+    <label name="chart_arc">Gráfica de abanico</label>
+    <label name="chart_bar">Gráfica de barras</label>
+    <label name="chart_bubble">Gráfica de burbujas</label>
+    <label name="chart_line">Gráfica lineal</label>
+    <label name="chart_pie">Gráfica circular </label>
     <label name="chat">Chat</label>
-    <label name="check">Check</label>
-    <label name="checkerboard">Checkerboard</label>
-    <label name="chemical">Chemical</label>
-    <label name="chemistry">Chemistry</label>
-    <label name="chess">Chess</label>
-    <label name="chess_bishop">Bishop</label>
-    <label name="chess_king">@label/king</label>
-    <label name="chess_knight">Knight</label>
-    <label name="chess_pawn">Pawn</label>
-    <label name="chess_queen">Queen</label>
-    <label name="chess_rook">Rook</label>
-    <label name="chessboard">Chessboard</label>
+    <label name="check">Comprobar</label>
+    <label name="checkerboard">Tablero de damas</label>
+    <label name="chemical">Químico</label>
+    <label name="chemistry">Química</label>
+    <label name="chess">Ajedrez</label>
+    <label name="chess_bishop">Alfil</label>
+    <label name="chess_king">@label/Rey</label>
+    <label name="chess_knight">Caballo</label>
+    <label name="chess_pawn">Peón</label>
+    <label name="chess_queen">Reina</label>
+    <label name="chess_rook">Torre</label>
+    <label name="chessboard">Tablero</label>
     <label name="chevron">Chevron</label>
     <label name="child">
-        <alias>Child</alias>
-        <alias>Kid</alias>
+        <alias>Niño</alias>
+        <alias>Chico</alias>
     </label>
-    <label name="chili_food">Chili</label>
-    <label name="christianism">Christianism</label>
-    <label name="christmas">Christmas</label>
-    <label name="church">Church</label>
-    <label name="cinema">Cinema</label>
-    <label name="circle">Circle</label>
-    <label name="city">City</label>
+    <label name="chili_food">Chile</label>
+    <label name="christianism">Cristianismo</label>
+    <label name="christmas">Navidad</label>
+    <label name="church">Iglesia</label>
+    <label name="cinema">Cine</label>
+    <label name="circle">Círculo</label>
+    <label name="city">Ciudad</label>
     <label name="click">Click</label>
-    <label name="clipboard">Clipboard</label>
-    <label name="clock">Clock</label>
-    <label name="closed">Closed</label>
-    <label name="clothes">Clothes</label>
-    <label name="cloud">Cloud</label>
-    <label name="clover">Clover</label>
+    <label name="clipboard">Portapapeles</label>
+    <label name="clock">Reloj</label>
+    <label name="closed">Cerrado</label>
+    <label name="clothes">Ropa</label>
+    <label name="cloud">Nube</label>
+    <label name="clover">Trébol</label>
     <label name="co2">
         <alias>CO2</alias>
-        <alias>Carbon dioxide</alias>
+        <alias>Dióxido de carbono</alias>
     </label>
-    <label name="cocktail">Cocktail</label>
-    <label name="coffee">Coffee</label>
-    <label name="coin">Coin</label>
-    <label name="cold">Cold</label>
-    <label name="collapse_content">Collapse</label>
-    <label name="comparison">Comparison</label>
-    <label name="compass">Compass</label>
-    <label name="computer">Computer</label>
-    <label name="computer_storage">Storage</label>
-    <label name="computer_tower">Computer tower</label>
-    <label name="confirm">Confirm</label>
-    <label name="confirmation">Confirmation</label>
-    <label name="conifer">Conifer</label>
-    <label name="connected">Connected</label>
-    <label name="connection">Connection</label>
-    <label name="console">Console</label>
-    <label name="console_controller">Console controller</label>
-    <label name="construction">Construction</label>
-    <label name="cook">Cook</label>
-    <label name="cookie">Cookie</label>
-    <label name="cool_qualitative">Cool</label>
+    <label name="cocktail">Cóctel</label>
+    <label name="coffee">Café</label>
+    <label name="coin">Moneda</label>
+    <label name="cold">Frío</label>
+    <label name="collapse_content">Colapso</label>
+    <label name="comparison">Comparación</label>
+    <label name="compass">Brújula</label>
+    <label name="computer">Computadora</label>
+    <label name="computer_storage">Almacenamiento</label>
+    <label name="computer_tower">Torre</label>
+    <label name="confirm">Confirmar</label>
+    <label name="confirmation">Confirmacion</label>
+    <label name="conifer">Conifera</label>
+    <label name="connected">Conectado</label>
+    <label name="connection">Conexión</label>
+    <label name="console">Consola</label>
+    <label name="console_controller">Controlador</label>
+    <label name="construction">Construcción</label>
+    <label name="cook">Cocinar</label>
+    <label name="cookie">Galleta</label>
+    <label name="cool_qualitative">Guay</label>
     <label name="copyright">Copyright</label>
-    <label name="corn">Corn</label>
-    <label name="counter">Counter</label>
-    <label name="couple">Couple</label>
-    <label name="coupon">Coupon</label>
-    <label name="cow">Cow</label>
-    <label name="cowboy">Cowboy</label>
-    <label name="crane">Crane</label>
-    <label name="creation">Creation</label>
-    <label name="credit_card">Credit card</label>
-    <label name="croissant">Croissant</label>
-    <label name="crop">Crop</label>
-    <label name="cross">Cross</label>
-    <label name="crosshairs">Crosshairs</label>
-    <label name="crown">Crown</label>
-    <label name="cry">Cry</label>
-    <label name="cryptocurrency">Cryptocurrency</label>
-    <label name="cube">Cube</label>
-    <label name="cup">Cup</label>
+    <label name="corn">Maíz</label>
+    <label name="counter">Contador</label>
+    <label name="couple">Pareja</label>
+    <label name="coupon">Cupón</label>
+    <label name="cow">Vaca</label>
+    <label name="cowboy">Baquero</label>
+    <label name="crane">Grúa</label>
+    <label name="creation">Creación</label>
+    <label name="credit_card">Tarjeta de crédito</label>
+    <label name="croissant">Cruasán</label>
+    <label name="crop">Cortar</label>
+    <label name="cross">Cruz</label>
+    <label name="crosshairs">Retículo</label>
+    <label name="crown">Corona</label>
+    <label name="cry">Llorar</label>
+    <label name="cryptocurrency">Criptomoneda</label>
+    <label name="cube">Cubo</label>
+    <label name="cup">Vaso</label>
     <label name="cupcake">Cupcake</label>
     <label name="curling">Curling</label>
     <label name="curr_bdt">Bangladeshi</label>
     <label name="curr_btc">Bitcoin</label>
-    <label name="curr_chf">Swiss franc</label>
-    <label name="curr_cny">Chinese yuan</label>
-    <label name="curr_dollar">Dollar</label>
+    <label name="curr_chf">Franco suizo</label>
+    <label name="curr_cny">Yuan</label>
+    <label name="curr_dollar">Dolar</label>
     <label name="curr_eur">Euro</label>
     <label name="curr_gbp">
-        <alias>British pound</alias>
-        <alias>Pound sterling</alias>
+        <alias>Libra</alias>
+        <alias>Libra esterlina</alias>
     </label>
-    <label name="curr_inr">Indian rupee</label>
-    <label name="curr_jpy">Japenese yen</label>
-    <label name="curr_krw">South korean won</label>
-    <label name="curr_kzt">Kazakhstani tenge</label>
-    <label name="curr_ngn">Nigerian naira</label>
-    <label name="curr_php">Philippine Piso</label>
-    <label name="curr_rub">Russian ruble</label>
-    <label name="curr_try">Turkish lira</label>
-    <label name="curr_twd">Taiwan dollar</label>
-    <label name="currency">Currency</label>
+    <label name="curr_inr">Rupia</label>
+    <label name="curr_jpy">Yen</label>
+    <label name="curr_krw">Won</label>
+    <label name="curr_kzt">Tenge</label>
+    <label name="curr_ngn">Naira</label>
+    <label name="curr_php">Piso</label>
+    <label name="curr_rub">Rublo</label>
+    <label name="curr_try">Lira</label>
+    <label name="curr_twd">Dolar taiwanés</label>
+    <label name="currency">Moneda</label>
     <label name="current_ac">
         <alias>AC</alias>
-        <alias>Alternating current</alias>
+        <alias>Corriente alterna</alias>
     </label>
     <label name="current_dc">
         <alias>DC</alias>
-        <alias>Direct current</alias>
+        <alias>Corriente contínua</alias>
     </label>
-    <label name="curve">Curve</label>
-    <label name="cut">Cut</label>
-    <label name="cutter">Cutter</label>
-    <label name="cycling">Cycling</label>
-    <label name="cylinder">Cylinder</label>
+    <label name="curve">Curva</label>
+    <label name="cut">Cortar</label>
+    <label name="cutter">Cuter</label>
+    <label name="cycling">Ciclismo</label>
+    <label name="cylinder">Cilindro</label>
     <label name="danger">
-        <alias>Danger</alias>
-        <alias>Hazard</alias>
+        <alias>Peligro</alias>
+        <alias>Riesgo</alias>
     </label>
-    <label name="darts">Darts</label>
+    <label name="darts">Dardos</label>
     <label name="data">Data</label>
     <label name="database">Database</label>
     <label name="death">Death</label>
