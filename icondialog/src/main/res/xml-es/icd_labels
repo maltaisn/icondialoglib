@@ -305,123 +305,125 @@
         <alias>Riesgo</alias>
     </label>
     <label name="darts">Dardos</label>
-    <label name="data">Data</label>
-    <label name="database">Database</label>
-    <label name="death">Death</label>
+    <label name="data">Datos</label>
+    <label name="database">Base de datos</label>
+    <label name="death">Muerte</label>
     <label name="decimal">Decimal</label>
-    <label name="decision">Decision</label>
+    <label name="decision">Bifurcación</label>
     <label name="delete">
-        <alias>Delete</alias>
-        <alias>Remove</alias>
+        <alias>Borrar</alias>
+        <alias>Eliminar</alias>
     </label>
-    <label name="delivery">Delivery</label>
-    <label name="dentist">Dentist</label>
-    <label name="deposit">Deposit</label>
-    <label name="desert">Desert</label>
-    <label name="desk">Desk</label>
-    <label name="dessert">Dessert</label>
-    <label name="details">Details</label>
-    <label name="developer">Developer</label>
-    <label name="devil">Devil</label>
+    <label name="delivery">
+        <alias>Reparto</alias>
+        <alias>Paquete</alias>
+    </label>
+    <label name="dentist">Dentista</label>
+    <label name="deposit">Depositar</label>
+    <label name="desert">Desierto</label>
+    <label name="desk">Escritorio</label>
+    <label name="dessert">Postre</label>
+    <label name="details">Detalles</label>
+    <label name="developer">Desarrollador</label>
+    <label name="devil">Demonio</label>
     <label name="dial">Dial</label>
-    <label name="diamond">Diamond</label>
+    <label name="diamond">Diamante</label>
     <label name="dice">
-        <alias>Dice</alias>
-        <alias>Die</alias>
+        <alias>Dado</alias>
+        <alias>Dados</alias>
     </label>
     <label name="diesel">Diesel</label>
-    <label name="direction">Direction</label>
-    <label name="disconnected">Disconnected</label>
-    <label name="dishwasher">Dishwasher</label>
-    <label name="disk">Disk</label>
-    <label name="dislike">Dislike</label>
-    <label name="distance">Distance</label>
+    <label name="direction">Dirección</label>
+    <label name="disconnected">Desconectado</label>
+    <label name="dishwasher">Lavavajillas</label>
+    <label name="disk">Disco</label>
+    <label name="dislike">Me gusta</label>
+    <label name="distance">Distancia</label>
     <label name="dna">DNA</label>
     <label name="dock">
-        <alias>Dock</alias>
-        <alias>Pier</alias>
+        <alias>Muelle</alias>
+        <alias>Dársena</alias>
     </label>
     <label name="doctor">Doctor</label>
-    <label name="document">Document</label>
-    <label name="dog">Dog</label>
-    <label name="donkey">Donkey</label>
-    <label name="door">Door</label>
-    <label name="dots">Dots</label>
-    <label name="down">Down</label>
-    <label name="download">Download</label>
-    <label name="draw">Draw</label>
-    <label name="dribble">Dribble</label>
-    <label name="drink">Drink</label>
-    <label name="drone">Drone</label>
-    <label name="dropper">Dropper</label>
-    <label name="drug">Drug</label>
-    <label name="drying_machine">Dryer</label>
-    <label name="duck">Duck</label>
-    <label name="dumbbell">Dumbbell</label>
+    <label name="document">Documento</label>
+    <label name="dog">Perro</label>
+    <label name="donkey">Burro</label>
+    <label name="door">Puerta</label>
+    <label name="dots">Puntos</label>
+    <label name="down">Abajo</label>
+    <label name="download">Descargar</label>
+    <label name="draw">Dibujar</label>
+    <label name="dribble">Pelota</label>
+    <label name="drink">Bebida</label>
+    <label name="drone">Dron</label>
+    <label name="dropper">Cuentagotas</label>
+    <label name="drug">Droga</label>
+    <label name="drying_machine">Secadora</label>
+    <label name="duck">Pato</label>
+    <label name="dumbbell">Mancuernas</label>
     <label name="duration">
-        <alias>Duration</alias>
-        <alias>Period</alias>
-        <alias>Timelapse</alias>
+        <alias>Duracion</alias>
+        <alias>Periodo</alias>
+        <alias>Intervalo</alias>
     </label>
-    <label name="ear">Ear</label>
-    <label name="earth">Earth</label>
-    <label name="easter">Easter</label>
+    <label name="ear">Oreja</label>
+    <label name="earth">Tierra</label>
+    <label name="easter">Pascua</label>
     <label name="eclipse">Eclipse</label>
-    <label name="editing">Editing</label>
-    <label name="education">Education</label>
-    <label name="egg">Egg</label>
-    <label name="egg_cell">Egg cell</label>
-    <label name="eject">Eject</label>
-    <label name="election">Election</label>
-    <label name="electric_guitar">Electric guitar</label>
-    <label name="electric_power">Power</label>
-    <label name="electrical_plug">Electrical plug</label>
+    <label name="editing">Editar</label>
+    <label name="education">Formación</label>
+    <label name="egg">Huevo</label>
+    <label name="egg_cell">Óvulo</label>
+    <label name="eject">Expulsar</label>
+    <label name="election">Elecciones</label>
+    <label name="electric_guitar">Guitarra eléctrica</label>
+    <label name="electric_power">Energía eléctrica</label>
+    <label name="electrical_plug">Enchufe</label>
     <label name="electrical_socket">
-        <alias>Electrical socket</alias>
-        <alias>Electrical outlet</alias>
+        <alias>Enchufe</alias>
     </label>
-    <label name="electricity">Electricity</label>
-    <label name="electronic_chip">Electrical chip</label>
-    <label name="electronic_circuit">Electrical circuit</label>
-    <label name="elephant">Elephant</label>
-    <label name="ellipsis">Ellipsis</label>
+    <label name="electricity">Electricidad</label>
+    <label name="electronic_chip">Chip</label>
+    <label name="electronic_circuit">Circuito electrónico</label>
+    <label name="elephant">Elefante</label>
+    <label name="ellipsis">Puntos</label>
     <label name="email">Email</label>
-    <label name="emoticon">Emoticon</label>
-    <label name="empty">Empty</label>
-    <label name="engine">Engine</label>
-    <label name="environment">Environment</label>
-    <label name="equality">Equality</label>
-    <label name="eraser">Eraser</label>
+    <label name="emoticon">Emoticono</label>
+    <label name="empty">Vacío</label>
+    <label name="engine">Motor</label>
+    <label name="environment">Reciclaje</label>
+    <label name="equality">Igualdad</label>
+    <label name="eraser">Borrador</label>
     <label name="erlenmeyer">Erlenmeyer</label>
-    <label name="event">Event</label>
-    <label name="evil">Evil</label>
-    <label name="exclamation_mark">Exclamation mark</label>
-    <label name="expand_content">Expand</label>
-    <label name="export">Export</label>
-    <label name="extension">Extension</label>
-    <label name="eye">Eye</label>
-    <label name="face">Face</label>
+    <label name="event">Evento</label>
+    <label name="evil">Malvado</label>
+    <label name="exclamation_mark">Exclamación</label>
+    <label name="expand_content">Expandir</label>
+    <label name="export">Exportar</label>
+    <label name="extension">Puzle</label>
+    <label name="eye">Ojo</label>
+    <label name="face">Cara</label>
     <label name="factory">
-        <alias>Factory</alias>
-        <alias>Plant</alias>
+        <alias>Fábrica</alias>
+        <alias>Planta</alias>
     </label>
     <label name="fahrenheit">Fahrenheit</label>
-    <label name="fan">Fan</label>
-    <label name="farm">Farm</label>
-    <label name="fast">Fast</label>
+    <label name="fan">Ventilador</label>
+    <label name="farm">Granja</label>
+    <label name="fast">Rápido</label>
     <label name="fastfood">
-        <alias>Fastfood</alias>
-        <alias>Junkfood</alias>
+        <alias>Comida rápida</alias>
+        <alias>Comida basura</alias>
     </label>
     <label name="faucet">
-        <alias>Faucet</alias>
-        <alias>Tap</alias>
+        <alias>Grifo</alias>
+        <alias>Surtidor</alias>
     </label>
     <label name="fax">Fax</label>
-    <label name="feather">Feather</label>
-    <label name="female">Female</label>
-    <label name="fence">Fence</label>
-    <label name="fencing">Fencing</label>
+    <label name="feather">Pluma</label>
+    <label name="female">Hembra</label>
+    <label name="fence">Valla</label>
+    <label name="fencing">Esgrima</label>
     <label name="ferry">Ferry</label>
     <label name="field">Field</label>
     <label name="fighting">Fighting</label>
