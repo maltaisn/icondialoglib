@@ -425,345 +425,342 @@
     <label name="fence">Valla</label>
     <label name="fencing">Esgrima</label>
     <label name="ferry">Ferry</label>
-    <label name="field">Field</label>
-    <label name="fighting">Fighting</label>
-    <label name="file">File</label>
-    <label name="fill">Fill</label>
-    <label name="film">Film</label>
-    <label name="filter">Filter</label>
-    <label name="finance">Finance</label>
-    <label name="fingerprint">Fingerprint</label>
-    <label name="fir_tree">Fir</label>
-    <label name="fire">Fire</label>
-    <label name="fire_truck">Fire truck</label>
-    <label name="firework">Firework</label>
-    <label name="fish">Fish</label>
-    <label name="fish_hook">Fish hook</label>
-    <label name="fishing">Fishing</label>
+    <label name="field">Campo</label>
+    <label name="fighting">Lucha</label>
+    <label name="file">Archivo</label>
+    <label name="fill">Verter</label>
+    <label name="film">Película</label>
+    <label name="filter">Filtro</label>
+    <label name="finance">Finanzas</label>
+    <label name="fingerprint">Huella</label>
+    <label name="fir_tree">Abeto</label>
+    <label name="fire">Fuego</label>
+    <label name="fire_truck">Camión de bomberos</label>
+    <label name="firework">Fuergos artificiales</label>
+    <label name="fish">Pez</label>
+    <label name="fish_hook">Anzuelo</label>
+    <label name="fishing">Pesca</label>
     <label name="fitness">Fitness</label>
-    <label name="flag">Flag</label>
+    <label name="flag">Bandera</label>
     <label name="flash">Flash</label>
-    <label name="flashlight">Flashlight</label>
-    <label name="flask">Flask</label>
-    <label name="floor">Floor</label>
-    <label name="floppy_disk">Floppy disk</label>
-    <label name="flower">Flower</label>
-    <label name="fog">Fog</label>
-    <label name="folder">Folder</label>
-    <label name="font">Font</label>
-    <label name="food">Food</label>
+    <label name="flashlight">Linterna</label>
+    <label name="flask">Probeta</label>
+    <label name="floor">Piso</label>
+    <label name="floppy_disk">Disco magnétio</label>
+    <label name="flower">Flor</label>
+    <label name="fog">Niebla</label>
+    <label name="folder">Carpeta</label>
+    <label name="font">Fuente</label>
+    <label name="food">Comida</label>
     <label name="foot">
-        <alias>Foot</alias>
-        <alias>Feet</alias>
+        <alias>Pies</alias>
+        <alias>Pie</alias>
     </label>
-    <label name="football">Football</label>
-    <label name="fork">Fork</label>
-    <label name="fork_content">Fork</label>
-    <label name="forklift">Forklift</label>
-    <label name="form">Form</label>
-    <label name="format">Format</label>
-    <label name="fortuneteller">Fortuneteller</label>
+    <label name="football">Fúbol americano</label>
+    <label name="fork">Tenedor</label>
+    <label name="fork_content">Ramificación</label>
+    <label name="forklift">Torito</label>
+    <label name="form">Formulario</label>
+    <label name="format">Formato</label>
+    <label name="fortuneteller">Adivino</label>
     <label name="forum">Forum</label>
-    <label name="fountain">Fountain</label>
-    <label name="frame">Frame</label>
-    <label name="fridge">Fridge</label>
-    <label name="front">Front</label>
-    <label name="fruit">Fruit</label>
-    <label name="fuel">Fuel</label>
-    <label name="full">Full</label>
-    <label name="fullscreen">Fullscreen</label>
-    <label name="funnel">Funnel</label>
-    <label name="future">Future</label>
-    <label name="gambling">Gambling</label>
-    <label name="game">Game</label>
-    <label name="game_console">Game console</label>
-    <label name="garage">Garage</label>
-    <label name="gas">Gas</label>
-    <label name="gate">Gate</label>
-    <label name="gauge">Gauge</label>
-    <label name="gavel">Gavel</label>
+    <label name="fountain">Fuente</label>
+    <label name="frame">Cuadro</label>
+    <label name="fridge">Nevera</label>
+    <label name="front">Frente</label>
+    <label name="fruit">Fruta</label>
+    <label name="fuel">Combustible</label>
+    <label name="full">Lleno</label>
+    <label name="fullscreen">Pantalla completa</label>
+    <label name="funnel">Embudo</label>
+    <label name="future">Futuro</label>
+    <label name="gambling">Juegos de azar</label>
+    <label name="game">Juego</label>
+    <label name="game_console">Videojuego</label>
+    <label name="garage">Garaje</label>
+    <label name="gas">Gasolina</label>
+    <label name="gate">Portón</label>
+    <label name="gauge">Medidor</label>
+    <label name="gavel">Mazo</label>
     <label name="gear">
-        <alias>Gear</alias>
-        <alias>Cog</alias>
+        <alias>Engranaje</alias>
+        <alias>Rueda dentada</alias>
     </label>
     <label name="gem">
-        <alias>Gem</alias>
-        <alias>Jewel</alias>
+        <alias>Gema</alias>
+        <alias>Joya</alias>
     </label>
     <label name="gender">
-        <alias>Gender</alias>
-        <alias>Sex</alias>
+        <alias>Género</alias>
+        <alias>Sexo</alias>
     </label>
-    <label name="genetic">Genetic</label>
-    <label name="geometry">Geometry</label>
-    <label name="gesture">Gesture</label>
-    <label name="ghost">Ghost</label>
+    <label name="genetic">Genético</label>
+    <label name="geometry">Geometría</label>
+    <label name="gesture">Gesto</label>
+    <label name="ghost">Fantasma</label>
     <label name="gift">
-        <alias>Gift</alias>
-        <alias>Present</alias>
+        <alias>Regalo</alias>
+        <alias>Presente</alias>
     </label>
-    <label name="giftcard">Giftcard</label>
-    <label name="glass">Glass</label>
-    <label name="glass_flute">Glass flute</label>
-    <label name="glasses">Glasses</label>
+    <label name="giftcard">Tarjeta regalo</label>
+    <label name="glass">   
+        <alias>Vaso</alias>
+        <alias>Copa</alias>
+        <alias>Jarra</alias></label>
+    <label name="glass_flute">Copa champagne</label>
+    <label name="glasses">Gafas</label>
     <label name="golf">Golf</label>
     <label name="gps">GPS</label>
-    <label name="grade">Grade</label>
-    <label name="graduation">Graduation</label>
+    <label name="grade">Grado</label>
+    <label name="graduation">Graduación</label>
     <label name="graffiti">Graffiti</label>
-    <label name="grease_pen">Grease pen</label>
-    <label name="greek_letter">Greek letter</label>
-    <label name="greek_letter_alpha">Alpha</label>
+    <label name="grease_pen">Rotulador</label>
+    <label name="greek_letter">Letra griega</label>
+    <label name="greek_letter_alpha">Alfa</label>
     <label name="greek_letter_beta">Beta</label>
     <label name="greek_letter_delta">Delta</label>
     <label name="greek_letter_lambda">Lambda</label>
     <label name="greek_letter_omega">Omega</label>
     <label name="greek_letter_sigma">Sigma</label>
-    <label name="greeting">Greeting</label>
-    <label name="grid">Grid</label>
-    <label name="grocery">Grocery</label>
-    <label name="group">Group</label>
-    <label name="guitar">Guitar</label>
-    <label name="gun">Gun</label>
+    <label name="greeting">Saludo</label>
+    <label name="grid">Cuadrícula</label>
+    <label name="grocery">Tienda</label>
+    <label name="group">Grupo</label>
+    <label name="guitar">Guitarra</label>
+    <label name="gun">Pistola</label>
     <label name="h2o">
         <alias>H2O</alias>
-        <alias>@label/water</alias>
+        <alias>Agua</alias>
     </label>
-    <label name="hamburger">Hamburger</label>
-    <label name="hammer">Hammer</label>
-    <label name="hand">Hand</label>
-    <label name="hanger">Hanger</label>
-    <label name="happy">Happy</label>
-    <label name="hard_disk">Hard disk</label>
-    <label name="hat">Hat</label>
+    <label name="hamburger">Hamburgesa</label>
+    <label name="hammer">Martillo</label>
+    <label name="hand">Mano</label>
+    <label name="hanger">Percha</label>
+    <label name="happy">Feliz</label>
+    <label name="hard_disk">Disco duro</label>
+    <label name="hat">Sombrero</label>
     <label name="headphones">
-        <alias>Headphones</alias>
-        <alias>Headset</alias>
-        <alias>Earphones</alias>
-        <alias>Earbuds</alias>
+        <alias>Auriculares</alias>
+        <alias>Cascos</alias>
+        <alias>Audífonos</alias>
     </label>
-    <label name="health">Health</label>
-    <label name="hear">Hear</label>
-    <label name="hearing">Hearing</label>
-    <label name="heart">Heart</label>
-    <label name="heat">Heat</label>
-    <label name="heavy">Heavy</label>
-    <label name="helicopter">Helicopter</label>
-    <label name="helmet">Helmet</label>
-    <label name="help">Help</label>
-    <label name="hexagon">Hexagon</label>
-    <label name="hidden">Hidden</label>
-    <label name="hierarchy">Hierarchy</label>
-    <label name="high">High</label>
-    <label name="high_heel">High heel</label>
-    <label name="highlighter">Highlighter</label>
-    <label name="highway">Highway</label>
-    <label name="hinduism">Hinduism</label>
-    <label name="histogram">Histogram</label>
-    <label name="history">History</label>
+    <label name="health">Salud</label>
+    <label name="hear">Oir</label>
+    <label name="hearing">Oyendo</label>
+    <label name="heart">Corazón</label>
+    <label name="heat">Calor</label>
+    <label name="heavy">Pesado</label>
+    <label name="helicopter">Helicoptero</label>
+    <label name="helmet">Casco</label>
+    <label name="help">Ayuda</label>
+    <label name="hexagon">Hexagono</label>
+    <label name="hidden">Oculto</label>
+    <label name="hierarchy">Jerarquía</label>
+    <label name="high">Alto</label>
+    <label name="high_heel">Tacón</label>
+    <label name="highlighter">Marcador</label>
+    <label name="highway">Autovía</label>
+    <label name="hinduism">Hinduismo</label>
+    <label name="histogram">Histograma</label>
+    <label name="history">Historial</label>
     <label name="hockey">Hockey</label>
-    <label name="hockey_puck">Hockey puck</label>
-    <label name="hockey_stick">Hockey stick</label>
-    <label name="home">Home</label>
-    <label name="home_appliance">Home appliance</label>
-    <label name="horn">Horn</label>
-    <label name="horse">Horse</label>
-    <label name="horseshoe">Horseshoe</label>
+    <label name="hockey_puck">Disco de hockey</label>
+    <label name="hockey_stick">Bastón de hockey</label>
+    <label name="home">Hogar</label>
+    <label name="home_appliance">Electrodoméstico</label>
+    <label name="horn">Bocina</label>
+    <label name="horse">Caballo</label>
+    <label name="horseshoe">Herradura</label>
     <label name="hospital">Hospital</label>
-    <label name="hot">Hot</label>
-    <label name="hot_air_balloon">Hot air balloon</label>
-    <label name="hot_tub">Hot tub</label>
-    <label name="hotdog">Hot-dog</label>
+    <label name="hot">Calor</label>
+    <label name="hot_air_balloon">Globo aerostático</label>
+    <label name="hot_tub">Baño caliente</label>
+    <label name="hotdog">Salchicha</label>
     <label name="hotel">Hotel</label>
     <label name="hour">Hour</label>
-    <label name="hourglass">Hourglass</label>
-    <label name="house">House</label>
-    <label name="housework">Housework</label>
-    <label name="human">Human</label>
-    <label name="hurricane">Hurricane</label>
+    <label name="hourglass">Reloj de arena</label>
+    <label name="house">Casa</label>
+    <label name="housework">Tareas del hogar</label>
+    <label name="human">Humano</label>
+    <label name="hurricane">Huracán</label>
     <label name="hyperlink">Hyperlink</label>
-    <label name="icecream">Icecream</label>
-    <label name="icecream_cone">Icecream cone</label>
-    <label name="icecube">Icecube</label>
+    <label name="icecream">Helado/label>
+    <label name="icecream_cone">Cono de helado</label>
+    <label name="icecube">Cubito de hielo</label>
     <label name="image">
-        <alias>Image</alias>
-        <alias>Picture</alias>
+        <alias>Imagen</alias>
+        <alias>Foto</alias>
     </label>
-    <label name="import">Import</label>
+    <label name="import">Importar</label>
     <label name="incognito">Incognito</label>
-    <label name="infinity">Infinity</label>
-    <label name="information">Information</label>
+    <label name="infinity">Infinito</label>
+    <label name="information">Información</label>
     <label name="insect">
-        <alias>Insect</alias>
-        <alias>Bug</alias>
+        <alias>Insecto</alias>
+        <alias>Bicho</alias>
     </label>
     <label name="insomnia">Insomnia</label>
-    <label name="instrument">Instrument</label>
-    <label name="insurance">Insurance</label>
+    <label name="instrument">Instrumento</label>
+    <label name="insurance">Seguro</label>
     <label name="internet">Internet</label>
-    <label name="intersection">Intersection</label>
-    <label name="inverse">Inverse</label>
-    <label name="investment">Investment</label>
+    <label name="intersection">Semáforo</label>
+    <label name="inverse">Microchip</label>
+    <label name="investment">Inversión</label>
     <label name="islam">Islam</label>
-    <label name="items">Items</label>
+    <label name="items">Elementos</label>
     <label name="json">JSON</label>
-    <label name="judaism">Judaism</label>
+    <label name="judaism">Judaismo</label>
     <label name="jupiter">Jupiter</label>
     <label name="karate">Karate</label>
     <label name="kelvin">Kelvin</label>
-    <label name="kettle">Kettle</label>
-    <label name="key">Key</label>
-    <label name="keyboard">Keyboard</label>
+    <label name="kettle">Tetera</label>
+    <label name="key">Llave</label>
+    <label name="keyboard">Teclado</label>
     <label name="kg">KG</label>
-    <label name="king">King</label>
-    <label name="kiss">Kiss</label>
-    <label name="knife">Knife</label>
+    <label name="king">Rey</label>
+    <label name="kiss">Beso</label>
+    <label name="knife">Cuchillo</label>
     <label name="label">
-        <alias>Label</alias>
-        <alias>Tag</alias>
+        <alias>Etiqueta</alias>
+        <alias>Designación</alias>
     </label>
-    <label name="ladybug">Ladybug</label>
-    <label name="lamp">Lamp</label>
-    <label name="landing">Landing</label>
-    <label name="landscape">Landscape</label>
-    <label name="language">Language</label>
-    <label name="laptop">Laptop</label>
-    <label name="layer">Layer</label>
-    <label name="leaf">Leaf</label>
-    <label name="leaking">Leaking</label>
-    <label name="left">Left</label>
-    <label name="leg">Leg</label>
-    <label name="length">Length</label>
-    <label name="letter">Letter</label>
-    <label name="library">Library</label>
-    <label name="license">License</label>
-    <label name="license_copyright">@label/license</label>
-    <label name="lifebuoy">Lifebuoy</label>
-    <label name="lightbulb">Lightbulb</label>
-    <label name="lighthouse">Lighthouse</label>
-    <label name="lightning">Lightning</label>
+    <label name="ladybug">Mariquita</label>
+    <label name="lamp">Lámpara</label>
+    <label name="landing">Aterrizaje</label>
+    <label name="landscape">Paisaje</label>
+    <label name="language">Lenguaje</label>
+    <label name="laptop">Portátil</label>
+    <label name="layer">Capa</label>
+    <label name="leaf">Hoja</label>
+    <label name="leaking">Goteo</label>
+    <label name="left">Izquierda</label>
+    <label name="leg">Pierna</label>
+    <label name="length">Longitud</label>
+    <label name="letter">Letra</label>
+    <label name="library">Libraría</label>
+    <label name="license">Licencia</label>
+    <label name="license_copyright">Copyright</label>
+    <label name="lifebuoy">Salvavidas</label>
+    <label name="lightbulb">Bombilla</label>
+    <label name="lighthouse">Faro</label>
+    <label name="lightning">Iluminación</label>
     <label name="lightning_led">LED</label>
-    <label name="like">Like</label>
+    <label name="like">Me gusta</label>
     <label name="link">Link</label>
-    <label name="liquid">Liquid</label>
-    <label name="list">List</label>
-    <label name="livestock">
-        <alias>Livestock</alias>
-        <alias>Cattle</alias>
-    </label>
-    <label name="loading">Loading</label>
-    <label name="location">Location</label>
-    <label name="lock">Lock</label>
-    <label name="locked">Locked</label>
-    <label name="logic_gate">Logic gate</label>
-    <label name="loop">Loop</label>
-    <label name="love">Love</label>
-    <label name="low">Low</label>
-    <label name="luck">Luck</label>
-    <label name="magic">Magic</label>
-    <label name="magnet">Magnet</label>
-    <label name="magnifying_glass">Magnifying glass</label>
-    <label name="mail">Mail</label>
-    <label name="mailbox">Mailbox</label>
-    <label name="male">Male</label>
-    <label name="mallet">Mallet</label>
-    <label name="man">Man</label>
-    <label name="map">Map</label>
-    <label name="maple">Maple</label>
-    <label name="martial_arts">Martial arts</label>
+    <label name="liquid">Liquido</label>
+    <label name="list">Lista</label>
+    <label name="livestock">Ganado</label>
+    <label name="loading">Cargando</label>
+    <label name="location">Ubicación</label>
+    <label name="lock">Bloqueo</label>
+    <label name="locked">Bloqueado</label>
+    <label name="logic_gate">Puerta lógia</label>
+    <label name="loop">Bucle</label>
+    <label name="love">Amor</label>
+    <label name="low">Bajo</label>
+    <label name="luck">Suerte</label>
+    <label name="magic">Magia</label>
+    <label name="magnet">Imán</label>
+    <label name="magnifying_glass">Lupa</label>
+    <label name="mail">Correo</label>
+    <label name="mailbox">Buzón</label>
+    <label name="male">Macho</label>
+    <label name="mallet">Mazo</label>
+    <label name="man">Hombre</label>
+    <label name="map">Mapa</label>
+    <label name="maple">Arce</label>
+    <label name="martial_arts">Artes marciales</label>
     <label name="martini">Martini</label>
-    <label name="mask">Mask</label>
-    <label name="math">Mathematics</label>
-    <label name="math_addition">Addition</label>
-    <label name="math_division">Division</label>
-    <label name="math_equal">Equal</label>
-    <label name="math_exponent">Exponent</label>
-    <label name="math_formula">Formula</label>
-    <label name="math_function">Function</label>
-    <label name="math_multiplication">Multiplication</label>
-    <label name="math_not_equal">Not equal</label>
-    <label name="math_square">@label/square</label>
-    <label name="math_square_root">Square root</label>
-    <label name="math_subtraction">Subtraction</label>
-    <label name="meal">Meal</label>
-    <label name="measurement">Measurement</label>
-    <label name="measuring_tape">Measuring tape</label>
-    <label name="medal">Medal</label>
+    <label name="mask">Mascara</label>
+    <label name="math">Matemáticas</label>
+    <label name="math_addition">Adición</label>
+    <label name="math_division">División</label>
+    <label name="math_equal">Igual</label>
+    <label name="math_exponent">Exponente</label>
+    <label name="math_formula">Fórmula</label>
+    <label name="math_function">Función</label>
+    <label name="math_multiplication">Multiplicacon</label>
+    <label name="math_not_equal">Distinto</label>
+    <label name="math_square">Cuadrado</label>
+    <label name="math_square_root">Raíz cuadrada</label>
+    <label name="math_subtraction">Resta</label>
+    <label name="meal">Comida</label>
+    <label name="measurement">Medida</label>
+    <label name="measuring_tape">Cintra métrica</label>
+    <label name="medal">Medalla</label>
     <label name="media">Media</label>
-    <label name="media_fast_forward">Fast forward</label>
-    <label name="media_pause">Pause</label>
-    <label name="media_play">Play</label>
-    <label name="media_player">Media player</label>
-    <label name="media_resume">Resume</label>
-    <label name="media_rewind">Rewind</label>
-    <label name="media_shuffle">Shuffle</label>
-    <label name="media_skip_backward">Skip backward</label>
-    <label name="media_skip_forward">Skip forward</label>
-    <label name="media_skip_next">Skip next</label>
-    <label name="media_skip_previous">Skip previous</label>
+    <label name="media_fast_forward">Avanzar</label>
+    <label name="media_pause">Pausa</label>
+    <label name="media_play">Reproducir</label>
+    <label name="media_player">Reproductor</label>
+    <label name="media_resume">Continuar</label>
+    <label name="media_rewind">Rebobinar</label>
+    <label name="media_shuffle">aleatorio</label>
+    <label name="media_skip_backward">Pista anterior</label>
+    <label name="media_skip_forward">Pista posterior</label>
+    <label name="media_skip_next">Siguiente</label>
+    <label name="media_skip_previous">Anterior</label>
     <label name="medication">
-        <alias>Medication</alias>
-        <alias>@label/drug</alias>
+        <alias>Medicación</alias>
+        <alias>Droga</alias>
     </label>
-    <label name="medium">Medium</label>
-    <label name="membership">Membership</label>
-    <label name="memory">Memory</label>
-    <label name="menu">Menu</label>
-    <label name="merge">Merge</label>
-    <label name="message">Message</label>
-    <label name="metronome">Metronome</label>
-    <label name="microorganism">Microorganism</label>
-    <label name="microphone">Microphone</label>
-    <label name="microscope">Microscope</label>
-    <label name="military">Military</label>
-    <label name="milk">Milk</label>
-    <label name="mining">Mining</label>
-    <label name="minus">Minus</label>
-    <label name="missed">Missed</label>
-    <label name="mobile">Mobile</label>
-    <label name="money">Money</label>
+    <label name="medium">Medio</label>
+    <label name="membership">Afiliación</label>
+    <label name="memory">Memoria</label>
+    <label name="menu">Menú</label>
+    <label name="merge">Unir</label>
+    <label name="message">Mensaje</label>
+    <label name="metronome">Metrónomo</label>
+    <label name="microorganism">Microorganismo</label>
+    <label name="microphone">Micrfono</label>
+    <label name="microscope">Microscopio</label>
+    <label name="military">Militar</label>
+    <label name="milk">Leche</label>
+    <label name="mining">Minar</label>
+    <label name="minus">Menos</label>
+    <label name="missed">Perdido</label>
+    <label name="mobile">Móvil</label>
+    <label name="money">Dinero</label>
     <label name="monitor">Monitor</label>
-    <label name="moon">Moon</label>
-    <label name="more_options">More options</label>
-    <label name="mortgage">Mortgage</label>
+    <label name="moon">Luna</label>
+    <label name="more_options">Más opciones</label>
+    <label name="mortgage">Hipoteca</label>
     <label name="motorbike">
-        <alias>Motorbike</alias>
-        <alias>Motorcycle</alias>
+        <alias>Motocicleta</alias>
     </label>
-    <label name="mountain">Mountain</label>
-    <label name="mouse">Mouse</label>
+    <label name="mountain">Montaña</label>
+    <label name="mouse">Ratón</label>
     <label name="mouse_pointer">
-        <alias>Pointer</alias>
         <alias>Cursor</alias>
     </label>
-    <label name="movement">Movement</label>
-    <label name="movie">Movie</label>
-    <label name="muffin">Muffin</label>
-    <label name="mug">@label/cup</label>
+    <label name="movement">Movimiento</label>
+    <label name="movie">Filme</label>
+    <label name="muffin">Magdalena</label>
+    <label name="mug">Taza</label>
     <label name="multiple">Multiple</label>
-    <label name="mushroom">Mushroom</label>
-    <label name="music">Music</label>
-    <label name="mute">Mute</label>
-    <label name="nature">Nature</label>
-    <label name="navigation">Navigation</label>
-    <label name="needle">Needle</label>
-    <label name="network">Network</label>
+    <label name="mushroom">Seta</label>
+    <label name="music">Música</label>
+    <label name="mute">Silenciar</label>
+    <label name="nature">Naturaleza</label>
+    <label name="navigation">Navegador</label>
+    <label name="needle">Jeringuilla</label>
+    <label name="network">Red</label>
     <label name="neutral">Neutral</label>
-    <label name="news">News</label>
-    <label name="newspaper">Newspaper</label>
+    <label name="news">Noticias</label>
+    <label name="newspaper">Periódico</label>
     <label name="ninja">Ninja</label>
     <label name="none">None</label>
-    <label name="note">Note</label>
-    <label name="notebook">Notebook</label>
-    <label name="notification">Notification</label>
+    <label name="note">Nota</label>
+    <label name="notebook">Portátil</label>
+    <label name="notification">Notificacion</label>
     <label name="nuclear">Nuclear</label>
-    <label name="nucleus">Nucleus</label>
-    <label name="nuke">Nuke</label>
-    <label name="number">Number</label>
-    <label name="numeric">Numeric</label>
-    <label name="nurse">Nurse</label>
-    <label name="nut">Nut</label>
-    <label name="nutrition">Nutrition</label>
+    <label name="nucleus">Núcleo</label>
+    <label name="nuke">Bomba</label>
+    <label name="number">Número</label>
+    <label name="numeric">Numérico</label>
+    <label name="nurse">Enfermera</label>
+    <label name="nut">Tuerca</label>
+    <label name="nutrition">Nutrición</label>
     <label name="oar">Oar</label>
     <label name="octagon">Octagon</label>
     <label name="off">Off</label>
