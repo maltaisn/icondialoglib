@@ -29,10 +29,13 @@ Thumbs.db
 build/
 .navigation
 captures/
-output.json 
+output.json
 
 #NDK
 obj/
 .externalNativeBuild
 
+#Production stuff
 icondialog/icons/new
+icondialog/icons/png
+icondialog/icons/label-images
