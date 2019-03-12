@@ -26,12 +26,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -52,6 +46,11 @@ import com.maltaisn.icondialog.LabelValue;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Comparator;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity implements
         IconDialog.Callback, IconDialog.DismissCallback,
@@ -232,7 +231,7 @@ public class MainActivity extends AppCompatActivity implements
 
         iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
             @Override
-            public void onDataLoaded() {
+            public void onDataLoaded(IconHelper helper) {
                 selectedIcons = new Icon[selectedIconIds.length];
                 for (int i = 0; i < selectedIcons.length; i++) {
                     selectedIcons[i] = iconHelper.getIcon(selectedIconIds[i]);
@@ -255,7 +254,7 @@ public class MainActivity extends AppCompatActivity implements
                         iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
                         iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
                             @Override
-                            public void onDataLoaded() {
+                            public void onDataLoaded(IconHelper helper) {
                                 iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
                             }
                         });
