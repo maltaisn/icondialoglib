@@ -695,9 +695,9 @@
     <label name="media_player">Reproductor</label>
     <label name="media_resume">Continuar</label>
     <label name="media_rewind">Rebobinar</label>
-    <label name="media_shuffle">aleatorio</label>
-    <label name="media_skip_backward">Pista anterior</label>
-    <label name="media_skip_forward">Pista posterior</label>
+    <label name="media_shuffle">Aleatorio</label>
+    <label name="media_skip_backward">Final</label>
+    <label name="media_skip_forward">Principio</label>
     <label name="media_skip_next">Siguiente</label>
     <label name="media_skip_previous">Anterior</label>
     <label name="medication">
@@ -712,7 +712,7 @@
     <label name="message">Mensaje</label>
     <label name="metronome">Metrónomo</label>
     <label name="microorganism">Microorganismo</label>
-    <label name="microphone">Micrfono</label>
+    <label name="microphone">Micrófono</label>
     <label name="microscope">Microscopio</label>
     <label name="military">Militar</label>
     <label name="milk">Leche</label>
@@ -727,6 +727,7 @@
     <label name="mortgage">Hipoteca</label>
     <label name="motorbike">
         <alias>Motocicleta</alias>
+        <alias>Moto</alias>
     </label>
     <label name="mountain">Montaña</label>
     <label name="mouse">Ratón</label>
@@ -734,7 +735,7 @@
         <alias>Cursor</alias>
     </label>
     <label name="movement">Movimiento</label>
-    <label name="movie">Filme</label>
+    <label name="movie">Película</label>
     <label name="muffin">Magdalena</label>
     <label name="mug">Taza</label>
     <label name="multiple">Multiple</label>
@@ -761,186 +762,186 @@
     <label name="nurse">Enfermera</label>
     <label name="nut">Tuerca</label>
     <label name="nutrition">Nutrición</label>
-    <label name="oar">Oar</label>
-    <label name="octagon">Octagon</label>
-    <label name="off">Off</label>
-    <label name="oil">Oil</label>
-    <label name="on">On</label>
-    <label name="onion">Onion</label>
-    <label name="opened">Opened</label>
-    <label name="orbit">Orbit</label>
-    <label name="order_content">Order</label>
-    <label name="ornament">Ornament</label>
-    <label name="outdoors">Outdoors</label>
-    <label name="owl">Owl</label>
-    <label name="package">Package</label>
-    <label name="paint">Paint</label>
-    <label name="palette">Palette</label>
-    <label name="palm_tree">Palm</label>
+    <label name="oar">Remo</label>
+    <label name="octagon">Octágono</label>
+    <label name="off">Apagado</label>
+    <label name="oil">Aceite</label>
+    <label name="on">Encendido</label>
+    <label name="onion">Cebolla</label>
+    <label name="opened">Abierto</label>
+    <label name="orbit">Órbita</label>
+    <label name="order_content">Orden</label>
+    <label name="ornament">Ornamento</label>
+    <label name="outdoors">Exterior</label>
+    <label name="owl">Buho</label>
+    <label name="package">Empaquetado</label>
+    <label name="paint">Pintar</label>
+    <label name="palette">Paletta</label>
+    <label name="palm_tree">Palmera</label>
     <label name="panda">Panda</label>
     <label name="panorama">Panorama</label>
-    <label name="paper">Paper</label>
-    <label name="paperclip">Paperclip</label>
-    <label name="parachute">Parachute</label>
-    <label name="parentheses">Parentheses</label>
-    <label name="park">Park</label>
+    <label name="paper">Papel</label>
+    <label name="paperclip">Clip</label>
+    <label name="parachute">Paracaídas</label>
+    <label name="parentheses">Parentesis</label>
+    <label name="park">Parque</label>
     <label name="parking">Parking</label>
-    <label name="passport">Passport</label>
+    <label name="passport">Pasaporte</label>
     <label name="password">Password</label>
-    <label name="past">Past</label>
+    <label name="past">Pasado</label>
     <label name="pasta">Pasta</label>
-    <label name="paste">Paste</label>
-    <label name="pastry">Pastry</label>
-    <label name="pathway">Pathway</label>
-    <label name="paw">Paw</label>
-    <label name="peace">Peace</label>
-    <label name="pen">Pen</label>
-    <label name="pencil">Pencil</label>
-    <label name="penguin">Penguin</label>
-    <label name="pentagon">Pentagon</label>
-    <label name="pepper">Pepper</label>
-    <label name="percent">Percent</label>
-    <label name="periodic_table">Periodic table</label>
+    <label name="paste">Pegar</label>
+    <label name="pastry">Bollería</label>
+    <label name="pathway">Carretera</label>
+    <label name="paw">Garra</label>
+    <label name="peace">Paz</label>
+    <label name="pen">Pluma</label>
+    <label name="pencil">Lápiz</label>
+    <label name="penguin">Pingüino</label>
+    <label name="pentagon">Pentágono</label>
+    <label name="pepper">Pimiento</label>
+    <label name="percent">Porcentaje</label>
+    <label name="periodic_table">Tabla periódica</label>
     <label name="person">
-        <alias>Person</alias>
-        <alias>People</alias>
+        <alias>Persona</alias>
+        <alias>Gente</alias>
     </label>
-    <label name="pet">Pet</label>
+    <label name="pet">Mascota</label>
     <label name="petrol">
-        <alias>Petrol</alias>
-        <alias>@label/oil</alias>
-        <alias>@label/gas</alias>
+        <alias>Petróleo</alias>
+        <alias>Aceite</alias>
+        <alias>Gas</alias>
     </label>
-    <label name="pharmacy">Pharmacy</label>
+    <label name="pharmacy">Farmacia</label>
     <label name="phone">
-        <alias>Cellphone</alias>
-        <alias>Telephone</alias>
+        <alias>Teléfono</alias>
+        <alias>Celular</alias>
     </label>
-    <label name="photo">Photo</label>
-    <label name="physics">Physics</label>
+    <label name="photo">Foto</label>
+    <label name="physics">Física</label>
     <label name="pi">Pi</label>
     <label name="piano">Piano</label>
-    <label name="pick">Pick</label>
-    <label name="pickaxe">Pickaxe</label>
-    <label name="pie">Pie</label>
-    <label name="pig">Pig</label>
-    <label name="piggy_bank">Piggy bank</label>
-    <label name="pill">Pill</label>
-    <label name="pillar">Pillar</label>
-    <label name="pin">Pin</label>
-    <label name="pine_tree">Pine</label>
-    <label name="pipe">Pipe</label>
-    <label name="pirate">Pirate</label>
-    <label name="pistol">Pistol</label>
+    <label name="pick">Seleccionar</label>
+    <label name="pickaxe">Pico</label>
+    <label name="pie">Tarta</label>
+    <label name="pig">Cerdo</label>
+    <label name="piggy_bank">Hucha</label>
+    <label name="pill">Pildora</label>
+    <label name="pillar">Columna</label>
+    <label name="pin">Chincheta</label>
+    <label name="pine_tree">Pino</label>
+    <label name="pipe">Tubería</label>
+    <label name="pirate">Pirata</label>
+    <label name="pistol">Pistola</label>
     <label name="pizza">Pizza</label>
-    <label name="place">Place</label>
-    <label name="planet">Planet</label>
-    <label name="planned">Planned</label>
-    <label name="plant">Plant</label>
-    <label name="playing_cards">Playing cards</label>
-    <label name="playlist">Playlist</label>
+    <label name="place">Lugar</label>
+    <label name="planet">Planeta</label>
+    <label name="planned">Planeado</label>
+    <label name="plant">Planta</label>
+    <label name="playing_cards">Cartas</label>
+    <label name="playlist">Lista de reproducción</label>
     <label name="plugin">Plugin</label>
-    <label name="plus">Plus</label>
-    <label name="pocket">Pocket</label>
+    <label name="plus">Suma</label>
+    <label name="pocket">Bolsillo</label>
     <label name="poker">Poker</label>
-    <label name="police">Police</label>
-    <label name="pollution">Pollution</label>
-    <label name="polygon">Polygon</label>
-    <label name="pool">Pool</label>
-    <label name="popcorn">Popcorn</label>
-    <label name="postage_stamp">Postage stamp</label>
-    <label name="pot">Pot</label>
-    <label name="pound">Pound</label>
+    <label name="police">Policía</label>
+    <label name="pollution">Polucion</label>
+    <label name="polygon">Polígono</label>
+    <label name="pool">Piscina</label>
+    <label name="popcorn">Palomitas</label>
+    <label name="postage_stamp">Cuño</label>
+    <label name="pot">Puchero</label>
+    <label name="pound">Almohadilla</label>
     <label name="power_state">Power</label>
-    <label name="precipitation">Precipitation</label>
-    <label name="pregnant">Pregnant</label>
-    <label name="presentation">Presentation</label>
-    <label name="printer">Printer</label>
+    <label name="precipitation">Precipitacion</label>
+    <label name="pregnant">Embarazada</label>
+    <label name="presentation">Presentacion</label>
+    <label name="printer">Impresora</label>
     <label name="prize">
-        <alias>Prize</alias>
-        <alias>Award</alias>
+        <alias>Premio</alias>
+        <alias>Trofeo</alias>
     </label>
-    <label name="profile">Profile</label>
+    <label name="profile">Perfil</label>
     <label name="programming">
-        <alias>Programming</alias>
-        <alias>Code</alias>
+        <alias>Programar</alias>
+        <alias>Código</alias>
     </label>
     <label name="programming_c">C</label>
     <label name="programming_cplusplus">C++</label>
     <label name="programming_csharp">C#</label>
     <label name="programming_html">HTML</label>
     <label name="programming_javascript">JavaScript</label>
-    <label name="programming_language">Programming language</label>
+    <label name="programming_language">Lenguaje de programación</label>
     <label name="programming_lua">Lua</label>
     <label name="programming_php">PHP</label>
     <label name="programming_python">Python</label>
     <label name="programming_swift">Swift</label>
     <label name="programming_xml">XML</label>
     <label name="prohibition">
-        <alias>Prohibition</alias>
+        <alias>Prohibicion</alias>
         <alias>No</alias>
-        <alias>Banned</alias>
+        <alias>Baneado</alias>
     </label>
-    <label name="projector">Projector</label>
-    <label name="pulse">Pulse</label>
-    <label name="pump">Pump</label>
-    <label name="puzzle">Puzzle</label>
-    <label name="qrcode">QR Code</label>
-    <label name="quadcopter">Quadcopter</label>
-    <label name="question">Question</label>
-    <label name="question_mark">Question mark</label>
+    <label name="projector">Proyector</label>
+    <label name="pulse">Pulso</label>
+    <label name="pump">Bomba</label>
+    <label name="puzzle">Puzle</label>
+    <label name="qrcode">Código QR</label>
+    <label name="quadcopter">Cuadricoptero</label>
+    <label name="question">Pregunta</label>
+    <label name="question_mark">Signo de interrogación</label>
     <label name="rabbit">
-        <alias>Rabbit</alias>
-        <alias>Hare</alias>
+        <alias>Conejo</alias>
+        <alias>Liebre</alias>
     </label>
     <label name="radar">Radar</label>
     <label name="radiator">
-        <alias>Radiator</alias>
-        <alias>Heating</alias>
+        <alias>Radiador</alias>
+        <alias>Calefacción</alias>
     </label>
     <label name="radio">Radio</label>
-    <label name="radioactivity">Radioactive</label>
-    <label name="rainbow">Rainbow</label>
-    <label name="raspberrypi">RaspberryPi</label>
-    <label name="reaction">Reaction</label>
-    <label name="reading">Reading</label>
-    <label name="recycling">Recycle</label>
-    <label name="redo">Redo</label>
-    <label name="religion">Religion</label>
-    <label name="reminder">Reminder</label>
-    <label name="remote">Remote</label>
-    <label name="renewable_energy">Renewable energy</label>
+    <label name="radioactivity">Radioactivo</label>
+    <label name="rainbow">Arcoiris</label>
+    <label name="raspberrypi">Raspberry Pi</label>
+    <label name="reaction">Reacción</label>
+    <label name="reading">Lectura</label>
+    <label name="recycling">Reciclar</label>
+    <label name="redo">Rehacer</label>
+    <label name="religion">Religión</label>
+    <label name="reminder">Recordatorio</label>
+    <label name="remote">Remoto</label>
+    <label name="renewable_energy">Energía renovable</label>
     <label name="repeat">
-        <alias>Repeat</alias>
-        <alias>Refresh</alias>
-        <alias>Reload</alias>
-        <alias>Restart</alias>
-        <alias>@label/loop</alias>
+        <alias>Repetir</alias>
+        <alias>Actualizar</alias>
+        <alias>Recargar</alias>
+        <alias>Reiniciar</alias>
+        <alias>Bucle</alias>
     </label>
-    <label name="reproduction">Reproduction</label>
-    <label name="rescue">Rescue</label>
-    <label name="rest">Rest</label>
-    <label name="restaurant">Restaurant</label>
-    <label name="restore">Restore</label>
-    <label name="review">Review</label>
-    <label name="rhombus">Rhombus</label>
-    <label name="ribbon">Ribbon</label>
-    <label name="rice">Rice</label>
-    <label name="right">Right</label>
-    <label name="ring">Ring</label>
-    <label name="road">Road</label>
+    <label name="reproduction">Reprodución</label>
+    <label name="rescue">Rescate</label>
+    <label name="rest">Descanso</label>
+    <label name="restaurant">Restaurante</label>
+    <label name="restore">Restaurar</label>
+    <label name="review">Evaluación</label>
+    <label name="rhombus">Rombo</label>
+    <label name="ribbon">Lazo</label>
+    <label name="rice">Arroz</label>
+    <label name="right">Derecha</label>
+    <label name="ring">Anillo</label>
+    <label name="road">Carretera</label>
     <label name="robot">Robot</label>
-    <label name="rocket">Rocket</label>
-    <label name="roller">Roller</label>
+    <label name="rocket">Cohete</label>
+    <label name="roller">Rodillo</label>
     <label name="rope">
-        <alias>Rope</alias>
-        <alias>String</alias>
+        <alias>Cuerda</alias>
+        <alias>Cordel</alias>
     </label>
-    <label name="rotation">Rotation</label>
+    <label name="rotation">Rotacion</label>
     <label name="router">Router</label>
-    <label name="rowing">Rowing</label>
-    <label name="ruler">Ruler</label>
-    <label name="run">Run</label>
+    <label name="rowing">Remar</label>
+    <label name="ruler">Regla</label>
+    <label name="run">Correr</label>
     <label name="sad">Sad</label>
     <label name="safe">Safe</label>
     <label name="sandcastle">Sandcastle</label>
