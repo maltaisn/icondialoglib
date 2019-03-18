@@ -937,301 +937,297 @@
         <alias>Cuerda</alias>
         <alias>Cordel</alias>
     </label>
-    <label name="rotation">Rotacion</label>
+    <label name="rotation">Rotación</label>
     <label name="router">Router</label>
     <label name="rowing">Remar</label>
     <label name="ruler">Regla</label>
     <label name="run">Correr</label>
-    <label name="sad">Sad</label>
-    <label name="safe">Safe</label>
-    <label name="sandcastle">Sandcastle</label>
-    <label name="satellite">Satellite</label>
-    <label name="sauce">Sauce</label>
-    <label name="sausage">Sausage</label>
-    <label name="save">Save</label>
-    <label name="savings">Savings</label>
-    <label name="saw">Saw</label>
-    <label name="saxophone">Saxophone</label>
+    <label name="sad">Triste</label>
+    <label name="safe">Seguro</label>
+    <label name="sandcastle">Castillo de arena</label>
+    <label name="satellite">Satelite</label>
+    <label name="sauce">Salsa</label>
+    <label name="sausage">Salchicha</label>
+    <label name="save">Guardar</label>
+    <label name="savings">Ahorro</label>
+    <label name="saw">Sierra</label>
+    <label name="saxophone">Saxofón</label>
     <label name="scale">
-        <alias>Scale</alias>
-        <alias>Balance</alias>
+        <alias>Báscula</alias>
+        <alias>Pesar</alias>
     </label>
-    <label name="scan">Scan</label>
-    <label name="scanner">Scanner</label>
-    <label name="school">School</label>
-    <label name="schredder">Schredder</label>
-    <label name="science">Science</label>
-    <label name="scissors">Scissors</label>
-    <label name="screen">Screen</label>
+    <label name="scan">Escanear</label>
+    <label name="scanner">Escaner</label>
+    <label name="school">Escuela</label>
+    <label name="schredder">Triturar</label>
+    <label name="science">Ciencia</label>
+    <label name="scissors">Tijeras</label>
+    <label name="screen">Patalla</label>
     <label name="screen_cast">Cast</label>
-    <label name="screwdriver">Screwdriver</label>
+    <label name="screwdriver">Destornillador</label>
     <label name="script">Script</label>
     <label name="sd_card">
-        <alias>SD Card</alias>
+        <alias>Tarjeta SD</alias>
         <alias>Micro SD</alias>
     </label>
-    <label name="seal">Seal</label>
+    <label name="seal">Medalla</label>
     <label name="search">
-        <alias>Search</alias>
-        <alias>Find</alias>
+        <alias>Buscar</alias>
+        <alias>Encontrar</alias>
     </label>
-    <label name="seat">Seat</label>
-    <label name="seatbelt">Seatbelt</label>
-    <label name="security">Security</label>
-    <label name="select">Select</label>
-    <label name="send">Send</label>
-    <label name="server">Server</label>
+    <label name="seat">Asiento</label>
+    <label name="seatbelt">Cinturón de seguridad</label>
+    <label name="security">Seguridad</label>
+    <label name="select">Seleccionar</label>
+    <label name="send">Enviar</label>
+    <label name="server">Servidor</label>
     <label name="settings">
-        <alias>Settings</alias>
-        <alias>Options</alias>
-        <alias>Configuration</alias>
+        <alias>Ajustes</alias>
+        <alias>Opciones</alias>
+        <alias>Configuración</alias>
     </label>
-    <label name="shape">Shape</label>
-    <label name="share">Share</label>
-    <label name="sheep">Sheep</label>
-    <label name="sheet_music">Sheet music</label>
-    <label name="shield">Shield</label>
-    <label name="ship">Ship</label>
-    <label name="ship_anchor">Anchor</label>
-    <label name="shoe">Shoe</label>
-    <label name="shopping">Shopping</label>
-    <label name="shovel">Shovel</label>
-    <label name="shower">Shower</label>
-    <label name="sign">Sign</label>
-    <label name="signal">Signal</label>
-    <label name="sim_card">Sim card</label>
-    <label name="sit">Sit</label>
-    <label name="skull">Skull</label>
-    <label name="sleep">Sleep</label>
-    <label name="smile">Smile</label>
-    <label name="smog">Smog</label>
-    <label name="smoke">Smoke</label>
-    <label name="smoking">Smoking</label>
+    <label name="shape">Figura</label>
+    <label name="share">Compartir</label>
+    <label name="sheep">Oveja</label>
+    <label name="sheet_music">Partitura</label>
+    <label name="shield">Blindaje</label>
+    <label name="ship">Barco</label>
+    <label name="ship_anchor">Ancla</label>
+    <label name="shoe">Zapato</label>
+    <label name="shopping">Compras</label>
+    <label name="shovel">Pala</label>
+    <label name="shower">Ducha</label>
+    <label name="sign">Cartel</label>
+    <label name="signal">Señal</label>
+    <label name="sim_card">Tarjeta SIM</label>
+    <label name="sit">Asiento</label>
+    <label name="skull">Calavera</label>
+    <label name="sleep">Dormir</label>
+    <label name="smile">Sonreir</label>
+    <label name="smog">Niebla tóxica</label>
+    <label name="smoke">Humo</label>
+    <label name="smoking">Fumar</label>
     <label name="snooze">Snooze</label>
-    <label name="snow">Snow</label>
-    <label name="snowflake">Snowflake</label>
-    <label name="snowman">Snowman</label>
+    <label name="snow">Nieve</label>
+    <label name="snowflake">Copo de nieve</label>
+    <label name="snowman">Muñeco de nieve</label>
     <label name="soccer">
-        <alias>Soccer</alias>
-        <alias>@label/football</alias>
+        <alias>Fútbol</alias>
     </label>
     <label name="sock">
-        <alias>Sock</alias>
-        <alias>Stocking</alias>
+        <alias>Calcetín</alias>
     </label>
     <label name="sofa">
-        <alias>Sofa</alias>
-        <alias>Couch</alias>
+        <alias>Sofá</alias>
     </label>
-    <label name="solar_power">Solar power</label>
-    <label name="sort">Sort</label>
-    <label name="sound">Sound</label>
-    <label name="sound_ring">Ring</label>
-    <label name="source">Source</label>
-    <label name="space">Space</label>
-    <label name="speak">Speak</label>
-    <label name="speaker">Speaker</label>
-    <label name="speedometer">Speedometer</label>
-    <label name="spellcheck">Spellcheck</label>
-    <label name="spermatozoid">Spermatozoid</label>
-    <label name="spicy">Spicy</label>
-    <label name="spoon">Spoon</label>
-    <label name="sport">Sport</label>
-    <label name="spotlight">Spotlight</label>
-    <label name="spray">Spray</label>
-    <label name="spreadsheet">Spreadsheet</label>
-    <label name="spy">Spy</label>
-    <label name="square">Square</label>
-    <label name="stack">Stack</label>
-    <label name="stadium">Stadium</label>
-    <label name="stairs">Stairs</label>
-    <label name="stamper">Stamper</label>
-    <label name="standing">Standing</label>
-    <label name="star">Star</label>
-    <label name="steering">Steering</label>
-    <label name="stethoscope">Stethoscope</label>
-    <label name="sticker">Sticker</label>
-    <label name="stop">Stop</label>
-    <label name="stopwatch">Stopwatch</label>
+    <label name="solar_power">Energía solar</label>
+    <label name="sort">Ordenar</label>
+    <label name="sound">Sonido</label>
+    <label name="sound_ring">Sonido de llamada</label>
+    <label name="source">Fuente</label>
+    <label name="space">Espacio</label>
+    <label name="speak">Hablar</label>
+    <label name="speaker">Altavoz</label>
+    <label name="speedometer">Velocímetro</label>
+    <label name="spellcheck">Corrector ortográfico</label>
+    <label name="spermatozoid">Espermatozoide</label>
+    <label name="spicy">Picante</label>
+    <label name="spoon">Cuchara</label>
+    <label name="sport">Deporte</label>
+    <label name="spotlight">Foco</label>
+    <label name="spray">Espray</label>
+    <label name="spreadsheet">Hoja de cálculo</label>
+    <label name="spy">Espía</label>
+    <label name="square">Cuadrado</label>
+    <label name="stack">Pila</label>
+    <label name="stadium">Estadio</label>
+    <label name="stairs">Escaleras</label>
+    <label name="stamper">Cuño</label>
+    <label name="standing">De pie</label>
+    <label name="star">Estrella</label>
+    <label name="steering">Volante</label>
+    <label name="stethoscope">Estetoscopio</label>
+    <label name="sticker">Pegatinar</label>
+    <label name="stop">Parar</label>
+    <label name="stopwatch">Cronómetro</label>
     <label name="store">
-        <alias>Store</alias>
-        <alias>Shop</alias>
+        <alias>Tienda</alias>
+        <alias>Comercio</alias>
     </label>
-    <label name="storm">Storm</label>
+    <label name="storm">Tormenta</label>
     <label name="stove">
-        <alias>Stove</alias>
-        <alias>Oven</alias>
+        <alias>Cocina</alias>
+        <alias>Horno</alias>
     </label>
-    <label name="street">Street</label>
-    <label name="structure">Structure</label>
-    <label name="style">Style</label>
-    <label name="subtitles">Subtitles</label>
-    <label name="subway">Subway</label>
-    <label name="suit">Suit</label>
-    <label name="summit">Summit</label>
-    <label name="sunglasses">Sunglasses</label>
-    <label name="sunrise">Sunrise</label>
-    <label name="sunset">Sunset</label>
+    <label name="street">Calle</label>
+    <label name="structure">Estructura</label>
+    <label name="style">Estilo</label>
+    <label name="subtitles">Subtítulos</label>
+    <label name="subway">Metro</label>
+    <label name="suit">Traje</label>
+    <label name="summit">Cumbre</label>
+    <label name="sunglasses">Gafas de sol</label>
+    <label name="sunrise">Amanecer</label>
+    <label name="sunset">Puesta de sol</label>
     <label name="superscript">Superscript</label>
-    <label name="surveillance">Surveillance</label>
-    <label name="swap">Swap</label>
+    <label name="surveillance">Vigilancia</label>
+    <label name="swap">Intercambio</label>
     <label name="swimming">Swimming</label>
-    <label name="switch">Switch</label>
-    <label name="sword">Sword</label>
-    <label name="symbol">Symbol</label>
-    <label name="synchronisation">Synchronisation</label>
-    <label name="syringe">Syringe</label>
-    <label name="table">Table</label>
+    <label name="switch">Interruptor</label>
+    <label name="sword">Espada</label>
+    <label name="symbol">Símbolo</label>
+    <label name="synchronisation">Sincronización</label>
+    <label name="syringe">Jeringa</label>
+    <label name="table">Tabla</label>
     <label name="tablet">Tablet</label>
     <label name="taco">Taco</label>
     <label name="taekwondo">Taekwondo</label>
-    <label name="take_off">Take off</label>
-    <label name="talking">Talking</label>
-    <label name="tank_container">Tank</label>
+    <label name="take_off">Despegue</label>
+    <label name="talking">Conversación</label>
+    <label name="tank_container">Tanque</label>
     <label name="taxi">Taxi</label>
-    <label name="tea">Tea</label>
-    <label name="teach">Teach</label>
-    <label name="teapot">Teapot</label>
-    <label name="technology">Technology</label>
-    <label name="telescope">Telescope</label>
+    <label name="tea">Té</label>
+    <label name="teach">Tea</label>
+    <label name="teapot">Tetera</label>
+    <label name="technology">Tecnología</label>
+    <label name="telescope">Telescopio</label>
     <label name="television">
-        <alias>Television</alias>
+        <alias>Televisión</alias>
         <alias>TV</alias>
     </label>
-    <label name="temperature">Temperature</label>
-    <label name="tennis">Tennis</label>
-    <label name="tent">Tent</label>
+    <label name="temperature">Temperatura</label>
+    <label name="tennis">Tenis</label>
+    <label name="tent">Tienda de campaña</label>
     <label name="terminal">Terminal</label>
-    <label name="terrain">Terrain</label>
-    <label name="test_tube">Test tube</label>
-    <label name="text">Text</label>
-    <label name="textbox">Textbox</label>
-    <label name="theater">Theater</label>
-    <label name="thermometer">Thermometer</label>
-    <label name="thermostat">Thermostat</label>
-    <label name="think">Think</label>
-    <label name="thought">Thought</label>
-    <label name="thumb">Thumb</label>
-    <label name="thunderstorm">Thunderstorm</label>
+    <label name="terrain">Terreno</label>
+    <label name="test_tube">Tubo de ensayo</label>
+    <label name="text">Texto</label>
+    <label name="textbox">Cuadro de texto</label>
+    <label name="theater">Teatro</label>
+    <label name="thermometer">Termómetro</label>
+    <label name="thermostat">Termostato</label>
+    <label name="think">Pensar</label>
+    <label name="thought">Pensamiento</label>
+    <label name="thumb">Pulgar</label>
+    <label name="thunderstorm">Tormenta eléctrica</label>
     <label name="ticket">Ticket</label>
-    <label name="tie">Tie</label>
+    <label name="tie">Corbata</label>
     <label name="tilde">Tilde</label>
-    <label name="time">Time</label>
-    <label name="time_day">Day</label>
-    <label name="time_night">Night</label>
-    <label name="timeline">Timeline</label>
+    <label name="time">Tiempo</label>
+    <label name="time_day">Día</label>
+    <label name="time_night">Noche</label>
+    <label name="timeline">Línea de tiempo</label>
     <label name="timer">
-        <alias>Timer</alias>
-        <alias>Chronometer</alias>
-        <alias>@label/stopwatch</alias>
+        <alias>Temporizador</alias>
+        <alias>Cronómetro</alias>
     </label>
-    <label name="toggle">Toggle</label>
-    <label name="toilet">Toilet</label>
-    <label name="tongue">Tongue</label>
-    <label name="tool">Tool</label>
-    <label name="toolbox">Toolbox</label>
-    <label name="tooth">Tooth</label>
-    <label name="tortoise">Tortoise</label>
-    <label name="touch_screen">Touch</label>
-    <label name="tower">Tower</label>
-    <label name="towing">Towing</label>
-    <label name="toy">Toy</label>
+    <label name="toggle">Commutador</label>
+    <label name="toilet">Servicio</label>
+    <label name="tongue">Lengua</label>
+    <label name="tool">Herramienta</label>
+    <label name="toolbox">Caja de herramientas</label>
+    <label name="tooth">Diente</label>
+    <label name="tortoise">Tortuga</label>
+    <label name="touch_screen">Tocar</label>
+    <label name="tower">Torre</label>
+    <label name="towing">Remolque</label>
+    <label name="toy">Jugueta</label>
     <label name="tractor">Tractor</label>
-    <label name="traffic">Traffic</label>
-    <label name="traffic_light">Traffic light</label>
+    <label name="traffic">Tráfico</label>
+    <label name="traffic_light">Semáforo</label>
     <label name="trailer">Trailer</label>
-    <label name="train">Train</label>
-    <label name="tramway">Tramway</label>
-    <label name="transfer">Transfer</label>
-    <label name="transgender">Transgender</label>
-    <label name="transit">Transit</label>
-    <label name="translate">Translate</label>
-    <label name="transport">Transport</label>
-    <label name="trash">Trash</label>
-    <label name="travel">Travel</label>
-    <label name="tree">Tree</label>
-    <label name="trending">Trending</label>
-    <label name="triangle">Triangle</label>
-    <label name="trophy">Trophy</label>
+    <label name="train">Tren</label>
+    <label name="tramway">Tramvía</label>
+    <label name="transfer">Transferencia</label>
+    <label name="transgender">Transgénero</label>
+    <label name="transit">Tránsito</label>
+    <label name="translate">Traducir</label>
+    <label name="transport">Transporte</label>
+    <label name="trash">Basura</label>
+    <label name="travel">Viajar</label>
+    <label name="tree">Árbol</label>
+    <label name="trending">Tendencia</label>
+    <label name="triangle">Triángulo</label>
+    <label name="trophy">Trofeo</label>
     <label name="truck">Truck</label>
-    <label name="tshirt">T-shirt</label>
-    <label name="tulip">Tulip</label>
-    <label name="turbine">Turbine</label>
-    <label name="turtle">Turtle</label>
-    <label name="typing">Typing</label>
-    <label name="umbrella_rain">Umbrella</label>
-    <label name="umbrella_sun">@label/umbrella_rain</label>
-    <label name="undo">Undo</label>
-    <label name="unmerge">Unmerge</label>
-    <label name="up">Up</label>
-    <label name="update">Update</label>
+    <label name="tshirt">Camiseta</label>
+    <label name="tulip">Tulipán</label>
+    <label name="turbine">Turbina</label>
+    <label name="turtle">Tortuga</label>
+    <label name="typing">Mecanografía</label>
+    <label name="umbrella_rain">Paraguas</label>
+    <label name="umbrella_sun">Sombrilla</label>
+    <label name="undo">Deshacer</label>
+    <label name="unmerge">Separar</label>
+    <label name="up">Arriba</label>
+    <label name="update">Actualizar</label>
     <label name="usb">USB</label>
-    <label name="user">User</label>
-    <label name="utensil">Utensil</label>
-    <label name="vacation">Vacation</label>
-    <label name="vaccine">Vaccine</label>
-    <label name="van">Van</label>
-    <label name="vanish">Vanish</label>
+    <label name="user">Usuario</label>
+    <label name="utensil">Cubierto</label>
+    <label name="vacation">Vacaciones</label>
+    <label name="vaccine">Vacuna</label>
+    <label name="van">Furgoneta</label>
+    <label name="vanish">Desaparecer</label>
     <label name="variable">Variable</label>
-    <label name="vegetable">Vegetable</label>
-    <label name="vehicle">Vehicle</label>
-    <label name="vehicle_wheel">Wheel</label>
-    <label name="vibrate">Vibrate</label>
+    <label name="vegetable">Vegetal</label>
+    <label name="vehicle">Vehículo</label>
+    <label name="vehicle_wheel">Rueda</label>
+    <label name="vibrate">Vibrar</label>
     <label name="video">Video</label>
-    <label name="violin">Violin</label>
+    <label name="violin">Violín</label>
     <label name="virus">Virus</label>
-    <label name="vision">Vision</label>
-    <label name="volleyball">Volleyball</label>
-    <label name="volume">Volume</label>
-    <label name="vote">Vote</label>
-    <label name="walking">Walking</label>
-    <label name="wall">Wall</label>
-    <label name="wallet">Wallet</label>
-    <label name="wand">Wand</label>
-    <label name="wash">Wash</label>
-    <label name="washing_machine">Washing machine</label>
-    <label name="watch">Watch</label>
-    <label name="water">Water</label>
-    <label name="wave">Wave</label>
-    <label name="weapon">Weapon</label>
-    <label name="weather">Weather</label>
-    <label name="weather_hail">Hail</label>
-    <label name="weather_lightning">@label/lightning</label>
-    <label name="weather_rainy">Rainy</label>
-    <label name="weather_snowy">Snowy</label>
-    <label name="weather_sunny">Sunny</label>
+    <label name="vision">Visión</label>
+    <label name="volleyball">Balonvolea</label>
+    <label name="volume">Volumen</label>
+    <label name="vote">Voto</label>
+    <label name="walking">Caminar</label>
+    <label name="wall">Muro</label>
+    <label name="wallet">Cartera</label>
+    <label name="wand">Varita mágica</label>
+    <label name="wash">Limpiar</label>
+    <label name="washing_machine">Lavadora</label>
+    <label name="watch">Reloj</label>
+    <label name="water">Agua</label>
+    <label name="wave">Onda</label>
+    <label name="weapon">Arma</label>
+    <label name="weather">Tiempo</label>
+    <label name="weather_hail">Granizo</label>
+    <label name="weather_lightning">Rayo/label>
+    <label name="weather_rainy">Lluvioso</label>
+    <label name="weather_snowy">Nevado</label>
+    <label name="weather_sunny">Soleado</label>
     <label name="web">Web</label>
     <label name="webcam">Webcam</label>
-    <label name="wedding">Wedding</label>
-    <label name="week">Week</label>
+    <label name="wedding">Boda</label>
+    <label name="week">Semana</label>
     <label name="weight">
-        <alias>Weight</alias>
-        <alias>Mass</alias>
+        <alias>Peso</alias>
+        <alias>Masa</alias>
     </label>
-    <label name="wheat">Wheat</label>
-    <label name="wheelchair">Wheelchair</label>
-    <label name="whistle">Whistle</label>
+    <label name="wheat">Trigo</label>
+    <label name="wheelchair">Silla de ruedas</label>
+    <label name="whistle">Silbato</label>
     <label name="wifi">Wi-Fi</label>
-    <label name="wind">Wind</label>
-    <label name="wind_power">Wind power</label>
-    <label name="wind_turbine">Wind turbine</label>
-    <label name="windmill">Windmill</label>
-    <label name="window">Window</label>
-    <label name="wine">Wine</label>
-    <label name="wink">Wink</label>
-    <label name="winter">Winter</label>
-    <label name="wireless">Wireless</label>
-    <label name="withdraw">Withdraw</label>
-    <label name="woman">Woman</label>
-    <label name="work">Work</label>
-    <label name="worker">Worker</label>
-    <label name="wrench">Wrench</label>
-    <label name="writing">Writing</label>
-    <label name="yeast">Yeast</label>
+    <label name="wind">Viento</label>
+    <label name="wind_power">Energía eólica</label>
+    <label name="wind_turbine">Turbina</label>
+    <label name="windmill">Molino</label>
+    <label name="window">Ventana</label>
+    <label name="wine">Vino</label>
+    <label name="wink">Guiño</label>
+    <label name="winter">Invierno</label>
+    <label name="wireless">Sin cables</label>
+    <label name="withdraw">Retirar</label>
+    <label name="woman">Mujer</label>
+    <label name="work">Trabajo</label>
+    <label name="worker">Trabajador</label>
+    <label name="wrench">Llave fija</label>
+    <label name="writing">Escritura</label>
+    <label name="yeast">Levadura</label>
     <label name="yin_yang">Yin yang</label>
     <label name="zoom">
         <alias>Zoom</alias>
-        <alias>Magnify</alias>
+        <alias>Ampliar</alias>
     </label>
 
 </list>
