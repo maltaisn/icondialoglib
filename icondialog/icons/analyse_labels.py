@@ -1,10 +1,12 @@
 import bisect
 import os
+import sys
 import xml.etree.ElementTree
 
 # This script checks label usage in icons to determine which icons has less labels
 # and to identify labels that could be removed
 
+os.chdir(sys.path[0])
 current_path = os.getcwd()
 icons_file = os.path.join(current_path, "..\\src\\main\\res\\xml\\icd_icons.xml")
 

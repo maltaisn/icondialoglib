@@ -30,7 +30,7 @@ os.chdir(sys.path[0])
 current_path = os.getcwd()
 default_label_path = os.path.join(current_path, "..\\src\\main\\res\\xml") 
 default_label_file = "icd_labels.xml"
-default_lang = ["", "-fr", "-pt", "-de"]
+default_lang = ["", "-fr", "-pt", "-de", "-es"]
 
 # Settings to analyse custom icons and labels
 # is_extra_icons = True
