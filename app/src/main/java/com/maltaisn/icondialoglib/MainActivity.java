@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onIconDialogIconsSelected(@NonNull Icon[] icons) {
+    public void onIconDialogIconsSelected(IconDialog dialog, @NonNull Icon[] icons) {
         // Sort selected icons by ID
         Arrays.sort(icons, new Comparator<Icon>() {
             @Override
@@ -415,8 +415,8 @@ public class MainActivity extends AppCompatActivity implements
                         if (infoToast != null) infoToast.cancel();
                         infoToast = Toast.makeText(MainActivity.this,
                                 infoFmt.format(new Object[]{icon.getId(),
-                                icon.getCategory().getName(MainActivity.this),
-                                labelsSb.toString()}), Toast.LENGTH_LONG);
+                                        icon.getCategory().getName(MainActivity.this),
+                                        labelsSb.toString()}), Toast.LENGTH_LONG);
                         infoToast.show();
                     }
                 });
@@ -426,7 +426,8 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         @Override
-        public @NonNull IconViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public @NonNull
+        IconViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new IconViewHolder(getLayoutInflater().inflate(R.layout.item_icon, parent, false));
         }
 

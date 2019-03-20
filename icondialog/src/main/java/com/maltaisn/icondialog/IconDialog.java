@@ -494,7 +494,7 @@ public class IconDialog extends DialogFragment {
             for (int i = 0; i < icons.length; i++) {
                 icons[i] = selectedItems.get(i).icon;
             }
-            ((Callback) getCaller()).onIconDialogIconsSelected(icons);
+            ((Callback) getCaller()).onIconDialogIconsSelected(this, icons);
         } catch (ClassCastException e) {
             // Callback interface is not implemented by caller
         }
@@ -1061,16 +1061,17 @@ public class IconDialog extends DialogFragment {
         /**
          * Called on the target fragment, parent fragment or parent activity when
          * icons are selected and user confirms the selection.
-         * @param icons selected icons, never null.
+         * @param dialog the dialog instance.
+         * @param icons  selected icons, never null.
          */
-        void onIconDialogIconsSelected(@NonNull Icon[] icons);
+        void onIconDialogIconsSelected(IconDialog dialog, @NonNull Icon[] icons);
     }
 
     public interface DismissCallback {
         /**
          * Called when user dismissed the dialog.
          * Called when clicked outside, when cancelled and when icons are selected
-         * (after {@link Callback#onIconDialogIconsSelected(Icon[])}).
+         * (after {@link Callback#onIconDialogIconsSelected(IconDialog, Icon[])}).
          */
         void onIconDialogDismissed();
     }

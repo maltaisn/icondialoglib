@@ -14,8 +14,8 @@ ext {
     siteUrl = 'https://github.com/maltaisn/icondialoglib'
     gitUrl = 'https://github.com/maltaisn/icondialoglib.git'
 
-    libraryVersionCode = 13
-    libraryVersion = '2.3.2'
+    libraryVersionCode = 14
+    libraryVersion = '2.4.0'
 
     developerId = 'maltaisn'
 

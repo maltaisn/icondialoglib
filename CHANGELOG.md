@@ -1,3 +1,7 @@
+## v2.4.0
+- Added a parameter with the dialog instance to the callback method.
+- Spanish translation, thanks to hieudev.
+
 ### v2.3.2
 - Added a parameter with the instance of the IconHelper in `LoadCallback.onDataLoaded`.
 
