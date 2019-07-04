@@ -21,10 +21,10 @@
 
 package com.maltaisn.icondialog;
 
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.util.List;
 
 public class Label implements Comparable<Object> {
 

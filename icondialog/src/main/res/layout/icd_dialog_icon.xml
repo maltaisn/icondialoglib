@@ -29,8 +29,7 @@
     android:background="?attr/icdBackgroundColor"
     android:paddingTop="8dp"
     tools:theme="@style/IcdStyle"
-    tools:ignore="Overdraw"
-    >
+    tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/icd_txv_title"
@@ -42,8 +41,7 @@
         app:layout_constraintBottom_toTopOf="@+id/icd_edt_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/icd_edt_search"
@@ -60,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/icd_txv_title"
         app:layout_constraintVertical_chainStyle="spread_inside"
         tools:ignore="LabelFor,TextFields"
-        />
+        android:layout_marginRight="8dp" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icd_imv_search"
@@ -72,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/icd_edt_search"
         tools:ignore="ContentDescription"
-        />
+        android:layout_marginLeft="8dp" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icd_imv_cancel_search"
@@ -85,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/icd_edt_search"
         tools:ignore="ContentDescription"
-        />
+        android:layout_marginRight="8dp" />
 
     <View
         android:id="@+id/icd_div_header"
@@ -98,8 +96,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icd_edt_search"
-        tools:background="#1f000000"
-        />
+        tools:background="#1f000000" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/icd_rcv_icon_list"
@@ -114,8 +111,7 @@
         tools:listitem="@layout/icd_item_icon"
         tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:spanCount="6"
-        tools:itemCount="20"
-        />
+        tools:itemCount="20" />
 
     <TextView
         android:id="@+id/icd_txv_no_result"
@@ -127,8 +123,7 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icd_div_header"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/icd_div_header" />
 
     <ProgressBar
         android:id="@+id/icd_pb_load"
@@ -142,8 +137,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/icd_rcv_icon_list"
         app:layout_constraintTop_toTopOf="@+id/icd_rcv_icon_list"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
     <View
         android:id="@+id/icd_div_footer"
@@ -155,8 +149,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icd_rcv_icon_list"
-        tools:background="#1f000000"
-        />
+        tools:background="#1f000000" />
 
     <Button
         android:id="@+id/icd_btn_clear"
@@ -168,7 +161,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icd_div_footer"
-        />
+        android:layout_marginLeft="5dp" />
 
     <Button
         android:id="@+id/icd_btn_cancel"
@@ -180,7 +173,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/icd_btn_select"
         app:layout_constraintTop_toBottomOf="@+id/icd_div_footer"
-        />
+        android:layout_marginRight="5dp" />
 
     <Button
         android:id="@+id/icd_btn_select"
@@ -192,6 +185,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/icd_btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/icd_btn_cancel"
-        />
+        android:layout_marginRight="5dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

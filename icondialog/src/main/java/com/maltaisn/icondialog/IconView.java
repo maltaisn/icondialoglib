@@ -24,10 +24,11 @@ package com.maltaisn.icondialog;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import android.util.AttributeSet;
 
 /**
  * Thin wrapper around ImageView to set an icon from the library in XML by ID

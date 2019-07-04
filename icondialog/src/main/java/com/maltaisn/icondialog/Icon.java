@@ -25,12 +25,13 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import org.xmlpull.v1.XmlPullParser;
 

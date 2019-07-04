@@ -38,15 +38,15 @@
         <item name="android:textColor">?android:attr/textColorSecondary</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
-        <item name="android:paddingStart">8dp</item>
-        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
         <item name="android:background">?attr/icdBackgroundColor</item>
     </style>
 
     <public name="IcdListStickyHeaderStyle" type="style"/>
     <style name="IcdListStickyHeaderStyle" parent="IcdListHeaderStyle">
-        <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
     </style>
 
     <public name="IcdSearchBarStyle" type="style"/>
@@ -64,8 +64,8 @@
         <item name="srcCompat">@drawable/icd_ic_search</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="tint">?android:attr/textColorSecondary</item>
-        <item name="android:paddingStart">8dp</item>
-        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
     </style>
 
     <public name="IcdCancelSearchIconStyle" type="style"/>
@@ -74,8 +74,8 @@
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="tint">?android:attr/textColorSecondary</item>
         <item name="android:disabledAlpha">1.0</item>
-        <item name="android:paddingStart">8dp</item>
-        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
     </style>
 
     <public name="IcdButtonStyle" type="style"/>
@@ -88,8 +88,8 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
         <item name="android:ellipsize">end</item>
         <item name="android:minLines">1</item>
-        <item name="android:paddingStart">8dp</item>
-        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
         <item name="android:paddingTop">4dp</item>
         <item name="android:paddingBottom">4dp</item>
         <item name="android:text">@string/icd_title</item>
@@ -105,8 +105,8 @@
     <style name="IcdNoResultLabelStyle">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
         <item name="android:text">@string/icd_no_result</item>
-        <item name="android:paddingStart">24dp</item>
-        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
     </style>
 
 </resources>

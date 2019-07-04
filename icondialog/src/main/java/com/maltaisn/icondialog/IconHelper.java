@@ -27,6 +27,10 @@ import android.content.Context;
 import android.util.Log;
 import android.util.SparseArray;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.XmlRes;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -35,10 +39,6 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.XmlRes;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class IconHelper {

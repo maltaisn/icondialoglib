@@ -23,11 +23,12 @@ package com.maltaisn.icondialog;
 
 
 import android.graphics.Canvas;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Item decoration used to create sticky headers

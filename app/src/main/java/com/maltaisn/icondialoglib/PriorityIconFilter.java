@@ -22,10 +22,10 @@
 package com.maltaisn.icondialoglib;
 
 
+import androidx.annotation.NonNull;
+
 import com.maltaisn.icondialog.Icon;
 import com.maltaisn.icondialog.IconFilter;
-
-import androidx.annotation.NonNull;
 
 public class PriorityIconFilter extends IconFilter {
 

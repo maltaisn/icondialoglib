@@ -22,10 +22,11 @@
 package com.maltaisn.icondialog;
 
 
+import android.util.SparseArray;
+
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.util.SparseArray;
 
 import java.util.ArrayList;
 import java.util.BitSet;
@@ -95,7 +96,7 @@ public abstract class BaseIconFilter implements Comparator<Icon> {
      */
     @Override
     public int compare(@NonNull Icon icon1, @NonNull Icon icon2) {
-        int result = Integer.compare(icon1.category.id, icon2.category.id);
+        int result = compareIntegers(icon1.category.id, icon2.category.id);
         if (result == 0) {
             int len1 = icon1.labels.length;
             int len2 = icon2.labels.length;
@@ -110,13 +111,17 @@ public abstract class BaseIconFilter implements Comparator<Icon> {
             }
             if (result == 0) {
                 if (len1 != len2) {
-                    return Integer.compare(len1, len2);
+                    return compareIntegers(len1, len2);
                 } else {
-                    return Integer.compare(icon1.id, icon2.id);
+                    return compareIntegers(icon1.id, icon2.id);
                 }
             }
         }
         return result;
+    }
+
+    private int compareIntegers(int x, int y) {
+        return (x < y) ? -1 : ((x == y) ? 0 : 1);
     }
 
     /**

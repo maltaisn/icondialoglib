@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 import javax.xml.parsers.DocumentBuilderFactory
-import kotlin.math.ceil
 
 val forcePngGeneration = false
 

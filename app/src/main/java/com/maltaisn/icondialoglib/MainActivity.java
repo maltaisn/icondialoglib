@@ -35,6 +35,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.maltaisn.icondialog.Icon;
 import com.maltaisn.icondialog.IconDialog;
 import com.maltaisn.icondialog.IconFilter;
@@ -46,11 +51,6 @@ import com.maltaisn.icondialog.LabelValue;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Comparator;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity implements
         IconDialog.Callback, IconDialog.DismissCallback,
@@ -300,7 +300,7 @@ public class MainActivity extends AppCompatActivity implements
         Arrays.sort(icons, new Comparator<Icon>() {
             @Override
             public int compare(Icon i1, Icon i2) {
-                return Integer.compare(i1.getId(), i2.getId());
+                return compareIntegers(i1.getId(), i2.getId());
             }
         });
 
@@ -311,6 +311,10 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         selectIcons();
+    }
+
+    private int compareIntegers(int x, int y) {
+        return (x < y) ? -1 : ((x == y) ? 0 : 1);
     }
 
     @Override

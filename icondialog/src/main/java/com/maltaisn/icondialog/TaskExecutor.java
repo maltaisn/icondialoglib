@@ -2,6 +2,7 @@ package com.maltaisn.icondialog;
 
 import android.os.Handler;
 import android.os.Looper;
+
 import androidx.annotation.Nullable;
 
 class TaskExecutor {
