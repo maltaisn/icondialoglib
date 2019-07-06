@@ -50,13 +50,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.IntDef;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -65,6 +58,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 @SuppressWarnings({"unused", "WeakerAccess", "UnusedReturnValue", "SameParameterValue"})
 public class IconDialog extends DialogFragment {
@@ -554,7 +554,7 @@ public class IconDialog extends DialogFragment {
                 @Override
                 public int compare(Item i1, Item i2) {
                     //noinspection ConstantConditions
-                    return Integer.compare(i1.icon.id, i2.icon.id);
+                    return BaseIconFilter.compareIntegers(i1.icon.id, i2.icon.id);
                 }
             });
             List<Item> newSel = new ArrayList<>(selectedItems);

@@ -24,14 +24,14 @@ package com.maltaisn.icondialog;
 
 import android.util.SparseArray;
 
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.Comparator;
 import java.util.List;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Base class used to search icons by label
@@ -120,7 +120,7 @@ public abstract class BaseIconFilter implements Comparator<Icon> {
         return result;
     }
 
-    private int compareIntegers(int x, int y) {
+    static int compareIntegers(int x, int y) {
         return (x < y) ? -1 : ((x == y) ? 0 : 1);
     }
 
