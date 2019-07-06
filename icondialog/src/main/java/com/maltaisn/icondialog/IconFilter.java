@@ -22,11 +22,12 @@
 package com.maltaisn.icondialog;
 
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Default icon searcher used by IconDialog
@@ -123,7 +124,7 @@ public class IconFilter extends BaseIconFilter {
                 if (normalizeSearch) {
                     searchTerms[i] = IconHelper.normalizeText(searchTerms[i]);
                 } else {
-                    searchTerms[i] = searchTerms[i].toLowerCase();
+                    searchTerms[i] = searchTerms[i].toLowerCase(Locale.ROOT);
                 }
             }
         }

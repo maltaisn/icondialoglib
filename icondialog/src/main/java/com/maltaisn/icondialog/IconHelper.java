@@ -27,10 +27,6 @@ import android.content.Context;
 import android.util.Log;
 import android.util.SparseArray;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.XmlRes;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -39,6 +35,11 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.XmlRes;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class IconHelper {
@@ -177,7 +178,7 @@ public class IconHelper {
     public Label getLabel(String name) {
         if (!dataLoaded) return null;
 
-        name = name.toLowerCase();
+        name = name.toLowerCase(Locale.ROOT);
         if (name.startsWith("_")) {
             name = name.substring(1);
             int index = Collections.binarySearch(groupLabels, name);
@@ -636,7 +637,7 @@ public class IconHelper {
     static String normalizeText(String text) {
         // NOTE: Might have to change this method if more translations are made
         // For example, right now it would remove all chinese and arabic characters
-        text = text.toLowerCase().trim();
+        text = text.toLowerCase(Locale.ROOT).trim();
         String normalized = Normalizer.normalize(text, Normalizer.Form.NFKD);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < normalized.length(); i++) {

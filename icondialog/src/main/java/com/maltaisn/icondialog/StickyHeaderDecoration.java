@@ -118,7 +118,7 @@ class StickyHeaderDecoration extends RecyclerView.ItemDecoration {
 
         if (stickyHeaderHeight == -1) {
             // Measure parent RecyclerView
-            int parentWidth = parent.getWidth() + parent.getPaddingStart() + parent.getPaddingEnd();
+            int parentWidth = parent.getWidth() + parent.getPaddingLeft() + parent.getPaddingRight();
             int widthSpec = View.MeasureSpec.makeMeasureSpec(parentWidth, View.MeasureSpec.EXACTLY);
             int heightSpec = View.MeasureSpec.makeMeasureSpec(parent.getHeight(), View.MeasureSpec.UNSPECIFIED);
 
