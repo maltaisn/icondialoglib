@@ -57,7 +57,7 @@
         app:layout_constraintStart_toEndOf="@+id/icd_imv_search"
         app:layout_constraintTop_toBottomOf="@+id/icd_txv_title"
         app:layout_constraintVertical_chainStyle="spread_inside"
-        tools:ignore="LabelFor,TextFields"
+        tools:ignore="Autofill,LabelFor,TextFields"
         android:layout_marginRight="8dp" />
 
     <androidx.appcompat.widget.AppCompatImageView

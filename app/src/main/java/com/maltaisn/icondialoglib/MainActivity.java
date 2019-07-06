@@ -35,11 +35,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.maltaisn.icondialog.Icon;
 import com.maltaisn.icondialog.IconDialog;
 import com.maltaisn.icondialog.IconFilter;
@@ -51,6 +46,11 @@ import com.maltaisn.icondialog.LabelValue;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Comparator;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity implements
         IconDialog.Callback, IconDialog.DismissCallback,
@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements
                 iconAdapter = new IconAdapter();
                 selListRcv.setAdapter(iconAdapter);
                 selListRcv.setLayoutManager(new LinearLayoutManager(
-                        MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+                        MainActivity.this, RecyclerView.HORIZONTAL, false));
 
                 iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
 

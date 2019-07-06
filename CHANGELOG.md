@@ -1,3 +1,6 @@
+## v2.5.0
+- Added support for API 16.
+
 ## v2.4.0
 - Added a parameter with the dialog instance to the callback method.
 - Spanish translation, thanks to hieudev.
