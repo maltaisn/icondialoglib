@@ -19,7 +19,7 @@
  * under the License.
  */
 
-package com.maltaisn.icondialoglib;
+package com.maltaisn.icondialoglib.demo;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -32,14 +32,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.maltaisn.icondialog.Icon;
 import com.maltaisn.icondialog.IconDialog;
 import com.maltaisn.icondialog.IconFilter;
-import com.maltaisn.icondialog.IconHelper;
-import com.maltaisn.icondialog.IconView;
+import com.maltaisn.icondialog.IconPack;
 import com.maltaisn.icondialog.Label;
 import com.maltaisn.icondialog.LabelValue;
 
@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private boolean selectingVisbForSearch;
 
+    private IconPack iconPack;
     private boolean extraIconsLoaded;
 
     @Override
@@ -110,45 +111,42 @@ public class MainActivity extends AppCompatActivity implements
         titleVisbEdt = findViewById(R.id.edt_title_visb);
         disabledCatgEdt = findViewById(R.id.edt_disabled_catg);
 
-        openBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int maxSel;
-                if (maxSelCkb.isChecked()) {
-                    try {
-                        maxSel = Integer.valueOf(maxSelEdt.getText().toString());
-                    } catch (Exception e) {
-                        maxSel = 1;
-                    }
-                } else {
-                    maxSel = IconDialog.MAX_SELECTION_NONE;
+        openBtn.setOnClickListener(v -> {
+            int maxSel;
+            if (maxSelCkb.isChecked()) {
+                try {
+                    maxSel = Integer.valueOf(maxSelEdt.getText().toString());
+                } catch (Exception e) {
+                    maxSel = 1;
                 }
-
-                iconDialog.setSelectedIcons(selectedIconIds)
-                        .setMaxSelection(maxSel, maxSelMessageCkb.isChecked())
-                        .setShowSelectButton(showSelCkb.isChecked())
-                        .setShowClearButton(showUnselBtnCkb.isChecked())
-                        .setShowHeaders(showHeadersCkb.isChecked(), stickyHeadersCkb.isChecked())
-                        .setTitle(titleVisb, null)
-                        .setSearchEnabled(searchVisb, null);
-
-                int[] disabled = new int[Integer.bitCount(disabledCatg)];
-                int pos = 0;
-                for (int i = 0; i < 32; i++) {
-                    if ((disabledCatg & (1 << i)) == (1 << i)) {
-                        disabled[pos] = i;
-                        pos++;
-                    }
-                }
-
-                //iconDialog.setIconFilter(new PriorityIconFilter());
-
-                IconFilter filter = (IconFilter) iconDialog.getIconFilter();
-                filter.setDisabledCategories(disabled);
-                filter.setIdSearchEnabled(true);
-
-                iconDialog.show(getSupportFragmentManager(), "icon_dialog");
+            } else {
+                maxSel = IconDialog.MAX_SELECTION_NONE;
             }
+
+            iconDialog.setSelectedIcons(selectedIconIds)
+                    .setMaxSelection(maxSel, maxSelMessageCkb.isChecked())
+                    .setShowSelectButton(showSelCkb.isChecked())
+                    .setShowClearButton(showUnselBtnCkb.isChecked())
+                    .setShowHeaders(showHeadersCkb.isChecked(), stickyHeadersCkb.isChecked())
+                    .setTitle(titleVisb, null)
+                    .setSearchEnabled(searchVisb, null);
+
+            int[] disabled = new int[Integer.bitCount(disabledCatg)];
+            int pos = 0;
+            for (int i = 0; i < 32; i++) {
+                if ((disabledCatg & (1 << i)) == (1 << i)) {
+                    disabled[pos] = i;
+                    pos++;
+                }
+            }
+
+            //iconDialog.setIconFilter(new PriorityIconFilter());
+
+            IconFilter filter = (IconFilter) iconDialog.getIconFilter();
+            filter.setDisabledCategories(disabled);
+            filter.setIdSearchEnabled(true);
+
+            iconDialog.show(getSupportFragmentManager(), "icon_dialog");
         });
 
         showHeadersCkb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -224,53 +222,38 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         // Load icons and labels
-        final IconHelper iconHelper = IconHelper.getInstance(this);
+        iconPack = new IconPack(this, R.xml.icd_icons, R.xml.icd_labels);
         if (extraIconsLoaded) {
-            iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
+            iconPack = new IconPack(this, iconPack, R.xml.icons, R.xml.labels);
         }
 
-        iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
-            @Override
-            public void onDataLoaded(IconHelper helper) {
-                selectedIcons = new Icon[selectedIconIds.length];
-                for (int i = 0; i < selectedIcons.length; i++) {
-                    selectedIcons[i] = iconHelper.getIcon(selectedIconIds[i]);
-                }
+        selectedIcons = new Icon[selectedIconIds.length];
+        for (int i = 0; i < selectedIcons.length; i++) {
+            selectedIcons[i] = iconPack.getIcon(selectedIconIds[i]);
+        }
 
-                iconAdapter = new IconAdapter();
-                selListRcv.setAdapter(iconAdapter);
-                selListRcv.setLayoutManager(new LinearLayoutManager(
-                        MainActivity.this, RecyclerView.HORIZONTAL, false));
+        iconAdapter = new IconAdapter();
+        selListRcv.setAdapter(iconAdapter);
+        selListRcv.setLayoutManager(new LinearLayoutManager(
+                MainActivity.this, RecyclerView.HORIZONTAL, false));
 
-                iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
+        iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconPack.getIconCount()));
 
-                addExtraBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        extraIconsLoaded = true;
-                        addExtraBtn.setEnabled(false);
+        addExtraBtn.setOnClickListener(v -> {
+            extraIconsLoaded = true;
+            addExtraBtn.setEnabled(false);
 
-                        // Load extra icons
-                        iconHelper.addExtraIcons(R.xml.icons, R.xml.labels);
-                        iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
-                            @Override
-                            public void onDataLoaded(IconHelper helper) {
-                                iconCountTxv.setText(MessageFormat.format(getString(R.string.icon_count_fmt), iconHelper.getIconCount()));
-                            }
-                        });
-                    }
-                });
-                addExtraBtn.setEnabled(!extraIconsLoaded);
-
-                selectIcons();
-            }
+            // Load extra icons...
         });
+        addExtraBtn.setEnabled(!extraIconsLoaded);
+
+        selectIcons();
 
         // Register listener for locale change to reload labels
         localeReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                iconHelper.reloadLabels();
+                iconPack.reloadLabels();
             }
         };
         registerReceiver(localeReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
@@ -381,7 +364,7 @@ public class MainActivity extends AppCompatActivity implements
 
         class IconViewHolder extends RecyclerView.ViewHolder {
 
-            private IconView iconImv;
+            private ImageView iconImv;
             private TextView idTxv;
 
             IconViewHolder(View view) {
@@ -391,38 +374,36 @@ public class MainActivity extends AppCompatActivity implements
             }
 
             void bindViewHolder(final Icon icon) {
-                iconImv.setIcon(icon);
-                iconImv.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        // Print detailed info about the icon
-                        StringBuilder labelsSb = new StringBuilder();
-                        for (Label label : icon.getLabels()) {
-                            LabelValue[] aliases = label.getAliases();
-                            if (aliases != null) {
-                                labelsSb.append('{');
-                                for (LabelValue alias : aliases) {
-                                    labelsSb.append(alias);
-                                    labelsSb.append(", ");
-                                }
-                                labelsSb.delete(labelsSb.length() - 2, labelsSb.length());
-                                labelsSb.append("}, ");
-                            } else if (label.getValue() != null) {
-                                labelsSb.append(label.getValue());
+                iconImv.setImageDrawable(icon.getDrawable(MainActivity.this));
+                iconImv.setOnClickListener(v -> {
+                    // Print detailed info about the icon
+                    StringBuilder labelsSb = new StringBuilder();
+                    for (Label label : icon.getLabels()) {
+                        LabelValue[] aliases = label.getAliases();
+                        if (aliases != null) {
+                            labelsSb.append('{');
+                            for (LabelValue alias : aliases) {
+                                labelsSb.append(alias);
                                 labelsSb.append(", ");
                             }
+                            labelsSb.delete(labelsSb.length() - 2, labelsSb.length());
+                            labelsSb.append("}, ");
+                        } else if (label.getValue() != null) {
+                            labelsSb.append(label.getValue());
+                            labelsSb.append(", ");
                         }
-                        labelsSb.delete(labelsSb.length() - 2, labelsSb.length());
-
-                        // ID: 1000
-                        // Category: Transport
-                        // Labels: Car, Fuel, Vehicle
-                        if (infoToast != null) infoToast.cancel();
-                        infoToast = Toast.makeText(MainActivity.this,
-                                infoFmt.format(new Object[]{icon.getId(),
-                                        icon.getCategory().getName(MainActivity.this),
-                                        labelsSb.toString()}), Toast.LENGTH_LONG);
-                        infoToast.show();
                     }
+                    labelsSb.delete(labelsSb.length() - 2, labelsSb.length());
+
+                    // ID: 1000
+                    // Category: Transport
+                    // Labels: Car, Fuel, Vehicle
+                    if (infoToast != null) infoToast.cancel();
+                    infoToast = Toast.makeText(MainActivity.this,
+                            infoFmt.format(new Object[]{icon.getId(),
+                                    icon.getCategory().getName(MainActivity.this),
+                                    labelsSb.toString()}), Toast.LENGTH_LONG);
+                    infoToast.show();
                 });
 
                 idTxv.setText(idFmt.format(new Object[]{icon.getId()}));

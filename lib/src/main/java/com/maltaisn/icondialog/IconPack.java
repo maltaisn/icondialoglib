@@ -22,7 +22,6 @@
 package com.maltaisn.icondialog;
 
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.util.SparseArray;
@@ -41,10 +40,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.XmlRes;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
-public class IconHelper {
 
-    private static final String TAG = IconHelper.class.getSimpleName();
+public class IconPack {
+
+    private static final String TAG = IconPack.class.getSimpleName();
 
     private static final String XML_TAG_LIST = "list";
     private static final String XML_TAG_LABEL = "label";
@@ -57,110 +56,44 @@ public class IconHelper {
     private static final String XML_ATTR_PATH = "path";
     private static final String XML_ATTR_CATEGORY = "category";
 
-    public static final int CATEGORY_PEOPLE = 0;
-    public static final int CATEGORY_HOME = 1;
-    public static final int CATEGORY_TECHNOLOGY = 2;
-    public static final int CATEGORY_FINANCE = 3;
-    public static final int CATEGORY_LEISURE = 4;
-    public static final int CATEGORY_TRANSPORT = 5;
-    public static final int CATEGORY_FOOD = 6;
-    public static final int CATEGORY_BUILDINGS = 7;
-    public static final int CATEGORY_ARTS = 8;
-    public static final int CATEGORY_SPORTS = 9;
-    public static final int CATEGORY_AUDIO = 10;
-    public static final int CATEGORY_PHOTO = 11;
-    public static final int CATEGORY_NATURE = 12;
-    public static final int CATEGORY_SCIENCE = 13;
-    public static final int CATEGORY_TIME = 14;
-    public static final int CATEGORY_TOOLS = 15;
-    public static final int CATEGORY_COMPUTER = 16;
-    public static final int CATEGORY_ARROWS = 17;
-    public static final int CATEGORY_SYMBOLS = 18;
-
-    // Warning here is ignored see: http://stackoverflow.com/a/40235834/5288316
-    @SuppressLint("StaticFieldLeak")
-    private static IconHelper INSTANCE;
     private final Context context;
+
+    @Nullable
+    private final IconPack parent;
+
+    @XmlRes
+    private final int iconsXml;
+    @XmlRes
+    private final int labelsXml;
 
     private SparseArray<Icon> icons;
     private List<Label> labels;
     private List<Label> groupLabels;
     private SparseArray<Category> categories;
 
-    @XmlRes
-    private int extraIconsXml;
 
-    @XmlRes
-    private int extraLabelsXml;
+    public IconPack(Context context, @XmlRes int iconsXml, @XmlRes int labelsXml) {
+        this(context, null, iconsXml, labelsXml);
+    }
 
-    private boolean extraIconsSet;
-    private boolean extraIconsLoadPending;
-
-    private boolean dataLoaded;
-    private TaskExecutor dataLoader;
-    private TaskExecutor drawablesLoader;
-    private List<LoadCallback> loadCallbacks;
-
-    private IconHelper(Context context) {
+    public IconPack(Context context, IconPack parent, @XmlRes int iconsXml, @XmlRes int labelsXml) {
         this.context = context.getApplicationContext();
+        this.parent = parent;
 
-        extraIconsSet = false;
+        this.iconsXml = iconsXml;
+        this.labelsXml = labelsXml;
 
-        dataLoaded = false;
-
-        dataLoader = new TaskExecutor();
-        dataLoader.execute(new Runnable() {
-            @Override
-            public void run() {
-                loadLabels(R.xml.icd_labels, false);
-                loadIcons(R.xml.icd_icons, false);
-
-                if (extraIconsLoadPending) {
-                    // A call to load extra icons was made during this time
-                    extraIconsLoadPending = false;
-                    loadExtraIcons();
-                }
-                dataLoaded = true;
-            }
-        }, new TaskExecutor.Callback() {
-            @Override
-            public void onDone() {
-                callLoadCallbacks();
-            }
-        });
-
-        drawablesLoader = new TaskExecutor();
-    }
-
-    /**
-     * Get the instance of IconHelper
-     *
-     * @param context any context
-     * @return the instance
-     */
-    public static synchronized IconHelper getInstance(Context context) {
-        if (INSTANCE == null) {
-            INSTANCE = new IconHelper(context.getApplicationContext());
-        }
-        return INSTANCE;
-    }
-
-    /**
-     * @return true if data is loaded, false if not loaded, i.e currently loading icons or labels
-     */
-    public boolean isDataLoaded() {
-        return dataLoaded;
+        // TODO load icons
     }
 
     /**
      * Get an icon
      *
      * @param id id of the icon
-     * @return the icon, null if it doesn't exist or if data isn't loaded
+     * @return the icon, null if it doesn't exist.
      */
     @Nullable
     public Icon getIcon(int id) {
-        if (!dataLoaded) return null;
         return icons.get(id);
     }
 
@@ -172,12 +105,10 @@ public class IconHelper {
      * Get a label by name
      *
      * @param name name of the label
-     * @return the label, null if it doesn't exist or if data isn't loaded
+     * @return the label, null if it doesn't exist.
      */
     @Nullable
     public Label getLabel(String name) {
-        if (!dataLoaded) return null;
-
         name = name.toLowerCase(Locale.ROOT);
         if (name.startsWith("_")) {
             name = name.substring(1);
@@ -198,61 +129,18 @@ public class IconHelper {
      * Get a category
      *
      * @param id id of the category
-     * @return the category or null if it doesn't exist or if data isn't loaded
+     * @return the category or null if it doesn't exist.
      */
     @Nullable
     public Category getCategory(int id) {
-        if (!dataLoaded) return null;
         return categories.get(id);
     }
 
     /**
      * @return the number of loaded icons
-     * Returns 0 if data is not loaded
      */
     public int getIconCount() {
-        if (!dataLoaded) return 0;
         return icons.size();
-    }
-
-    /**
-     * Add extra icons for the dialog.
-     * This can only be called once, subsequent calls will have no effect
-     * Both XML resources must be valid, no error checking is done
-     *
-     * @param iconXml  xml file containing the icons
-     * @param labelXml xml file containing the labels used by the icons
-     */
-    public synchronized void addExtraIcons(@XmlRes int iconXml, @XmlRes int labelXml) {
-        if (extraIconsSet) return;
-
-        extraIconsXml = iconXml;
-        extraLabelsXml = labelXml;
-        extraIconsSet = true;
-
-        if (dataLoader.isRunning()) {
-            extraIconsLoadPending = true;
-
-        } else {
-            dataLoaded = false;
-            dataLoader.execute(new Runnable() {
-                @Override
-                public void run() {
-                    loadExtraIcons();
-                }
-            }, new TaskExecutor.Callback() {
-                @Override
-                public void onDone() {
-                    dataLoaded = true;
-                    callLoadCallbacks();
-                }
-            });
-        }
-    }
-
-    private void loadExtraIcons() {
-        loadLabels(extraLabelsXml, true);
-        loadIcons(extraIconsXml, true);
     }
 
     /**
@@ -261,43 +149,24 @@ public class IconHelper {
      * if you change your app's language without restarting.
      */
     public void reloadLabels() {
-        if (dataLoader.isRunning()) {
-            // Labels are currently being loaded
-            return;
+        loadLabels(R.xml.icd_labels, false);
+
+        // Replace old labels references to new ones
+        for (int i = 0; i < icons.size(); i++) {
+            Icon icon = icons.valueAt(i);
+            for (int j = 0; j < icon.labels.length; j++) {
+                Label label = icon.labels[j];
+                if (!label.isGroupLabel()) {
+                    int index = Collections.binarySearch(labels, label.name);
+                    icon.labels[j] = (index >= 0 ? labels.get(index) : null);
+                }
+            }
         }
-
-        dataLoaded = false;
-        dataLoader.execute(new Runnable() {
-            @Override
-            public void run() {
-                loadLabels(R.xml.icd_labels, false);
-                if (extraIconsSet) {
-                    loadLabels(extraLabelsXml, true);
-                }
-
-                // Replace old labels references to new ones
-                for (int i = 0; i < icons.size(); i++) {
-                    Icon icon = icons.valueAt(i);
-                    for (int j = 0; j < icon.labels.length; j++) {
-                        Label label = icon.labels[j];
-                        if (!label.isGroupLabel()) {
-                            int index = Collections.binarySearch(labels, label.name);
-                            icon.labels[j] = (index >= 0 ? labels.get(index) : null);
-                        }
-                    }
-                }
-            }
-        }, new TaskExecutor.Callback() {
-            @Override
-            public void onDone() {
-                dataLoaded = true;
-                callLoadCallbacks();
-            }
-        });
     }
 
     /**
-     * Load icons and categories from XML file
+     * Load icons and categories from XML file.
+     * TODO load in constructor or something.
      */
     private synchronized void loadIcons(@XmlRes int xmlFile, boolean append) {
         if (icons == null || !append) {
@@ -441,7 +310,6 @@ public class IconHelper {
             this.labelIndex = labelIndex;
             this.label = label;
         }
-
     }
 
     /**
@@ -647,76 +515,6 @@ public class IconHelper {
             }
         }
         return sb.toString();
-    }
-
-    /**
-     * Start loading all icons drawable asynchronously
-     * This loading takes less than 15 sec and takes up to 50-100MB of RAM (check that by yourself)
-     * This is useful to prevent lag when scrolling the icon dialog's list
-     */
-    void loadIconDrawables() {
-        if (!dataLoaded) {
-            throw new IllegalStateException("Cannot load drawables before icon data is loaded.");
-        }
-
-        drawablesLoader.execute(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < icons.size(); i++) {
-                    if (icons.valueAt(i).drawable == null) {
-                        icons.valueAt(i).getDrawable(context);
-                    }
-                }
-            }
-        }, null);
-    }
-
-    void stopLoadingDrawables() {
-        drawablesLoader.interrupt();
-    }
-
-    /**
-     * Set to null references to all of the icons drawable so that they can be garbage collected
-     */
-    public void freeIconDrawables() {
-        drawablesLoader.interrupt();
-        for (int i = 0; i < icons.size(); i++) {
-            icons.valueAt(i).drawable = null;
-        }
-    }
-
-    public void addLoadCallback(@NonNull LoadCallback cb) {
-        if (dataLoaded) {
-            // Data is already loaded: call callback without adding it
-            cb.onDataLoaded(this);
-            return;
-        }
-
-        if (loadCallbacks == null) loadCallbacks = new ArrayList<>();
-        loadCallbacks.add(cb);
-    }
-
-    public void removeLoadCallback(@NonNull LoadCallback cb) {
-        loadCallbacks.remove(cb);
-        if (loadCallbacks.size() == 0) loadCallbacks = null;
-    }
-
-    private void callLoadCallbacks() {
-        if (loadCallbacks != null) {
-            for (LoadCallback cb : loadCallbacks) {
-                cb.onDataLoaded(this);
-            }
-            loadCallbacks.clear();
-        }
-    }
-
-    public interface LoadCallback {
-        /**
-         * Called when icon data is done loading.
-         * All calls to get icons, labels and categories will return null before this is called.
-         * @param helper The icon helper instance.
-         */
-        void onDataLoaded(IconHelper helper);
     }
 
 }

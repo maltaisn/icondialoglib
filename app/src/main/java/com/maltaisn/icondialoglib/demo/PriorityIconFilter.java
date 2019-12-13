@@ -19,13 +19,13 @@
  * under the License.
  */
 
-package com.maltaisn.icondialoglib;
+package com.maltaisn.icondialoglib.demo;
 
-
-import androidx.annotation.NonNull;
 
 import com.maltaisn.icondialog.Icon;
 import com.maltaisn.icondialog.IconFilter;
+
+import androidx.annotation.NonNull;
 
 public class PriorityIconFilter extends IconFilter {
 

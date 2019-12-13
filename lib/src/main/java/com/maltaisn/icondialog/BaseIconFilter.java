@@ -44,7 +44,7 @@ public abstract class BaseIconFilter implements Comparator<Icon> {
 
     private static final String TAG = BaseIconFilter.class.getSimpleName();
 
-    protected IconHelper iconHelper;
+    protected IconPack iconHelper;
 
     private @Nullable BitSet disabledCategories;
     private @Nullable BitSet disabledIcons;

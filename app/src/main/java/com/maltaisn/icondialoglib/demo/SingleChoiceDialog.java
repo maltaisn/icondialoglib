@@ -19,7 +19,7 @@
  * under the License.
  */
 
-package com.maltaisn.icondialoglib;
+package com.maltaisn.icondialoglib.demo;
 
 
 import android.app.AlertDialog;
@@ -31,10 +31,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-public class MultiChoiceDialog extends DialogFragment {
+public class SingleChoiceDialog extends DialogFragment {
 
     private String[] choiceNames;
-    private int selectedChoices;
+    private int selectedChoice;
     private String dialogTitle;
 
     @Override
@@ -47,35 +47,19 @@ public class MultiChoiceDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        boolean[] selected = new boolean[choiceNames.length];
-        for (int i = 0; i < selected.length; i++) {
-            selected[i] = (selectedChoices & (1 << i)) == (1 << i);
-        }
-
-        builder.setMultiChoiceItems(choiceNames, selected, new DialogInterface.OnMultiChoiceClickListener() {
+        builder.setSingleChoiceItems(choiceNames, selectedChoice, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int position, boolean isChecked) {
-                if (isChecked) {
-                    selectedChoices |= 1 << position;
-                } else {
-                    selectedChoices &= ~(1 << position);
-                }
-            }
-        });
-        builder.setTitle(dialogTitle);
-        builder.setNegativeButton(R.string.action_cancel, null);
-        builder.setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int position) {
                 try {
                     //noinspection ConstantConditions
-                    ((Callback) getActivity()).onChoicesSelected(selectedChoices);
+                    ((Callback) getActivity()).onChoiceSelected(position);
                 } catch (ClassCastException e) {
                     // Not implemented by caller
                 }
+                dismiss();
             }
         });
+        builder.setTitle(dialogTitle);
         return builder.create();
     }
 
@@ -89,19 +73,19 @@ public class MultiChoiceDialog extends DialogFragment {
         super.onDestroyView();
     }
 
-    public MultiChoiceDialog setChoices(@NonNull String[] names, int selected) {
+    public SingleChoiceDialog setChoices(@NonNull String[] names, int selected) {
         choiceNames = names;
-        selectedChoices = selected;
+        selectedChoice = selected;
         return this;
     }
 
-    public MultiChoiceDialog setTitle(@Nullable String title) {
+    public SingleChoiceDialog setTitle(@Nullable String title) {
         dialogTitle = title;
         return this;
     }
 
     public interface Callback {
-        void onChoicesSelected(int selected);
+        void onChoiceSelected(int position);
     }
 
 }

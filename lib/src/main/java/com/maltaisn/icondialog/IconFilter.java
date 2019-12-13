@@ -58,7 +58,7 @@ public class IconFilter extends BaseIconFilter {
      * all unicode characters, hyphens, apostrophes and more
      * By default, text is normalized
      * @param normalize whether to normalize
-     * @see IconHelper#normalizeText(String)
+     * @see IconPack#normalizeText(String)
      */
     public IconFilter setNormalizeSearch(boolean normalize) {
         this.normalizeSearch = normalize;
@@ -122,7 +122,7 @@ public class IconFilter extends BaseIconFilter {
             // Normalize search terms
             for (int i = 0; i < searchTerms.length; i++) {
                 if (normalizeSearch) {
-                    searchTerms[i] = IconHelper.normalizeText(searchTerms[i]);
+                    searchTerms[i] = IconPack.normalizeText(searchTerms[i]);
                 } else {
                     searchTerms[i] = searchTerms[i].toLowerCase(Locale.ROOT);
                 }

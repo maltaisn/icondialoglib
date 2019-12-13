@@ -66,7 +66,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-@SuppressWarnings({"unused", "WeakerAccess", "UnusedReturnValue", "SameParameterValue"})
+
 public class IconDialog extends DialogFragment {
 
     private static final String TAG = IconDialog.class.getSimpleName();
@@ -90,7 +90,7 @@ public class IconDialog extends DialogFragment {
     private static final int SEARCH_DELAY = 250;
 
     private Context context;
-    private IconHelper iconHelper;
+    private IconPack iconPack;
 
     private IconLayoutManager iconListLayout;
     private EditText searchEdt;
@@ -118,7 +118,6 @@ public class IconDialog extends DialogFragment {
     @Nullable
     private String dialogTitle;
     private BaseIconFilter iconFilter;
-    private boolean loadIconDrawables;
 
     private List<Item> listItems;
     private List<Item> selectedItems;
@@ -149,8 +148,6 @@ public class IconDialog extends DialogFragment {
         selectedIconsId = null;
 
         iconFilter = new IconFilter();
-
-        loadIconDrawables = true;
     }
 
     @Override
@@ -158,17 +155,7 @@ public class IconDialog extends DialogFragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
 
-        iconHelper = IconHelper.getInstance(getActivity());
-        iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
-            @Override
-            public void onDataLoaded(IconHelper helper) {
-                if (loadIconDrawables) {
-                    helper.loadIconDrawables();
-                }
-            }
-        });
-
-        iconFilter.iconHelper = iconHelper;
+        iconFilter.iconHelper = iconPack;
 
         // Get style attributes value
         TypedArray ta = context.obtainStyledAttributes(R.styleable.IconDialog);
@@ -238,166 +225,140 @@ public class IconDialog extends DialogFragment {
         }
 
         // Set cancel search icon to remove search if clicked
-        cancelSearchImv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchIgnoreDelay = true;
-                searchEdt.setText(null);
-            }
+        cancelSearchImv.setOnClickListener(v -> {
+            searchIgnoreDelay = true;
+            searchEdt.setText(null);
         });
 
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
+        cancelBtn.setOnClickListener(v -> dismiss());
+
+        selectBtn.setOnClickListener(v -> {
+            callSelectCallback();
+            dismiss();
         });
 
-        selectBtn.setOnClickListener(new View.OnClickListener() {
+        loadPb.setVisibility(View.GONE);
+
+        // Set up icon recycler view layout and adapter
+        final IconAdapter adapter = new IconAdapter();
+        iconListRcv.setAdapter(adapter);
+
+        iconListLayout = new IconLayoutManager(context, iconSize);
+        iconListLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
-            public void onClick(View v) {
-                callSelectCallback();
-                dismiss();
-            }
-        });
-
-
-        iconHelper.addLoadCallback(new IconHelper.LoadCallback() {
-            @Override
-            public void onDataLoaded(IconHelper helper) {
-                loadPb.setVisibility(View.GONE);
-
-                final EditText searchEdt = view.findViewById(R.id.icd_edt_search);
-                final ImageView searchImv = view.findViewById(R.id.icd_imv_search);
-                final ImageView cancelSearchImv = view.findViewById(R.id.icd_imv_cancel_search);
-                final RecyclerView iconListRcv = view.findViewById(R.id.icd_rcv_icon_list);
-                final TextView noResultTxv = view.findViewById(R.id.icd_txv_no_result);
-                final Button cancelBtn = view.findViewById(R.id.icd_btn_cancel);
-                selectBtn = view.findViewById(R.id.icd_btn_select);
-                clearBtn = view.findViewById(R.id.icd_btn_clear);
-
-                // Set up icon recycler view layout and adapter
-                final IconAdapter adapter = new IconAdapter();
-                iconListRcv.setAdapter(adapter);
-
-                iconListLayout = new IconLayoutManager(context, iconSize);
-                iconListLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-                    @Override
-                    public int getSpanSize(int position) {
-                        if (position < listItems.size() && adapter.getItemViewType(position) == Item.TYPE_HEADER) {
-                            return iconListLayout.getSpanCount();
-                        } else {
-                            return 1;
-                        }
-                    }
-                });
-                iconListRcv.setLayoutManager(iconListLayout);
-
-                if (stickyHeaders) {
-                    iconListRcv.addItemDecoration(new StickyHeaderDecoration(iconListRcv, adapter));
-                }
-
-                // Set up search bar
-                final Handler searchHandler = new Handler();
-                final Runnable searchRunnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        listItems = getListItems(searchEdt.getText().toString());
-                        adapter.notifyDataSetChanged();
-
-                        noResultTxv.setVisibility(listItems.size() > 0 ? View.GONE : View.VISIBLE);
-                    }
-                };
-                searchEdt.setText(searchText);
-                searchEdt.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable text) {
-                        if (text.length() > 0) {
-                            cancelSearchImv.setVisibility(View.VISIBLE);
-                        } else if (text.length() == 0) {
-                            cancelSearchImv.setVisibility(View.GONE);
-                        }
-
-                        searchHandler.removeCallbacks(searchRunnable);
-                        if (searchIgnoreDelay) {
-                            searchHandler.post(searchRunnable);
-                            searchIgnoreDelay = false;
-                        } else {
-                            searchHandler.postDelayed(searchRunnable, SEARCH_DELAY);
-                        }
-                        searchText = text.toString();
-                    }
-                });
-                searchEdt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                    @Override
-                    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                            hideKeyboard();
-
-                            // Do search
-                            searchHandler.removeCallbacks(searchRunnable);
-                            searchHandler.post(searchRunnable);
-
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-
-
-                clearBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Unselect all selected icons
-                        int[] pos = getItemsPosition(selectedItems.toArray(new Item[0]));
-                        for (int p : pos) {
-                            listItems.get(p).isSelected = false;
-                            adapter.notifyItemChanged(p);
-                        }
-                        selectedItems.clear();
-
-                        clearBtn.setVisibility(View.GONE);
-                        selectBtn.setEnabled(false);
-                    }
-                });
-
-                // Hide button bar if no preview is shown
-                if (!showSelectBtn) {
-                    cancelBtn.setVisibility(View.GONE);
-                    selectBtn.setVisibility(View.GONE);
-                    view.findViewById(R.id.icd_div_footer).setVisibility(View.GONE);
-                }
-
-                if (state == null) {
-                    listItems = getListItems(null);
-                    if (selectedItems.size() > 0) {
-                        int firstSelectedPos = getItemsPosition(selectedItems.get(0))[0];
-                        iconListLayout.scrollToPositionWithOffset(firstSelectedPos, iconSize);
-                        // Arbitrary offset just so list doesn't scroll right under sticky header
-                    } else {
-                        selectBtn.setEnabled(false);
-                    }
-
+            public int getSpanSize(int position) {
+                if (position < listItems.size() && adapter.getItemViewType(position) == Item.TYPE_HEADER) {
+                    return iconListLayout.getSpanCount();
                 } else {
-                    if (searchText != null && !searchText.isEmpty()) {
-                        cancelSearchImv.setVisibility(View.VISIBLE);
-                    }
-
-                    iconListLayout.onRestoreInstanceState(state.getParcelable("listLayoutState"));
+                    return 1;
                 }
-
-                boolean showClear = showClearBtn && selectedItems.size() > 0;
-                clearBtn.setVisibility(showClear ? View.VISIBLE : View.GONE);
             }
         });
+        iconListRcv.setLayoutManager(iconListLayout);
+
+        if (stickyHeaders) {
+            iconListRcv.addItemDecoration(new StickyHeaderDecoration(iconListRcv, adapter));
+        }
+
+        // Set up search bar
+        final Handler searchHandler = new Handler();
+        final Runnable searchRunnable = new Runnable() {
+            @Override
+            public void run() {
+                listItems = getListItems(searchEdt.getText().toString());
+                adapter.notifyDataSetChanged();
+
+                noResultTxv.setVisibility(listItems.size() > 0 ? View.GONE : View.VISIBLE);
+            }
+        };
+        searchEdt.setText(searchText);
+        searchEdt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable text) {
+                if (text.length() > 0) {
+                    cancelSearchImv.setVisibility(View.VISIBLE);
+                } else if (text.length() == 0) {
+                    cancelSearchImv.setVisibility(View.GONE);
+                }
+
+                searchHandler.removeCallbacks(searchRunnable);
+                if (searchIgnoreDelay) {
+                    searchHandler.post(searchRunnable);
+                    searchIgnoreDelay = false;
+                } else {
+                    searchHandler.postDelayed(searchRunnable, SEARCH_DELAY);
+                }
+                searchText = text.toString();
+            }
+        });
+        searchEdt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    hideKeyboard();
+
+                    // Do search
+                    searchHandler.removeCallbacks(searchRunnable);
+                    searchHandler.post(searchRunnable);
+
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+        clearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Unselect all selected icons
+                int[] pos = getItemsPosition(selectedItems.toArray(new Item[0]));
+                for (int p : pos) {
+                    listItems.get(p).isSelected = false;
+                    adapter.notifyItemChanged(p);
+                }
+                selectedItems.clear();
+
+                clearBtn.setVisibility(View.GONE);
+                selectBtn.setEnabled(false);
+            }
+        });
+
+        // Hide button bar if no preview is shown
+        if (!showSelectBtn) {
+            cancelBtn.setVisibility(View.GONE);
+            selectBtn.setVisibility(View.GONE);
+            view.findViewById(R.id.icd_div_footer).setVisibility(View.GONE);
+        }
+
+        if (state == null) {
+            listItems = getListItems(null);
+            if (selectedItems.size() > 0) {
+                int firstSelectedPos = getItemsPosition(selectedItems.get(0))[0];
+                iconListLayout.scrollToPositionWithOffset(firstSelectedPos, iconSize);
+                // Arbitrary offset just so list doesn't scroll right under sticky header
+            } else {
+                selectBtn.setEnabled(false);
+            }
+
+        } else {
+            if (searchText != null && !searchText.isEmpty()) {
+                cancelSearchImv.setVisibility(View.VISIBLE);
+            }
+
+            iconListLayout.onRestoreInstanceState(state.getParcelable("listLayoutState"));
+        }
+
+        boolean showClear = showClearBtn && selectedItems.size() > 0;
+        clearBtn.setVisibility(showClear ? View.VISIBLE : View.GONE);
 
         // Set up dialog
         final Dialog dialog = new Dialog(context);
@@ -460,7 +421,6 @@ public class IconDialog extends DialogFragment {
         super.onDetach();
 
         context = null;
-        iconHelper.stopLoadingDrawables();
     }
 
     @Override
@@ -801,8 +761,8 @@ public class IconDialog extends DialogFragment {
      */
     public IconDialog setIconFilter(BaseIconFilter filter) {
         iconFilter = filter;
-        if (iconHelper != null) {
-            iconFilter.iconHelper = iconHelper;
+        if (iconPack != null) {
+            iconFilter.iconHelper = iconPack;
         }
         return this;
     }
@@ -816,20 +776,6 @@ public class IconDialog extends DialogFragment {
      */
     public BaseIconFilter getIconFilter() {
         return iconFilter;
-    }
-
-
-    /**
-     * Set whether all icon drawables will be preloaded when dialog is shown to allow a smoother
-     * scrolling in the icon list. By default, drawables are preloaded.
-     * @param load whether to load them or not
-     * @return the dialog
-     * @see IconHelper#loadIconDrawables()
-     * @see IconHelper#freeIconDrawables()
-     */
-    public IconDialog setLoadIconDrawables(boolean load) {
-        loadIconDrawables = load;
-        return this;
     }
 
 
