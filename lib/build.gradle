@@ -1,0 +1,69 @@
+plugins {
+    id "com.android.library"
+    id "kotlin-android"
+    id "org.jetbrains.dokka"
+}
+
+ext {
+    // Auto generate version code based on version name
+    libVersionCode = libVersion.split(/\./).collect { it.padLeft(2, "0") }.sum().toInteger()
+    allLicenses = [license]
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode libVersionCode
+        versionName libVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // A new entry to this array must be added for every new search translation!
+        // The array is used by the dialog to know which languages are available for search
+        def lang = ["en", "fr", "pt", "de", "es"]
+        buildConfigField "String[]", "ICD_LANG", "new String[]{\"" + lang.join("\", \"") + "\"}"
+        resConfigs lang
+    }
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+        test.java.srcDirs += "src/test/kotlin"
+        androidTest.java.srcDirs += "src/androidTest/kotlin"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$kotlinMockitoVersion"
+
+    androidTestImplementation "androidx.test:runner:1.2.0"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+}
+
+dokka {
+    outputFormat = "html"
+    outputDirectory = "${rootProject.projectDir}/docs/"
+}
+tasks.withType(Javadoc).all { enabled = false }
+
+apply from: "maven-install.gradle"
+apply from: "bintray.gradle"

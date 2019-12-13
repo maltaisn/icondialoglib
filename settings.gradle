@@ -1,1 +1,1 @@
-include ':app', ':icondialog'
+include ":app", ":lib"

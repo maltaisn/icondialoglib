@@ -1,3 +1,6 @@
+# v3.0.0
+- Coming soon.
+
 ## v2.5.0
 - Added support for API 16.
 

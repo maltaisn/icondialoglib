@@ -1,31 +1,37 @@
-apply plugin: 'com.android.application'
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+}
 
 android {
     compileSdkVersion 29
+    buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.maltaisn.icondialoglib"
+        applicationId "com.maltaisn.icondialoglib.demo"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
     }
-    lintOptions {
-        abortOnError false
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildToolsVersion '29.0.0'
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation project(':icondialog')
+    implementation project(":lib")
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "com.google.android.material:material:$materialVersion"
 }
