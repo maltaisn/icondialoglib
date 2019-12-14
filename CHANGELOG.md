@@ -12,7 +12,7 @@
 - Added a parameter with the instance of the IconHelper in `LoadCallback.onDataLoaded`.
 
 ### v2.3.1
-- Prevented ADB bug where category string references weren't changed to an ID.
+- Prevented AAPT bug where category string references weren't changed to an ID.
 
 ## v2.3.0
 - Added dismiss listener.

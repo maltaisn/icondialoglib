@@ -1,0 +1,12 @@
+<icons>
+    <category id="0">
+        <icon
+            id="1"
+            tags="_group,tag1,tag3"
+            path="..." />
+        <icon
+            id="2"
+            tags="_group,tag1,tag3"
+            path="..." />
+    </category>
+</icons>

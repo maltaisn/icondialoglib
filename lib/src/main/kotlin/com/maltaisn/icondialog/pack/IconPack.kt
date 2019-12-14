@@ -34,8 +34,8 @@ import com.maltaisn.icondialog.data.IconTag
 class IconPack(val parent: IconPack?,
                val icons: SparseArray<Icon>,
                val categories: SparseArray<Category>,
-               val tags: Map<String, IconTag>,
-               @XmlRes private val tagsXml: Int) {
+               val tags: MutableMap<String, IconTag>,
+               @XmlRes val tagsXml: Int) {
 
     /**
      * Get an icon from the icon pack. If icon is not found,

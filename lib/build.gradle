@@ -58,6 +58,9 @@ dependencies {
     androidTestImplementation "androidx.test:runner:1.2.0"
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+    androidTestImplementation "org.mockito:mockito-android:$mockitoAndroidVersion"
+    androidTestImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$kotlinMockitoVersion"
 }
 
 dokka {

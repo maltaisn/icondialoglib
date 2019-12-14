@@ -1,0 +1,8 @@
+<tags>
+    <tag name="tag1">Tag 1</tag>
+    <tag name="tag2">ȚàĞ ²</tag>
+    <tag name="tag3">
+        <alias>Tag 3</alias>
+        <alias>Tàg three</alias>
+    </tag>
+</tags>

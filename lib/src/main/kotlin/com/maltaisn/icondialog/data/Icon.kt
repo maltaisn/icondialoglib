@@ -21,6 +21,7 @@ import android.graphics.drawable.Drawable
 
 /**
  * An icon with an unique [id], a [categoryId], a list of [tags] names and SVG [pathData].
+ * [categoryId] can be `-1` if the icon has no category.
  */
 data class Icon(val id: Int,
                 val categoryId: Int,

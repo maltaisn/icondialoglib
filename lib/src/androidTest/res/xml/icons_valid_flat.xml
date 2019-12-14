@@ -1,0 +1,13 @@
+<icons>
+    <icon
+        id="0"
+        category="0"
+        path="..." />
+    <icon
+        id="1"
+        category="0"
+        path="..." />
+    <category
+        id="0"
+        name="catg" />
+</icons>

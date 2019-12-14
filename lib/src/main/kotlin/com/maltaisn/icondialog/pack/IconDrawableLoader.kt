@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.maltaisn.icondialog
+package com.maltaisn.icondialog.pack
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -33,7 +33,7 @@ import java.nio.ByteOrder
  * Class use to load icon drawables.
  * @param context Any context, needed to get resources.
  */
-class IconDrawableLoader(context: Context) {
+open class IconDrawableLoader(context: Context) {
 
     private val context = context.applicationContext
 
@@ -41,7 +41,7 @@ class IconDrawableLoader(context: Context) {
      * Create the vector drawable for an [icon].
      */
     @SuppressLint("DiscouragedPrivateApi,PrivateApi")
-    fun createDrawable(icon: Icon): Drawable? {
+    open fun createDrawable(icon: Icon): Drawable? {
         val drawable: Drawable?
         val binXml = createDrawableBinaryXml(icon.pathData)
         try {

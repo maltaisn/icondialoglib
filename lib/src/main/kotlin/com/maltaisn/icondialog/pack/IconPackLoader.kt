@@ -17,9 +17,16 @@
 package com.maltaisn.icondialog.pack
 
 import android.content.Context
+import android.content.res.XmlResourceParser
 import android.util.SparseArray
 import androidx.annotation.WorkerThread
 import androidx.annotation.XmlRes
+import androidx.core.util.contains
+import androidx.core.util.putAll
+import androidx.core.util.size
+import com.maltaisn.icondialog.data.*
+import com.maltaisn.icondialog.normalize
+import org.xmlpull.v1.XmlPullParser
 
 
 /**
@@ -33,8 +40,13 @@ class IconPackLoader(context: Context) {
 
     private val context = context.applicationContext
 
+    var drawableLoader = IconDrawableLoader(context)
+        internal set
+
     /**
      * Load an icon pack from XML resources for icons and tags.
+     *
+     * @throws IconPackParseException Thrown when icons or tags XML is invalid.
      */
     @JvmOverloads
     fun load(@XmlRes iconsXml: Int, @XmlRes tagsXml: Int, parent: IconPack? = null): IconPack {
@@ -45,33 +57,259 @@ class IconPackLoader(context: Context) {
     }
 
     /**
-     * Reload the tags of an icon [pack] and its parents.
-     * This must be called whenever the application language changes.
+     * Reload the tag values of an icon [pack] and its parents, as
+     * well as category names. This must be called whenever the application language changes.
      * A `BroadcastListener` should be attached to listen for this event.
      * This operation is blocking and should be executed asynchronously.
+     *
+     * Note that since [Category] and [NamedTag] are immutable, this will change all instances.
+     *
+     * @throws IconPackParseException Thrown when tags XML is invalid.
      */
-    fun reloadTags(pack: IconPack) {
+    fun reloadStrings(pack: IconPack) {
         if (pack.parent != null) {
-            reloadTags(pack.parent)
+            reloadStrings(pack.parent)
         }
+
+        // Clear and load tags
+        pack.tags.clear()
         loadTags(pack)
+
+        // Reload category names
+        for (i in 0 until pack.categories.size) {
+            val category = pack.categories.valueAt(i)
+            if (category.nameRes != 0) {
+                pack.categories.setValueAt(i, category.copy(
+                        name = context.getString(category.nameRes)))
+            }
+        }
     }
 
 
     private fun loadIcons(pack: IconPack, @XmlRes iconsXml: Int) {
-        // TODO
+        val newIcons = SparseArray<Icon>()
+        val newCategories = SparseArray<Category>()
+        var categoryId: Int = -1
+
+        var documentStarted = false
+        var iconStarted = false
+
+        val parser = context.resources.getXml(iconsXml)
+        var eventType = parser.eventType
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+            val element = parser.name
+            if (eventType == XmlPullParser.START_TAG) {
+                if (element == XML_TAG_ICONS) {
+                    documentStarted = true
+                } else {
+                    if (!documentStarted) parseError("Invalid root element <$element>.")
+                    if (iconStarted) parseError("Icon element cannot have body.")
+
+                    when (element) {
+                        XML_TAG_CATEGORY -> {
+                            if (categoryId != -1) parseError("Nested category element is not allowed.")
+                            val category = parseCategory(parser, pack)
+                            categoryId = category.id
+                            if (categoryId in newCategories) {
+                                parseError("Duplicate category ID '$categoryId' in same file.")
+                            }
+                            newCategories.put(categoryId, category)
+                        }
+                        XML_TAG_ICON -> {
+                            val icon = parseIcon(parser, pack, categoryId)
+                            if (icon.id in newIcons) {
+                                parseError("Duplicate icon ID '${icon.id}' in same file.")
+                            }
+                            icon.drawable = drawableLoader.createDrawable(icon)
+                            newIcons.append(icon.id, icon)
+                            iconStarted = true
+                        }
+                        else -> parseError("Unknown element <$element>.")
+                    }
+                }
+
+            } else if (eventType == XmlPullParser.END_TAG) {
+                if (element == XML_TAG_CATEGORY) {
+                    categoryId = -1
+                } else if (element == XML_TAG_ICON) {
+                    iconStarted = false
+                }
+            }
+            eventType = parser.next()
+        }
+
+        // Add new elements
+        pack.icons.putAll(newIcons)
+        pack.categories.putAll(newCategories)
+    }
+
+    private fun parseCategory(parser: XmlResourceParser, pack: IconPack): Category {
+        val idStr = parser.getAttributeValue(null, XML_ATTR_CATG_ID)
+        val nameStr = parser.getAttributeValue(null, XML_ATTR_CATG_NAME)
+
+        val id = idStr.toIntOrNull() ?: parseError("Invalid category ID literal '$idStr'.")
+        if (id < 0) {
+            parseError("Category ID '$id' must be greater or equal to 0.")
+        }
+
+        val nameRes: Int
+        val name: String
+        if (nameStr != null) {
+            if (nameStr.startsWith('@')) {
+                nameRes = if (nameStr.startsWith("@string/")) {
+                    // There's an AAPT bug where the string reference isn't changed to an ID
+                    // in XML resources. Resolve string resource from name.
+                    // See https://github.com/maltaisn/icondialoglib/issues/13.
+                    context.resources.getIdentifier(
+                            nameStr.substring(8), "string", context.packageName)
+                } else {
+                    nameStr.substring(1).toIntOrNull() ?: 0
+                }
+                name = context.getString(nameRes)
+            } else {
+                // No string resource, hardcoded string name.
+                nameRes = 0
+                name = nameStr
+            }
+        } else {
+            // Check if name can be inherited from overriden category.
+            val overriden = pack.getCategory(id)
+            if (overriden != null) {
+                nameRes = overriden.nameRes
+                name = overriden.name
+            } else {
+                parseError("Missing name for category ID $id.")
+            }
+        }
+
+        return Category(id, name, nameRes)
+    }
+
+    private fun parseIcon(parser: XmlResourceParser, pack: IconPack, categoryId: Int): Icon {
+        val idStr = parser.getAttributeValue(null, XML_ATTR_ICON_ID)
+        val tagsStr = parser.getAttributeValue(null, XML_ATTR_ICON_TAGS)
+        val pathStr = parser.getAttributeValue(null, XML_ATTR_ICON_PATH)
+        val catgStr = parser.getAttributeValue(null, XML_ATTR_ICON_CATG)
+
+        val id = idStr.toIntOrNull() ?: parseError("Invalid icon ID literal '$idStr'.")
+        if (id < 0) {
+            parseError("Icon ID '$id' must be greater or equal to 0.")
+        }
+        val overriden = pack.getIcon(id)
+
+        val tags: List<String>
+        if (tagsStr != null) {
+            tags = tagsStr.split(',')
+
+            // Add any grouping tags to the pack.
+            for (tag in tags) {
+                if (tag.startsWith('_')) {
+                    pack.tags[tag] = GroupingTag(tag)
+                }
+            }
+        } else {
+            // Check if tags can be inherited from overriden icon.
+            tags = overriden?.tags ?: emptyList()
+        }
+
+        val pathData = pathStr ?: overriden?.pathData ?: parseError("Icon ID $id has no path data.")
+
+        val category = if (catgStr != null) {
+            catgStr.toIntOrNull() ?: parseError("Invalid icon category ID literal '$idStr'.")
+        } else {
+            overriden?.categoryId ?: categoryId
+        }
+
+        return Icon(id, category, tags, pathData)
     }
 
     /**
      * Load tags of a [pack].
      */
     private fun loadTags(pack: IconPack) {
-        // TODO
+        val newTags = mutableMapOf<String, IconTag>()
+
+        var tagName: String? = null
+        var tagValue: NamedTag.Value? = null
+        val tagAliases = mutableListOf<NamedTag.Value>()
+
+        val parser = context.resources.getXml(pack.tagsXml)
+        var documentStarted = false
+        var aliasStarted = false
+        var eventType = parser.eventType
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+            val element = parser.name
+            when (eventType) {
+                XmlPullParser.START_TAG -> if (element == XML_TAG_TAGS) {
+                    documentStarted = true
+                } else {
+                    if (!documentStarted) {
+                        parseError("Invalid root element <$element>.")
+                    }
+                    if (aliasStarted) {
+                        parseError("Alias cannot have nested elements.")
+                    }
+
+                    if (element == XML_TAG_TAG) {
+                        if (tagName != null) {
+                            parseError("Nested tag element is not allowed.")
+                        }
+
+                        tagName = parser.getAttributeValue(null, XML_ATTR_TAG_NAME)
+                                ?: parseError("Tag element has no name attribute.")
+                        if (tagName.startsWith('_')) {
+                            parseError("Grouping tag '$tagName' not allowed in labels XML.")
+                        } else if (tagName in newTags) {
+                            parseError("Duplicate tag '$tagName' in same file.")
+                        }
+
+                    } else if (element == XML_TAG_ALIAS) {
+                        if (tagName == null) {
+                            parseError("Alias element must be in tag element body.")
+                        }
+                        if (tagValue != null) {
+                            parseError("Tag cannot have both a value and aliases.")
+                        }
+                        aliasStarted = true
+
+                    } else {
+                        parseError("Unknown element <$element>.")
+                    }
+                }
+                XmlPullParser.TEXT -> {
+                    if (tagName != null) {
+                        // Tag or alias value.
+                        // Replace backtick used to imitate single quote since they cannot be escaped due to AAPT bug...
+                        val text = parser.text.replace('`', '\'')
+                        val value = NamedTag.Value(text, text.normalize())
+                        when {
+                            aliasStarted -> tagAliases += value
+                            tagAliases.isEmpty() -> tagValue = value
+                            else -> {
+                                parseError("Tag cannot have both a value and aliases.")
+                            }
+                        }
+                    }
+                }
+                XmlPullParser.END_TAG -> if (element == XML_TAG_TAG && tagName != null) {
+                    // Add new tag
+                    newTags[tagName] = NamedTag(tagName, tagValue, tagAliases.toList())
+                    tagName = null
+                    tagValue = null
+                    tagAliases.clear()
+
+                } else if (element == XML_TAG_ALIAS) {
+                    aliasStarted = false
+                }
+            }
+            eventType = parser.next()
+        }
+
+        // Add new tags
+        pack.tags += newTags
     }
 
     companion object {
-        private val TAG = IconPackLoader::class.java.simpleName
-
         // XML elements and attributes
         private const val XML_TAG_ICONS = "icons"
         private const val XML_TAG_TAGS = "tags"
@@ -92,3 +330,7 @@ class IconPackLoader(context: Context) {
     }
 
 }
+
+class IconPackParseException(message: String) : Exception(message)
+
+private fun parseError(message: String): Nothing = throw IconPackParseException(message)
