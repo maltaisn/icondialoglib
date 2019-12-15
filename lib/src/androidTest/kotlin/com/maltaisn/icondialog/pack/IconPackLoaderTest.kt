@@ -16,6 +16,7 @@
 
 package com.maltaisn.icondialog.pack
 
+import android.content.res.Configuration
 import androidx.core.util.size
 import androidx.test.platform.app.InstrumentationRegistry
 import com.maltaisn.icondialog.data.Category
@@ -28,6 +29,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
+import java.util.*
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
@@ -35,9 +37,26 @@ import kotlin.test.assertNull
 @RunWith(MockitoJUnitRunner::class)
 internal class IconPackLoaderTest {
 
-    val packLoader = IconPackLoader(InstrumentationRegistry.getInstrumentation().context).apply {
+    private val context = InstrumentationRegistry.getInstrumentation().context
+
+    private val packLoader = IconPackLoader(context).apply {
         drawableLoader = mock()
         whenever(drawableLoader.createDrawable(any())).thenReturn(mock())
+    }
+
+    @Test
+    fun reloadStrings() {
+        val contextFr = context.createConfigurationContext(Configuration(context.resources.configuration).apply {
+            setLocale(Locale.FRENCH)
+        })
+        val packLoaderFr = IconPackLoader(contextFr)
+        val pack = packLoader.load(R.xml.icons_catg_name_ref, R.xml.tags_valid)
+        packLoaderFr.reloadStrings(pack)
+
+        assertEquals(Category(0, "catg-fr", R.string.category), pack.categories[0])
+        assertEquals("tag1-fr", (pack.tags["tag1"] as NamedTag).value?.value)
+        assertEquals("tag2-fr", (pack.tags["tag2"] as NamedTag).value?.value)
+        assertEquals("tag3-fr", (pack.tags["tag3"] as NamedTag).value?.value)
     }
 
     // ICON LOADING
@@ -75,7 +94,7 @@ internal class IconPackLoaderTest {
     @Test
     fun loadIcons_noCategoryName_overriden() {
         val parent = packLoader.load(R.xml.icons_valid, R.xml.tags_empty)
-        val child = packLoader.load(R.xml.icons_no_catg_name, R.xml.tags_empty, parent)
+        val child = packLoader.load(R.xml.icons_no_catg_name, R.xml.tags_empty, parent = parent)
         assertEquals("catg", child.categories[0].name)
     }
 
@@ -143,10 +162,10 @@ internal class IconPackLoaderTest {
 
     @Test
     fun loadIcons_override() {
-        val parent = packLoader.load(R.xml.icons_override_parent, R.xml.tags_empty)
-        val child = packLoader.load(R.xml.icons_override_child, R.xml.tags_empty, parent)
-        assertEquals("child", child.icons[0].pathData)
-        assertEquals("child", child.categories[0].name)
+        val parent = packLoader.load(R.xml.icons_override_parent, 0)
+        val child = packLoader.load(R.xml.icons_override_child, 0, parent = parent)
+        assertEquals(Icon(0, 1, listOf("tag2"), "child"), child.icons[0])
+        assertEquals(Category(0, "child", 0), child.categories[0])
     }
 
 
@@ -215,7 +234,7 @@ internal class IconPackLoaderTest {
     @Test
     fun loadTags_override() {
         val parent = packLoader.load(R.xml.icons_empty, R.xml.tags_override_parent)
-        val child = packLoader.load(R.xml.icons_empty, R.xml.tags_override_child, parent)
+        val child = packLoader.load(R.xml.icons_empty, R.xml.tags_override_child, parent = parent)
         assertEquals("Child", (child.tags["tag"] as NamedTag).value?.value)
     }
 

@@ -37,9 +37,7 @@ import java.util.*
  * @param context Any context, needed to load the XML resources.
  */
 @WorkerThread
-class IconPackLoader(context: Context) {
-
-    private val context = context.applicationContext
+class IconPackLoader(private val context: Context) {
 
     var drawableLoader = IconDrawableLoader(context)
         internal set
@@ -47,11 +45,15 @@ class IconPackLoader(context: Context) {
     /**
      * Load an icon pack from XML resources for icons and tags.
      *
+     * @param iconsXml XML resource containing the icons
+     * @param tagsXml XML resource containing the tags, can be `0` if there aren't tags.
+     * @param locales List of locales supported by the icon pack, can be empty if there are no tags.
+     * @param parent Parent pack for inheriting data, can be `null` for none.
+     *
      * @throws IconPackParseException Thrown when icons or tags XML is invalid.
      */
-    @JvmOverloads
-    fun load(@XmlRes iconsXml: Int, @XmlRes tagsXml: Int,
-             locales: List<Locale>, parent: IconPack? = null): IconPack {
+    fun load(@XmlRes iconsXml: Int, @XmlRes tagsXml: Int = 0,
+             locales: List<Locale> = emptyList(), parent: IconPack? = null): IconPack {
         val pack = IconPack(parent, SparseArray(), SparseArray(), mutableMapOf(), locales, tagsXml)
         loadIcons(pack, iconsXml)
         loadTags(pack)

@@ -45,8 +45,8 @@ internal class IconPackTest {
         categories2.put(1, Category(1, "", 0))
         tags2["_1"] = GroupingTag("_1")
 
-        val parent = IconPack(null, icons1, categories1, tags1, 0)
-        pack = IconPack(parent, icons2, categories2, tags2, 0)
+        val parent = IconPack(null, icons1, categories1, tags1, emptyList(), 0)
+        pack = IconPack(parent, icons2, categories2, tags2, emptyList(), 0)
     }
 
     @Test

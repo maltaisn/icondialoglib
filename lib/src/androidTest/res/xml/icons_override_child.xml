@@ -1,5 +1,5 @@
 <!--@formatter:off-->
 <icons>
-    <icon id="0" path="child" />
-    <category id="0" name="child" />
+    <icon id="0" category="1" tags="tag2" path="child"/>
+    <category id="0" name="child"/>
 </icons>
