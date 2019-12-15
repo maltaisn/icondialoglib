@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Nicolas Maltais
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
 <resources>
     
     <attr name="icdStyle" format="reference"/>
     
     <declare-styleable name="IconDialog">
-        <attr name="icdBackgroundColor" format="color|reference"/>
         <attr name="icdMaxWidth" format="dimension|reference"/>
         <attr name="icdMaxHeight" format="dimension|reference"/>
         <attr name="icdIconSize" format="dimension|reference"/>
@@ -18,17 +33,8 @@
         <attr name="icdSearchIconStyle" format="reference"/>
         <attr name="icdCancelSearchIconStyle" format="reference"/>
         <attr name="icdNoResultLabelStyle" format="reference"/>
-        <attr name="icdDialogButtonStyle" format="reference"/>
         <attr name="icdDialogTitleStyle" format="reference"/>
         <attr name="icdDialogListStyle" format="reference"/>
-        <attr name="icdDialogBtnTextSelect" format="string|reference"/>
-        <attr name="icdDialogBtnTextCancel" format="string|reference"/>
-        <attr name="icdDialogBtnTextSelectNone" format="string|reference"/>
-        <attr name="icdMaxSelectionMessage" format="string|reference"/>
-    </declare-styleable>
-
-    <declare-styleable name="IconView">
-        <attr name="icdIcon" format="integer"/>
     </declare-styleable>
 
 </resources>

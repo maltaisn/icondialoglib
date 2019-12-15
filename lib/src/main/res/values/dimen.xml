@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Copyright 2019 Nicolas Maltais
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,12 +14,10 @@
   limitations under the License.
   -->
 
-<TextView
-    android:id="@+id/icd_header_txv"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="?attr/icdListHeaderStyle"
-    tools:text="Family and people"
-    tools:theme="@style/IcdStyle"/>
+<resources>
+
+    <dimen name="icd_dialog_max_width">400dp</dimen>
+    <dimen name="icd_dialog_max_height">500dp</dimen>
+    <dimen name="icd_dialog_icon_size">50dp</dimen>
+
+</resources>

@@ -15,19 +15,12 @@
   limitations under the License.
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <color name="colorPrimary">#1565C0</color>
-    <color name="colorPrimaryVariant">#0D47A1</color>
-    <color name="colorSecondary">#00838F</color>
-    <color name="colorSecondaryVariant">#006064</color>
-    <color name="colorBackground">#ffffff</color>
-    <color name="colorSurface">#ffffff</color>
-    <color name="colorError">#B71C1C</color>
-    <color name="colorOnPrimary">#ffffff</color>
-    <color name="colorOnSecondary">#ffffff</color>
-    <color name="colorOnBackground">#000000</color>
-    <color name="colorOnSurface">#515151</color>
-    <color name="colorOnError">#ffffff</color>
+    <style name="AppTheme.DayNight" parent="Base.AppTheme" tools:ignore="NewApi">
+        <item name="android:statusBarColor">?colorSurface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
 
 </resources>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   Copyright 2019 Nicolas Maltais
 
@@ -17,17 +18,17 @@
 
 <resources>
 
-    <color name="colorPrimary">#1565C0</color>
-    <color name="colorPrimaryVariant">#0D47A1</color>
-    <color name="colorSecondary">#00838F</color>
-    <color name="colorSecondaryVariant">#006064</color>
-    <color name="colorBackground">#ffffff</color>
-    <color name="colorSurface">#ffffff</color>
-    <color name="colorError">#B71C1C</color>
-    <color name="colorOnPrimary">#ffffff</color>
-    <color name="colorOnSecondary">#ffffff</color>
-    <color name="colorOnBackground">#000000</color>
-    <color name="colorOnSurface">#515151</color>
-    <color name="colorOnError">#ffffff</color>
+    <color name="colorPrimary">#40C4FF</color>
+    <color name="colorPrimaryVariant">#00B0FF</color>
+    <color name="colorSecondary">#1DE9B6</color>
+    <color name="colorSecondaryVariant">#00BFA5</color>
+    <color name="colorBackground">#000000</color>
+    <color name="colorSurface">#121212</color>
+    <color name="colorError">#cf6679</color>
+    <color name="colorOnPrimary">#000000</color>
+    <color name="colorOnSecondary">#000000</color>
+    <color name="colorOnBackground">#ffffff</color>
+    <color name="colorOnSurface">#ffffff</color>
+    <color name="colorOnError">#000000</color>
 
 </resources>
