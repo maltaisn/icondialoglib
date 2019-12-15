@@ -16,9 +16,7 @@
 
 package com.maltaisn.icondialog.pack
 
-import android.util.SparseArray
 import androidx.annotation.XmlRes
-import androidx.core.util.size
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.data.IconTag
@@ -36,8 +34,8 @@ import java.util.*
  * @property tagsXml XML resource containing the tags. Can be set to `0` if there are no tags.
  */
 class IconPack(val parent: IconPack?,
-               val icons: SparseArray<Icon>,
-               val categories: SparseArray<Category>,
+               val icons: MutableMap<Int, Icon>,
+               val categories: MutableMap<Int, Category>,
                val tags: MutableMap<String, IconTag>,
                val locales: List<Locale>,
                @XmlRes val tagsXml: Int) {

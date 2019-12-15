@@ -18,12 +18,8 @@ package com.maltaisn.icondialog.pack
 
 import android.content.Context
 import android.content.res.XmlResourceParser
-import android.util.SparseArray
 import androidx.annotation.WorkerThread
 import androidx.annotation.XmlRes
-import androidx.core.util.contains
-import androidx.core.util.putAll
-import androidx.core.util.size
 import com.maltaisn.icondialog.data.*
 import com.maltaisn.icondialog.normalize
 import org.xmlpull.v1.XmlPullParser
@@ -54,7 +50,7 @@ class IconPackLoader(private val context: Context) {
      */
     fun load(@XmlRes iconsXml: Int, @XmlRes tagsXml: Int = 0,
              locales: List<Locale> = emptyList(), parent: IconPack? = null): IconPack {
-        val pack = IconPack(parent, SparseArray(), SparseArray(), mutableMapOf(), locales, tagsXml)
+        val pack = IconPack(parent, mutableMapOf(), mutableMapOf(), mutableMapOf(), locales, tagsXml)
         loadIcons(pack, iconsXml)
         loadTags(pack)
         return pack
@@ -80,19 +76,17 @@ class IconPackLoader(private val context: Context) {
         loadTags(pack)
 
         // Reload category names
-        for (i in 0 until pack.categories.size) {
-            val category = pack.categories.valueAt(i)
+        for ((id, category) in pack.categories) {
             if (category.nameRes != 0) {
-                pack.categories.setValueAt(i, category.copy(
-                        name = context.getString(category.nameRes)))
+                pack.categories[id] = category.copy(name = context.getString(category.nameRes))
             }
         }
     }
 
 
     private fun loadIcons(pack: IconPack, @XmlRes iconsXml: Int) {
-        val newIcons = SparseArray<Icon>()
-        val newCategories = SparseArray<Category>()
+        val newIcons = mutableMapOf<Int, Icon>()
+        val newCategories = mutableMapOf<Int, Category>()
         var categoryId: Int = -1
 
         var documentStarted = false
@@ -117,7 +111,7 @@ class IconPackLoader(private val context: Context) {
                             if (categoryId in newCategories) {
                                 parseError("Duplicate category ID '$categoryId' in same file.")
                             }
-                            newCategories.put(categoryId, category)
+                            newCategories[categoryId] = category
                         }
                         XML_TAG_ICON -> {
                             val icon = parseIcon(parser, pack, categoryId)
@@ -125,7 +119,7 @@ class IconPackLoader(private val context: Context) {
                                 parseError("Duplicate icon ID '${icon.id}' in same file.")
                             }
                             icon.drawable = drawableLoader.createDrawable(icon)
-                            newIcons.append(icon.id, icon)
+                            newIcons[icon.id] = icon
                             iconStarted = true
                         }
                         else -> parseError("Unknown element <$element>.")
@@ -143,8 +137,8 @@ class IconPackLoader(private val context: Context) {
         }
 
         // Add new elements
-        pack.icons.putAll(newIcons)
-        pack.categories.putAll(newCategories)
+        pack.icons += newIcons
+        pack.categories += newCategories
     }
 
     private fun parseCategory(parser: XmlResourceParser, pack: IconPack): Category {

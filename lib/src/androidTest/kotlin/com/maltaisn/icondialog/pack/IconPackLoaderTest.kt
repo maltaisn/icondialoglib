@@ -17,7 +17,6 @@
 package com.maltaisn.icondialog.pack
 
 import android.content.res.Configuration
-import androidx.core.util.size
 import androidx.test.platform.app.InstrumentationRegistry
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
@@ -95,14 +94,14 @@ internal class IconPackLoaderTest {
     fun loadIcons_noCategoryName_overriden() {
         val parent = packLoader.load(R.xml.icons_valid, R.xml.tags_empty)
         val child = packLoader.load(R.xml.icons_no_catg_name, R.xml.tags_empty, parent = parent)
-        assertEquals("catg", child.categories[0].name)
+        assertEquals("catg", child.categories[0]?.name)
     }
 
     @Test
     fun loadIcons_categoryNameRef() {
         val pack = packLoader.load(R.xml.icons_catg_name_ref, R.xml.tags_empty)
-        assertEquals("catg", pack.categories[0].name)
-        assertEquals(R.string.category, pack.categories[0].nameRes)
+        assertEquals("catg", pack.categories[0]?.name)
+        assertEquals(R.string.category, pack.categories[0]?.nameRes)
     }
 
     @Test(expected = IconPackParseException::class)
@@ -113,7 +112,7 @@ internal class IconPackLoaderTest {
     @Test
     fun loadIcons_noIconCategory() {
         val pack = packLoader.load(R.xml.icons_no_icon_category, R.xml.tags_empty)
-        assertEquals(-1, pack.icons[0].categoryId)
+        assertEquals(-1, pack.icons[0]?.categoryId)
     }
 
     @Test(expected = IconPackParseException::class)

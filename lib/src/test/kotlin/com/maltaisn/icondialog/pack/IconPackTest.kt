@@ -16,7 +16,6 @@
 
 package com.maltaisn.icondialog.pack
 
-import android.util.SparseArray
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.GroupingTag
 import com.maltaisn.icondialog.data.Icon
@@ -31,18 +30,18 @@ internal class IconPackTest {
     private val pack: IconPack
 
     init {
-        val icons1 = SparseArray<Icon>()
-        val categories1 = SparseArray<Category>()
+        val icons1 = mutableMapOf<Int, Icon>()
+        val categories1 = mutableMapOf<Int, Category>()
         val tags1 = mutableMapOf<String, IconTag>()
-        icons1.put(0, Icon(0, 0, emptyList(), ""))
-        categories1.put(0, Category(0, "", 0))
+        icons1[0] = Icon(0, 0, emptyList(), "")
+        categories1[0] = Category(0, "", 0)
         tags1["_0"] = GroupingTag("_0")
 
-        val icons2 = SparseArray<Icon>()
-        val categories2 = SparseArray<Category>()
+        val icons2 = mutableMapOf<Int, Icon>()
+        val categories2 = mutableMapOf<Int, Category>()
         val tags2 = mutableMapOf<String, IconTag>()
-        icons2.put(1, Icon(1, 1, emptyList(), ""))
-        categories2.put(1, Category(1, "", 0))
+        icons2[1] = Icon(1, 1, emptyList(), "")
+        categories2[1] = Category(1, "", 0)
         tags2["_1"] = GroupingTag("_1")
 
         val parent = IconPack(null, icons1, categories1, tags1, emptyList(), 0)
