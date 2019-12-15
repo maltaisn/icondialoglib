@@ -1,0 +1,37 @@
+<!--
+  Copyright 2019 Nicolas Maltais
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<resources>
+    <string name="icd_category_people">Família e pessoas</string>
+    <string name="icd_category_home">Casa e vida</string>
+    <string name="icd_category_technology">Tecnologia</string>
+    <string name="icd_category_finance">Finanças e compras</string>
+    <string name="icd_category_leisure">Lazer</string>
+    <string name="icd_category_transport">Transporte e viagem</string>
+    <string name="icd_category_food">Comidas e bebidas</string>
+    <string name="icd_category_buildings">Lugares e monumentos</string>
+    <string name="icd_category_arts">Artes</string>
+    <string name="icd_category_sports">Esportes</string>
+    <string name="icd_category_audio">Música e áudio</string>
+    <string name="icd_category_photo_video">Foto e vídeo</string>
+    <string name="icd_category_nature">Natureza e animais</string>
+    <string name="icd_category_science">Matemática e ciência</string>
+    <string name="icd_category_time">Data e hora</string>
+    <string name="icd_category_tools">Ferramentas</string>
+    <string name="icd_category_computer">Computação</string>
+    <string name="icd_category_arrows">Setas</string>
+    <string name="icd_category_symbols">Caracteres e símbolos</string>
+</resources>

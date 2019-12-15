@@ -1,0 +1,37 @@
+<!--
+  Copyright 2019 Nicolas Maltais
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<resources>
+    <string name="icd_category_people">Famille et personnes</string>
+    <string name="icd_category_home">Vie et domicile</string>
+    <string name="icd_category_leisure">Loisir</string>
+    <string name="icd_category_transport">Transport et voyage</string>
+    <string name="icd_category_food">Nourriture et boissons</string>
+    <string name="icd_category_buildings">Lieux et bâtiments</string>
+    <string name="icd_category_arts">Arts</string>
+    <string name="icd_category_sports">Sports</string>
+    <string name="icd_category_audio">Musique et son</string>
+    <string name="icd_category_photo_video">Photo et vidéo</string>
+    <string name="icd_category_nature">Nature et animaux</string>
+    <string name="icd_category_science">Math et science</string>
+    <string name="icd_category_time">Temps</string>
+    <string name="icd_category_tools">Outils</string>
+    <string name="icd_category_computer">Ordinateur</string>
+    <string name="icd_category_arrows">Flèches</string>
+    <string name="icd_category_symbols">Symboles et charactères</string>
+    <string name="icd_category_finance">Finance et achats</string>
+    <string name="icd_category_technology">Technologie</string>
+</resources>

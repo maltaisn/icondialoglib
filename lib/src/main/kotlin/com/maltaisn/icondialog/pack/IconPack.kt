@@ -22,19 +22,24 @@ import androidx.core.util.size
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.data.IconTag
+import java.util.*
 
 
 /**
- * An icon pack containing icons, categories and tags.
+ * An icon pack containing icons, categories and tags
  *
- * @param parent A pack can have a parent pack which will be used to resolve elements that aren't
+ * @property parent A pack can have a parent pack which will be used to resolve elements that aren't
  * found in this pack. This way, icons, categories and tags can be overriden by
  * a child pack. Parent is `null` if there's none.
+ * @property locales List of locales supported by this icon pack tags. List can be empty if
+ * there are no tags at all.
+ * @property tagsXml XML resource containing the tags. Can be set to `0` if there are no tags.
  */
 class IconPack(val parent: IconPack?,
                val icons: SparseArray<Icon>,
                val categories: SparseArray<Category>,
                val tags: MutableMap<String, IconTag>,
+               val locales: List<Locale>,
                @XmlRes val tagsXml: Int) {
 
     /**

@@ -27,6 +27,7 @@ import androidx.core.util.size
 import com.maltaisn.icondialog.data.*
 import com.maltaisn.icondialog.normalize
 import org.xmlpull.v1.XmlPullParser
+import java.util.*
 
 
 /**
@@ -49,8 +50,9 @@ class IconPackLoader(context: Context) {
      * @throws IconPackParseException Thrown when icons or tags XML is invalid.
      */
     @JvmOverloads
-    fun load(@XmlRes iconsXml: Int, @XmlRes tagsXml: Int, parent: IconPack? = null): IconPack {
-        val pack = IconPack(parent, SparseArray(), SparseArray(), mutableMapOf(), tagsXml)
+    fun load(@XmlRes iconsXml: Int, @XmlRes tagsXml: Int,
+             locales: List<Locale>, parent: IconPack? = null): IconPack {
+        val pack = IconPack(parent, SparseArray(), SparseArray(), mutableMapOf(), locales, tagsXml)
         loadIcons(pack, iconsXml)
         loadTags(pack)
         return pack
@@ -227,6 +229,11 @@ class IconPackLoader(context: Context) {
      * Load tags of a [pack].
      */
     private fun loadTags(pack: IconPack) {
+        if (pack.tagsXml == 0) {
+            // This icon pack has no tags.
+            return
+        }
+
         val newTags = mutableMapOf<String, IconTag>()
 
         var tagName: String? = null

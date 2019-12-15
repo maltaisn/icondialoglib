@@ -1,17 +1,21 @@
 plugins {
-    id "com.android.application"
+    id "com.android.library"
     id "kotlin-android"
+}
+
+ext {
+    // Auto generate version code based on version name
+    iconPackDefaultVersionCode = versionToCode(iconPackDefaultVersion)
 }
 
 android {
     compileSdkVersion setup.compileSdk
     buildToolsVersion setup.buildTools
     defaultConfig {
-        applicationId "com.maltaisn.icondialoglib.demo"
         minSdkVersion setup.minSdk
         targetSdkVersion setup.targetSdk
-        versionCode 1
-        versionName "1.0"
+        versionCode iconPackDefaultVersionCode
+        versionName iconPackDefaultVersion
     }
     sourceSets {
         main.java.srcDirs += "src/main/kotlin"
@@ -28,12 +32,6 @@ android {
 dependencies {
     implementation project(":lib")
 
-    implementation project(":iconpacks:iconpack-default")
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-
-    implementation "androidx.core:core-ktx:$ktxVersion"
-    implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
-    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.annotation:annotation:$annotationsVersion"
 }

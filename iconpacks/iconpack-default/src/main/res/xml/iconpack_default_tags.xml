@@ -1,0 +1,1250 @@
+<!--
+  Copyright 2019 Nicolas Maltais
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<!--@formatter:off-->
+<tags>
+    <tag name="3d">3D</tag>
+    <tag name="accessibility">Accessibility</tag>
+    <tag name="account">Account</tag>
+    <tag name="add">Add</tag>
+    <tag name="adjust">
+        <alias>Adjust</alias>
+        <alias>Tune</alias>
+    </tag>
+    <tag name="agriculture">Agriculture</tag>
+    <tag name="air_conditioner">Air conditioner</tag>
+    <tag name="airplane">Airplane</tag>
+    <tag name="airport">Airport</tag>
+    <tag name="alarm">Alarm</tag>
+    <tag name="album">Album</tag>
+    <tag name="alert">Alert</tag>
+    <tag name="alien">Alien</tag>
+    <tag name="all">All</tag>
+    <tag name="altimeter">Altimeter</tag>
+    <tag name="ambulance">Ambulance</tag>
+    <tag name="ampersand">Ampersand</tag>
+    <tag name="amplifier">Amplifier</tag>
+    <tag name="angle">Angle</tag>
+    <tag name="angry">Angry</tag>
+    <tag name="animal">Animal</tag>
+    <tag name="anvil">Anvil</tag>
+    <tag name="apple">Apple</tag>
+    <tag name="application">Application</tag>
+    <tag name="arrow">Arrow</tag>
+    <tag name="art">Art</tag>
+    <tag name="artificial_intelligence">Artificial intelligence</tag>
+    <tag name="artist">Artist</tag>
+    <tag name="asterisk">Asterisk</tag>
+    <tag name="at_sign">At</tag>
+    <tag name="atom">Atom</tag>
+    <tag name="audio">
+        <alias>Audio</alias>
+        <alias>Music</alias>
+        <alias>Sound</alias>
+    </tag>
+    <tag name="avenue">Avenue</tag>
+    <tag name="axe">Axe</tag>
+    <tag name="baby">Baby</tag>
+    <tag name="backspace">Backspace</tag>
+    <tag name="backup">Backup</tag>
+    <tag name="badminton">Badminton</tag>
+    <tag name="ball">Ball</tag>
+    <tag name="balloon">Balloon</tag>
+    <tag name="ballot">Ballot</tag>
+    <tag name="bank">Bank</tag>
+    <tag name="barcode">Barcode</tag>
+    <tag name="barley">Barley</tag>
+    <tag name="barn">Barn</tag>
+    <tag name="barrel">
+        <alias>Barrel</alias>
+        <alias>Keg</alias>
+    </tag>
+    <tag name="baseball">Baseball</tag>
+    <tag name="baseball_bat">Baseball bat</tag>
+    <tag name="basket">Basket</tag>
+    <tag name="basketball">Basketball</tag>
+    <tag name="basketball_hoop">Basketball hoop</tag>
+    <tag name="bath">Bath</tag>
+    <tag name="battery">Battery</tag>
+    <tag name="bauble">Bauble</tag>
+    <tag name="beach">Beach</tag>
+    <tag name="beaker">Beaker</tag>
+    <tag name="bear">Bear</tag>
+    <tag name="bed">Bed</tag>
+    <tag name="beer">Beer</tag>
+    <tag name="beetle">Beetle</tag>
+    <tag name="bell">Bell</tag>
+    <tag name="bible">Bible</tag>
+    <tag name="bicycle">
+        <alias>Bicycle</alias>
+        <alias>Bike</alias>
+    </tag>
+    <tag name="binary">Binary</tag>
+    <tag name="binoculars">Binoculars</tag>
+    <tag name="biology">Biology</tag>
+    <tag name="bird">Bird</tag>
+    <tag name="birthday">
+        <alias>Birthday</alias>
+        <alias>Anniversary</alias>
+    </tag>
+    <tag name="blacksmith">Blacksmith</tag>
+    <tag name="blank">
+        <alias>Blank</alias>
+        <alias>Empty</alias>
+    </tag>
+    <tag name="blind">Blind</tag>
+    <tag name="bluetooth">Bluetooth</tag>
+    <tag name="boat">Boat</tag>
+    <tag name="bomb">Bomb</tag>
+    <tag name="bone">Bone</tag>
+    <tag name="book">Book</tag>
+    <tag name="bookmark">Bookmark</tag>
+    <tag name="boombox">Boombox</tag>
+    <tag name="bottle">Bottle</tag>
+    <tag name="boulevard">Boulevard</tag>
+    <tag name="bounce">Bounce</tag>
+    <tag name="bow_tie">Bow tie</tag>
+    <tag name="bowl">Bowl</tag>
+    <tag name="bowling">Bowling</tag>
+    <tag name="box">Box</tag>
+    <tag name="braces">Braces</tag>
+    <tag name="brackets">Brackets</tag>
+    <tag name="braille">Braille</tag>
+    <tag name="brain">Brain</tag>
+    <tag name="branch">Branch</tag>
+    <tag name="bread">Bread</tag>
+    <tag name="breakfast">Breakfast</tag>
+    <tag name="bricks">Bricks</tag>
+    <tag name="bridge">Bridge</tag>
+    <tag name="briefcase">Briefcase</tag>
+    <tag name="brightness">Brightness</tag>
+    <tag name="broken">Broken</tag>
+    <tag name="broom">Broom</tag>
+    <tag name="brush">Brush</tag>
+    <tag name="bubble">Bubble</tag>
+    <tag name="bucket">Bucket</tag>
+    <tag name="buddhism">Buddhism</tag>
+    <tag name="buggy">Buggy</tag>
+    <tag name="building">Building</tag>
+    <tag name="bulldozer">Bulldozer</tag>
+    <tag name="bulletin_board">Bulletin board</tag>
+    <tag name="bullhorn">
+        <alias>Bullhorn</alias>
+        <alias>Megaphone</alias>
+    </tag>
+    <tag name="bullseye">Bullseye</tag>
+    <tag name="bus">Bus</tag>
+    <tag name="business">Business</tag>
+    <tag name="cable_car">
+        <alias>Cable car</alias>
+        <alias>Gondola lift</alias>
+    </tag>
+    <tag name="cactus">Cactus</tag>
+    <tag name="cake">Cake</tag>
+    <tag name="calculator">Calculator</tag>
+    <tag name="calendar">Calendar</tag>
+    <tag name="call">Call</tag>
+    <tag name="camcorder">Camcorder</tag>
+    <tag name="camera">Camera</tag>
+    <tag name="camping">Camping</tag>
+    <tag name="cancel">Cancel</tag>
+    <tag name="candle">Candle</tag>
+    <tag name="candy">Candy</tag>
+    <tag name="candycane">Candycane</tag>
+    <tag name="cannabis">
+        <alias>Cannabis</alias>
+        <alias>Marijuana</alias>
+    </tag>
+    <tag name="car">Car</tag>
+    <tag name="car_convertable">Convertable car</tag>
+    <tag name="car_estate">Estate car</tag>
+    <tag name="car_hatchback">Hatchback car</tag>
+    <tag name="car_jeep">Jeep car</tag>
+    <tag name="car_pickup">Pickup truck</tag>
+    <tag name="car_sport">Sport car</tag>
+    <tag name="caravan">Caravan</tag>
+    <tag name="card">Card</tag>
+    <tag name="cards_club">Club</tag>
+    <tag name="cards_diamond">Diamond</tag>
+    <tag name="cards_heart">Heart</tag>
+    <tag name="cards_spade">Spade</tag>
+    <tag name="carrot">Carrot</tag>
+    <tag name="cart">Cart</tag>
+    <tag name="cash">Cash</tag>
+    <tag name="cassette">Cassette</tag>
+    <tag name="castle">Castle</tag>
+    <tag name="cat">Cat</tag>
+    <tag name="category">Category</tag>
+    <tag name="ceiling">Ceiling</tag>
+    <tag name="celsius">Celsius</tag>
+    <tag name="center">Center</tag>
+    <tag name="certificate">Certificate</tag>
+    <tag name="chain">Chain</tag>
+    <tag name="chair">Chair</tag>
+    <tag name="champagne">Champagne</tag>
+    <tag name="chandelier">Chandelier</tag>
+    <tag name="charge_battery">Charge</tag>
+    <tag name="chart">Chart</tag>
+    <tag name="chart_arc">Arc chart</tag>
+    <tag name="chart_bar">Bar chart</tag>
+    <tag name="chart_bubble">Bubble chart</tag>
+    <tag name="chart_line">Line chart</tag>
+    <tag name="chart_pie">Pie chart</tag>
+    <tag name="chat">Chat</tag>
+    <tag name="check">Check</tag>
+    <tag name="checkerboard">Checkerboard</tag>
+    <tag name="chemical">Chemical</tag>
+    <tag name="chemistry">Chemistry</tag>
+    <tag name="chess">Chess</tag>
+    <tag name="chess_bishop">Bishop</tag>
+    <tag name="chess_king">King</tag>
+    <tag name="chess_knight">Knight</tag>
+    <tag name="chess_pawn">Pawn</tag>
+    <tag name="chess_queen">Queen</tag>
+    <tag name="chess_rook">Rook</tag>
+    <tag name="chessboard">Chessboard</tag>
+    <tag name="chevron">Chevron</tag>
+    <tag name="child">
+        <alias>Child</alias>
+        <alias>Kid</alias>
+    </tag>
+    <tag name="chili_food">Chili</tag>
+    <tag name="christianism">Christianism</tag>
+    <tag name="christmas">Christmas</tag>
+    <tag name="church">Church</tag>
+    <tag name="cinema">Cinema</tag>
+    <tag name="circle">Circle</tag>
+    <tag name="city">City</tag>
+    <tag name="click">Click</tag>
+    <tag name="clipboard">Clipboard</tag>
+    <tag name="clock">Clock</tag>
+    <tag name="closed">Closed</tag>
+    <tag name="clothes">Clothes</tag>
+    <tag name="cloud">Cloud</tag>
+    <tag name="clover">Clover</tag>
+    <tag name="co2">
+        <alias>CO2</alias>
+        <alias>Carbon dioxide</alias>
+    </tag>
+    <tag name="cocktail">Cocktail</tag>
+    <tag name="coffee">Coffee</tag>
+    <tag name="coin">Coin</tag>
+    <tag name="cold">Cold</tag>
+    <tag name="collapse_content">Collapse</tag>
+    <tag name="comparison">Comparison</tag>
+    <tag name="compass">Compass</tag>
+    <tag name="computer">Computer</tag>
+    <tag name="computer_storage">Storage</tag>
+    <tag name="computer_tower">Computer tower</tag>
+    <tag name="confirm">Confirm</tag>
+    <tag name="confirmation">Confirmation</tag>
+    <tag name="conifer">Conifer</tag>
+    <tag name="connected">Connected</tag>
+    <tag name="connection">Connection</tag>
+    <tag name="console">Console</tag>
+    <tag name="console_controller">Console controller</tag>
+    <tag name="construction">Construction</tag>
+    <tag name="cook">Cook</tag>
+    <tag name="cookie">Cookie</tag>
+    <tag name="cool_qualitative">Cool</tag>
+    <tag name="copyright">Copyright</tag>
+    <tag name="corn">Corn</tag>
+    <tag name="counter">Counter</tag>
+    <tag name="couple">Couple</tag>
+    <tag name="coupon">Coupon</tag>
+    <tag name="cow">Cow</tag>
+    <tag name="cowboy">Cowboy</tag>
+    <tag name="crane">Crane</tag>
+    <tag name="creation">Creation</tag>
+    <tag name="credit_card">Credit card</tag>
+    <tag name="croissant">Croissant</tag>
+    <tag name="crop">Crop</tag>
+    <tag name="cross">Cross</tag>
+    <tag name="crosshairs">Crosshairs</tag>
+    <tag name="crown">Crown</tag>
+    <tag name="cry">Cry</tag>
+    <tag name="cryptocurrency">Cryptocurrency</tag>
+    <tag name="cube">Cube</tag>
+    <tag name="cup">Cup</tag>
+    <tag name="cupcake">Cupcake</tag>
+    <tag name="curling">Curling</tag>
+    <tag name="curr_bdt">Bangladeshi</tag>
+    <tag name="curr_btc">Bitcoin</tag>
+    <tag name="curr_chf">Swiss franc</tag>
+    <tag name="curr_cny">Chinese yuan</tag>
+    <tag name="curr_dollar">Dollar</tag>
+    <tag name="curr_eur">Euro</tag>
+    <tag name="curr_gbp">
+        <alias>British pound</alias>
+        <alias>Pound sterling</alias>
+    </tag>
+    <tag name="curr_inr">Indian rupee</tag>
+    <tag name="curr_jpy">Japenese yen</tag>
+    <tag name="curr_krw">South korean won</tag>
+    <tag name="curr_kzt">Kazakhstani tenge</tag>
+    <tag name="curr_ngn">Nigerian naira</tag>
+    <tag name="curr_php">Philippine Piso</tag>
+    <tag name="curr_rub">Russian ruble</tag>
+    <tag name="curr_try">Turkish lira</tag>
+    <tag name="curr_twd">Taiwan dollar</tag>
+    <tag name="currency">Currency</tag>
+    <tag name="current_ac">
+        <alias>AC</alias>
+        <alias>Alternating current</alias>
+    </tag>
+    <tag name="current_dc">
+        <alias>DC</alias>
+        <alias>Direct current</alias>
+    </tag>
+    <tag name="curve">Curve</tag>
+    <tag name="cut">Cut</tag>
+    <tag name="cutter">Cutter</tag>
+    <tag name="cycling">Cycling</tag>
+    <tag name="cylinder">Cylinder</tag>
+    <tag name="danger">
+        <alias>Danger</alias>
+        <alias>Hazard</alias>
+    </tag>
+    <tag name="darts">Darts</tag>
+    <tag name="data">Data</tag>
+    <tag name="database">Database</tag>
+    <tag name="death">Death</tag>
+    <tag name="decimal">Decimal</tag>
+    <tag name="decision">Decision</tag>
+    <tag name="delete">
+        <alias>Delete</alias>
+        <alias>Remove</alias>
+    </tag>
+    <tag name="delivery">Delivery</tag>
+    <tag name="dentist">Dentist</tag>
+    <tag name="deposit">Deposit</tag>
+    <tag name="desert">Desert</tag>
+    <tag name="desk">Desk</tag>
+    <tag name="dessert">Dessert</tag>
+    <tag name="details">Details</tag>
+    <tag name="developer">Developer</tag>
+    <tag name="devil">Devil</tag>
+    <tag name="dial">Dial</tag>
+    <tag name="diamond">Diamond</tag>
+    <tag name="dice">
+        <alias>Dice</alias>
+        <alias>Die</alias>
+    </tag>
+    <tag name="diesel">Diesel</tag>
+    <tag name="direction">Direction</tag>
+    <tag name="disconnected">Disconnected</tag>
+    <tag name="dishwasher">Dishwasher</tag>
+    <tag name="disk">Disk</tag>
+    <tag name="dislike">Dislike</tag>
+    <tag name="distance">Distance</tag>
+    <tag name="dna">DNA</tag>
+    <tag name="dock">
+        <alias>Dock</alias>
+        <alias>Pier</alias>
+    </tag>
+    <tag name="doctor">Doctor</tag>
+    <tag name="document">Document</tag>
+    <tag name="dog">Dog</tag>
+    <tag name="donkey">Donkey</tag>
+    <tag name="door">Door</tag>
+    <tag name="dots">Dots</tag>
+    <tag name="down">Down</tag>
+    <tag name="download">Download</tag>
+    <tag name="draw">Draw</tag>
+    <tag name="dribble">Dribble</tag>
+    <tag name="drink">Drink</tag>
+    <tag name="drone">Drone</tag>
+    <tag name="dropper">Dropper</tag>
+    <tag name="drug">Drug</tag>
+    <tag name="drying_machine">Dryer</tag>
+    <tag name="duck">Duck</tag>
+    <tag name="dumbbell">Dumbbell</tag>
+    <tag name="duration">
+        <alias>Duration</alias>
+        <alias>Period</alias>
+        <alias>Timelapse</alias>
+    </tag>
+    <tag name="ear">Ear</tag>
+    <tag name="earth">Earth</tag>
+    <tag name="easter">Easter</tag>
+    <tag name="eclipse">Eclipse</tag>
+    <tag name="editing">Editing</tag>
+    <tag name="education">Education</tag>
+    <tag name="egg">Egg</tag>
+    <tag name="egg_cell">Egg cell</tag>
+    <tag name="eject">Eject</tag>
+    <tag name="election">Election</tag>
+    <tag name="electric_guitar">Electric guitar</tag>
+    <tag name="electric_power">Power</tag>
+    <tag name="electrical_plug">Electrical plug</tag>
+    <tag name="electrical_socket">
+        <alias>Electrical socket</alias>
+        <alias>Electrical outlet</alias>
+    </tag>
+    <tag name="electricity">Electricity</tag>
+    <tag name="electronic_chip">Electrical chip</tag>
+    <tag name="electronic_circuit">Electrical circuit</tag>
+    <tag name="elephant">Elephant</tag>
+    <tag name="ellipsis">Ellipsis</tag>
+    <tag name="email">Email</tag>
+    <tag name="emoticon">Emoticon</tag>
+    <tag name="empty">Empty</tag>
+    <tag name="engine">Engine</tag>
+    <tag name="environment">Environment</tag>
+    <tag name="equality">Equality</tag>
+    <tag name="eraser">Eraser</tag>
+    <tag name="erlenmeyer">Erlenmeyer</tag>
+    <tag name="event">Event</tag>
+    <tag name="evil">Evil</tag>
+    <tag name="exclamation_mark">Exclamation mark</tag>
+    <tag name="expand_content">Expand</tag>
+    <tag name="export">Export</tag>
+    <tag name="extension">Extension</tag>
+    <tag name="eye">Eye</tag>
+    <tag name="face">Face</tag>
+    <tag name="factory">
+        <alias>Factory</alias>
+        <alias>Plant</alias>
+    </tag>
+    <tag name="fahrenheit">Fahrenheit</tag>
+    <tag name="fan">Fan</tag>
+    <tag name="farm">Farm</tag>
+    <tag name="fast">Fast</tag>
+    <tag name="fastfood">
+        <alias>Fastfood</alias>
+        <alias>Junkfood</alias>
+    </tag>
+    <tag name="faucet">
+        <alias>Faucet</alias>
+        <alias>Tap</alias>
+    </tag>
+    <tag name="fax">Fax</tag>
+    <tag name="feather">Feather</tag>
+    <tag name="female">Female</tag>
+    <tag name="fence">Fence</tag>
+    <tag name="fencing">Fencing</tag>
+    <tag name="ferry">Ferry</tag>
+    <tag name="field">Field</tag>
+    <tag name="fighting">Fighting</tag>
+    <tag name="file">File</tag>
+    <tag name="fill">Fill</tag>
+    <tag name="film">Film</tag>
+    <tag name="filter">Filter</tag>
+    <tag name="finance">Finance</tag>
+    <tag name="fingerprint">Fingerprint</tag>
+    <tag name="fir_tree">Fir</tag>
+    <tag name="fire">Fire</tag>
+    <tag name="fire_truck">Fire truck</tag>
+    <tag name="firework">Firework</tag>
+    <tag name="fish">Fish</tag>
+    <tag name="fish_hook">Fish hook</tag>
+    <tag name="fishing">Fishing</tag>
+    <tag name="fitness">Fitness</tag>
+    <tag name="flag">Flag</tag>
+    <tag name="flash">Flash</tag>
+    <tag name="flashlight">Flashlight</tag>
+    <tag name="flask">Flask</tag>
+    <tag name="floor">Floor</tag>
+    <tag name="floppy_disk">Floppy disk</tag>
+    <tag name="flower">Flower</tag>
+    <tag name="fog">Fog</tag>
+    <tag name="folder">Folder</tag>
+    <tag name="font">Font</tag>
+    <tag name="food">Food</tag>
+    <tag name="foot">
+        <alias>Foot</alias>
+        <alias>Feet</alias>
+    </tag>
+    <tag name="football">Football</tag>
+    <tag name="fork">Fork</tag>
+    <tag name="fork_content">Fork</tag>
+    <tag name="forklift">Forklift</tag>
+    <tag name="form">Form</tag>
+    <tag name="format">Format</tag>
+    <tag name="fortuneteller">Fortuneteller</tag>
+    <tag name="forum">Forum</tag>
+    <tag name="fountain">Fountain</tag>
+    <tag name="frame">Frame</tag>
+    <tag name="fridge">Fridge</tag>
+    <tag name="front">Front</tag>
+    <tag name="fruit">Fruit</tag>
+    <tag name="fuel">Fuel</tag>
+    <tag name="full">Full</tag>
+    <tag name="fullscreen">Fullscreen</tag>
+    <tag name="funnel">Funnel</tag>
+    <tag name="future">Future</tag>
+    <tag name="gambling">Gambling</tag>
+    <tag name="game">Game</tag>
+    <tag name="game_console">Game console</tag>
+    <tag name="garage">Garage</tag>
+    <tag name="gas">Gas</tag>
+    <tag name="gate">Gate</tag>
+    <tag name="gauge">Gauge</tag>
+    <tag name="gavel">Gavel</tag>
+    <tag name="gear">
+        <alias>Gear</alias>
+        <alias>Cog</alias>
+    </tag>
+    <tag name="gem">
+        <alias>Gem</alias>
+        <alias>Jewel</alias>
+    </tag>
+    <tag name="gender">
+        <alias>Gender</alias>
+        <alias>Sex</alias>
+    </tag>
+    <tag name="genetic">Genetic</tag>
+    <tag name="geometry">Geometry</tag>
+    <tag name="gesture">Gesture</tag>
+    <tag name="ghost">Ghost</tag>
+    <tag name="gift">
+        <alias>Gift</alias>
+        <alias>Present</alias>
+    </tag>
+    <tag name="giftcard">Giftcard</tag>
+    <tag name="glass">Glass</tag>
+    <tag name="glass_flute">Glass flute</tag>
+    <tag name="glasses">Glasses</tag>
+    <tag name="golf">Golf</tag>
+    <tag name="gps">GPS</tag>
+    <tag name="grade">Grade</tag>
+    <tag name="graduation">Graduation</tag>
+    <tag name="graffiti">Graffiti</tag>
+    <tag name="grease_pen">Grease pen</tag>
+    <tag name="greek_letter">Greek letter</tag>
+    <tag name="greek_letter_alpha">Alpha</tag>
+    <tag name="greek_letter_beta">Beta</tag>
+    <tag name="greek_letter_delta">Delta</tag>
+    <tag name="greek_letter_lambda">Lambda</tag>
+    <tag name="greek_letter_omega">Omega</tag>
+    <tag name="greek_letter_sigma">Sigma</tag>
+    <tag name="greeting">Greeting</tag>
+    <tag name="grid">Grid</tag>
+    <tag name="grocery">Grocery</tag>
+    <tag name="group">Group</tag>
+    <tag name="guitar">Guitar</tag>
+    <tag name="gun">Gun</tag>
+    <tag name="h2o">
+        <alias>H2O</alias>
+        <alias>Water</alias>
+    </tag>
+    <tag name="hamburger">Hamburger</tag>
+    <tag name="hammer">Hammer</tag>
+    <tag name="hand">Hand</tag>
+    <tag name="hanger">Hanger</tag>
+    <tag name="happy">Happy</tag>
+    <tag name="hard_disk">Hard disk</tag>
+    <tag name="hat">Hat</tag>
+    <tag name="headphones">
+        <alias>Headphones</alias>
+        <alias>Headset</alias>
+        <alias>Earphones</alias>
+        <alias>Earbuds</alias>
+    </tag>
+    <tag name="health">Health</tag>
+    <tag name="hear">Hear</tag>
+    <tag name="hearing">Hearing</tag>
+    <tag name="heart">Heart</tag>
+    <tag name="heat">Heat</tag>
+    <tag name="heavy">Heavy</tag>
+    <tag name="helicopter">Helicopter</tag>
+    <tag name="helmet">Helmet</tag>
+    <tag name="help">Help</tag>
+    <tag name="hexagon">Hexagon</tag>
+    <tag name="hidden">Hidden</tag>
+    <tag name="hierarchy">Hierarchy</tag>
+    <tag name="high">High</tag>
+    <tag name="high_heel">High heel</tag>
+    <tag name="highlighter">Highlighter</tag>
+    <tag name="highway">Highway</tag>
+    <tag name="hinduism">Hinduism</tag>
+    <tag name="histogram">Histogram</tag>
+    <tag name="history">History</tag>
+    <tag name="hockey">Hockey</tag>
+    <tag name="hockey_puck">Hockey puck</tag>
+    <tag name="hockey_stick">Hockey stick</tag>
+    <tag name="home">Home</tag>
+    <tag name="home_appliance">Home appliance</tag>
+    <tag name="horn">Horn</tag>
+    <tag name="horse">Horse</tag>
+    <tag name="horseshoe">Horseshoe</tag>
+    <tag name="hospital">Hospital</tag>
+    <tag name="hot">Hot</tag>
+    <tag name="hot_air_balloon">Hot air balloon</tag>
+    <tag name="hot_tub">Hot tub</tag>
+    <tag name="hotdog">Hot-dog</tag>
+    <tag name="hotel">Hotel</tag>
+    <tag name="hour">Hour</tag>
+    <tag name="hourglass">Hourglass</tag>
+    <tag name="house">House</tag>
+    <tag name="housework">Housework</tag>
+    <tag name="human">Human</tag>
+    <tag name="hurricane">Hurricane</tag>
+    <tag name="hyperlink">Hyperlink</tag>
+    <tag name="icecream">Icecream</tag>
+    <tag name="icecream_cone">Icecream cone</tag>
+    <tag name="icecube">Icecube</tag>
+    <tag name="image">
+        <alias>Image</alias>
+        <alias>Picture</alias>
+    </tag>
+    <tag name="import">Import</tag>
+    <tag name="incognito">Incognito</tag>
+    <tag name="infinity">Infinity</tag>
+    <tag name="information">Information</tag>
+    <tag name="insect">
+        <alias>Insect</alias>
+        <alias>Bug</alias>
+    </tag>
+    <tag name="insomnia">Insomnia</tag>
+    <tag name="instrument">Instrument</tag>
+    <tag name="insurance">Insurance</tag>
+    <tag name="internet">Internet</tag>
+    <tag name="intersection">Intersection</tag>
+    <tag name="inverse">Inverse</tag>
+    <tag name="investment">Investment</tag>
+    <tag name="islam">Islam</tag>
+    <tag name="items">Items</tag>
+    <tag name="json">JSON</tag>
+    <tag name="judaism">Judaism</tag>
+    <tag name="jupiter">Jupiter</tag>
+    <tag name="karate">Karate</tag>
+    <tag name="kelvin">Kelvin</tag>
+    <tag name="kettle">Kettle</tag>
+    <tag name="key">Key</tag>
+    <tag name="keyboard">Keyboard</tag>
+    <tag name="kg">KG</tag>
+    <tag name="king">King</tag>
+    <tag name="kiss">Kiss</tag>
+    <tag name="knife">Knife</tag>
+    <tag name="label">
+        <alias>Label</alias>
+        <alias>Tag</alias>
+    </tag>
+    <tag name="ladybug">Ladybug</tag>
+    <tag name="lamp">Lamp</tag>
+    <tag name="landing">Landing</tag>
+    <tag name="landscape">Landscape</tag>
+    <tag name="language">Language</tag>
+    <tag name="laptop">Laptop</tag>
+    <tag name="layer">Layer</tag>
+    <tag name="leaf">Leaf</tag>
+    <tag name="leaking">Leaking</tag>
+    <tag name="left">Left</tag>
+    <tag name="leg">Leg</tag>
+    <tag name="length">Length</tag>
+    <tag name="letter">Letter</tag>
+    <tag name="library">Library</tag>
+    <tag name="license">License</tag>
+    <tag name="license_copyright">License</tag>
+    <tag name="lifebuoy">Lifebuoy</tag>
+    <tag name="lightbulb">Lightbulb</tag>
+    <tag name="lighthouse">Lighthouse</tag>
+    <tag name="lightning">Lightning</tag>
+    <tag name="lightning_led">LED</tag>
+    <tag name="like">Like</tag>
+    <tag name="link">Link</tag>
+    <tag name="liquid">Liquid</tag>
+    <tag name="list">List</tag>
+    <tag name="livestock">
+        <alias>Livestock</alias>
+        <alias>Cattle</alias>
+    </tag>
+    <tag name="loading">Loading</tag>
+    <tag name="location">Location</tag>
+    <tag name="lock">Lock</tag>
+    <tag name="locked">Locked</tag>
+    <tag name="logic_gate">Logic gate</tag>
+    <tag name="loop">Loop</tag>
+    <tag name="love">Love</tag>
+    <tag name="low">Low</tag>
+    <tag name="luck">Luck</tag>
+    <tag name="magic">Magic</tag>
+    <tag name="magnet">Magnet</tag>
+    <tag name="magnifying_glass">Magnifying glass</tag>
+    <tag name="mail">Mail</tag>
+    <tag name="mailbox">Mailbox</tag>
+    <tag name="male">Male</tag>
+    <tag name="mallet">Mallet</tag>
+    <tag name="man">Man</tag>
+    <tag name="map">Map</tag>
+    <tag name="maple">Maple</tag>
+    <tag name="martial_arts">Martial arts</tag>
+    <tag name="martini">Martini</tag>
+    <tag name="mask">Mask</tag>
+    <tag name="math">Mathematics</tag>
+    <tag name="math_addition">Addition</tag>
+    <tag name="math_division">Division</tag>
+    <tag name="math_equal">Equal</tag>
+    <tag name="math_exponent">Exponent</tag>
+    <tag name="math_formula">Formula</tag>
+    <tag name="math_function">Function</tag>
+    <tag name="math_multiplication">Multiplication</tag>
+    <tag name="math_not_equal">Not equal</tag>
+    <tag name="math_square">Square</tag>
+    <tag name="math_square_root">Square root</tag>
+    <tag name="math_subtraction">Subtraction</tag>
+    <tag name="meal">Meal</tag>
+    <tag name="measurement">Measurement</tag>
+    <tag name="measuring_tape">Measuring tape</tag>
+    <tag name="medal">Medal</tag>
+    <tag name="media">Media</tag>
+    <tag name="media_fast_forward">Fast forward</tag>
+    <tag name="media_pause">Pause</tag>
+    <tag name="media_play">Play</tag>
+    <tag name="media_player">Media player</tag>
+    <tag name="media_resume">Resume</tag>
+    <tag name="media_rewind">Rewind</tag>
+    <tag name="media_shuffle">Shuffle</tag>
+    <tag name="media_skip_backward">Skip backward</tag>
+    <tag name="media_skip_forward">Skip forward</tag>
+    <tag name="media_skip_next">Skip next</tag>
+    <tag name="media_skip_previous">Skip previous</tag>
+    <tag name="medication">
+        <alias>Medication</alias>
+        <alias>Drug</alias>
+    </tag>
+    <tag name="medium">Medium</tag>
+    <tag name="membership">Membership</tag>
+    <tag name="memory">Memory</tag>
+    <tag name="menu">Menu</tag>
+    <tag name="merge">Merge</tag>
+    <tag name="message">Message</tag>
+    <tag name="metronome">Metronome</tag>
+    <tag name="microorganism">Microorganism</tag>
+    <tag name="microphone">Microphone</tag>
+    <tag name="microscope">Microscope</tag>
+    <tag name="military">Military</tag>
+    <tag name="milk">Milk</tag>
+    <tag name="mining">Mining</tag>
+    <tag name="minus">Minus</tag>
+    <tag name="missed">Missed</tag>
+    <tag name="mobile">Mobile</tag>
+    <tag name="money">Money</tag>
+    <tag name="monitor">Monitor</tag>
+    <tag name="moon">Moon</tag>
+    <tag name="more_options">More options</tag>
+    <tag name="mortgage">Mortgage</tag>
+    <tag name="motorbike">
+        <alias>Motorbike</alias>
+        <alias>Motorcycle</alias>
+    </tag>
+    <tag name="mountain">Mountain</tag>
+    <tag name="mouse">Mouse</tag>
+    <tag name="mouse_pointer">
+        <alias>Pointer</alias>
+        <alias>Cursor</alias>
+    </tag>
+    <tag name="movement">Movement</tag>
+    <tag name="movie">Movie</tag>
+    <tag name="muffin">Muffin</tag>
+    <tag name="mug">Cup</tag>
+    <tag name="multiple">Multiple</tag>
+    <tag name="mushroom">Mushroom</tag>
+    <tag name="music">Music</tag>
+    <tag name="mute">Mute</tag>
+    <tag name="nature">Nature</tag>
+    <tag name="navigation">Navigation</tag>
+    <tag name="needle">Needle</tag>
+    <tag name="network">Network</tag>
+    <tag name="neutral">Neutral</tag>
+    <tag name="news">News</tag>
+    <tag name="newspaper">Newspaper</tag>
+    <tag name="ninja">Ninja</tag>
+    <tag name="none">None</tag>
+    <tag name="note">Note</tag>
+    <tag name="notebook">Notebook</tag>
+    <tag name="notification">Notification</tag>
+    <tag name="nuclear">Nuclear</tag>
+    <tag name="nucleus">Nucleus</tag>
+    <tag name="nuke">Nuke</tag>
+    <tag name="number">Number</tag>
+    <tag name="numeric">Numeric</tag>
+    <tag name="nurse">Nurse</tag>
+    <tag name="nut">Nut</tag>
+    <tag name="nutrition">Nutrition</tag>
+    <tag name="oar">Oar</tag>
+    <tag name="octagon">Octagon</tag>
+    <tag name="off">Off</tag>
+    <tag name="oil">Oil</tag>
+    <tag name="on">On</tag>
+    <tag name="onion">Onion</tag>
+    <tag name="opened">Opened</tag>
+    <tag name="orbit">Orbit</tag>
+    <tag name="order_content">Order</tag>
+    <tag name="ornament">Ornament</tag>
+    <tag name="outdoors">Outdoors</tag>
+    <tag name="owl">Owl</tag>
+    <tag name="package">Package</tag>
+    <tag name="paint">Paint</tag>
+    <tag name="palette">Palette</tag>
+    <tag name="palm_tree">Palm</tag>
+    <tag name="panda">Panda</tag>
+    <tag name="panorama">Panorama</tag>
+    <tag name="paper">Paper</tag>
+    <tag name="paperclip">Paperclip</tag>
+    <tag name="parachute">Parachute</tag>
+    <tag name="parentheses">Parentheses</tag>
+    <tag name="park">Park</tag>
+    <tag name="parking">Parking</tag>
+    <tag name="passport">Passport</tag>
+    <tag name="password">Password</tag>
+    <tag name="past">Past</tag>
+    <tag name="pasta">Pasta</tag>
+    <tag name="paste">Paste</tag>
+    <tag name="pastry">Pastry</tag>
+    <tag name="pathway">Pathway</tag>
+    <tag name="paw">Paw</tag>
+    <tag name="peace">Peace</tag>
+    <tag name="pen">Pen</tag>
+    <tag name="pencil">Pencil</tag>
+    <tag name="penguin">Penguin</tag>
+    <tag name="pentagon">Pentagon</tag>
+    <tag name="pepper">Pepper</tag>
+    <tag name="percent">Percent</tag>
+    <tag name="periodic_table">Periodic table</tag>
+    <tag name="person">
+        <alias>Person</alias>
+        <alias>People</alias>
+    </tag>
+    <tag name="pet">Pet</tag>
+    <tag name="petrol">
+        <alias>Petrol</alias>
+        <alias>Oil</alias>
+        <alias>Gas</alias>
+    </tag>
+    <tag name="pharmacy">Pharmacy</tag>
+    <tag name="phone">
+        <alias>Cellphone</alias>
+        <alias>Telephone</alias>
+    </tag>
+    <tag name="photo">Photo</tag>
+    <tag name="physics">Physics</tag>
+    <tag name="pi">Pi</tag>
+    <tag name="piano">Piano</tag>
+    <tag name="pick">Pick</tag>
+    <tag name="pickaxe">Pickaxe</tag>
+    <tag name="pie">Pie</tag>
+    <tag name="pig">Pig</tag>
+    <tag name="piggy_bank">Piggy bank</tag>
+    <tag name="pill">Pill</tag>
+    <tag name="pillar">Pillar</tag>
+    <tag name="pin">Pin</tag>
+    <tag name="pine_tree">Pine</tag>
+    <tag name="pipe">Pipe</tag>
+    <tag name="pirate">Pirate</tag>
+    <tag name="pistol">Pistol</tag>
+    <tag name="pizza">Pizza</tag>
+    <tag name="place">Place</tag>
+    <tag name="planet">Planet</tag>
+    <tag name="planned">Planned</tag>
+    <tag name="plant">Plant</tag>
+    <tag name="playing_cards">Playing cards</tag>
+    <tag name="playlist">Playlist</tag>
+    <tag name="plugin">Plugin</tag>
+    <tag name="plus">Plus</tag>
+    <tag name="pocket">Pocket</tag>
+    <tag name="poker">Poker</tag>
+    <tag name="police">Police</tag>
+    <tag name="pollution">Pollution</tag>
+    <tag name="polygon">Polygon</tag>
+    <tag name="pool">Pool</tag>
+    <tag name="popcorn">Popcorn</tag>
+    <tag name="postage_stamp">Postage stamp</tag>
+    <tag name="pot">Pot</tag>
+    <tag name="pound">Pound</tag>
+    <tag name="power_state">Power</tag>
+    <tag name="precipitation">Precipitation</tag>
+    <tag name="pregnant">Pregnant</tag>
+    <tag name="presentation">Presentation</tag>
+    <tag name="printer">Printer</tag>
+    <tag name="prize">
+        <alias>Prize</alias>
+        <alias>Award</alias>
+    </tag>
+    <tag name="profile">Profile</tag>
+    <tag name="programming">
+        <alias>Programming</alias>
+        <alias>Code</alias>
+    </tag>
+    <tag name="programming_c">C</tag>
+    <tag name="programming_cplusplus">C++</tag>
+    <tag name="programming_csharp">C#</tag>
+    <tag name="programming_html">HTML</tag>
+    <tag name="programming_javascript">JavaScript</tag>
+    <tag name="programming_language">Programming language</tag>
+    <tag name="programming_lua">Lua</tag>
+    <tag name="programming_php">PHP</tag>
+    <tag name="programming_python">Python</tag>
+    <tag name="programming_swift">Swift</tag>
+    <tag name="programming_xml">XML</tag>
+    <tag name="prohibition">
+        <alias>Prohibition</alias>
+        <alias>No</alias>
+        <alias>Banned</alias>
+    </tag>
+    <tag name="projector">Projector</tag>
+    <tag name="pulse">Pulse</tag>
+    <tag name="pump">Pump</tag>
+    <tag name="puzzle">Puzzle</tag>
+    <tag name="qrcode">QR Code</tag>
+    <tag name="quadcopter">Quadcopter</tag>
+    <tag name="question">Question</tag>
+    <tag name="question_mark">Question mark</tag>
+    <tag name="rabbit">
+        <alias>Rabbit</alias>
+        <alias>Hare</alias>
+    </tag>
+    <tag name="radar">Radar</tag>
+    <tag name="radiator">
+        <alias>Radiator</alias>
+        <alias>Heating</alias>
+    </tag>
+    <tag name="radio">Radio</tag>
+    <tag name="radioactivity">Radioactive</tag>
+    <tag name="rainbow">Rainbow</tag>
+    <tag name="raspberrypi">RaspberryPi</tag>
+    <tag name="reaction">Reaction</tag>
+    <tag name="reading">Reading</tag>
+    <tag name="recycling">Recycle</tag>
+    <tag name="redo">Redo</tag>
+    <tag name="religion">Religion</tag>
+    <tag name="reminder">Reminder</tag>
+    <tag name="remote">Remote</tag>
+    <tag name="renewable_energy">Renewable energy</tag>
+    <tag name="repeat">
+        <alias>Repeat</alias>
+        <alias>Refresh</alias>
+        <alias>Reload</alias>
+        <alias>Restart</alias>
+        <alias>Loop</alias>
+    </tag>
+    <tag name="reproduction">Reproduction</tag>
+    <tag name="rescue">Rescue</tag>
+    <tag name="rest">Rest</tag>
+    <tag name="restaurant">Restaurant</tag>
+    <tag name="restore">Restore</tag>
+    <tag name="review">Review</tag>
+    <tag name="rhombus">Rhombus</tag>
+    <tag name="ribbon">Ribbon</tag>
+    <tag name="rice">Rice</tag>
+    <tag name="right">Right</tag>
+    <tag name="ring">Ring</tag>
+    <tag name="road">Road</tag>
+    <tag name="robot">Robot</tag>
+    <tag name="rocket">Rocket</tag>
+    <tag name="roller">Roller</tag>
+    <tag name="rope">
+        <alias>Rope</alias>
+        <alias>String</alias>
+    </tag>
+    <tag name="rotation">Rotation</tag>
+    <tag name="router">Router</tag>
+    <tag name="rowing">Rowing</tag>
+    <tag name="ruler">Ruler</tag>
+    <tag name="run">Run</tag>
+    <tag name="sad">Sad</tag>
+    <tag name="safe">Safe</tag>
+    <tag name="sandcastle">Sandcastle</tag>
+    <tag name="satellite">Satellite</tag>
+    <tag name="sauce">Sauce</tag>
+    <tag name="sausage">Sausage</tag>
+    <tag name="save">Save</tag>
+    <tag name="savings">Savings</tag>
+    <tag name="saw">Saw</tag>
+    <tag name="saxophone">Saxophone</tag>
+    <tag name="scale">
+        <alias>Scale</alias>
+        <alias>Balance</alias>
+    </tag>
+    <tag name="scan">Scan</tag>
+    <tag name="scanner">Scanner</tag>
+    <tag name="school">School</tag>
+    <tag name="schredder">Schredder</tag>
+    <tag name="science">Science</tag>
+    <tag name="scissors">Scissors</tag>
+    <tag name="screen">Screen</tag>
+    <tag name="screen_cast">Cast</tag>
+    <tag name="screwdriver">Screwdriver</tag>
+    <tag name="script">Script</tag>
+    <tag name="sd_card">
+        <alias>SD Card</alias>
+        <alias>Micro SD</alias>
+    </tag>
+    <tag name="seal">Seal</tag>
+    <tag name="search">
+        <alias>Search</alias>
+        <alias>Find</alias>
+    </tag>
+    <tag name="seat">Seat</tag>
+    <tag name="seatbelt">Seatbelt</tag>
+    <tag name="security">Security</tag>
+    <tag name="select">Select</tag>
+    <tag name="send">Send</tag>
+    <tag name="server">Server</tag>
+    <tag name="settings">
+        <alias>Settings</alias>
+        <alias>Options</alias>
+        <alias>Configuration</alias>
+    </tag>
+    <tag name="shape">Shape</tag>
+    <tag name="share">Share</tag>
+    <tag name="sheep">Sheep</tag>
+    <tag name="sheet_music">Sheet music</tag>
+    <tag name="shield">Shield</tag>
+    <tag name="ship">Ship</tag>
+    <tag name="ship_anchor">Anchor</tag>
+    <tag name="shoe">Shoe</tag>
+    <tag name="shopping">Shopping</tag>
+    <tag name="shovel">Shovel</tag>
+    <tag name="shower">Shower</tag>
+    <tag name="sign">Sign</tag>
+    <tag name="signal">Signal</tag>
+    <tag name="sim_card">Sim card</tag>
+    <tag name="sit">Sit</tag>
+    <tag name="skull">Skull</tag>
+    <tag name="sleep">Sleep</tag>
+    <tag name="smile">Smile</tag>
+    <tag name="smog">Smog</tag>
+    <tag name="smoke">Smoke</tag>
+    <tag name="smoking">Smoking</tag>
+    <tag name="snooze">Snooze</tag>
+    <tag name="snow">Snow</tag>
+    <tag name="snowflake">Snowflake</tag>
+    <tag name="snowman">Snowman</tag>
+    <tag name="soccer">
+        <alias>Soccer</alias>
+        <alias>Football</alias>
+    </tag>
+    <tag name="sock">
+        <alias>Sock</alias>
+        <alias>Stocking</alias>
+    </tag>
+    <tag name="sofa">
+        <alias>Sofa</alias>
+        <alias>Couch</alias>
+    </tag>
+    <tag name="solar_power">Solar power</tag>
+    <tag name="sort">Sort</tag>
+    <tag name="sound">Sound</tag>
+    <tag name="sound_ring">Ring</tag>
+    <tag name="source">Source</tag>
+    <tag name="space">Space</tag>
+    <tag name="speak">Speak</tag>
+    <tag name="speaker">Speaker</tag>
+    <tag name="speedometer">Speedometer</tag>
+    <tag name="spellcheck">Spellcheck</tag>
+    <tag name="spermatozoid">Spermatozoid</tag>
+    <tag name="spicy">Spicy</tag>
+    <tag name="spoon">Spoon</tag>
+    <tag name="sport">Sport</tag>
+    <tag name="spotlight">Spotlight</tag>
+    <tag name="spray">Spray</tag>
+    <tag name="spreadsheet">Spreadsheet</tag>
+    <tag name="spy">Spy</tag>
+    <tag name="square">Square</tag>
+    <tag name="stack">Stack</tag>
+    <tag name="stadium">Stadium</tag>
+    <tag name="stairs">Stairs</tag>
+    <tag name="stamper">Stamper</tag>
+    <tag name="standing">Standing</tag>
+    <tag name="star">Star</tag>
+    <tag name="steering">Steering</tag>
+    <tag name="stethoscope">Stethoscope</tag>
+    <tag name="sticker">Sticker</tag>
+    <tag name="stop">Stop</tag>
+    <tag name="stopwatch">Stopwatch</tag>
+    <tag name="store">
+        <alias>Store</alias>
+        <alias>Shop</alias>
+    </tag>
+    <tag name="storm">Storm</tag>
+    <tag name="stove">
+        <alias>Stove</alias>
+        <alias>Oven</alias>
+    </tag>
+    <tag name="street">Street</tag>
+    <tag name="structure">Structure</tag>
+    <tag name="style">Style</tag>
+    <tag name="subtitles">Subtitles</tag>
+    <tag name="subway">Subway</tag>
+    <tag name="suit">Suit</tag>
+    <tag name="summit">Summit</tag>
+    <tag name="sunglasses">Sunglasses</tag>
+    <tag name="sunrise">Sunrise</tag>
+    <tag name="sunset">Sunset</tag>
+    <tag name="superscript">Superscript</tag>
+    <tag name="surveillance">Surveillance</tag>
+    <tag name="swap">Swap</tag>
+    <tag name="swimming">Swimming</tag>
+    <tag name="switch">Switch</tag>
+    <tag name="sword">Sword</tag>
+    <tag name="symbol">Symbol</tag>
+    <tag name="synchronisation">Synchronisation</tag>
+    <tag name="syringe">Syringe</tag>
+    <tag name="table">Table</tag>
+    <tag name="tablet">Tablet</tag>
+    <tag name="taco">Taco</tag>
+    <tag name="taekwondo">Taekwondo</tag>
+    <tag name="take_off">Take off</tag>
+    <tag name="talking">Talking</tag>
+    <tag name="tank_container">Tank</tag>
+    <tag name="taxi">Taxi</tag>
+    <tag name="tea">Tea</tag>
+    <tag name="teach">Teach</tag>
+    <tag name="teapot">Teapot</tag>
+    <tag name="technology">Technology</tag>
+    <tag name="telescope">Telescope</tag>
+    <tag name="television">
+        <alias>Television</alias>
+        <alias>TV</alias>
+    </tag>
+    <tag name="temperature">Temperature</tag>
+    <tag name="tennis">Tennis</tag>
+    <tag name="tent">Tent</tag>
+    <tag name="terminal">Terminal</tag>
+    <tag name="terrain">Terrain</tag>
+    <tag name="test_tube">Test tube</tag>
+    <tag name="text">Text</tag>
+    <tag name="textbox">Textbox</tag>
+    <tag name="theater">Theater</tag>
+    <tag name="thermometer">Thermometer</tag>
+    <tag name="thermostat">Thermostat</tag>
+    <tag name="think">Think</tag>
+    <tag name="thought">Thought</tag>
+    <tag name="thumb">Thumb</tag>
+    <tag name="thunderstorm">Thunderstorm</tag>
+    <tag name="ticket">Ticket</tag>
+    <tag name="tie">Tie</tag>
+    <tag name="tilde">Tilde</tag>
+    <tag name="time">Time</tag>
+    <tag name="time_day">Day</tag>
+    <tag name="time_night">Night</tag>
+    <tag name="timeline">Timeline</tag>
+    <tag name="timer">
+        <alias>Timer</alias>
+        <alias>Chronometer</alias>
+        <alias>Stopwatch</alias>
+    </tag>
+    <tag name="toggle">Toggle</tag>
+    <tag name="toilet">Toilet</tag>
+    <tag name="tongue">Tongue</tag>
+    <tag name="tool">Tool</tag>
+    <tag name="toolbox">Toolbox</tag>
+    <tag name="tooth">Tooth</tag>
+    <tag name="tortoise">Tortoise</tag>
+    <tag name="touch_screen">Touch</tag>
+    <tag name="tower">Tower</tag>
+    <tag name="towing">Towing</tag>
+    <tag name="toy">Toy</tag>
+    <tag name="tractor">Tractor</tag>
+    <tag name="traffic">Traffic</tag>
+    <tag name="traffic_light">Traffic light</tag>
+    <tag name="trailer">Trailer</tag>
+    <tag name="train">Train</tag>
+    <tag name="tramway">Tramway</tag>
+    <tag name="transfer">Transfer</tag>
+    <tag name="transgender">Transgender</tag>
+    <tag name="transit">Transit</tag>
+    <tag name="translate">Translate</tag>
+    <tag name="transport">Transport</tag>
+    <tag name="trash">Trash</tag>
+    <tag name="travel">Travel</tag>
+    <tag name="tree">Tree</tag>
+    <tag name="trending">Trending</tag>
+    <tag name="triangle">Triangle</tag>
+    <tag name="trophy">Trophy</tag>
+    <tag name="truck">Truck</tag>
+    <tag name="tshirt">T-shirt</tag>
+    <tag name="tulip">Tulip</tag>
+    <tag name="turbine">Turbine</tag>
+    <tag name="turtle">Turtle</tag>
+    <tag name="typing">Typing</tag>
+    <tag name="umbrella_rain">Umbrella</tag>
+    <tag name="umbrella_sun">Umbrella</tag>
+    <tag name="undo">Undo</tag>
+    <tag name="unmerge">Unmerge</tag>
+    <tag name="up">Up</tag>
+    <tag name="update">Update</tag>
+    <tag name="usb">USB</tag>
+    <tag name="user">User</tag>
+    <tag name="utensil">Utensil</tag>
+    <tag name="vacation">Vacation</tag>
+    <tag name="vaccine">Vaccine</tag>
+    <tag name="van">Van</tag>
+    <tag name="vanish">Vanish</tag>
+    <tag name="variable">Variable</tag>
+    <tag name="vegetable">Vegetable</tag>
+    <tag name="vehicle">Vehicle</tag>
+    <tag name="vehicle_wheel">Wheel</tag>
+    <tag name="vibrate">Vibrate</tag>
+    <tag name="video">Video</tag>
+    <tag name="violin">Violin</tag>
+    <tag name="virus">Virus</tag>
+    <tag name="vision">Vision</tag>
+    <tag name="volleyball">Volleyball</tag>
+    <tag name="volume">Volume</tag>
+    <tag name="vote">Vote</tag>
+    <tag name="walking">Walking</tag>
+    <tag name="wall">Wall</tag>
+    <tag name="wallet">Wallet</tag>
+    <tag name="wand">Wand</tag>
+    <tag name="wash">Wash</tag>
+    <tag name="washing_machine">Washing machine</tag>
+    <tag name="watch">Watch</tag>
+    <tag name="water">Water</tag>
+    <tag name="wave">Wave</tag>
+    <tag name="weapon">Weapon</tag>
+    <tag name="weather">Weather</tag>
+    <tag name="weather_hail">Hail</tag>
+    <tag name="weather_lightning">Lightning</tag>
+    <tag name="weather_rainy">Rainy</tag>
+    <tag name="weather_snowy">Snowy</tag>
+    <tag name="weather_sunny">Sunny</tag>
+    <tag name="web">Web</tag>
+    <tag name="webcam">Webcam</tag>
+    <tag name="wedding">Wedding</tag>
+    <tag name="week">Week</tag>
+    <tag name="weight">
+        <alias>Weight</alias>
+        <alias>Mass</alias>
+    </tag>
+    <tag name="wheat">Wheat</tag>
+    <tag name="wheelchair">Wheelchair</tag>
+    <tag name="whistle">Whistle</tag>
+    <tag name="wifi">Wi-Fi</tag>
+    <tag name="wind">Wind</tag>
+    <tag name="wind_power">Wind power</tag>
+    <tag name="wind_turbine">Wind turbine</tag>
+    <tag name="windmill">Windmill</tag>
+    <tag name="window">Window</tag>
+    <tag name="wine">Wine</tag>
+    <tag name="wink">Wink</tag>
+    <tag name="winter">Winter</tag>
+    <tag name="wireless">Wireless</tag>
+    <tag name="withdraw">Withdraw</tag>
+    <tag name="woman">Woman</tag>
+    <tag name="work">Work</tag>
+    <tag name="worker">Worker</tag>
+    <tag name="wrench">Wrench</tag>
+    <tag name="writing">Writing</tag>
+    <tag name="yeast">Yeast</tag>
+    <tag name="yin_yang">Yin yang</tag>
+    <tag name="zoom">
+        <alias>Zoom</alias>
+        <alias>Magnify</alias>
+    </tag>
+</tags>

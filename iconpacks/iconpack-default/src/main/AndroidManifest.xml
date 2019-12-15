@@ -14,14 +14,4 @@
   limitations under the License.
   -->
 
-<resources>
-
-    <string name="icd_title">Icons auswählen</string>
-    <string name="icd_search_hint">Icons suchen</string>
-    <string name="icd_action_clear">Auswahl löschen</string>
-    <string name="icd_action_select">Auswählen</string>
-    <string name="icd_action_cancel">Abbrechen</string>
-    <string name="icd_no_result">Für diesen Suchbegriff wurden keine Icons gefunden</string>
-    <string name="icd_max_sel_message">Die maximale Anzahl an Icons wurde ausgewählt</string>
-
-</resources>
+<manifest package="com.maltaisn.iconpack.default"/>

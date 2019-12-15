@@ -1,3 +1,19 @@
+<!--
+  Copyright 2019 Nicolas Maltais
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
 <resources>
 
     <string name="icd_title">Select icon</string>
@@ -7,26 +23,5 @@
     <string name="icd_action_cancel">Cancel</string>
     <string name="icd_no_result">No icons found for this search</string>
     <string name="icd_max_sel_message">The maximum number of selected icons has been reached</string>
-
-    <!-- CATEGORY NAMES -->
-    <string name="icd_category_people">Family and people</string>
-    <string name="icd_category_home">Home and life</string>
-    <string name="icd_category_technology">Technology</string>
-    <string name="icd_category_finance">Finance and shopping</string>
-    <string name="icd_category_leisure">Leisure</string>
-    <string name="icd_category_transport">Transport and travel</string>
-    <string name="icd_category_food">Food and drink</string>
-    <string name="icd_category_buildings">Places and buildings</string>
-    <string name="icd_category_arts">Arts</string>
-    <string name="icd_category_sports">Sports</string>
-    <string name="icd_category_audio">Music and sound</string>
-    <string name="icd_category_photo_video">Photo and video</string>
-    <string name="icd_category_nature">Nature and animals</string>
-    <string name="icd_category_science">Math and science</string>
-    <string name="icd_category_time">Time</string>
-    <string name="icd_category_tools">Tools</string>
-    <string name="icd_category_computer">Computer</string>
-    <string name="icd_category_arrows">Arrows</string>
-    <string name="icd_category_symbols">Characters and symbols</string>
 
 </resources>

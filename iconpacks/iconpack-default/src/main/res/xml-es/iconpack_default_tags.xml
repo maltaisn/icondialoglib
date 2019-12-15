@@ -1,0 +1,1246 @@
+<!--
+  Copyright 2019 Nicolas Maltais
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<!--@formatter:off-->
+<tags>
+    <tag name="3d">3D</tag>
+    <tag name="accessibility">Accesibilidad</tag>
+    <tag name="account">Cuenta</tag>
+    <tag name="add">Añadir</tag>
+    <tag name="adjust">
+        <alias>Ajustar</alias>
+        <alias>Tunear</alias>
+    </tag>
+    <tag name="agriculture">Agricultura</tag>
+    <tag name="air_conditioner">Aire acondicionado</tag>
+    <tag name="airplane">Avión</tag>
+    <tag name="airport">Aereopuerto</tag>
+    <tag name="alarm">Alarma</tag>
+    <tag name="album">Album</tag>
+    <tag name="alert">Alerta</tag>
+    <tag name="alien">Alien</tag>
+    <tag name="all">Todo</tag>
+    <tag name="altimeter">Altímetro</tag>
+    <tag name="ambulance">Ambulancia</tag>
+    <tag name="ampersand">Ampersand</tag>
+    <tag name="amplifier">Amplificador</tag>
+    <tag name="angle">Angulo</tag>
+    <tag name="angry">Enfadado</tag>
+    <tag name="animal">Animal</tag>
+    <tag name="anvil">Yunque</tag>
+    <tag name="apple">Manzana</tag>
+    <tag name="application">Solicitud</tag>
+    <tag name="arrow">Flecha</tag>
+    <tag name="art">Arte</tag>
+    <tag name="artificial_intelligence">Inteligencia artificial</tag>
+    <tag name="artist">Artista</tag>
+    <tag name="asterisk">Asterisco</tag>
+    <tag name="at_sign">Arroba</tag>
+    <tag name="atom">Atomo</tag>
+    <tag name="audio">
+        <alias>Audio</alias>
+        <alias>Música</alias>
+        <alias>Sonido</alias>
+    </tag>
+    <tag name="avenue">Avenida</tag>
+    <tag name="axe">Hacha</tag>
+    <tag name="baby">Bebé</tag>
+    <tag name="backspace">Retroceso</tag>
+    <tag name="backup">Copia de seguridad</tag>
+    <tag name="badminton">Bádminton</tag>
+    <tag name="ball">Bola</tag>
+    <tag name="balloon">BGlobo</tag>
+    <tag name="ballot">Voto</tag>
+    <tag name="bank">Banco</tag>
+    <tag name="barcode">Código de barras</tag>
+    <tag name="barley">Cebada</tag>
+    <tag name="barn">Granero</tag>
+    <tag name="barrel">
+        <alias>Barril</alias>
+        <alias>Barrilete</alias>
+    </tag>
+    <tag name="baseball">Béibol</tag>
+    <tag name="baseball_bat">Bate de béisbol</tag>
+    <tag name="basket">Canasta</tag>
+    <tag name="basketball">Baloncesto</tag>
+    <tag name="basketball_hoop">Aro de baloncesto</tag>
+    <tag name="bath">Baño</tag>
+    <tag name="battery">Batería</tag>
+    <tag name="bauble">Chuchería</tag>
+    <tag name="beach">Playa</tag>
+    <tag name="beaker">Probeta</tag>
+    <tag name="bear">Oso</tag>
+    <tag name="bed">Cama</tag>
+    <tag name="beer">Cerveza</tag>
+    <tag name="beetle">Escarabajo</tag>
+    <tag name="bell">Campana</tag>
+    <tag name="bible">Biblia</tag>
+    <tag name="bicycle">
+        <alias>Bicicleta</alias>
+        <alias>Bici</alias>
+    </tag>
+    <tag name="binary">Binario</tag>
+    <tag name="binoculars">Binoculares</tag>
+    <tag name="biology">Biología</tag>
+    <tag name="bird">Pájaro</tag>
+    <tag name="birthday">
+        <alias>Cumpleaños</alias>
+        <alias>Aniversario</alias>
+    </tag>
+    <tag name="blacksmith">Herrero</tag>
+    <tag name="blank">
+        <alias>Vacío</alias>
+        <alias>Vacío</alias>
+    </tag>
+    <tag name="blind">Ciego</tag>
+    <tag name="bluetooth">Bluetooth</tag>
+    <tag name="boat">Bote</tag>
+    <tag name="bomb">Bomba</tag>
+    <tag name="bone">Hueso</tag>
+    <tag name="book">Libro</tag>
+    <tag name="bookmark">Marcador</tag>
+    <tag name="boombox">Boombox</tag>
+    <tag name="bottle">Botella</tag>
+    <tag name="boulevard">Bulevar</tag>
+    <tag name="bounce">Rebote</tag>
+    <tag name="bow_tie">Corbata</tag>
+    <tag name="bowl">Bolo</tag>
+    <tag name="bowling">Bolos</tag>
+    <tag name="box">Caja</tag>
+    <tag name="braces">Tirantes</tag>
+    <tag name="brackets">Soportes</tag>
+    <tag name="braille">Braille</tag>
+    <tag name="brain">Cerebro</tag>
+    <tag name="branch">Rama</tag>
+    <tag name="bread">Pan</tag>
+    <tag name="breakfast">Desayuno</tag>
+    <tag name="bricks">Ladrillos</tag>
+    <tag name="bridge">Puente</tag>
+    <tag name="briefcase">Maletín</tag>
+    <tag name="brightness">Brillo</tag>
+    <tag name="broken">Roto</tag>
+    <tag name="broom">Escoba</tag>
+    <tag name="brush">Brocha</tag>
+    <tag name="bubble">Burbuja</tag>
+    <tag name="bucket">Cubo</tag>
+    <tag name="buddhism">Budismo</tag>
+    <tag name="buggy">Carruaje</tag>
+    <tag name="building">Edificio</tag>
+    <tag name="bulldozer">Bulldozer</tag>
+    <tag name="bulletin_board">Tablón de anuncios</tag>
+    <tag name="bullhorn">
+        <alias>Megáfono</alias>
+        <alias>Altavoz</alias>
+    </tag>
+    <tag name="bullseye">Diana</tag>
+    <tag name="bus">Bus</tag>
+    <tag name="business">Negocio</tag>
+    <tag name="cable_car">
+        <alias>Teleférico</alias>
+        <alias>Góndola</alias>
+    </tag>
+    <tag name="cactus">Cactus</tag>
+    <tag name="cake">Pastel</tag>
+    <tag name="calculator">Calculadora</tag>
+    <tag name="calendar">Calendario</tag>
+    <tag name="call">Llamar</tag>
+    <tag name="camcorder">Videocámara</tag>
+    <tag name="camera">Camara</tag>
+    <tag name="camping">Camping</tag>
+    <tag name="cancel">Cancelar</tag>
+    <tag name="candle">Vela</tag>
+    <tag name="candy">Caramelo</tag>
+    <tag name="candycane">Bastón de caramelo</tag>
+    <tag name="cannabis">
+        <alias>Cannabis</alias>
+        <alias>Marihuana</alias>
+    </tag>
+    <tag name="car">Coche</tag>
+    <tag name="car_convertable">Descapotable</tag>
+    <tag name="car_estate">Coche familiar</tag>
+    <tag name="car_hatchback">Coche compacto</tag>
+    <tag name="car_jeep">Todoterreno</tag>
+    <tag name="car_pickup">Ranchera</tag>
+    <tag name="car_sport">Deportivo</tag>
+    <tag name="caravan">Caravana</tag>
+    <tag name="card">Tarjeta</tag>
+    <tag name="cards_club">Trébol</tag>
+    <tag name="cards_diamond">Diamante</tag>
+    <tag name="cards_heart">Corazón</tag>
+    <tag name="cards_spade">Picas</tag>
+    <tag name="carrot">Zanahoria</tag>
+    <tag name="cart">Carro</tag>
+    <tag name="cash">Efectivo</tag>
+    <tag name="cassette">Casete</tag>
+    <tag name="castle">Castillo</tag>
+    <tag name="cat">Gato</tag>
+    <tag name="category">Categoría</tag>
+    <tag name="ceiling">Techo</tag>
+    <tag name="celsius">Celsius</tag>
+    <tag name="center">Centro</tag>
+    <tag name="certificate">Certificado</tag>
+    <tag name="chain">Cadena</tag>
+    <tag name="chair">Silla</tag>
+    <tag name="champagne">Champagne</tag>
+    <tag name="chandelier">Candelabro</tag>
+    <tag name="charge_battery">Cargar</tag>
+    <tag name="chart">Gráfica</tag>
+    <tag name="chart_arc">Gráfica de abanico</tag>
+    <tag name="chart_bar">Gráfica de barras</tag>
+    <tag name="chart_bubble">Gráfica de burbujas</tag>
+    <tag name="chart_line">Gráfica lineal</tag>
+    <tag name="chart_pie">Gráfica circular </tag>
+    <tag name="chat">Chat</tag>
+    <tag name="check">Comprobar</tag>
+    <tag name="checkerboard">Tablero de damas</tag>
+    <tag name="chemical">Químico</tag>
+    <tag name="chemistry">Química</tag>
+    <tag name="chess">Ajedrez</tag>
+    <tag name="chess_bishop">Alfil</tag>
+    <tag name="chess_king">Rey</tag>
+    <tag name="chess_knight">Caballo</tag>
+    <tag name="chess_pawn">Peón</tag>
+    <tag name="chess_queen">Reina</tag>
+    <tag name="chess_rook">Torre</tag>
+    <tag name="chessboard">Tablero</tag>
+    <tag name="chevron">Chevron</tag>
+    <tag name="child">
+        <alias>Niño</alias>
+        <alias>Chico</alias>
+    </tag>
+    <tag name="chili_food">Chile</tag>
+    <tag name="christianism">Cristianismo</tag>
+    <tag name="christmas">Navidad</tag>
+    <tag name="church">Iglesia</tag>
+    <tag name="cinema">Cine</tag>
+    <tag name="circle">Círculo</tag>
+    <tag name="city">Ciudad</tag>
+    <tag name="click">Click</tag>
+    <tag name="clipboard">Portapapeles</tag>
+    <tag name="clock">Reloj</tag>
+    <tag name="closed">Cerrado</tag>
+    <tag name="clothes">Ropa</tag>
+    <tag name="cloud">Nube</tag>
+    <tag name="clover">Trébol</tag>
+    <tag name="co2">
+        <alias>CO2</alias>
+        <alias>Dióxido de carbono</alias>
+    </tag>
+    <tag name="cocktail">Cóctel</tag>
+    <tag name="coffee">Café</tag>
+    <tag name="coin">Moneda</tag>
+    <tag name="cold">Frío</tag>
+    <tag name="collapse_content">Colapso</tag>
+    <tag name="comparison">Comparación</tag>
+    <tag name="compass">Brújula</tag>
+    <tag name="computer">Computadora</tag>
+    <tag name="computer_storage">Almacenamiento</tag>
+    <tag name="computer_tower">Torre</tag>
+    <tag name="confirm">Confirmar</tag>
+    <tag name="confirmation">Confirmacion</tag>
+    <tag name="conifer">Conifera</tag>
+    <tag name="connected">Conectado</tag>
+    <tag name="connection">Conexión</tag>
+    <tag name="console">Consola</tag>
+    <tag name="console_controller">Controlador</tag>
+    <tag name="construction">Construcción</tag>
+    <tag name="cook">Cocinar</tag>
+    <tag name="cookie">Galleta</tag>
+    <tag name="cool_qualitative">Guay</tag>
+    <tag name="copyright">Copyright</tag>
+    <tag name="corn">Maíz</tag>
+    <tag name="counter">Contador</tag>
+    <tag name="couple">Pareja</tag>
+    <tag name="coupon">Cupón</tag>
+    <tag name="cow">Vaca</tag>
+    <tag name="cowboy">Baquero</tag>
+    <tag name="crane">Grúa</tag>
+    <tag name="creation">Creación</tag>
+    <tag name="credit_card">Tarjeta de crédito</tag>
+    <tag name="croissant">Cruasán</tag>
+    <tag name="crop">Cortar</tag>
+    <tag name="cross">Cruz</tag>
+    <tag name="crosshairs">Retículo</tag>
+    <tag name="crown">Corona</tag>
+    <tag name="cry">Llorar</tag>
+    <tag name="cryptocurrency">Criptomoneda</tag>
+    <tag name="cube">Cubo</tag>
+    <tag name="cup">Vaso</tag>
+    <tag name="cupcake">Cupcake</tag>
+    <tag name="curling">Curling</tag>
+    <tag name="curr_bdt">Bangladeshi</tag>
+    <tag name="curr_btc">Bitcoin</tag>
+    <tag name="curr_chf">Franco suizo</tag>
+    <tag name="curr_cny">Yuan</tag>
+    <tag name="curr_dollar">Dolar</tag>
+    <tag name="curr_eur">Euro</tag>
+    <tag name="curr_gbp">
+        <alias>Libra</alias>
+        <alias>Libra esterlina</alias>
+    </tag>
+    <tag name="curr_inr">Rupia</tag>
+    <tag name="curr_jpy">Yen</tag>
+    <tag name="curr_krw">Won</tag>
+    <tag name="curr_kzt">Tenge</tag>
+    <tag name="curr_ngn">Naira</tag>
+    <tag name="curr_php">Piso</tag>
+    <tag name="curr_rub">Rublo</tag>
+    <tag name="curr_try">Lira</tag>
+    <tag name="curr_twd">Dolar taiwanés</tag>
+    <tag name="currency">Moneda</tag>
+    <tag name="current_ac">
+        <alias>AC</alias>
+        <alias>Corriente alterna</alias>
+    </tag>
+    <tag name="current_dc">
+        <alias>DC</alias>
+        <alias>Corriente contínua</alias>
+    </tag>
+    <tag name="curve">Curva</tag>
+    <tag name="cut">Cortar</tag>
+    <tag name="cutter">Cuter</tag>
+    <tag name="cycling">Ciclismo</tag>
+    <tag name="cylinder">Cilindro</tag>
+    <tag name="danger">
+        <alias>Peligro</alias>
+        <alias>Riesgo</alias>
+    </tag>
+    <tag name="darts">Dardos</tag>
+    <tag name="data">Datos</tag>
+    <tag name="database">Base de datos</tag>
+    <tag name="death">Muerte</tag>
+    <tag name="decimal">Decimal</tag>
+    <tag name="decision">Bifurcación</tag>
+    <tag name="delete">
+        <alias>Borrar</alias>
+        <alias>Eliminar</alias>
+    </tag>
+    <tag name="delivery">
+        <alias>Reparto</alias>
+        <alias>Paquete</alias>
+    </tag>
+    <tag name="dentist">Dentista</tag>
+    <tag name="deposit">Depositar</tag>
+    <tag name="desert">Desierto</tag>
+    <tag name="desk">Escritorio</tag>
+    <tag name="dessert">Postre</tag>
+    <tag name="details">Detalles</tag>
+    <tag name="developer">Desarrollador</tag>
+    <tag name="devil">Demonio</tag>
+    <tag name="dial">Dial</tag>
+    <tag name="diamond">Diamante</tag>
+    <tag name="dice">
+        <alias>Dado</alias>
+        <alias>Dados</alias>
+    </tag>
+    <tag name="diesel">Diesel</tag>
+    <tag name="direction">Dirección</tag>
+    <tag name="disconnected">Desconectado</tag>
+    <tag name="dishwasher">Lavavajillas</tag>
+    <tag name="disk">Disco</tag>
+    <tag name="dislike">Me gusta</tag>
+    <tag name="distance">Distancia</tag>
+    <tag name="dna">DNA</tag>
+    <tag name="dock">
+        <alias>Muelle</alias>
+        <alias>Dársena</alias>
+    </tag>
+    <tag name="doctor">Doctor</tag>
+    <tag name="document">Documento</tag>
+    <tag name="dog">Perro</tag>
+    <tag name="donkey">Burro</tag>
+    <tag name="door">Puerta</tag>
+    <tag name="dots">Puntos</tag>
+    <tag name="down">Abajo</tag>
+    <tag name="download">Descargar</tag>
+    <tag name="draw">Dibujar</tag>
+    <tag name="dribble">Pelota</tag>
+    <tag name="drink">Bebida</tag>
+    <tag name="drone">Dron</tag>
+    <tag name="dropper">Cuentagotas</tag>
+    <tag name="drug">Droga</tag>
+    <tag name="drying_machine">Secadora</tag>
+    <tag name="duck">Pato</tag>
+    <tag name="dumbbell">Mancuernas</tag>
+    <tag name="duration">
+        <alias>Duracion</alias>
+        <alias>Periodo</alias>
+        <alias>Intervalo</alias>
+    </tag>
+    <tag name="ear">Oreja</tag>
+    <tag name="earth">Tierra</tag>
+    <tag name="easter">Pascua</tag>
+    <tag name="eclipse">Eclipse</tag>
+    <tag name="editing">Editar</tag>
+    <tag name="education">Formación</tag>
+    <tag name="egg">Huevo</tag>
+    <tag name="egg_cell">Óvulo</tag>
+    <tag name="eject">Expulsar</tag>
+    <tag name="election">Elecciones</tag>
+    <tag name="electric_guitar">Guitarra eléctrica</tag>
+    <tag name="electric_power">Energía eléctrica</tag>
+    <tag name="electrical_plug">Enchufe</tag>
+    <tag name="electrical_socket">
+        <alias>Enchufe</alias>
+    </tag>
+    <tag name="electricity">Electricidad</tag>
+    <tag name="electronic_chip">Chip</tag>
+    <tag name="electronic_circuit">Circuito electrónico</tag>
+    <tag name="elephant">Elefante</tag>
+    <tag name="ellipsis">Puntos</tag>
+    <tag name="email">Email</tag>
+    <tag name="emoticon">Emoticono</tag>
+    <tag name="empty">Vacío</tag>
+    <tag name="engine">Motor</tag>
+    <tag name="environment">Reciclaje</tag>
+    <tag name="equality">Igualdad</tag>
+    <tag name="eraser">Borrador</tag>
+    <tag name="erlenmeyer">Erlenmeyer</tag>
+    <tag name="event">Evento</tag>
+    <tag name="evil">Malvado</tag>
+    <tag name="exclamation_mark">Exclamación</tag>
+    <tag name="expand_content">Expandir</tag>
+    <tag name="export">Exportar</tag>
+    <tag name="extension">Puzle</tag>
+    <tag name="eye">Ojo</tag>
+    <tag name="face">Cara</tag>
+    <tag name="factory">
+        <alias>Fábrica</alias>
+        <alias>Planta</alias>
+    </tag>
+    <tag name="fahrenheit">Fahrenheit</tag>
+    <tag name="fan">Ventilador</tag>
+    <tag name="farm">Granja</tag>
+    <tag name="fast">Rápido</tag>
+    <tag name="fastfood">
+        <alias>Comida rápida</alias>
+        <alias>Comida basura</alias>
+    </tag>
+    <tag name="faucet">
+        <alias>Grifo</alias>
+        <alias>Surtidor</alias>
+    </tag>
+    <tag name="fax">Fax</tag>
+    <tag name="feather">Pluma</tag>
+    <tag name="female">Hembra</tag>
+    <tag name="fence">Valla</tag>
+    <tag name="fencing">Esgrima</tag>
+    <tag name="ferry">Ferry</tag>
+    <tag name="field">Campo</tag>
+    <tag name="fighting">Lucha</tag>
+    <tag name="file">Archivo</tag>
+    <tag name="fill">Verter</tag>
+    <tag name="film">Película</tag>
+    <tag name="filter">Filtro</tag>
+    <tag name="finance">Finanzas</tag>
+    <tag name="fingerprint">Huella</tag>
+    <tag name="fir_tree">Abeto</tag>
+    <tag name="fire">Fuego</tag>
+    <tag name="fire_truck">Camión de bomberos</tag>
+    <tag name="firework">Fuergos artificiales</tag>
+    <tag name="fish">Pez</tag>
+    <tag name="fish_hook">Anzuelo</tag>
+    <tag name="fishing">Pesca</tag>
+    <tag name="fitness">Fitness</tag>
+    <tag name="flag">Bandera</tag>
+    <tag name="flash">Flash</tag>
+    <tag name="flashlight">Linterna</tag>
+    <tag name="flask">Probeta</tag>
+    <tag name="floor">Piso</tag>
+    <tag name="floppy_disk">Disco magnétio</tag>
+    <tag name="flower">Flor</tag>
+    <tag name="fog">Niebla</tag>
+    <tag name="folder">Carpeta</tag>
+    <tag name="font">Fuente</tag>
+    <tag name="food">Comida</tag>
+    <tag name="foot">
+        <alias>Pies</alias>
+        <alias>Pie</alias>
+    </tag>
+    <tag name="football">Fúbol americano</tag>
+    <tag name="fork">Tenedor</tag>
+    <tag name="fork_content">Ramificación</tag>
+    <tag name="forklift">Torito</tag>
+    <tag name="form">Formulario</tag>
+    <tag name="format">Formato</tag>
+    <tag name="fortuneteller">Adivino</tag>
+    <tag name="forum">Forum</tag>
+    <tag name="fountain">Fuente</tag>
+    <tag name="frame">Cuadro</tag>
+    <tag name="fridge">Nevera</tag>
+    <tag name="front">Frente</tag>
+    <tag name="fruit">Fruta</tag>
+    <tag name="fuel">Combustible</tag>
+    <tag name="full">Lleno</tag>
+    <tag name="fullscreen">Pantalla completa</tag>
+    <tag name="funnel">Embudo</tag>
+    <tag name="future">Futuro</tag>
+    <tag name="gambling">Juegos de azar</tag>
+    <tag name="game">Juego</tag>
+    <tag name="game_console">Videojuego</tag>
+    <tag name="garage">Garaje</tag>
+    <tag name="gas">Gasolina</tag>
+    <tag name="gate">Portón</tag>
+    <tag name="gauge">Medidor</tag>
+    <tag name="gavel">Mazo</tag>
+    <tag name="gear">
+        <alias>Engranaje</alias>
+        <alias>Rueda dentada</alias>
+    </tag>
+    <tag name="gem">
+        <alias>Gema</alias>
+        <alias>Joya</alias>
+    </tag>
+    <tag name="gender">
+        <alias>Género</alias>
+        <alias>Sexo</alias>
+    </tag>
+    <tag name="genetic">Genético</tag>
+    <tag name="geometry">Geometría</tag>
+    <tag name="gesture">Gesto</tag>
+    <tag name="ghost">Fantasma</tag>
+    <tag name="gift">
+        <alias>Regalo</alias>
+        <alias>Presente</alias>
+    </tag>
+    <tag name="giftcard">Tarjeta regalo</tag>
+    <tag name="glass">   
+        <alias>Vaso</alias>
+        <alias>Copa</alias>
+        <alias>Jarra</alias></tag>
+    <tag name="glass_flute">Copa champagne</tag>
+    <tag name="glasses">Gafas</tag>
+    <tag name="golf">Golf</tag>
+    <tag name="gps">GPS</tag>
+    <tag name="grade">Grado</tag>
+    <tag name="graduation">Graduación</tag>
+    <tag name="graffiti">Graffiti</tag>
+    <tag name="grease_pen">Rotulador</tag>
+    <tag name="greek_letter">Letra griega</tag>
+    <tag name="greek_letter_alpha">Alfa</tag>
+    <tag name="greek_letter_beta">Beta</tag>
+    <tag name="greek_letter_delta">Delta</tag>
+    <tag name="greek_letter_lambda">Lambda</tag>
+    <tag name="greek_letter_omega">Omega</tag>
+    <tag name="greek_letter_sigma">Sigma</tag>
+    <tag name="greeting">Saludo</tag>
+    <tag name="grid">Cuadrícula</tag>
+    <tag name="grocery">Tienda</tag>
+    <tag name="group">Grupo</tag>
+    <tag name="guitar">Guitarra</tag>
+    <tag name="gun">Pistola</tag>
+    <tag name="h2o">
+        <alias>H2O</alias>
+        <alias>Agua</alias>
+    </tag>
+    <tag name="hamburger">Hamburgesa</tag>
+    <tag name="hammer">Martillo</tag>
+    <tag name="hand">Mano</tag>
+    <tag name="hanger">Percha</tag>
+    <tag name="happy">Feliz</tag>
+    <tag name="hard_disk">Disco duro</tag>
+    <tag name="hat">Sombrero</tag>
+    <tag name="headphones">
+        <alias>Auriculares</alias>
+        <alias>Cascos</alias>
+        <alias>Audífonos</alias>
+    </tag>
+    <tag name="health">Salud</tag>
+    <tag name="hear">Oir</tag>
+    <tag name="hearing">Oyendo</tag>
+    <tag name="heart">Corazón</tag>
+    <tag name="heat">Calor</tag>
+    <tag name="heavy">Pesado</tag>
+    <tag name="helicopter">Helicoptero</tag>
+    <tag name="helmet">Casco</tag>
+    <tag name="help">Ayuda</tag>
+    <tag name="hexagon">Hexagono</tag>
+    <tag name="hidden">Oculto</tag>
+    <tag name="hierarchy">Jerarquía</tag>
+    <tag name="high">Alto</tag>
+    <tag name="high_heel">Tacón</tag>
+    <tag name="highlighter">Marcador</tag>
+    <tag name="highway">Autovía</tag>
+    <tag name="hinduism">Hinduismo</tag>
+    <tag name="histogram">Histograma</tag>
+    <tag name="history">Historial</tag>
+    <tag name="hockey">Hockey</tag>
+    <tag name="hockey_puck">Disco de hockey</tag>
+    <tag name="hockey_stick">Bastón de hockey</tag>
+    <tag name="home">Hogar</tag>
+    <tag name="home_appliance">Electrodoméstico</tag>
+    <tag name="horn">Bocina</tag>
+    <tag name="horse">Caballo</tag>
+    <tag name="horseshoe">Herradura</tag>
+    <tag name="hospital">Hospital</tag>
+    <tag name="hot">Calor</tag>
+    <tag name="hot_air_balloon">Globo aerostático</tag>
+    <tag name="hot_tub">Baño caliente</tag>
+    <tag name="hotdog">Salchicha</tag>
+    <tag name="hotel">Hotel</tag>
+    <tag name="hour">Hour</tag>
+    <tag name="hourglass">Reloj de arena</tag>
+    <tag name="house">Casa</tag>
+    <tag name="housework">Tareas del hogar</tag>
+    <tag name="human">Humano</tag>
+    <tag name="hurricane">Huracán</tag>
+    <tag name="hyperlink">Hyperlink</tag>
+    <tag name="icecream">Helado</tag>
+    <tag name="icecream_cone">Cono de helado</tag>
+    <tag name="icecube">Cubito de hielo</tag>
+    <tag name="image">
+        <alias>Imagen</alias>
+        <alias>Foto</alias>
+    </tag>
+    <tag name="import">Importar</tag>
+    <tag name="incognito">Incognito</tag>
+    <tag name="infinity">Infinito</tag>
+    <tag name="information">Información</tag>
+    <tag name="insect">
+        <alias>Insecto</alias>
+        <alias>Bicho</alias>
+    </tag>
+    <tag name="insomnia">Insomnia</tag>
+    <tag name="instrument">Instrumento</tag>
+    <tag name="insurance">Seguro</tag>
+    <tag name="internet">Internet</tag>
+    <tag name="intersection">Semáforo</tag>
+    <tag name="inverse">Microchip</tag>
+    <tag name="investment">Inversión</tag>
+    <tag name="islam">Islam</tag>
+    <tag name="items">Elementos</tag>
+    <tag name="json">JSON</tag>
+    <tag name="judaism">Judaismo</tag>
+    <tag name="jupiter">Jupiter</tag>
+    <tag name="karate">Karate</tag>
+    <tag name="kelvin">Kelvin</tag>
+    <tag name="kettle">Tetera</tag>
+    <tag name="key">Llave</tag>
+    <tag name="keyboard">Teclado</tag>
+    <tag name="kg">KG</tag>
+    <tag name="king">Rey</tag>
+    <tag name="kiss">Beso</tag>
+    <tag name="knife">Cuchillo</tag>
+    <tag name="label">
+        <alias>Etiqueta</alias>
+        <alias>Designación</alias>
+    </tag>
+    <tag name="ladybug">Mariquita</tag>
+    <tag name="lamp">Lámpara</tag>
+    <tag name="landing">Aterrizaje</tag>
+    <tag name="landscape">Paisaje</tag>
+    <tag name="language">Lenguaje</tag>
+    <tag name="laptop">Portátil</tag>
+    <tag name="layer">Capa</tag>
+    <tag name="leaf">Hoja</tag>
+    <tag name="leaking">Goteo</tag>
+    <tag name="left">Izquierda</tag>
+    <tag name="leg">Pierna</tag>
+    <tag name="length">Longitud</tag>
+    <tag name="letter">Letra</tag>
+    <tag name="library">Libraría</tag>
+    <tag name="license">Licencia</tag>
+    <tag name="license_copyright">Copyright</tag>
+    <tag name="lifebuoy">Salvavidas</tag>
+    <tag name="lightbulb">Bombilla</tag>
+    <tag name="lighthouse">Faro</tag>
+    <tag name="lightning">Iluminación</tag>
+    <tag name="lightning_led">LED</tag>
+    <tag name="like">Me gusta</tag>
+    <tag name="link">Link</tag>
+    <tag name="liquid">Liquido</tag>
+    <tag name="list">Lista</tag>
+    <tag name="livestock">Ganado</tag>
+    <tag name="loading">Cargando</tag>
+    <tag name="location">Ubicación</tag>
+    <tag name="lock">Bloqueo</tag>
+    <tag name="locked">Bloqueado</tag>
+    <tag name="logic_gate">Puerta lógia</tag>
+    <tag name="loop">Bucle</tag>
+    <tag name="love">Amor</tag>
+    <tag name="low">Bajo</tag>
+    <tag name="luck">Suerte</tag>
+    <tag name="magic">Magia</tag>
+    <tag name="magnet">Imán</tag>
+    <tag name="magnifying_glass">Lupa</tag>
+    <tag name="mail">Correo</tag>
+    <tag name="mailbox">Buzón</tag>
+    <tag name="male">Macho</tag>
+    <tag name="mallet">Mazo</tag>
+    <tag name="man">Hombre</tag>
+    <tag name="map">Mapa</tag>
+    <tag name="maple">Arce</tag>
+    <tag name="martial_arts">Artes marciales</tag>
+    <tag name="martini">Martini</tag>
+    <tag name="mask">Mascara</tag>
+    <tag name="math">Matemáticas</tag>
+    <tag name="math_addition">Adición</tag>
+    <tag name="math_division">División</tag>
+    <tag name="math_equal">Igual</tag>
+    <tag name="math_exponent">Exponente</tag>
+    <tag name="math_formula">Fórmula</tag>
+    <tag name="math_function">Función</tag>
+    <tag name="math_multiplication">Multiplicacon</tag>
+    <tag name="math_not_equal">Distinto</tag>
+    <tag name="math_square">Cuadrado</tag>
+    <tag name="math_square_root">Raíz cuadrada</tag>
+    <tag name="math_subtraction">Resta</tag>
+    <tag name="meal">Comida</tag>
+    <tag name="measurement">Medida</tag>
+    <tag name="measuring_tape">Cintra métrica</tag>
+    <tag name="medal">Medalla</tag>
+    <tag name="media">Media</tag>
+    <tag name="media_fast_forward">Avanzar</tag>
+    <tag name="media_pause">Pausa</tag>
+    <tag name="media_play">Reproducir</tag>
+    <tag name="media_player">Reproductor</tag>
+    <tag name="media_resume">Continuar</tag>
+    <tag name="media_rewind">Rebobinar</tag>
+    <tag name="media_shuffle">Aleatorio</tag>
+    <tag name="media_skip_backward">Final</tag>
+    <tag name="media_skip_forward">Principio</tag>
+    <tag name="media_skip_next">Siguiente</tag>
+    <tag name="media_skip_previous">Anterior</tag>
+    <tag name="medication">
+        <alias>Medicación</alias>
+        <alias>Droga</alias>
+    </tag>
+    <tag name="medium">Medio</tag>
+    <tag name="membership">Afiliación</tag>
+    <tag name="memory">Memoria</tag>
+    <tag name="menu">Menú</tag>
+    <tag name="merge">Unir</tag>
+    <tag name="message">Mensaje</tag>
+    <tag name="metronome">Metrónomo</tag>
+    <tag name="microorganism">Microorganismo</tag>
+    <tag name="microphone">Micrófono</tag>
+    <tag name="microscope">Microscopio</tag>
+    <tag name="military">Militar</tag>
+    <tag name="milk">Leche</tag>
+    <tag name="mining">Minar</tag>
+    <tag name="minus">Menos</tag>
+    <tag name="missed">Perdido</tag>
+    <tag name="mobile">Móvil</tag>
+    <tag name="money">Dinero</tag>
+    <tag name="monitor">Monitor</tag>
+    <tag name="moon">Luna</tag>
+    <tag name="more_options">Más opciones</tag>
+    <tag name="mortgage">Hipoteca</tag>
+    <tag name="motorbike">
+        <alias>Motocicleta</alias>
+        <alias>Moto</alias>
+    </tag>
+    <tag name="mountain">Montaña</tag>
+    <tag name="mouse">Ratón</tag>
+    <tag name="mouse_pointer">
+        <alias>Cursor</alias>
+    </tag>
+    <tag name="movement">Movimiento</tag>
+    <tag name="movie">Película</tag>
+    <tag name="muffin">Magdalena</tag>
+    <tag name="mug">Taza</tag>
+    <tag name="multiple">Multiple</tag>
+    <tag name="mushroom">Seta</tag>
+    <tag name="music">Música</tag>
+    <tag name="mute">Silenciar</tag>
+    <tag name="nature">Naturaleza</tag>
+    <tag name="navigation">Navegador</tag>
+    <tag name="needle">Jeringuilla</tag>
+    <tag name="network">Red</tag>
+    <tag name="neutral">Neutral</tag>
+    <tag name="news">Noticias</tag>
+    <tag name="newspaper">Periódico</tag>
+    <tag name="ninja">Ninja</tag>
+    <tag name="none">None</tag>
+    <tag name="note">Nota</tag>
+    <tag name="notebook">Portátil</tag>
+    <tag name="notification">Notificacion</tag>
+    <tag name="nuclear">Nuclear</tag>
+    <tag name="nucleus">Núcleo</tag>
+    <tag name="nuke">Bomba</tag>
+    <tag name="number">Número</tag>
+    <tag name="numeric">Numérico</tag>
+    <tag name="nurse">Enfermera</tag>
+    <tag name="nut">Tuerca</tag>
+    <tag name="nutrition">Nutrición</tag>
+    <tag name="oar">Remo</tag>
+    <tag name="octagon">Octágono</tag>
+    <tag name="off">Apagado</tag>
+    <tag name="oil">Aceite</tag>
+    <tag name="on">Encendido</tag>
+    <tag name="onion">Cebolla</tag>
+    <tag name="opened">Abierto</tag>
+    <tag name="orbit">Órbita</tag>
+    <tag name="order_content">Orden</tag>
+    <tag name="ornament">Ornamento</tag>
+    <tag name="outdoors">Exterior</tag>
+    <tag name="owl">Buho</tag>
+    <tag name="package">Empaquetado</tag>
+    <tag name="paint">Pintar</tag>
+    <tag name="palette">Paletta</tag>
+    <tag name="palm_tree">Palmera</tag>
+    <tag name="panda">Panda</tag>
+    <tag name="panorama">Panorama</tag>
+    <tag name="paper">Papel</tag>
+    <tag name="paperclip">Clip</tag>
+    <tag name="parachute">Paracaídas</tag>
+    <tag name="parentheses">Parentesis</tag>
+    <tag name="park">Parque</tag>
+    <tag name="parking">Parking</tag>
+    <tag name="passport">Pasaporte</tag>
+    <tag name="password">Password</tag>
+    <tag name="past">Pasado</tag>
+    <tag name="pasta">Pasta</tag>
+    <tag name="paste">Pegar</tag>
+    <tag name="pastry">Bollería</tag>
+    <tag name="pathway">Carretera</tag>
+    <tag name="paw">Garra</tag>
+    <tag name="peace">Paz</tag>
+    <tag name="pen">Pluma</tag>
+    <tag name="pencil">Lápiz</tag>
+    <tag name="penguin">Pingüino</tag>
+    <tag name="pentagon">Pentágono</tag>
+    <tag name="pepper">Pimiento</tag>
+    <tag name="percent">Porcentaje</tag>
+    <tag name="periodic_table">Tabla periódica</tag>
+    <tag name="person">
+        <alias>Persona</alias>
+        <alias>Gente</alias>
+    </tag>
+    <tag name="pet">Mascota</tag>
+    <tag name="petrol">
+        <alias>Petróleo</alias>
+        <alias>Aceite</alias>
+        <alias>Gas</alias>
+    </tag>
+    <tag name="pharmacy">Farmacia</tag>
+    <tag name="phone">
+        <alias>Teléfono</alias>
+        <alias>Celular</alias>
+    </tag>
+    <tag name="photo">Foto</tag>
+    <tag name="physics">Física</tag>
+    <tag name="pi">Pi</tag>
+    <tag name="piano">Piano</tag>
+    <tag name="pick">Seleccionar</tag>
+    <tag name="pickaxe">Pico</tag>
+    <tag name="pie">Tarta</tag>
+    <tag name="pig">Cerdo</tag>
+    <tag name="piggy_bank">Hucha</tag>
+    <tag name="pill">Pildora</tag>
+    <tag name="pillar">Columna</tag>
+    <tag name="pin">Chincheta</tag>
+    <tag name="pine_tree">Pino</tag>
+    <tag name="pipe">Tubería</tag>
+    <tag name="pirate">Pirata</tag>
+    <tag name="pistol">Pistola</tag>
+    <tag name="pizza">Pizza</tag>
+    <tag name="place">Lugar</tag>
+    <tag name="planet">Planeta</tag>
+    <tag name="planned">Planeado</tag>
+    <tag name="plant">Planta</tag>
+    <tag name="playing_cards">Cartas</tag>
+    <tag name="playlist">Lista de reproducción</tag>
+    <tag name="plugin">Plugin</tag>
+    <tag name="plus">Suma</tag>
+    <tag name="pocket">Bolsillo</tag>
+    <tag name="poker">Poker</tag>
+    <tag name="police">Policía</tag>
+    <tag name="pollution">Polucion</tag>
+    <tag name="polygon">Polígono</tag>
+    <tag name="pool">Piscina</tag>
+    <tag name="popcorn">Palomitas</tag>
+    <tag name="postage_stamp">Cuño</tag>
+    <tag name="pot">Puchero</tag>
+    <tag name="pound">Almohadilla</tag>
+    <tag name="power_state">Power</tag>
+    <tag name="precipitation">Precipitacion</tag>
+    <tag name="pregnant">Embarazada</tag>
+    <tag name="presentation">Presentacion</tag>
+    <tag name="printer">Impresora</tag>
+    <tag name="prize">
+        <alias>Premio</alias>
+        <alias>Trofeo</alias>
+    </tag>
+    <tag name="profile">Perfil</tag>
+    <tag name="programming">
+        <alias>Programar</alias>
+        <alias>Código</alias>
+    </tag>
+    <tag name="programming_c">C</tag>
+    <tag name="programming_cplusplus">C++</tag>
+    <tag name="programming_csharp">C#</tag>
+    <tag name="programming_html">HTML</tag>
+    <tag name="programming_javascript">JavaScript</tag>
+    <tag name="programming_language">Lenguaje de programación</tag>
+    <tag name="programming_lua">Lua</tag>
+    <tag name="programming_php">PHP</tag>
+    <tag name="programming_python">Python</tag>
+    <tag name="programming_swift">Swift</tag>
+    <tag name="programming_xml">XML</tag>
+    <tag name="prohibition">
+        <alias>Prohibicion</alias>
+        <alias>No</alias>
+        <alias>Baneado</alias>
+    </tag>
+    <tag name="projector">Proyector</tag>
+    <tag name="pulse">Pulso</tag>
+    <tag name="pump">Bomba</tag>
+    <tag name="puzzle">Puzle</tag>
+    <tag name="qrcode">Código QR</tag>
+    <tag name="quadcopter">Cuadricoptero</tag>
+    <tag name="question">Pregunta</tag>
+    <tag name="question_mark">Signo de interrogación</tag>
+    <tag name="rabbit">
+        <alias>Conejo</alias>
+        <alias>Liebre</alias>
+    </tag>
+    <tag name="radar">Radar</tag>
+    <tag name="radiator">
+        <alias>Radiador</alias>
+        <alias>Calefacción</alias>
+    </tag>
+    <tag name="radio">Radio</tag>
+    <tag name="radioactivity">Radioactivo</tag>
+    <tag name="rainbow">Arcoiris</tag>
+    <tag name="raspberrypi">Raspberry Pi</tag>
+    <tag name="reaction">Reacción</tag>
+    <tag name="reading">Lectura</tag>
+    <tag name="recycling">Reciclar</tag>
+    <tag name="redo">Rehacer</tag>
+    <tag name="religion">Religión</tag>
+    <tag name="reminder">Recordatorio</tag>
+    <tag name="remote">Remoto</tag>
+    <tag name="renewable_energy">Energía renovable</tag>
+    <tag name="repeat">
+        <alias>Repetir</alias>
+        <alias>Actualizar</alias>
+        <alias>Recargar</alias>
+        <alias>Reiniciar</alias>
+        <alias>Bucle</alias>
+    </tag>
+    <tag name="reproduction">Reprodución</tag>
+    <tag name="rescue">Rescate</tag>
+    <tag name="rest">Descanso</tag>
+    <tag name="restaurant">Restaurante</tag>
+    <tag name="restore">Restaurar</tag>
+    <tag name="review">Evaluación</tag>
+    <tag name="rhombus">Rombo</tag>
+    <tag name="ribbon">Lazo</tag>
+    <tag name="rice">Arroz</tag>
+    <tag name="right">Derecha</tag>
+    <tag name="ring">Anillo</tag>
+    <tag name="road">Carretera</tag>
+    <tag name="robot">Robot</tag>
+    <tag name="rocket">Cohete</tag>
+    <tag name="roller">Rodillo</tag>
+    <tag name="rope">
+        <alias>Cuerda</alias>
+        <alias>Cordel</alias>
+    </tag>
+    <tag name="rotation">Rotación</tag>
+    <tag name="router">Router</tag>
+    <tag name="rowing">Remar</tag>
+    <tag name="ruler">Regla</tag>
+    <tag name="run">Correr</tag>
+    <tag name="sad">Triste</tag>
+    <tag name="safe">Seguro</tag>
+    <tag name="sandcastle">Castillo de arena</tag>
+    <tag name="satellite">Satelite</tag>
+    <tag name="sauce">Salsa</tag>
+    <tag name="sausage">Salchicha</tag>
+    <tag name="save">Guardar</tag>
+    <tag name="savings">Ahorro</tag>
+    <tag name="saw">Sierra</tag>
+    <tag name="saxophone">Saxofón</tag>
+    <tag name="scale">
+        <alias>Báscula</alias>
+        <alias>Pesar</alias>
+    </tag>
+    <tag name="scan">Escanear</tag>
+    <tag name="scanner">Escaner</tag>
+    <tag name="school">Escuela</tag>
+    <tag name="schredder">Triturar</tag>
+    <tag name="science">Ciencia</tag>
+    <tag name="scissors">Tijeras</tag>
+    <tag name="screen">Patalla</tag>
+    <tag name="screen_cast">Cast</tag>
+    <tag name="screwdriver">Destornillador</tag>
+    <tag name="script">Script</tag>
+    <tag name="sd_card">
+        <alias>Tarjeta SD</alias>
+        <alias>Micro SD</alias>
+    </tag>
+    <tag name="seal">Medalla</tag>
+    <tag name="search">
+        <alias>Buscar</alias>
+        <alias>Encontrar</alias>
+    </tag>
+    <tag name="seat">Asiento</tag>
+    <tag name="seatbelt">Cinturón de seguridad</tag>
+    <tag name="security">Seguridad</tag>
+    <tag name="select">Seleccionar</tag>
+    <tag name="send">Enviar</tag>
+    <tag name="server">Servidor</tag>
+    <tag name="settings">
+        <alias>Ajustes</alias>
+        <alias>Opciones</alias>
+        <alias>Configuración</alias>
+    </tag>
+    <tag name="shape">Figura</tag>
+    <tag name="share">Compartir</tag>
+    <tag name="sheep">Oveja</tag>
+    <tag name="sheet_music">Partitura</tag>
+    <tag name="shield">Blindaje</tag>
+    <tag name="ship">Barco</tag>
+    <tag name="ship_anchor">Ancla</tag>
+    <tag name="shoe">Zapato</tag>
+    <tag name="shopping">Compras</tag>
+    <tag name="shovel">Pala</tag>
+    <tag name="shower">Ducha</tag>
+    <tag name="sign">Cartel</tag>
+    <tag name="signal">Señal</tag>
+    <tag name="sim_card">Tarjeta SIM</tag>
+    <tag name="sit">Asiento</tag>
+    <tag name="skull">Calavera</tag>
+    <tag name="sleep">Dormir</tag>
+    <tag name="smile">Sonreir</tag>
+    <tag name="smog">Niebla tóxica</tag>
+    <tag name="smoke">Humo</tag>
+    <tag name="smoking">Fumar</tag>
+    <tag name="snooze">Snooze</tag>
+    <tag name="snow">Nieve</tag>
+    <tag name="snowflake">Copo de nieve</tag>
+    <tag name="snowman">Muñeco de nieve</tag>
+    <tag name="soccer">
+        <alias>Fútbol</alias>
+    </tag>
+    <tag name="sock">
+        <alias>Calcetín</alias>
+    </tag>
+    <tag name="sofa">
+        <alias>Sofá</alias>
+    </tag>
+    <tag name="solar_power">Energía solar</tag>
+    <tag name="sort">Ordenar</tag>
+    <tag name="sound">Sonido</tag>
+    <tag name="sound_ring">Sonido de llamada</tag>
+    <tag name="source">Fuente</tag>
+    <tag name="space">Espacio</tag>
+    <tag name="speak">Hablar</tag>
+    <tag name="speaker">Altavoz</tag>
+    <tag name="speedometer">Velocímetro</tag>
+    <tag name="spellcheck">Corrector ortográfico</tag>
+    <tag name="spermatozoid">Espermatozoide</tag>
+    <tag name="spicy">Picante</tag>
+    <tag name="spoon">Cuchara</tag>
+    <tag name="sport">Deporte</tag>
+    <tag name="spotlight">Foco</tag>
+    <tag name="spray">Espray</tag>
+    <tag name="spreadsheet">Hoja de cálculo</tag>
+    <tag name="spy">Espía</tag>
+    <tag name="square">Cuadrado</tag>
+    <tag name="stack">Pila</tag>
+    <tag name="stadium">Estadio</tag>
+    <tag name="stairs">Escaleras</tag>
+    <tag name="stamper">Cuño</tag>
+    <tag name="standing">De pie</tag>
+    <tag name="star">Estrella</tag>
+    <tag name="steering">Volante</tag>
+    <tag name="stethoscope">Estetoscopio</tag>
+    <tag name="sticker">Pegatinar</tag>
+    <tag name="stop">Parar</tag>
+    <tag name="stopwatch">Cronómetro</tag>
+    <tag name="store">
+        <alias>Tienda</alias>
+        <alias>Comercio</alias>
+    </tag>
+    <tag name="storm">Tormenta</tag>
+    <tag name="stove">
+        <alias>Cocina</alias>
+        <alias>Horno</alias>
+    </tag>
+    <tag name="street">Calle</tag>
+    <tag name="structure">Estructura</tag>
+    <tag name="style">Estilo</tag>
+    <tag name="subtitles">Subtítulos</tag>
+    <tag name="subway">Metro</tag>
+    <tag name="suit">Traje</tag>
+    <tag name="summit">Cumbre</tag>
+    <tag name="sunglasses">Gafas de sol</tag>
+    <tag name="sunrise">Amanecer</tag>
+    <tag name="sunset">Puesta de sol</tag>
+    <tag name="superscript">Superscript</tag>
+    <tag name="surveillance">Vigilancia</tag>
+    <tag name="swap">Intercambio</tag>
+    <tag name="swimming">Swimming</tag>
+    <tag name="switch">Interruptor</tag>
+    <tag name="sword">Espada</tag>
+    <tag name="symbol">Símbolo</tag>
+    <tag name="synchronisation">Sincronización</tag>
+    <tag name="syringe">Jeringa</tag>
+    <tag name="table">Tabla</tag>
+    <tag name="tablet">Tablet</tag>
+    <tag name="taco">Taco</tag>
+    <tag name="taekwondo">Taekwondo</tag>
+    <tag name="take_off">Despegue</tag>
+    <tag name="talking">Conversación</tag>
+    <tag name="tank_container">Tanque</tag>
+    <tag name="taxi">Taxi</tag>
+    <tag name="tea">Té</tag>
+    <tag name="teach">Tea</tag>
+    <tag name="teapot">Tetera</tag>
+    <tag name="technology">Tecnología</tag>
+    <tag name="telescope">Telescopio</tag>
+    <tag name="television">
+        <alias>Televisión</alias>
+        <alias>TV</alias>
+    </tag>
+    <tag name="temperature">Temperatura</tag>
+    <tag name="tennis">Tenis</tag>
+    <tag name="tent">Tienda de campaña</tag>
+    <tag name="terminal">Terminal</tag>
+    <tag name="terrain">Terreno</tag>
+    <tag name="test_tube">Tubo de ensayo</tag>
+    <tag name="text">Texto</tag>
+    <tag name="textbox">Cuadro de texto</tag>
+    <tag name="theater">Teatro</tag>
+    <tag name="thermometer">Termómetro</tag>
+    <tag name="thermostat">Termostato</tag>
+    <tag name="think">Pensar</tag>
+    <tag name="thought">Pensamiento</tag>
+    <tag name="thumb">Pulgar</tag>
+    <tag name="thunderstorm">Tormenta eléctrica</tag>
+    <tag name="ticket">Ticket</tag>
+    <tag name="tie">Corbata</tag>
+    <tag name="tilde">Tilde</tag>
+    <tag name="time">Tiempo</tag>
+    <tag name="time_day">Día</tag>
+    <tag name="time_night">Noche</tag>
+    <tag name="timeline">Línea de tiempo</tag>
+    <tag name="timer">
+        <alias>Temporizador</alias>
+        <alias>Cronómetro</alias>
+    </tag>
+    <tag name="toggle">Commutador</tag>
+    <tag name="toilet">Servicio</tag>
+    <tag name="tongue">Lengua</tag>
+    <tag name="tool">Herramienta</tag>
+    <tag name="toolbox">Caja de herramientas</tag>
+    <tag name="tooth">Diente</tag>
+    <tag name="tortoise">Tortuga</tag>
+    <tag name="touch_screen">Tocar</tag>
+    <tag name="tower">Torre</tag>
+    <tag name="towing">Remolque</tag>
+    <tag name="toy">Jugueta</tag>
+    <tag name="tractor">Tractor</tag>
+    <tag name="traffic">Tráfico</tag>
+    <tag name="traffic_light">Semáforo</tag>
+    <tag name="trailer">Trailer</tag>
+    <tag name="train">Tren</tag>
+    <tag name="tramway">Tramvía</tag>
+    <tag name="transfer">Transferencia</tag>
+    <tag name="transgender">Transgénero</tag>
+    <tag name="transit">Tránsito</tag>
+    <tag name="translate">Traducir</tag>
+    <tag name="transport">Transporte</tag>
+    <tag name="trash">Basura</tag>
+    <tag name="travel">Viajar</tag>
+    <tag name="tree">Árbol</tag>
+    <tag name="trending">Tendencia</tag>
+    <tag name="triangle">Triángulo</tag>
+    <tag name="trophy">Trofeo</tag>
+    <tag name="truck">Truck</tag>
+    <tag name="tshirt">Camiseta</tag>
+    <tag name="tulip">Tulipán</tag>
+    <tag name="turbine">Turbina</tag>
+    <tag name="turtle">Tortuga</tag>
+    <tag name="typing">Mecanografía</tag>
+    <tag name="umbrella_rain">Paraguas</tag>
+    <tag name="umbrella_sun">Sombrilla</tag>
+    <tag name="undo">Deshacer</tag>
+    <tag name="unmerge">Separar</tag>
+    <tag name="up">Arriba</tag>
+    <tag name="update">Actualizar</tag>
+    <tag name="usb">USB</tag>
+    <tag name="user">Usuario</tag>
+    <tag name="utensil">Cubierto</tag>
+    <tag name="vacation">Vacaciones</tag>
+    <tag name="vaccine">Vacuna</tag>
+    <tag name="van">Furgoneta</tag>
+    <tag name="vanish">Desaparecer</tag>
+    <tag name="variable">Variable</tag>
+    <tag name="vegetable">Vegetal</tag>
+    <tag name="vehicle">Vehículo</tag>
+    <tag name="vehicle_wheel">Rueda</tag>
+    <tag name="vibrate">Vibrar</tag>
+    <tag name="video">Video</tag>
+    <tag name="violin">Violín</tag>
+    <tag name="virus">Virus</tag>
+    <tag name="vision">Visión</tag>
+    <tag name="volleyball">Balonvolea</tag>
+    <tag name="volume">Volumen</tag>
+    <tag name="vote">Voto</tag>
+    <tag name="walking">Caminar</tag>
+    <tag name="wall">Muro</tag>
+    <tag name="wallet">Cartera</tag>
+    <tag name="wand">Varita mágica</tag>
+    <tag name="wash">Limpiar</tag>
+    <tag name="washing_machine">Lavadora</tag>
+    <tag name="watch">Reloj</tag>
+    <tag name="water">Agua</tag>
+    <tag name="wave">Onda</tag>
+    <tag name="weapon">Arma</tag>
+    <tag name="weather">Tiempo</tag>
+    <tag name="weather_hail">Granizo</tag>
+    <tag name="weather_lightning">Rayo</tag>
+    <tag name="weather_rainy">Lluvioso</tag>
+    <tag name="weather_snowy">Nevado</tag>
+    <tag name="weather_sunny">Soleado</tag>
+    <tag name="web">Web</tag>
+    <tag name="webcam">Webcam</tag>
+    <tag name="wedding">Boda</tag>
+    <tag name="week">Semana</tag>
+    <tag name="weight">
+        <alias>Peso</alias>
+        <alias>Masa</alias>
+    </tag>
+    <tag name="wheat">Trigo</tag>
+    <tag name="wheelchair">Silla de ruedas</tag>
+    <tag name="whistle">Silbato</tag>
+    <tag name="wifi">Wi-Fi</tag>
+    <tag name="wind">Viento</tag>
+    <tag name="wind_power">Energía eólica</tag>
+    <tag name="wind_turbine">Turbina</tag>
+    <tag name="windmill">Molino</tag>
+    <tag name="window">Ventana</tag>
+    <tag name="wine">Vino</tag>
+    <tag name="wink">Guiño</tag>
+    <tag name="winter">Invierno</tag>
+    <tag name="wireless">Sin cables</tag>
+    <tag name="withdraw">Retirar</tag>
+    <tag name="woman">Mujer</tag>
+    <tag name="work">Trabajo</tag>
+    <tag name="worker">Trabajador</tag>
+    <tag name="wrench">Llave fija</tag>
+    <tag name="writing">Escritura</tag>
+    <tag name="yeast">Levadura</tag>
+    <tag name="yin_yang">Yin yang</tag>
+    <tag name="zoom">
+        <alias>Zoom</alias>
+        <alias>Ampliar</alias>
+    </tag>
+</tags>
