@@ -1,5 +1,4 @@
+<!--@formatter:off-->
 <icons>
-    <category
-        id="0"
-        name="@string/category" />
+    <category id="0" name="@string/category" />
 </icons>

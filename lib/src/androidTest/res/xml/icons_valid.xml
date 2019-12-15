@@ -1,18 +1,8 @@
+<!--@formatter:off-->
 <icons>
-    <icon
-        id="0"
-        tags="tag1,tag2"
-        path="." />
-    <category
-        id="0"
-        name="catg">
-        <icon
-            id="1"
-            tags="_group,tag1,tag3"
-            path=".." />
-        <icon
-            id="2"
-            tags="_group,tag1,tag3"
-            path="..." />
+    <icon id="0" tags="tag1,tag2" path="." />
+    <category id="0" name="catg">
+        <icon id="1" tags="_group,tag1,tag3" path=".." />
+        <icon id="2" tags="_group,tag1,tag3" path="..." />
     </category>
 </icons>

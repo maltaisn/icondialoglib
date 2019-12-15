@@ -1,9 +1,6 @@
+<!--@formatter:off-->
 <icons>
-    <category
-        id="0"
-        name="catg1">
-        <category
-            id="1"
-            name="catg2" />
+    <category id="0" name="catg1">
+        <category id="1" name="catg2" />
     </category>
 </icons>

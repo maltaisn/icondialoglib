@@ -1,9 +1,6 @@
+<!--@formatter:off-->
 <icons>
-    <icon
-        id="0"
-        path="...">
-        <icon
-            id="1"
-            path="..." />
+    <icon id="0" path="...">
+        <icon id="1" path="..." />
     </icon>
 </icons>

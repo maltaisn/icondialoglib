@@ -1,5 +1,4 @@
+<!--@formatter:off-->
 <icons>
-    <icon
-        id="-100"
-        path="..." />
+    <icon id="-100" path="..." />
 </icons>
