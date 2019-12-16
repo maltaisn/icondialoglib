@@ -16,15 +16,22 @@
 
 package com.maltaisn.icondialog.demo
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Application
+import com.maltaisn.icondialog.pack.IconPack
+import com.maltaisn.icondialog.pack.IconPackLoader
+import com.maltaisn.iconpack.default.createDefaultIconPack
 
 
-class MainActivity : AppCompatActivity() {
+class DemoApp : Application() {
 
-    override fun onCreate(state: Bundle?) {
-        super.onCreate(state)
-        setContentView(R.layout.activity_main)
+    lateinit var iconPack: IconPack
+
+    override fun onCreate() {
+        super.onCreate()
+
+        // Create and load icon pack
+        val loader = IconPackLoader(this)
+        iconPack = createDefaultIconPack(loader)
     }
 
 }

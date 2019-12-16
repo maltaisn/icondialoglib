@@ -15,24 +15,20 @@
   limitations under the License.
   -->
 
-<manifest
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.maltaisn.icondialog.demo">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
 
-    <application
-        android:name=".DemoApp"
-        android:label="@string/app_name"
-        android:allowBackup="true"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme.DayNight"
-        tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-    </application>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</manifest>
+        <!-- TODO -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
