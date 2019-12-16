@@ -25,7 +25,7 @@ import kotlin.test.assertEquals
 
 
 @RunWith(AndroidJUnit4::class)
-internal class RecurrenceParcelTest {
+internal class DefaultIconFilterParcelTest {
 
     @Test
     fun parcelTest() {

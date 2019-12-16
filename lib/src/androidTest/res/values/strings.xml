@@ -1,3 +1,4 @@
 <resources>
     <string name="category">catg</string>
+    <string name="custom_title">Dialog title</string>
 </resources>
