@@ -18,7 +18,6 @@ package com.maltaisn.icondialog.pack
 
 import android.content.Context
 import android.content.res.XmlResourceParser
-import androidx.annotation.WorkerThread
 import androidx.annotation.XmlRes
 import com.maltaisn.icondialog.data.*
 import com.maltaisn.icondialog.normalize
@@ -28,12 +27,11 @@ import java.util.*
 
 /**
  * Class for loading icon packs from XML resources.
- * All operations are blocking and should be called asynchronously. The class is thread-safe.
- *
  * @param context Any context, needed to load the XML resources.
  */
-@WorkerThread
-class IconPackLoader(private val context: Context) {
+class IconPackLoader(context: Context) {
+
+    private val context = context.applicationContext
 
     var drawableLoader = IconDrawableLoader(context)
         internal set
@@ -60,7 +58,6 @@ class IconPackLoader(private val context: Context) {
      * Reload the tag values of an icon [pack] and its parents, as
      * well as category names. This must be called whenever the application language changes.
      * A `BroadcastListener` should be attached to listen for this event.
-     * This operation is blocking and should be executed asynchronously.
      *
      * Note that since [Category] and [NamedTag] are immutable, this will change all instances.
      *

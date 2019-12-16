@@ -33,7 +33,9 @@ import java.nio.ByteOrder
  * Class use to load icon drawables.
  * @param context Any context, needed to get resources.
  */
-open class IconDrawableLoader(private val context: Context) {
+open class IconDrawableLoader(context: Context) {
+
+    private val context = context.applicationContext
 
     /**
      * Create the vector drawable for an [icon].
