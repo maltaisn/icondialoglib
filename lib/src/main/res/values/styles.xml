@@ -19,7 +19,6 @@
 
     <public name="IcdStyle" type="style"/>
     <style name="IcdStyle">
-        <item name="icdBackgroundColor">?attr/colorBackgroundFloating</item>
         <item name="icdMaxWidth">@dimen/icd_dialog_max_width</item>
         <item name="icdMaxHeight">@dimen/icd_dialog_max_height</item>
         <item name="icdIconSize">@dimen/icd_dialog_icon_size</item>
@@ -51,7 +50,7 @@
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
-        <item name="android:background">?attr/icdBackgroundColor</item>
+        <item name="android:background">?attr/colorBackgroundFloating</item>
     </style>
 
     <public name="IcdListStickyHeaderStyle" type="style"/>

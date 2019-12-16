@@ -50,7 +50,7 @@ class IconPackLoader(private val context: Context) {
      */
     fun load(@XmlRes iconsXml: Int, @XmlRes tagsXml: Int = 0,
              locales: List<Locale> = emptyList(), parent: IconPack? = null): IconPack {
-        val pack = IconPack(parent, mutableMapOf(), mutableMapOf(), mutableMapOf(), locales, tagsXml)
+        val pack = IconPack(parent = parent, locales = locales, tagsXml = tagsXml)
         loadIcons(pack, iconsXml)
         loadTags(pack)
         return pack

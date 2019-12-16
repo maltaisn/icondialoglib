@@ -19,7 +19,6 @@ package com.maltaisn.icondialog.pack
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.GroupingTag
 import com.maltaisn.icondialog.data.Icon
-import com.maltaisn.icondialog.data.IconTag
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -30,76 +29,76 @@ internal class IconPackTest {
     private val pack: IconPack
 
     init {
-        val icons1 = mutableMapOf<Int, Icon>()
-        val categories1 = mutableMapOf<Int, Category>()
-        val tags1 = mutableMapOf<String, IconTag>()
-        icons1[0] = Icon(0, 0, emptyList(), "")
-        categories1[0] = Category(0, "", 0)
-        tags1["_0"] = GroupingTag("_0")
-
-        val icons2 = mutableMapOf<Int, Icon>()
-        val categories2 = mutableMapOf<Int, Category>()
-        val tags2 = mutableMapOf<String, IconTag>()
-        icons2[1] = Icon(1, 1, emptyList(), "")
-        categories2[1] = Category(1, "", 0)
-        tags2["_1"] = GroupingTag("_1")
-
-        val parent = IconPack(null, icons1, categories1, tags1, emptyList(), 0)
-        pack = IconPack(parent, icons2, categories2, tags2, emptyList(), 0)
+        val parent = IconPack().apply {
+            icons[0] = Icon(0, 0, emptyList(), "")
+            icons[1] = Icon(0, 0, emptyList(), "")
+            categories[0] = Category(0, "", 0)
+            tags["_0"] = GroupingTag("_0")
+        }
+        pack = IconPack(parent).apply {
+            icons[1] = Icon(1, 1, emptyList(), "")
+            categories[1] = Category(1, "", 0)
+            tags["_1"] = GroupingTag("_1")
+        }
     }
 
     @Test
-    fun shouldGetIconShallow() {
+    fun `should get icon shallow`() {
         val icon = pack.getIcon(1)!!
         assertEquals(1, icon.id)
     }
 
     @Test
-    fun shouldGetIconDeep() {
+    fun `should get icon deep`() {
         val icon = pack.getIcon(0)!!
         assertEquals(0, icon.id)
     }
 
     @Test
-    fun shouldNotGetIcon() {
+    fun `should not get icon`() {
         val icon = pack.getIcon(10)
         assertNull(icon)
     }
 
     @Test
-    fun shouldGetCategoryShallow() {
+    fun `should get category shallow`() {
         val catg = pack.getCategory(1)!!
         assertEquals(1, catg.id)
     }
 
     @Test
-    fun shouldGetCategoryDeep() {
+    fun `should get category deep`() {
         val catg = pack.getCategory(0)!!
         assertEquals(0, catg.id)
     }
 
     @Test
-    fun shouldNotGetCategory() {
+    fun `should not get category`() {
         val catg = pack.getCategory(10)
         assertNull(catg)
     }
 
     @Test
-    fun shouldGetTagShallow() {
+    fun `should get tag shallow`() {
         val tag = pack.getTag("_1")!!
         assertEquals("_1", tag.name)
     }
 
     @Test
-    fun shouldGetTagDeep() {
+    fun `should get tag deep`() {
         val tag = pack.getTag("_0")!!
         assertEquals("_0", tag.name)
     }
 
     @Test
-    fun shouldNotGetTag() {
+    fun `should not get tag`() {
         val tag = pack.getTag("_10")
         assertNull(tag)
+    }
+
+    @Test
+    fun `should get all icons`() {
+        assertEquals(listOf(pack.getIcon(1), pack.getIcon(0)), pack.allIcons)
     }
 
 }

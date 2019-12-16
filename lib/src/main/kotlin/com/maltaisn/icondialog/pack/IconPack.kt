@@ -33,12 +33,31 @@ import java.util.*
  * there are no tags at all.
  * @property tagsXml XML resource containing the tags. Can be set to `0` if there are no tags.
  */
-class IconPack(val parent: IconPack?,
-               val icons: MutableMap<Int, Icon>,
-               val categories: MutableMap<Int, Category>,
-               val tags: MutableMap<String, IconTag>,
-               val locales: List<Locale>,
-               @XmlRes val tagsXml: Int) {
+class IconPack(val parent: IconPack? = null,
+               val icons: MutableMap<Int, Icon> = mutableMapOf(),
+               val categories: MutableMap<Int, Category> = mutableMapOf(),
+               val tags: MutableMap<String, IconTag> = mutableMapOf(),
+               val locales: List<Locale> = emptyList(),
+               @XmlRes val tagsXml: Int = 0) {
+
+    /**
+     * Create a new list containing all the icons from this pack and its parents,
+     * but only those visible from this pack (i.e: overwritten icons not present).
+     */
+    val allIcons: MutableList<Icon>
+        get() {
+            val iconsMap = linkedMapOf<Int, Icon>()
+            var currentPack: IconPack? = this
+            while (currentPack != null) {
+                for ((id, icon) in currentPack.icons) {
+                    if (id !in iconsMap) {
+                        iconsMap[id] = icon
+                    }
+                }
+                currentPack = currentPack.parent
+            }
+            return iconsMap.values.toMutableList()
+        }
 
     /**
      * Get an icon from the icon pack. If icon is not found,
