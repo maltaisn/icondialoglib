@@ -47,7 +47,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/icd_div_header"
-        app:layout_constraintEnd_toStartOf="@+id/icd_imv_cancel_search"
+        app:layout_constraintEnd_toStartOf="@+id/icd_imv_clear_search"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/icd_imv_search"
         app:layout_constraintTop_toBottomOf="@+id/icd_txv_title"
@@ -69,7 +69,7 @@
         />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/icd_imv_cancel_search"
+        android:id="@+id/icd_imv_clear_search"
         style="?attr/icdCancelSearchIconStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
         />
 
     <ProgressBar
-        android:id="@+id/icd_pb_load"
+        android:id="@+id/icd_progress_bar"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="8dp"

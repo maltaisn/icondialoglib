@@ -17,6 +17,8 @@
 package com.maltaisn.icondialog
 
 import android.os.Bundle
+import com.maltaisn.icondialog.data.Category
+import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.pack.IconPack
 
 
@@ -28,19 +30,53 @@ internal interface IconDialogContract {
         val selectedIconIds: List<Int>
 
         fun exit()
+
+        fun setCancelResult()
+        fun setSelectionResult(selected: List<Icon>)
+
+        fun setTitleVisible(visible: Boolean)
+        fun setSearchBarVisible(visible: Boolean)
+        fun setClearSearchBtnVisible(visible: Boolean)
+        fun setClearBtnVisible(visible: Boolean)
+        fun setProgressBarVisible(visible: Boolean)
+        fun setNoResultLabelVisible(visible: Boolean)
+        fun setFooterVisible(visible: Boolean)
+
+        fun scrollToItemPosition(pos: Int)
+        fun notifyIconItemChanged(pos: Int)
+        fun notifyAllIconsChanged()
+
+        fun showMaxSelectionMessage()
     }
 
     interface Presenter {
         fun attach(view: View, state: Bundle?)
         fun detach()
-
         fun saveState(state: Bundle)
 
-        fun onCancel()
+        fun onSearchQueryEntered(query: String)
+        fun onSearchActionEvent()
+        fun onSearchClearBtnClicked()
+
+        val itemCount: Int
+        fun getItemId(pos: Int): Long
+        fun getItemType(pos: Int): Int
+        fun onBindItemView(pos: Int)
+        fun onIconItemClicked(pos: Int)
+
+        fun onSelectBtnClicked()
+        fun onCancelBtnClicked()
+        fun onClearBtnClicked()
+
+        fun onDialogCancelled()
     }
 
-    interface IconView {
+    interface IconItemView {
+        fun bindView(icon: Icon, selected: Boolean)
+    }
 
+    interface HeaderItemView {
+        fun bindView(category: Category)
     }
 
 }
