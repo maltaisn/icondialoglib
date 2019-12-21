@@ -20,6 +20,7 @@ import android.os.Bundle
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.pack.IconPack
+import java.util.*
 
 
 internal interface IconDialogContract {
@@ -28,8 +29,10 @@ internal interface IconDialogContract {
         val settings: IconDialogSettings
         val iconPack: IconPack
         val selectedIconIds: List<Int>
+        val locale: Locale
 
         fun exit()
+        fun hideKeyboard()
 
         fun setCancelResult()
         fun setSelectionResult(selected: List<Icon>)
@@ -41,7 +44,9 @@ internal interface IconDialogContract {
         fun setProgressBarVisible(visible: Boolean)
         fun setNoResultLabelVisible(visible: Boolean)
         fun setFooterVisible(visible: Boolean)
+        fun removeLayoutPadding()
 
+        fun setSelectBtnEnabled(enabled: Boolean)
         fun scrollToItemPosition(pos: Int)
         fun notifyIconItemChanged(pos: Int)
         fun notifyAllIconsChanged()
@@ -55,13 +60,15 @@ internal interface IconDialogContract {
         fun saveState(state: Bundle)
 
         fun onSearchQueryEntered(query: String)
-        fun onSearchActionEvent()
+        fun onSearchActionEvent(query: String)
         fun onSearchClearBtnClicked()
 
         val itemCount: Int
         fun getItemId(pos: Int): Long
         fun getItemType(pos: Int): Int
-        fun onBindItemView(pos: Int)
+        fun getItemSpanCount(pos: Int, max: Int): Int
+        fun onBindIconItemView(pos: Int, itemView: IconItemView)
+        fun onBindHeaderItemView(pos: Int, itemView: HeaderItemView)
         fun onIconItemClicked(pos: Int)
 
         fun onSelectBtnClicked()

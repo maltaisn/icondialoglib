@@ -28,9 +28,13 @@ import com.maltaisn.icondialog.pack.IconPack
 interface IconFilter : Comparator<Icon>, Parcelable {
 
     /**
-     * Get a list of all matching icons for a search [query].
-     * Returned list must be sorted by icon ID.
+     * Get a list of all matching icons for a search [query], in no specific order.
      */
     fun queryIcons(pack: IconPack, query: String? = null): MutableList<Icon>
+
+    /**
+     * Compare [icon1] and [icon2], two icons which are of the same category.
+     */
+    override fun compare(icon1: Icon, icon2: Icon): Int
 
 }

@@ -16,6 +16,7 @@
 
 package com.maltaisn.icondialog.data
 
+import android.content.Context
 import androidx.annotation.StringRes
 
 
@@ -26,4 +27,16 @@ import androidx.annotation.StringRes
  */
 data class Category(val id: Int,
                     val name: String,
-                    @StringRes val nameRes: Int)
+                    @StringRes val nameRes: Int) {
+
+    /**
+     * Get the name of this category from [context] resources,
+     * or use [name] if it isn't a resource.
+     */
+    fun resolveName(context: Context) = if (nameRes == 0) {
+        name
+    } else {
+        context.getString(nameRes)
+    }
+
+}

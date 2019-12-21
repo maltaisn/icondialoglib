@@ -121,18 +121,12 @@ open class DefaultIconFilter : IconFilter {
 
 
     /**
-     * Compare two icons. All icons of the same category MUST be grouped together if headers of
-     * the icon list are shown, or undefined behavior will happen.
-     *
-     * By default, icons are first sorted by ascending category ID. If category is the
-     * same, icon tag names are compared alphabetically. If icons have the same tags, the one with
-     * less tags is put first. If the icons have the same number of tags, they are sorted by ascending ID.
+     * Compare two icons.
+     * By default, icon are first sorted by tag names, alphabetically. If icons have the same first
+     * tags, the one with less tags is put first. If the icons have the same number of tags,
+     * they are sorted by ascending ID.
      */
     override fun compare(icon1: Icon, icon2: Icon): Int {
-        // Compare category
-        var result = icon1.categoryId.compareTo(icon2.categoryId)
-        if (result != 0) return result
-
         // Compare tags
         val len1: Int = icon1.tags.size
         val len2: Int = icon2.tags.size
@@ -140,7 +134,7 @@ open class DefaultIconFilter : IconFilter {
             val tag1 = icon1.tags.getOrNull(i)
             val tag2 = icon2.tags.getOrNull(i)
             if (tag1 == null || tag2 == null) continue
-            result = tag1.compareTo(tag2)
+            val result = tag1.compareTo(tag2)
             if (result != 0) {
                 return result
             }

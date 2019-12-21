@@ -18,21 +18,33 @@ package com.maltaisn.icondialog
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.graphics.Rect
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.view.ContextThemeWrapper
+import androidx.core.os.ConfigurationCompat
+import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.maltaisn.icondialog.IconDialogContract.HeaderItemView
+import com.maltaisn.icondialog.IconDialogContract.IconItemView
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.pack.IconPack
+import java.util.*
 
 
 class IconDialog : DialogFragment(), IconDialogContract.View {
@@ -52,6 +64,9 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
      */
     override var selectedIconIds: List<Int> = emptyList()
 
+    override val locale: Locale
+        get() = ConfigurationCompat.getLocales(requireContext().resources.configuration)[0]
+
     private lateinit var titleTxv: TextView
     private lateinit var headerDiv: View
     private lateinit var searchEdt: EditText
@@ -63,11 +78,20 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     private lateinit var cancelBtn: Button
     private lateinit var clearBtn: Button
 
+    private lateinit var listAdapter: IconAdapter
+    private lateinit var listLayout: IconLayoutManager
+
+    private lateinit var searchHandler: Handler
+    private val searchCallback = Runnable {
+        presenter?.onSearchQueryEntered(searchEdt.text.toString())
+    }
+
     private var maxDialogWidth = 0
     private var maxDialogHeight = 0
     private var iconSize = 0
     private var iconColorNormal = Color.BLACK
     private var iconColorSelected = Color.BLACK
+
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
@@ -80,13 +104,14 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         iconColorNormal = ta.getColor(R.styleable.IconDialog_icdIconColor, 0)
         iconColorSelected = ta.getColor(R.styleable.IconDialog_icdSelectedIconColor, 0)
         ta.recycle()
+
+        searchHandler = Handler()
     }
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(state: Bundle?): Dialog {
         if (state != null) {
             settings = state.getParcelable("settings")!!
-            selectedIconIds = state.getIntegerArrayList("selectedIconIds")!!
         }
 
         // Wrap recurrence picker theme to context
@@ -100,7 +125,6 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         // Create the dialog
         val view = localInflater.inflate(R.layout.icd_dialog_icon, null, false)
         val dialog = MaterialAlertDialogBuilder(contextWrapper)
-                .setView(view)
                 .setPositiveButton(R.string.icd_action_select, null)
                 .setNegativeButton(R.string.icd_action_cancel, null)
                 .setNeutralButton(R.string.icd_action_clear, null)
@@ -114,13 +138,37 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         progressBar = view.findViewById(R.id.icd_progress_bar)
         footerDiv = view.findViewById(R.id.icd_div_footer)
 
+        // Search
+        searchEdt.addTextChangedListener {
+            searchHandler.removeCallbacks(searchCallback)
+            searchHandler.postDelayed(searchCallback, SEARCH_DELAY)
+        }
+        searchEdt.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                searchHandler.removeCallbacks(searchCallback)
+                presenter?.onSearchActionEvent(searchEdt.text.toString())
+                true
+            } else {
+                false
+            }
+        }
+
         // Icon list
         val rcv: RecyclerView = view.findViewById(R.id.icd_rcv_icon_list)
-        rcv.layoutManager = IconLayoutManager(context, iconSize)
-        rcv.adapter = IconAdapter()
+        listLayout = IconLayoutManager(context, iconSize)
+        listLayout.spanSizeLookup = object : SpanSizeLookup() {
+            override fun getSpanSize(pos: Int): Int {
+                if (pos !in 0 until listAdapter.itemCount) return 0
+                return presenter?.getItemSpanCount(pos, listLayout.spanCount) ?: 0
+            }
+        }
+        listAdapter = IconAdapter()
+        rcv.layoutManager = listLayout
+        rcv.adapter = listAdapter
 
         // Dialog buttons
         dialog.setOnShowListener {
+            // Get dialog buttons
             selectBtn = dialog.getButton(DialogInterface.BUTTON_POSITIVE)
             selectBtn.setOnClickListener {
                 presenter?.onSelectBtnClicked()
@@ -135,6 +183,27 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             clearBtn.setOnClickListener {
                 presenter?.onClearBtnClicked()
             }
+
+            // Get maximum dialog dimensions
+            val fgPadding = Rect()
+            dialog.window!!.decorView.background.getPadding(fgPadding)
+            val metrics = context.resources.displayMetrics
+            var height = metrics.heightPixels - fgPadding.top - fgPadding.bottom
+            var width = metrics.widthPixels - fgPadding.top - fgPadding.bottom
+
+            // Set dialog's dimensions
+            if (width > maxDialogWidth) width = maxDialogWidth
+            if (height > maxDialogHeight) height = maxDialogHeight
+            dialog.window!!.setLayout(width, height)
+
+            // Set dialog's content
+            view.layoutParams = ViewGroup.LayoutParams(width, height)
+            dialog.setContentView(view)
+        }
+
+        if (state != null) {
+            // Restore layout manager state, which isn't saved by recycler view.
+            listLayout.onRestoreInstanceState(state.getParcelable("listLayoutState"))
         }
 
         // Attach the presenter
@@ -148,8 +217,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         super.onSaveInstanceState(state)
 
         state.putParcelable("settings", settings)
-        state.putIntegerArrayList("selectedIconIds", ArrayList(selectedIconIds))
-
+        state.putParcelable("listLayoutState", listLayout.onSaveInstanceState())
         presenter?.saveState(state)
     }
 
@@ -169,6 +237,14 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         dismiss()
     }
 
+    override fun hideKeyboard() {
+        if (searchEdt.hasFocus()) {
+            searchEdt.clearFocus()
+            val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(searchEdt.windowToken, 0)
+        }
+    }
+
     override fun setCancelResult() {
         callback.onIconDialogCancelled()
     }
@@ -178,47 +254,59 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     }
 
     override fun setTitleVisible(visible: Boolean) {
-        TODO("not implemented")
+        titleTxv.isVisible = visible
     }
 
     override fun setSearchBarVisible(visible: Boolean) {
-        TODO("not implemented")
+        searchEdt.isVisible = visible
+        headerDiv.isVisible = visible
     }
 
     override fun setClearSearchBtnVisible(visible: Boolean) {
-        TODO("not implemented")
+        searchClearBtn.isVisible = visible
     }
 
     override fun setClearBtnVisible(visible: Boolean) {
-        TODO("not implemented")
+        clearBtn.isVisible = visible
     }
 
     override fun setProgressBarVisible(visible: Boolean) {
-        TODO("not implemented")
+        progressBar.isVisible = visible
     }
 
     override fun setNoResultLabelVisible(visible: Boolean) {
-        TODO("not implemented")
+        noResultTxv.isVisible = visible
     }
 
     override fun setFooterVisible(visible: Boolean) {
-        TODO("not implemented")
+        footerDiv.isVisible = visible
+        selectBtn.isVisible = visible
+        cancelBtn.isVisible = visible
+        clearBtn.isVisible = visible
+    }
+
+    override fun removeLayoutPadding() {
+        dialog?.findViewById<View>(R.id.icd_layout)?.setPadding(0, 0, 0, 0)
     }
 
     override fun scrollToItemPosition(pos: Int) {
-        TODO("not implemented")
+        listLayout.scrollToPositionWithOffset(pos, iconSize)
+    }
+
+    override fun setSelectBtnEnabled(enabled: Boolean) {
+        selectBtn.isEnabled = enabled
     }
 
     override fun notifyIconItemChanged(pos: Int) {
-        TODO("not implemented")
+        listAdapter.notifyItemChanged(pos)
     }
 
     override fun notifyAllIconsChanged() {
-        TODO("not implemented")
+        listAdapter.notifyDataSetChanged()
     }
 
     override fun showMaxSelectionMessage() {
-        TODO("not implemented")
+        Toast.makeText(context, R.string.icd_max_sel_message, Toast.LENGTH_SHORT).show()
     }
 
 
@@ -235,8 +323,8 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             setHasStableIds(true)
         }
 
-        inner class IconViewHolder(view: View) : RecyclerView.ViewHolder(view),
-                IconDialogContract.IconItemView {
+        inner class IconViewHolder(view: View) :
+                RecyclerView.ViewHolder(view), IconItemView {
             private val iconImv = view as ImageView
 
             init {
@@ -258,16 +346,12 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             }
         }
 
-        internal inner class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view),
-                IconDialogContract.HeaderItemView {
+        internal inner class HeaderViewHolder(view: View) :
+                RecyclerView.ViewHolder(view), HeaderItemView {
             private val headerTxv: TextView = view.findViewById(R.id.icd_header_txv)
 
             override fun bindView(category: Category) {
-                headerTxv.text = if (category.nameRes != 0) {
-                    requireContext().getString(category.nameRes)
-                } else {
-                    category.name
-                }
+                headerTxv.text = category.resolveName(requireContext())
             }
         }
 
@@ -280,8 +364,11 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             }
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            presenter?.onBindItemView(position)
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
+            when (holder) {
+                is IconItemView -> presenter?.onBindIconItemView(pos, holder)
+                is HeaderItemView -> presenter?.onBindHeaderItemView(pos, holder)
+            }
         }
 
         override fun getItemCount() = presenter?.itemCount ?: 0
@@ -310,6 +397,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
          * Called when user dismissed the dialog by clicking outside or by clicking
          * on the Cancel button.
          */
+        @JvmDefault
         fun onIconDialogCancelled() = Unit
     }
 
@@ -332,6 +420,9 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     }
 
     companion object {
+        /** Time to wait to start search after user has stopped typing. */
+        private const val SEARCH_DELAY = 300L
+
         /**
          * Create a new instance of the dialog with [settings].
          * More settings can be set with the returned dialog instance later.

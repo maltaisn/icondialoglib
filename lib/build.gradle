@@ -31,7 +31,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-        kotlinOptions.freeCompilerArgs = ["-Xexperimental=kotlin.ExperimentalUnsignedTypes"]
+        kotlinOptions.freeCompilerArgs = [
+                "-Xexperimental=kotlin.ExperimentalUnsignedTypes",
+                "-Xjvm-default=compatibility",
+                "-Xjvm-target=1.8"]
     }
 }
 
@@ -49,7 +52,7 @@ dependencies {
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$kotlinMockitoVersion"
 
     androidTestImplementation "androidx.test:runner:1.2.0"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation "androidx.test.ext:junit:1.1.1"
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
     androidTestImplementation "org.mockito:mockito-android:$mockitoAndroidVersion"

@@ -17,7 +17,9 @@
 package com.maltaisn.icondialog
 
 import android.os.Bundle
+import com.maltaisn.icondialog.IconDialog.*
 import com.maltaisn.icondialog.IconDialogContract.View
+import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.pack.IconPack
 
@@ -32,45 +34,79 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
     private val iconPack: IconPack
         get() = view!!.iconPack
 
-    private val selectedIcons = mutableListOf<Icon>()
+    private val listItems = mutableListOf<Item>()
+    private val selectedIconIds = linkedSetOf<Int>()
+    private var searchQuery = ""
 
 
     override fun attach(view: View, state: Bundle?) {
         check(this.view == null) { "Presenter already attached." }
         this.view = view
 
-        selectedIcons.clear()
+        listItems.clear()
+        selectedIconIds.clear()
+        searchQuery = ""
 
         if (state == null) {
-            // Init state
-            selectedIcons += view.selectedIconIds.map {
-                iconPack.getIcon(it) ?: error("Selected icon ID ${it} not found in icon pack.")
+            // Check if initial selection is valid.
+            val selection = view.selectedIconIds.toMutableList()
+            for (id in selection) {
+                if (iconPack.getIcon(id) == null) {
+                    error("Selected icon ID $id not found in icon pack.")
+                }
             }
+            if (selection.size > settings.maxSelection) {
+                // Initial selection too big, truncate it.
+                selection.subList(settings.maxSelection, selection.size).clear()
+            }
+            selectedIconIds += selection
+
+            // Scroll to first selected item.
+            if (selectedIconIds.isNotEmpty()) {
+                view.scrollToItemPosition(getPosByIconId(selectedIconIds.first()))
+            }
+
         } else {
             // Restore state
-            selectedIcons += state.getIntegerArrayList("selectedIconIds")!!
-                    .map { iconPack.getIcon(it)!! }
+            selectedIconIds += state.getIntegerArrayList("selectedIconIds")!!
+            searchQuery = state.getString("searchQuery")!!
         }
 
         // Initialize view state
         view.apply {
-            // TODO
+            setSelectBtnEnabled(selectedIconIds.isNotEmpty())
+            setFooterVisible(settings.showSelectBtn)
+            setClearBtnVisible(settings.showClearBtn && selectedIconIds.isNotEmpty())
+            setNoResultLabelVisible(false)
+            setProgressBarVisible(false)
+            setClearSearchBtnVisible(searchQuery.isNotEmpty())
+
+            val searchVisible = settings.searchVisibility == SearchVisibility.ALWAYS
+                    || settings.searchVisibility == SearchVisibility.IF_LANGUAGE_AVAILABLE
+                    && view.locale in iconPack.locales
+            val titleVisible = settings.titleVisibility == TitleVisibility.ALWAYS
+                    || settings.titleVisibility == TitleVisibility.IF_SEARCH_HIDDEN && !searchVisible
+            setSearchBarVisible(searchVisible)
+            setTitleVisible(titleVisible)
+            if (!searchVisible && !titleVisible) {
+                removeLayoutPadding()
+            }
         }
+
+        updateList()
     }
 
     override fun detach() {
         view = null
-
-        selectedIcons.clear()
     }
 
     override fun saveState(state: Bundle) {
-        state.putIntegerArrayList("selectedIconIds", selectedIcons.mapTo(ArrayList()) { it.id })
+        state.putIntegerArrayList("selectedIconIds", ArrayList(selectedIconIds))
+        state.putString("searchQuery", searchQuery)
     }
 
     override fun onSelectBtnClicked() {
-        view?.setSelectionResult(selectedIcons)
-        view?.exit()
+        confirmSelection()
     }
 
     override fun onCancelBtnClicked() {
@@ -78,8 +114,13 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
     }
 
     override fun onClearBtnClicked() {
-        selectedIcons.clear()
-        // TODO update view
+        for (id in selectedIconIds) {
+            view?.notifyIconItemChanged(getPosByIconId(id))
+        }
+        selectedIconIds.clear()
+
+        view?.setClearBtnVisible(false)
+        view?.setSelectBtnEnabled(false)
     }
 
     override fun onDialogCancelled() {
@@ -88,34 +129,159 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
     }
 
     override fun onSearchQueryEntered(query: String) {
-        TODO("not implemented")
+        val trimQuery = query.trim()
+        if (trimQuery != searchQuery) {
+            searchQuery = trimQuery
+            updateList()
+        }
+        view?.setClearSearchBtnVisible(query.isNotEmpty())
     }
 
-    override fun onSearchActionEvent() {
-        TODO("not implemented")
+    override fun onSearchActionEvent(query: String) {
+        view?.hideKeyboard()
+        onSearchActionEvent(query)
     }
 
     override fun onSearchClearBtnClicked() {
-        TODO("not implemented")
+        onSearchQueryEntered("")
     }
 
     override val itemCount: Int
-        get() = TODO("not implemented")
+        get() = listItems.size
 
-    override fun getItemId(pos: Int): Long {
-        TODO("not implemented")
+    override fun getItemId(pos: Int) = listItems[pos].id
+
+    override fun getItemType(pos: Int) = if (listItems[pos] is IconItem) {
+        ITEM_TYPE_ICON
+    } else {
+        ITEM_TYPE_HEADER
     }
 
-    override fun getItemType(pos: Int): Int {
-        TODO("not implemented")
+    override fun getItemSpanCount(pos: Int, max: Int) =
+            if (listItems[pos] is HeaderItem) max else 1
+
+    override fun onBindIconItemView(pos: Int, itemView: IconDialogContract.IconItemView) {
+        val item = listItems[pos] as IconItem
+        itemView.bindView(item.icon, item.selected)
     }
 
-    override fun onBindItemView(pos: Int) {
-        TODO("not implemented")
+    override fun onBindHeaderItemView(pos: Int, itemView: IconDialogContract.HeaderItemView) {
+        val item = listItems[pos] as HeaderItem
+        itemView.bindView(item.category)
     }
 
     override fun onIconItemClicked(pos: Int) {
-        TODO("not implemented")
+        view?.hideKeyboard()
+
+        val item = listItems[pos] as IconItem
+        if (item.icon.drawable == null) {
+            // Icon drawable is unavailable, can't select it.
+            return
+        }
+
+        // Select new icon
+        item.selected = !item.selected
+        if (item.selected) {
+            selectedIconIds += item.icon.id
+        } else {
+            selectedIconIds -= item.icon.id
+        }
+        view?.notifyIconItemChanged(pos)
+
+        if (settings.showSelectBtn) {
+            if (item.selected && selectedIconIds.size > settings.maxSelection) {
+                // Max selection reached
+                if (settings.showMaxSelectionMessage) {
+                    // Show message to user.
+                    view?.showMaxSelectionMessage()
+                    return
+                } else {
+                    // Unselect first selected icon.
+                    val firstId = selectedIconIds.first()
+                    selectedIconIds.remove(firstId)
+                    val firstPos = getPosByIconId(firstId)
+                    val firstItem = listItems[firstPos] as IconItem
+                    firstItem.selected = false
+                    view?.notifyIconItemChanged(firstPos)
+                }
+            }
+
+            // Update dialog buttons
+            val hasSelection = selectedIconIds.isNotEmpty()
+            view?.setSelectBtnEnabled(hasSelection)
+            view?.setClearBtnVisible(settings.showClearBtn && hasSelection)
+
+        } else {
+            // No select button so confirm selection directly.
+            if (selectedIconIds.size > 1) {
+                // Unselect other selected icon.
+                val lastId = selectedIconIds.first()
+                selectedIconIds -= lastId
+                val lastPos = getPosByIconId(lastId)
+                val lastItem = listItems[lastPos] as IconItem
+                lastItem.selected = false
+                view?.notifyIconItemChanged(lastPos)
+            }
+            confirmSelection()
+        }
+    }
+
+    private fun confirmSelection() {
+        view?.setSelectionResult(selectedIconIds.map { iconPack.getIcon(it)!! })
+        view?.exit()
+    }
+
+    private fun getPosByIconId(id: Int) =
+            listItems.indexOfFirst { it is IconItem && it.icon.id == id }
+
+    private fun updateList() {
+        // Get icons matching search
+        val icons = settings.iconFilter.queryIcons(iconPack, searchQuery)
+
+        // Sort icons by category, then use icon filter for secondary sorting rules.
+        icons.sortWith(Comparator { icon1, icon2 ->
+            val result = icon1.categoryId.compareTo(icon2.categoryId)
+            if (result != 0) {
+                result
+            } else {
+                settings.iconFilter.compare(icon1, icon2)
+            }
+        })
+
+        // Create icon items
+        listItems.clear()
+        listItems += icons.map { IconItem(it, it.id in selectedIconIds) }
+
+        // Insert category headers
+        if (settings.headersVisibility != HeadersVisibility.HIDE && listItems.isNotEmpty()) {
+            var i = 0
+            while (i < listItems.size) {
+                val prevId = (listItems.getOrNull(i - 1) as IconItem?)?.icon?.categoryId
+                val currId = (listItems[i] as IconItem).icon.categoryId
+                if (currId != prevId) {
+                    listItems.add(i, HeaderItem(iconPack.getCategory(currId)!!))
+                    i++
+                }
+                i++
+            }
+        }
+
+        view?.notifyAllIconsChanged()
+        view?.setNoResultLabelVisible(listItems.isEmpty())
+    }
+
+    private interface Item {
+        val id: Long
+    }
+
+    private class IconItem(val icon: Icon, var selected: Boolean) : Item {
+        override val id: Long
+            get() = icon.id.toLong()
+    }
+
+    private class HeaderItem(val category: Category) : Item {
+        override val id: Long
+            get() = category.id.inv().toLong()
     }
 
     companion object {

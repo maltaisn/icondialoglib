@@ -29,7 +29,7 @@ import com.maltaisn.icondialog.IconDialogSettings.Companion.NO_MAX_SELECTION
  * A class for configuring the behavior and appearance of the icon dialog.
  * The class is immutable, use the [Builder] to create it.
  */
-class IconDialogSettings private constructor(
+data class IconDialogSettings(
         /** Icon filter used to search and sort icons. Default is [DefaultIconFilter]. */
         val iconFilter: IconFilter,
 
@@ -46,7 +46,8 @@ class IconDialogSettings private constructor(
         @StringRes val dialogTitle: Int,
 
         /** The maximum number of icons that can be selected. Default is `1`.
-         * Can be set to [NO_MAX_SELECTION] to allow any number of icons to be selected. */
+         * Can be set to [NO_MAX_SELECTION] to allow any number of icons to be selected.
+         * Has no effect is [showSelectBtn] is `false`. */
         val maxSelection: Int,
 
         /** Whether to show a toast indicating that max selection is already reached when
@@ -67,8 +68,7 @@ class IconDialogSettings private constructor(
         var searchVisibility = SearchVisibility.IF_LANGUAGE_AVAILABLE
         var headersVisibility = HeadersVisibility.STICKY
         var titleVisibility = TitleVisibility.IF_SEARCH_HIDDEN
-        @StringRes
-        var dialogTitle = R.string.icd_title
+        @StringRes var dialogTitle = R.string.icd_title
         var maxSelection = 1
         var showMaxSelectionMessage = false
         var showSelectBtn = true
