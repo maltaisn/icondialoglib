@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.maltaisn.icondialog
+package com.maltaisn.icondialog.filter
 
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.data.NamedTag
+import com.maltaisn.icondialog.normalize
 import com.maltaisn.icondialog.pack.IconPack
 import java.util.*
 import kotlin.math.min

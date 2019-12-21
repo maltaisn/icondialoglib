@@ -23,6 +23,8 @@ import androidx.annotation.StringRes
 import com.maltaisn.icondialog.IconDialog.*
 import com.maltaisn.icondialog.IconDialogSettings.Builder
 import com.maltaisn.icondialog.IconDialogSettings.Companion.NO_MAX_SELECTION
+import com.maltaisn.icondialog.filter.DefaultIconFilter
+import com.maltaisn.icondialog.filter.IconFilter
 
 
 /**

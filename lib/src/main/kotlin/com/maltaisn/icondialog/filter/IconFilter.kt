@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.maltaisn.icondialog
+package com.maltaisn.icondialog.filter
 
 import android.os.Parcelable
 import com.maltaisn.icondialog.data.Icon

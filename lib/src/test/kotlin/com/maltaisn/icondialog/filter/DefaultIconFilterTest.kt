@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.maltaisn.icondialog
+package com.maltaisn.icondialog.filter
 
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.data.NamedTag
+import com.maltaisn.icondialog.normalize
 import com.maltaisn.icondialog.pack.IconPack
 import org.junit.Test
 import kotlin.test.assertEquals
