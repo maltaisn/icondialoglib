@@ -55,7 +55,8 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
                     error("Selected icon ID $id not found in icon pack.")
                 }
             }
-            if (selection.size > settings.maxSelection) {
+            if (selection.size > settings.maxSelection
+                    && settings.maxSelection != IconDialogSettings.NO_MAX_SELECTION) {
                 // Initial selection too big, truncate it.
                 selection.subList(settings.maxSelection, selection.size).clear()
             }
@@ -83,7 +84,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
 
             val searchVisible = settings.searchVisibility == SearchVisibility.ALWAYS
                     || settings.searchVisibility == SearchVisibility.IF_LANGUAGE_AVAILABLE
-                    && view.locale in iconPack.locales
+                    && view.locale.language in iconPack.locales.map { it.language }
             val titleVisible = settings.titleVisibility == TitleVisibility.ALWAYS
                     || settings.titleVisibility == TitleVisibility.IF_SEARCH_HIDDEN && !searchVisible
             setSearchBarVisible(searchVisible)
@@ -115,7 +116,10 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
 
     override fun onClearBtnClicked() {
         for (id in selectedIconIds) {
-            view?.notifyIconItemChanged(getPosByIconId(id))
+            val pos = getPosByIconId(id)
+            if (pos != -1) {
+                view?.notifyIconItemChanged(pos)
+            }
         }
         selectedIconIds.clear()
 
@@ -179,30 +183,39 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
             return
         }
 
-        // Select new icon
-        item.selected = !item.selected
-        if (item.selected) {
-            selectedIconIds += item.icon.id
-        } else {
-            selectedIconIds -= item.icon.id
-        }
-        view?.notifyIconItemChanged(pos)
-
         if (settings.showSelectBtn) {
-            if (item.selected && selectedIconIds.size > settings.maxSelection) {
-                // Max selection reached
-                if (settings.showMaxSelectionMessage) {
-                    // Show message to user.
-                    view?.showMaxSelectionMessage()
-                    return
+            if (item.selected) {
+                // Unselect icon
+                item.selected = false
+                selectedIconIds -= item.icon.id
+
+            } else {
+                if (selectedIconIds.size == settings.maxSelection
+                        && settings.maxSelection != IconDialogSettings.NO_MAX_SELECTION) {
+                    // Max selection reached
+                    if (settings.showMaxSelectionMessage) {
+                        // Show message to user.
+                        view?.showMaxSelectionMessage()
+                        return
+                    } else {
+                        // Unselect first selected icon.
+                        val firstId = selectedIconIds.first()
+                        selectedIconIds.remove(firstId)
+                        val firstPos = getPosByIconId(firstId)
+                        if (firstPos != -1) {
+                            val firstItem = listItems[firstPos] as IconItem
+                            firstItem.selected = false
+                            view?.notifyIconItemChanged(firstPos)
+                        }
+
+                        // Select new icon
+                        item.selected = true
+                        selectedIconIds += item.icon.id
+                    }
                 } else {
-                    // Unselect first selected icon.
-                    val firstId = selectedIconIds.first()
-                    selectedIconIds.remove(firstId)
-                    val firstPos = getPosByIconId(firstId)
-                    val firstItem = listItems[firstPos] as IconItem
-                    firstItem.selected = false
-                    view?.notifyIconItemChanged(firstPos)
+                    // Select new icon
+                    item.selected = true
+                    selectedIconIds += item.icon.id
                 }
             }
 
@@ -213,17 +226,26 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
 
         } else {
             // No select button so confirm selection directly.
-            if (selectedIconIds.size > 1) {
+            if (selectedIconIds.isNotEmpty()) {
                 // Unselect other selected icon.
                 val lastId = selectedIconIds.first()
                 selectedIconIds -= lastId
                 val lastPos = getPosByIconId(lastId)
-                val lastItem = listItems[lastPos] as IconItem
-                lastItem.selected = false
-                view?.notifyIconItemChanged(lastPos)
+                if (lastPos != -1) {
+                    val lastItem = listItems[lastPos] as IconItem
+                    lastItem.selected = false
+                    view?.notifyIconItemChanged(lastPos)
+                }
             }
+
+            // Select new icon
+            item.selected = true
+            selectedIconIds += item.icon.id
+
             confirmSelection()
         }
+
+        view?.notifyIconItemChanged(pos)
     }
 
     private fun confirmSelection() {
@@ -231,9 +253,16 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
         view?.exit()
     }
 
+    /**
+     * Get the position of an icon with [id] in the list.
+     * Returns `-1` if icon is not currently shown or doesn't exist.
+     */
     private fun getPosByIconId(id: Int) =
             listItems.indexOfFirst { it is IconItem && it.icon.id == id }
 
+    /**
+     * Update icon list to current search query, inserting category header items too.
+     */
     private fun updateList() {
         // Get icons matching search
         val icons = settings.iconFilter.queryIcons(iconPack, searchQuery)

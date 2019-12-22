@@ -168,6 +168,16 @@ internal class IconDialogPresenterTest {
     }
 
     @Test
+    fun `clear selection hidden by query`() {
+        whenever(view.selectedIconIds).doReturn(listOf(0))
+        presenter.attach(view, null)
+        presenter.onSearchQueryEntered("e")
+        presenter.onClearBtnClicked()
+        verify(view, never()).notifyIconItemChanged(any())
+        verifySelection()
+    }
+
+    @Test
     fun `icon click single selection max selection reached`() {
         whenever(view.selectedIconIds).doReturn(listOf(0))
         presenter.attach(view, null)
@@ -186,6 +196,18 @@ internal class IconDialogPresenterTest {
         verify(view).setSelectBtnEnabled(false)
         verify(view).setClearBtnVisible(false)
         verifySelection()
+    }
+
+    @Test
+    fun `icon click single selection with message`() {
+        whenever(view.selectedIconIds).doReturn(listOf(0))
+        whenever(view.settings).doReturn(settings.copy(showMaxSelectionMessage = true))
+        presenter.attach(view, null)
+        clearInvocations(view)
+        presenter.onIconItemClicked(2)
+        verify(view, never()).notifyIconItemChanged(any())
+        verify(view).showMaxSelectionMessage()
+        verifySelection(0)
     }
 
     @Test
