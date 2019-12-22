@@ -19,7 +19,7 @@ package com.maltaisn.icondialog.demo
 import android.app.Application
 import com.maltaisn.icondialog.pack.IconPack
 import com.maltaisn.icondialog.pack.IconPackLoader
-import com.maltaisn.iconpack.default.createDefaultIconPack
+import com.maltaisn.iconpack.defaultpack.createDefaultIconPack
 
 
 class DemoApp : Application() {

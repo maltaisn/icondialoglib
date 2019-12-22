@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.maltaisn.iconpack.default
+package com.maltaisn.iconpack.defaultpack
 
 import com.maltaisn.icondialog.pack.IconPackLoader
 import java.util.*
