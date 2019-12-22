@@ -17,6 +17,7 @@
 package com.maltaisn.icondialog.demo
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.annotation.ArrayRes
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -203,10 +205,17 @@ class MainFragment : Fragment(), IconDialog.Callback {
             private val catgTxv: TextView = view.findViewById(R.id.txv_icon_catg)
 
             fun bind(icon: Icon) {
+                // Set icon drawable with correct color
+                val context = requireContext()
                 iconView.setImageDrawable(icon.drawable)
+                iconView.setColorFilter(ContextCompat.getColor(context,
+                        R.color.material_on_background_emphasis_medium), PorterDuff.Mode.SRC_IN)
+
+                // Set information
                 iconIdTxv.text = getString(R.string.icon_id_fmt, icon.id)
                 catgTxv.text = iconPack.getCategory(icon.categoryId)?.name
 
+                // Prepare tags text for toast
                 val tags = mutableListOf<String>()
                 for (tagName in icon.tags) {
                     val tag = iconPack.getTag(tagName) as? NamedTag ?: continue

@@ -21,6 +21,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    style="?attr/icdListHeaderStyle"
+    style="?icdListHeaderStyle"
     tools:text="Family and people"
     tools:theme="@style/IcdStyle"/>

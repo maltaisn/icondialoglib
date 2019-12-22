@@ -18,9 +18,9 @@
 <androidx.appcompat.widget.AppCompatImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="?attr/icdIconSize"
-    android:layout_height="?attr/icdIconSize"
-    style="?attr/icdIconStyle"
+    android:layout_width="?icdIconSize"
+    android:layout_height="?icdIconSize"
+    style="?icdIconStyle"
     tools:layout_width="50dp"
     tools:layout_height="50dp"
     tools:padding="8dp"

@@ -31,10 +31,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-        kotlinOptions.freeCompilerArgs = [
-                "-Xexperimental=kotlin.ExperimentalUnsignedTypes",
-                "-Xjvm-default=compatibility",
-                "-Xjvm-target=1.8"]
+        kotlinOptions.freeCompilerArgs = ["-Xexperimental=kotlin.ExperimentalUnsignedTypes"]
     }
 }
 

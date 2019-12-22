@@ -27,13 +27,13 @@
         android:id="@+id/icd_header_txv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?attr/icdListStickyHeaderStyle"
+        style="?icdListStickyHeaderStyle"
         tools:text="Family and people"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/icdDividerDrawable"
+        android:background="?icdDividerDrawable"
         tools:background="#1f000000"/>
 
 </LinearLayout>

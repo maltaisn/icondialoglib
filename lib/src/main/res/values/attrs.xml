@@ -35,6 +35,7 @@
         <attr name="icdNoResultLabelStyle" format="reference"/>
         <attr name="icdDialogTitleStyle" format="reference"/>
         <attr name="icdDialogListStyle" format="reference"/>
+        <attr name="icdDialogButtonStyle" format="reference"/>
     </declare-styleable>
 
 </resources>

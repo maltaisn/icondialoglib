@@ -23,34 +23,35 @@
         <item name="icdMaxHeight">@dimen/icd_dialog_max_height</item>
         <item name="icdIconSize">@dimen/icd_dialog_icon_size</item>
         <item name="icdIconStyle">@style/IcdIconStyle</item>
-        <item name="icdIconColor">@color/material_on_surface_emphasis_medium</item>
-        <item name="icdSelectedIconColor">?attr/colorPrimary</item>
+        <item name="icdIconColor">@color/material_on_background_emphasis_medium</item>
+        <item name="icdSelectedIconColor">?colorPrimary</item>
         <item name="icdListHeaderStyle">@style/IcdListHeaderStyle</item>
         <item name="icdListStickyHeaderStyle">@style/IcdListStickyHeaderStyle</item>
-        <item name="icdDividerDrawable">?android:attr/listDivider</item>
+        <item name="icdDividerDrawable">?android:listDivider</item>
         <item name="icdSearchBarStyle">@style/IcdSearchBarStyle</item>
         <item name="icdSearchIconStyle">@style/IcdSearchIconStyle</item>
         <item name="icdCancelSearchIconStyle">@style/IcdCancelSearchIconStyle</item>
         <item name="icdNoResultLabelStyle">@style/IcdNoResultLabelStyle</item>
         <item name="icdDialogTitleStyle">@style/IcdTitleStyle</item>
         <item name="icdDialogListStyle">@style/IcdListStyle</item>
+        <item name="icdDialogButtonStyle">@style/IcdDialogButtonStyle</item>
     </style>
 
     <public name="IcdIconStyle" type="style"/>
     <style name="IcdIconStyle">
         <item name="android:padding">8dp</item>
-        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
     </style>
 
     <public name="IcdListHeaderStyle" type="style"/>
     <style name="IcdListHeaderStyle">
         <item name="android:textAppearance">@style/IcdListHeaderTextAppearance</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
-        <item name="android:background">?attr/colorBackgroundFloating</item>
+        <item name="android:background">?colorBackgroundFloating</item>
     </style>
 
     <public name="IcdListStickyHeaderStyle" type="style"/>
@@ -76,7 +77,7 @@
     <public name="IcdSearchIconStyle" type="style"/>
     <style name="IcdSearchIconStyle">
         <item name="srcCompat">@drawable/icd_ic_search</item>
-        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
         <item name="tint">@color/material_on_background_emphasis_medium</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
@@ -85,7 +86,7 @@
     <public name="IcdCancelSearchIconStyle" type="style"/>
     <style name="IcdCancelSearchIconStyle">
         <item name="srcCompat">@drawable/icd_ic_close</item>
-        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
         <item name="tint">@color/material_on_background_emphasis_medium</item>
         <item name="android:disabledAlpha">1.0</item>
         <item name="android:paddingLeft">8dp</item>
@@ -117,5 +118,8 @@
         <item name="android:paddingLeft">24dp</item>
         <item name="android:paddingRight">24dp</item>
     </style>
+
+    <public name="IcdDialogButtonStyle" type="style"/>
+    <style name="IcdDialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog"/>
 
 </resources>
