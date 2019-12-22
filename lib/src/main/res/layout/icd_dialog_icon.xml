@@ -95,13 +95,6 @@
         tools:background="#1f000000"
         />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/icd_group_search"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="icd_imv_search,icd_edt_search,icd_imv_clear_search"
-        />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/icd_rcv_icon_list"
         style="?icdDialogListStyle"
@@ -195,13 +188,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/icd_btn_cancel"
         android:text="@string/icd_action_select"
-        />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/icd_group_footer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="icd_div_footer,icd_btn_clear,icd_btn_cancel,icd_btn_select"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

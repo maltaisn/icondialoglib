@@ -61,17 +61,24 @@ class MainFragment : Fragment(), IconDialog.Callback {
 
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
-        val iconPackDropdown: AutoCompleteTextView = view.findViewById(R.id.dropdown_icon_pack)
-        setupDropdown(iconPackDropdown, R.array.icon_packs) { iconPack = app.iconPacks[it] }
+        setupDropdown(view.findViewById(R.id.dropdown_icon_pack), R.array.icon_packs) {
+            iconPack = app.iconPacks[it]
+        }
 
-        val titleVisbDropdown: AutoCompleteTextView = view.findViewById(R.id.dropdown_title_visibility)
-        setupDropdown(titleVisbDropdown, R.array.title_visibility)
+        var titleVisbIndex = 2
+        setupDropdown(view.findViewById(R.id.dropdown_title_visibility), R.array.title_visibility) {
+            titleVisbIndex = it
+        }
 
-        val searchVisbDropdown: AutoCompleteTextView = view.findViewById(R.id.dropdown_search_visibility)
-        setupDropdown(searchVisbDropdown, R.array.search_visibility)
+        var searchVisbIndex = 2
+        setupDropdown(view.findViewById(R.id.dropdown_search_visibility), R.array.search_visibility) {
+            searchVisbIndex = it
+        }
 
-        val headersVisbDropdown: AutoCompleteTextView = view.findViewById(R.id.dropdown_headers_visibility)
-        setupDropdown(headersVisbDropdown, R.array.headers_visibility)
+        var headersVisbIndex = 2
+        setupDropdown(view.findViewById(R.id.dropdown_headers_visibility), R.array.headers_visibility) {
+            headersVisbIndex = it
+        }
 
         val maxSelCheck: CheckBox = view.findViewById(R.id.chk_max_selection)
         val maxSelInput: EditText = view.findViewById(R.id.input_max_selection)
@@ -114,20 +121,20 @@ class MainFragment : Fragment(), IconDialog.Callback {
 
         val fab: FloatingActionButton = view.findViewById(R.id.fab)
         fab.setOnClickListener {
-            // Create settings and show icon dialog.
+            // Create new settings and set them.
             iconDialog.settings = IconDialogSettings {
                 this.iconFilter = iconFilter
-                titleVisibility = when (titleVisbDropdown.listSelection) {
+                titleVisibility = when (titleVisbIndex) {
                     0 -> IconDialog.TitleVisibility.NEVER
                     1 -> IconDialog.TitleVisibility.ALWAYS
                     else -> IconDialog.TitleVisibility.IF_SEARCH_HIDDEN
                 }
-                searchVisibility = when (searchVisbDropdown.listSelection) {
+                searchVisibility = when (searchVisbIndex) {
                     0 -> IconDialog.SearchVisibility.NEVER
                     1 -> IconDialog.SearchVisibility.ALWAYS
                     else -> IconDialog.SearchVisibility.IF_LANGUAGE_AVAILABLE
                 }
-                headersVisibility = when (searchVisbDropdown.listSelection) {
+                headersVisibility = when (headersVisbIndex) {
                     0 -> IconDialog.HeadersVisibility.SHOW
                     1 -> IconDialog.HeadersVisibility.HIDE
                     else -> IconDialog.HeadersVisibility.STICKY
@@ -141,6 +148,11 @@ class MainFragment : Fragment(), IconDialog.Callback {
                 showSelectBtn = showSelectBtnCheck.isChecked
                 showClearBtn = showClearBtnCheck.isChecked
             }
+
+            // Set previously selected icon IDs.
+            iconDialog.selectedIconIds = selectedIcons.map { it.id }
+
+            // Show icon dialog with child fragment manager.
             iconDialog.show(childFragmentManager, ICON_DIALOG_TAG)
         }
 

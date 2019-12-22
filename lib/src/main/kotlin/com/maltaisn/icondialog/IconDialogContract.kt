@@ -46,6 +46,7 @@ internal interface IconDialogContract {
         fun setFooterVisible(visible: Boolean)
         fun removeLayoutPadding()
 
+        fun setSearchQuery(query: String)
         fun setSelectBtnEnabled(enabled: Boolean)
         fun scrollToItemPosition(pos: Int)
         fun notifyIconItemChanged(pos: Int)
@@ -59,6 +60,7 @@ internal interface IconDialogContract {
         fun detach()
         fun saveState(state: Bundle)
 
+        fun onSearchQueryChanged(query: String)
         fun onSearchQueryEntered(query: String)
         fun onSearchActionEvent(query: String)
         fun onSearchClearBtnClicked()

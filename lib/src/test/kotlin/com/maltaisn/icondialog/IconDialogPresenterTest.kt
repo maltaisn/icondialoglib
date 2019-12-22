@@ -79,6 +79,7 @@ internal class IconDialogPresenterTest {
         whenever(view.settings).doReturn(settings.copy(maxSelection = 2))
         whenever(view.selectedIconIds).doReturn(listOf(0, 1, 2, 3))
         presenter.attach(view, null)
+        verify(view).setSelectBtnEnabled(true)
         verifySelection(0, 1)
     }
 
@@ -154,6 +155,17 @@ internal class IconDialogPresenterTest {
         verify(view).notifyAllIconsChanged()
         verify(view).setClearSearchBtnVisible(true)
         assertEquals(4, presenter.itemCount)
+    }
+
+    @Test
+    fun `clear query`() {
+        presenter.attach(view, null)
+        presenter.onSearchQueryEntered("abc")
+        clearInvocations(view)
+        presenter.onSearchClearBtnClicked()
+        verify(view).setClearSearchBtnVisible(false)
+        verify(view).setSearchQuery("")
+        assertEquals(7, presenter.itemCount)
     }
 
     @Test

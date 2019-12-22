@@ -32,7 +32,6 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.view.ContextThemeWrapper
-import androidx.constraintlayout.widget.Group
 import androidx.core.content.res.use
 import androidx.core.os.ConfigurationCompat
 import androidx.core.view.isVisible
@@ -70,13 +69,14 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     private lateinit var dialogView: View
     private lateinit var titleTxv: TextView
     private lateinit var headerDiv: View
+    private lateinit var searchImv: ImageView
     private lateinit var searchEdt: EditText
     private lateinit var searchClearBtn: ImageView
-    private lateinit var searchGroup: Group
     private lateinit var noResultTxv: TextView
     private lateinit var progressBar: ProgressBar
-    private lateinit var footerGroup: Group
+    private lateinit var footerDiv: View
     private lateinit var selectBtn: Button
+    private lateinit var cancelBtn: Button
     private lateinit var clearBtn: Button
 
     private lateinit var listAdapter: IconAdapter
@@ -118,9 +118,9 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         dialogView = localInflater.inflate(R.layout.icd_dialog_icon, null, false)
         titleTxv = dialogView.findViewById(R.id.icd_txv_title)
         headerDiv = dialogView.findViewById(R.id.icd_div_header)
+        searchImv = dialogView.findViewById(R.id.icd_imv_search)
         searchEdt = dialogView.findViewById(R.id.icd_edt_search)
         searchClearBtn = dialogView.findViewById(R.id.icd_imv_clear_search)
-        searchGroup = dialogView.findViewById(R.id.icd_group_search)
         noResultTxv = dialogView.findViewById(R.id.icd_txv_no_result)
         progressBar = dialogView.findViewById(R.id.icd_progress_bar)
 
@@ -128,6 +128,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         searchEdt.addTextChangedListener {
             searchHandler.removeCallbacks(searchCallback)
             searchHandler.postDelayed(searchCallback, SEARCH_DELAY)
+            presenter?.onSearchQueryChanged(it.toString())
         }
         searchEdt.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -137,6 +138,9 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             } else {
                 false
             }
+        }
+        searchClearBtn.setOnClickListener {
+            presenter?.onSearchClearBtnClicked()
         }
 
         // Icon list
@@ -153,9 +157,9 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         rcv.layoutManager = listLayout
 
         // Footer
-        footerGroup = dialogView.findViewById(R.id.icd_group_footer)
+        footerDiv = dialogView.findViewById(R.id.icd_div_footer)
         selectBtn = dialogView.findViewById(R.id.icd_btn_select)
-        val cancelBtn: Button = dialogView.findViewById(R.id.icd_btn_cancel)
+        cancelBtn = dialogView.findViewById(R.id.icd_btn_cancel)
         clearBtn = dialogView.findViewById(R.id.icd_btn_clear)
         selectBtn.setOnClickListener { presenter?.onSelectBtnClicked() }
         cancelBtn.setOnClickListener { presenter?.onCancelBtnClicked() }
@@ -206,6 +210,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
 
     override fun onDestroy() {
         super.onDestroy()
+        searchHandler.removeCallbacks(searchCallback)
 
         // Detach the presenter
         presenter?.detach()
@@ -241,7 +246,9 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     }
 
     override fun setSearchBarVisible(visible: Boolean) {
-        searchGroup.isVisible = visible
+        searchImv.isVisible = visible
+        searchEdt.isVisible = visible
+        searchClearBtn.isVisible = visible
     }
 
     override fun setClearSearchBtnVisible(visible: Boolean) {
@@ -261,7 +268,10 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     }
 
     override fun setFooterVisible(visible: Boolean) {
-        footerGroup.isVisible = visible
+        clearBtn.isVisible = visible
+        cancelBtn.isVisible = visible
+        selectBtn.isVisible = visible
+        footerDiv.isVisible = visible
     }
 
     override fun removeLayoutPadding() {
@@ -271,6 +281,10 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
 
     override fun scrollToItemPosition(pos: Int) {
         listLayout.scrollToPositionWithOffset(pos, iconSize)
+    }
+
+    override fun setSearchQuery(query: String) {
+        searchEdt.setText(query)
     }
 
     override fun setSelectBtnEnabled(enabled: Boolean) {

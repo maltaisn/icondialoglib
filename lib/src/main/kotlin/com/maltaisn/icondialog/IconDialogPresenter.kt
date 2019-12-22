@@ -75,12 +75,11 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
 
         // Initialize view state
         view.apply {
-            setSelectBtnEnabled(selectedIconIds.isNotEmpty())
             setFooterVisible(settings.showSelectBtn)
-            setClearBtnVisible(settings.showClearBtn && selectedIconIds.isNotEmpty())
+            setSelectBtnEnabled(selectedIconIds.isNotEmpty())
+            setClearBtnVisible(settings.showSelectBtn && settings.showClearBtn && selectedIconIds.isNotEmpty())
             setNoResultLabelVisible(false)
             setProgressBarVisible(false)
-            setClearSearchBtnVisible(searchQuery.isNotEmpty())
 
             val searchVisible = settings.searchVisibility == SearchVisibility.ALWAYS
                     || settings.searchVisibility == SearchVisibility.IF_LANGUAGE_AVAILABLE
@@ -92,6 +91,8 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
             if (!searchVisible && !titleVisible) {
                 removeLayoutPadding()
             }
+
+            setClearSearchBtnVisible(searchQuery.isNotEmpty())
         }
 
         updateList()
@@ -118,6 +119,8 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
         for (id in selectedIconIds) {
             val pos = getPosByIconId(id)
             if (pos != -1) {
+                val item = listItems[pos] as IconItem
+                item.selected = false
                 view?.notifyIconItemChanged(pos)
             }
         }
@@ -132,22 +135,27 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
         view?.exit()
     }
 
+    override fun onSearchQueryChanged(query: String) {
+        view?.setClearSearchBtnVisible(query.isNotEmpty())
+    }
+
     override fun onSearchQueryEntered(query: String) {
         val trimQuery = query.trim()
         if (trimQuery != searchQuery) {
             searchQuery = trimQuery
             updateList()
         }
-        view?.setClearSearchBtnVisible(query.isNotEmpty())
     }
 
     override fun onSearchActionEvent(query: String) {
         view?.hideKeyboard()
-        onSearchActionEvent(query)
+        onSearchQueryEntered(query)
     }
 
     override fun onSearchClearBtnClicked() {
         onSearchQueryEntered("")
+        view?.setSearchQuery("")
+        view?.setClearSearchBtnVisible(false)
     }
 
     override val itemCount: Int
