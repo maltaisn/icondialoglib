@@ -14,7 +14,7 @@
   limitations under the License.
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PrivateResource">
 
     <!-- Your custom dialog style, don't forget to specify the parent style! -->
     <style name="CustomIconDialogStyle" parent="IcdStyle">
@@ -32,5 +32,53 @@
         <item name="android:typeface">monospace</item>
     </style>
     -->
+
+
+    <!-- DEMO APP STYLES -->
+    <style name="SubtitleTextAppearance" parent="@style/TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/material_on_surface_emphasis_high_type</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="OptionTextStyle">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
+    <style name="DropdownLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxBackgroundColor">@color/mtrl_filled_background_color</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="DropdownStyle">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
+        <item name="boxStrokeColor">@null</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:inputType">none|textNoSuggestions</item>
+        <item name="android:imeOptions">flagNoExtractUi</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:cursorVisible">false</item>
+    </style>
+
+    <style name="InputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/mtrl_filled_background_color</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="InputStyle">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
+        <item name="android:gravity">center</item>
+        <item name="boxStrokeColor">@null</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:imeOptions">flagNoExtractUi|actionDone</item>
+    </style>
 
 </resources>

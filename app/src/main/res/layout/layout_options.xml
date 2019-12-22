@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright 2019 Nicolas Maltais
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingEnd="16dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="16dp"
+    android:paddingStart="10dp"
+    >
+
+    <TextView
+        android:id="@+id/txv_icon_pack_label"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/layout_icon_pack_dropdown"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layout_icon_pack_dropdown"
+        android:labelFor="@id/dropdown_icon_pack"
+        android:text="@string/option_icon_pack"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_icon_pack_dropdown"
+        style="@style/DropdownLayoutStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toRightOf="@id/txv_icon_pack_label"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txv_icon_pack_label"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/dropdown_icon_pack"
+            style="@style/DropdownStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dropDownWidth="250dp"
+            android:text="@string/icon_pack_default"
+            tools:ignore="LabelFor"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txv_title_visibility_label"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@id/layout_title_visibility_dropdown"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layout_title_visibility_dropdown"
+        android:labelFor="@id/dropdown_title_visibility"
+        android:text="@string/option_title_visibility"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_title_visibility_dropdown"
+        style="@style/DropdownLayoutStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toRightOf="@id/txv_title_visibility_label"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txv_title_visibility_label"
+        app:layout_constraintTop_toBottomOf="@id/layout_icon_pack_dropdown"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/dropdown_title_visibility"
+            style="@style/DropdownStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dropDownWidth="250dp"
+            android:text="@string/visibility_if_no_search"
+            tools:ignore="LabelFor"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txv_search_visibility_label"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@id/layout_search_visibility_dropdown"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layout_search_visibility_dropdown"
+        android:labelFor="@id/dropdown_search_visibility"
+        android:text="@string/option_search_visibility"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_search_visibility_dropdown"
+        style="@style/DropdownLayoutStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toRightOf="@id/txv_search_visibility_label"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txv_search_visibility_label"
+        app:layout_constraintTop_toBottomOf="@id/layout_title_visibility_dropdown"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/dropdown_search_visibility"
+            style="@style/DropdownStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dropDownWidth="250dp"
+            android:text="@string/visibility_if_lang_avail"
+            tools:ignore="LabelFor"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txv_headers_visibility_label"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@id/layout_headers_visibility_dropdown"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layout_headers_visibility_dropdown"
+        android:labelFor="@id/dropdown_headers_visibility"
+        android:text="@string/option_headers_visibility"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_headers_visibility_dropdown"
+        style="@style/DropdownLayoutStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toRightOf="@id/txv_headers_visibility_label"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txv_headers_visibility_label"
+        app:layout_constraintTop_toBottomOf="@id/layout_search_visibility_dropdown"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/dropdown_headers_visibility"
+            style="@style/DropdownStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dropDownWidth="120dp"
+            android:text="@string/visibility_sticky"
+            tools:ignore="LabelFor"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/chk_max_selection"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/layout_max_selection_input"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layout_max_selection_input"
+        android:checked="true"
+        android:labelFor="@id/input_max_selection"
+        android:text="@string/option_max_selection"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_max_selection_input"
+        style="@style/InputLayoutStyle"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toRightOf="@id/chk_max_selection"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/chk_max_selection"
+        app:layout_constraintTop_toBottomOf="@id/layout_headers_visibility_dropdown"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_max_selection"
+            style="@style/InputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="2"
+            tools:text="1"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/chk_show_max_sel_message"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_max_selection_input"
+        android:text="@string/option_show_max_sel_message"
+        />
+
+    <CheckBox
+        android:id="@+id/chk_show_select_btn"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chk_show_max_sel_message"
+        android:checked="true"
+        android:text="@string/option_show_select_btn"
+        />
+
+    <CheckBox
+        android:id="@+id/chk_show_clear_btn"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chk_show_select_btn"
+        android:text="@string/option_show_clear_btn"
+        />
+
+    <CheckBox
+        android:id="@+id/chk_dark_theme"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chk_show_clear_btn"
+        android:text="@string/option_dark_theme"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

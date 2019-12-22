@@ -15,15 +15,8 @@
   limitations under the License.
   -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
-    <style name="AppTheme.DayNight" parent="Base.AppTheme" tools:ignore="NewApi">
-        <item name="android:statusBarColor">?colorSurface</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar">false</item>
-
-        <item name="toolbarThemeOverlay">@style/ThemeOverlay.MaterialComponents.Toolbar.Surface
-        </item>
-    </style>
+    <attr name="toolbarThemeOverlay" format="reference"/>
 
 </resources>

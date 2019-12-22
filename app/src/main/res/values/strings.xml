@@ -1,5 +1,45 @@
-<resources>
+<!--
+  Copyright 2019 Nicolas Maltais
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <string name="app_name">Icon Dialog</string>
+    <string name="subtitle_options">Options</string>
+    <string name="subtitle_icons">Selected icons</string>
+
+    <string name="option_icon_pack">Icon pack:</string>
+    <string name="option_title_visibility">Title visibility:</string>
+    <string name="option_search_visibility">Search visibility:</string>
+    <string name="option_headers_visibility">Category headers visibility:</string>
+    <string name="option_max_selection">Max selected icons:</string>
+    <string name="option_show_max_sel_message">Show message when maximum reached</string>
+    <string name="option_show_select_btn">Show select button</string>
+    <string name="option_show_clear_btn">Show clear button</string>
+    <string name="option_dark_theme">Dark theme</string>
+
+    <string name="icon_pack_default">Default</string>
+
+    <string name="visibility_never">Never</string>
+    <string name="visibility_always">Always</string>
+    <string name="visibility_if_no_search">If search not shown</string>
+    <string name="visibility_if_lang_avail">If language is available</string>
+    <string name="visibility_shown">Shown</string>
+    <string name="visibility_hidden">Hidden</string>
+    <string name="visibility_sticky">Sticky</string>
+
+    <string name="icon_id_fmt">ID %d</string>
 
 </resources>

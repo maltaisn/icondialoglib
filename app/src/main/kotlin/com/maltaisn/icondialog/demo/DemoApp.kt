@@ -24,14 +24,22 @@ import com.maltaisn.iconpack.defaultpack.createDefaultIconPack
 
 class DemoApp : Application() {
 
-    lateinit var iconPack: IconPack
+    lateinit var iconPackLoader: IconPackLoader
+    lateinit var iconPacks: List<IconPack>
 
     override fun onCreate() {
         super.onCreate()
 
         // Create and load icon pack
-        val loader = IconPackLoader(this)
-        iconPack = createDefaultIconPack(loader)
+        iconPackLoader = IconPackLoader(this)
+        iconPacks = listOf(
+                createDefaultIconPack(iconPackLoader))
+    }
+
+    fun reloadIconPackStrings() {
+        for (iconPack in iconPacks) {
+            iconPackLoader.reloadStrings(iconPack)
+        }
     }
 
 }
