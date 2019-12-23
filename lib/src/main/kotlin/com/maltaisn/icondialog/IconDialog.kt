@@ -79,6 +79,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     private lateinit var cancelBtn: Button
     private lateinit var clearBtn: Button
 
+    private lateinit var listRcv: RecyclerView
     private lateinit var listAdapter: IconAdapter
     private lateinit var listLayout: IconLayoutManager
 
@@ -144,7 +145,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         }
 
         // Icon list
-        val rcv: RecyclerView = dialogView.findViewById(R.id.icd_rcv_icon_list)
+        listRcv = dialogView.findViewById(R.id.icd_rcv_icon_list)
         listAdapter = IconAdapter()
         listLayout = IconLayoutManager(context, iconSize)
         listLayout.spanSizeLookup = object : SpanSizeLookup() {
@@ -153,8 +154,8 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
                 return presenter?.getItemSpanCount(pos, listLayout.spanCount) ?: 0
             }
         }
-        rcv.adapter = listAdapter
-        rcv.layoutManager = listLayout
+        listRcv.adapter = listAdapter
+        listRcv.layoutManager = listLayout
 
         // Footer
         footerDiv = dialogView.findViewById(R.id.icd_div_footer)
@@ -279,6 +280,11 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         headerDiv.isVisible = false
     }
 
+    override fun addStickyHeaderDecoration() {
+        listRcv.addItemDecoration(StickyHeaderDecoration(listRcv, listAdapter,
+                IconDialogPresenter.ITEM_TYPE_STICKY_HEADER))
+    }
+
     override fun scrollToItemPosition(pos: Int) {
         listLayout.scrollToPositionWithOffset(pos, iconSize)
     }
@@ -311,7 +317,8 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
                 ?: error("Icon dialog must have a callback.")
 
 
-    private inner class IconAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private inner class IconAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
+            StickyHeaderDecoration.Callback {
 
         init {
             setHasStableIds(true)
@@ -351,10 +358,17 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             val inflater = LayoutInflater.from(parent.context)
-            return if (viewType == IconDialogPresenter.ITEM_TYPE_ICON) {
-                IconViewHolder(inflater.inflate(R.layout.icd_item_icon, parent, false))
-            } else {
-                HeaderViewHolder(inflater.inflate(R.layout.icd_item_header, parent, false))
+            return when (viewType) {
+                IconDialogPresenter.ITEM_TYPE_ICON -> {
+                    IconViewHolder(inflater.inflate(R.layout.icd_item_icon, parent, false))
+                }
+                IconDialogPresenter.ITEM_TYPE_HEADER -> {
+                    HeaderViewHolder(inflater.inflate(R.layout.icd_item_header, parent, false))
+                }
+                IconDialogPresenter.ITEM_TYPE_STICKY_HEADER -> {
+                    HeaderViewHolder(inflater.inflate(R.layout.icd_item_sticky_header, parent, false))
+                }
+                else -> error("Unknown view type.")
             }
         }
 
@@ -366,10 +380,10 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         }
 
         override fun getItemCount() = presenter?.itemCount ?: 0
-
         override fun getItemId(pos: Int) = presenter?.getItemId(pos) ?: 0
-
         override fun getItemViewType(pos: Int) = presenter?.getItemType(pos) ?: 0
+        override fun isHeader(pos: Int) = presenter?.isHeader(pos) == true
+        override fun getHeaderPositionForItem(pos: Int) = presenter?.getHeaderPositionForItem(pos) ?: 0
     }
 
     /**

@@ -93,6 +93,10 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
             }
 
             setClearSearchBtnVisible(searchQuery.isNotEmpty())
+
+            if (settings.headersVisibility == HeadersVisibility.STICKY) {
+                addStickyHeaderDecoration()
+            }
         }
 
         updateList()
@@ -180,6 +184,20 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
     override fun onBindHeaderItemView(pos: Int, itemView: IconDialogContract.HeaderItemView) {
         val item = listItems[pos] as HeaderItem
         itemView.bindView(item.category)
+    }
+
+    override fun isHeader(pos: Int) = listItems[pos] is HeaderItem
+
+    override fun getHeaderPositionForItem(pos: Int): Int {
+        // Find first header item position starting from position and going up.
+        var i = pos
+        while (i >= 0) {
+            if (listItems[i] is HeaderItem) {
+                return i
+            }
+            i--
+        }
+        return -1
     }
 
     override fun onIconItemClicked(pos: Int) {
@@ -324,6 +342,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
     companion object {
         internal const val ITEM_TYPE_ICON = 0
         internal const val ITEM_TYPE_HEADER = 1
+        internal const val ITEM_TYPE_STICKY_HEADER = 2
     }
 
 }

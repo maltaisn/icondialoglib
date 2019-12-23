@@ -45,6 +45,7 @@ internal interface IconDialogContract {
         fun setNoResultLabelVisible(visible: Boolean)
         fun setFooterVisible(visible: Boolean)
         fun removeLayoutPadding()
+        fun addStickyHeaderDecoration()
 
         fun setSearchQuery(query: String)
         fun setSelectBtnEnabled(enabled: Boolean)
@@ -72,6 +73,9 @@ internal interface IconDialogContract {
         fun onBindIconItemView(pos: Int, itemView: IconItemView)
         fun onBindHeaderItemView(pos: Int, itemView: HeaderItemView)
         fun onIconItemClicked(pos: Int)
+
+        fun isHeader(pos: Int): Boolean
+        fun getHeaderPositionForItem(pos: Int): Int
 
         fun onSelectBtnClicked()
         fun onCancelBtnClicked()
