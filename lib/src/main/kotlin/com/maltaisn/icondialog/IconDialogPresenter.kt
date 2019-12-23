@@ -62,11 +62,6 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
             }
             selectedIconIds += selection
 
-            // Scroll to first selected item.
-            if (selectedIconIds.isNotEmpty()) {
-                view.scrollToItemPosition(getPosByIconId(selectedIconIds.first()))
-            }
-
         } else {
             // Restore state
             selectedIconIds += state.getIntegerArrayList("selectedIconIds")!!
@@ -99,7 +94,15 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
             }
         }
 
+        // Create list items
         updateList()
+
+        if (state == null) {
+            // Scroll to first selected item.
+            if (selectedIconIds.isNotEmpty()) {
+                view.scrollToItemPosition(getPosByIconId(selectedIconIds.first()))
+            }
+        }
     }
 
     override fun detach() {
