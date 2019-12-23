@@ -242,6 +242,8 @@ class MainFragment : Fragment(), IconDialog.Callback {
                     itemView.setOnClickListener {
                         Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
                     }
+                } else {
+                    itemView.setOnClickListener(null)
                 }
             }
         }
