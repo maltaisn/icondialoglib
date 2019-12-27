@@ -22,11 +22,14 @@ import android.graphics.drawable.Drawable
 /**
  * An icon with an unique [id], a [categoryId], a list of [tags] names and SVG [pathData].
  * [categoryId] can be `-1` if the icon has no category.
+ * Icon also have a [width] and a [height] in pixels.
  */
 data class Icon(val id: Int,
                 val categoryId: Int,
                 val tags: List<String>,
-                val pathData: String) {
+                val pathData: String,
+                val width: Int,
+                val height: Int) {
 
     /**
      * The icon drawable.

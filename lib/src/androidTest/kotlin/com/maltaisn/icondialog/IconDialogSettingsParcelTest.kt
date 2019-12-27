@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package com.maltaisn.icondialog.pack
+package com.maltaisn.icondialog
 
 import android.os.Parcel
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.maltaisn.icondialog.IconDialog
-import com.maltaisn.icondialog.IconDialogSettings
 import com.maltaisn.icondialog.test.R
 import org.junit.Test
 import org.junit.runner.RunWith

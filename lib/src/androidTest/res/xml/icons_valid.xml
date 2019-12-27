@@ -1,5 +1,5 @@
 <!--@formatter:off-->
-<icons>
+<icons width="32" height="32">
     <icon id="0" tags="tag1,tag2" path="." />
     <category id="0" name="catg">
         <icon id="1" tags="_group,tag1,tag3" path=".." />

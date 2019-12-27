@@ -16,11 +16,12 @@
 
 package com.maltaisn.icondialog.filter
 
-import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.data.NamedTag
 import com.maltaisn.icondialog.normalize
 import com.maltaisn.icondialog.pack.IconPack
+import com.maltaisn.icondialog.testCatg
+import com.maltaisn.icondialog.testIcon
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -31,22 +32,22 @@ internal class DefaultIconFilterTest {
     private val filter = DefaultIconFilter()
 
     private val parentPack = IconPack().apply {
-        icons[0] = Icon(0, 0, emptyList(), "")
-        icons[6] = Icon(6, 0, emptyList(), "")
+        icons[0] = testIcon(0, 0)
+        icons[6] = testIcon(6, 0)
 
-        categories[0] = Category(0, "catg1", 0)
+        categories[0] = testCatg(0)
     }
 
     private val pack = IconPack(parentPack).apply {
-        icons[0] = Icon(0, 0, listOf("abc", "def"), "")
-        icons[1] = Icon(1, 2, listOf("bcd", "efg"), "")
-        icons[2] = Icon(2, 2, listOf("cde", "fgh"), "")
-        icons[3] = Icon(3, 1, listOf("bàd", "dád"), "")
-        icons[4] = Icon(4, 2, listOf("cde", "fgh"), "")
-        icons[5] = Icon(5, 2, listOf("cde", "fgh", "xyz"), "")
+        icons[0] = testIcon(0, 0, listOf("abc", "def"))
+        icons[1] = testIcon(1, 2, listOf("bcd", "efg"))
+        icons[2] = testIcon(2, 2, listOf("cde", "fgh"))
+        icons[3] = testIcon(3, 1, listOf("bàd", "dád"))
+        icons[4] = testIcon(4, 2, listOf("cde", "fgh"))
+        icons[5] = testIcon(5, 2, listOf("cde", "fgh", "xyz"))
 
-        categories[1] = Category(1, "catg1", 0)
-        categories[2] = Category(2, "catg1", 0)
+        categories[1] = testCatg(1)
+        categories[2] = testCatg(2)
 
         // Add all tags objects referenced above
         tags["xyz"] = NamedTag("xyz", null, listOf(

@@ -1,6 +1,6 @@
 <!--@formatter:off-->
-<icons>
-    <icon id="0" category="0" path="..." />
-    <icon id="1" category="0" path="..." />
+<icons width="1" height="1">
+    <icon id="0" category="0" path="..." width="24" height="24"/>
+    <icon id="1" category="0" path="..." width="32" height="32"/>
     <category id="0" name="catg" />
 </icons>

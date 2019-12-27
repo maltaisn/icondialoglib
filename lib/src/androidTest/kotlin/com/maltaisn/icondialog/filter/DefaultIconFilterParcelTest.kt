@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.maltaisn.icondialog.pack
+package com.maltaisn.icondialog.filter
 
 import android.os.Parcel
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.maltaisn.icondialog.filter.DefaultIconFilter
 import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.test.assertEquals

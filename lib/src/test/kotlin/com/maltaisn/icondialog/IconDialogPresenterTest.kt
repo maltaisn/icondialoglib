@@ -16,8 +16,6 @@
 
 package com.maltaisn.icondialog
 
-import com.maltaisn.icondialog.data.Category
-import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.data.NamedTag
 import com.maltaisn.icondialog.pack.IconPack
 import com.nhaarman.mockitokotlin2.*
@@ -32,14 +30,14 @@ internal class IconDialogPresenterTest {
     private val settings = IconDialogSettings()
 
     private val iconPack = IconPack(locales = listOf(Locale.ENGLISH)).apply {
-        icons[0] = Icon(0, 0, listOf("a", "b"), "")
-        icons[1] = Icon(1, 0, listOf("b", "c"), "")
-        icons[2] = Icon(2, 1, listOf("e", "f"), "")
-        icons[3] = Icon(3, 2, listOf("a", "f"), "")
+        icons[0] = testIcon(0, 0, listOf("a", "b"))
+        icons[1] = testIcon(1, 0, listOf("b", "c"))
+        icons[2] = testIcon(2, 1, listOf("e", "f"))
+        icons[3] = testIcon(3, 2, listOf("a", "f"))
 
-        categories[0] = Category(0, "catg-0", 0)
-        categories[1] = Category(1, "catg-1", 0)
-        categories[2] = Category(2, "catg-2", 0)
+        categories[0] = testCatg(0)
+        categories[1] = testCatg(1)
+        categories[2] = testCatg(2)
 
         for (icon in icons.values) {
             for (tag in icon.tags) {

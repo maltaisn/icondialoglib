@@ -141,12 +141,17 @@ internal class IconPackLoaderTest {
         packLoader.load(R.xml.icons_wrong_catg_id_negative, R.xml.tags_empty)
     }
 
+    @Test(expected = IconPackParseException::class)
+    fun loadIcons_wrongSize_shouldFail() {
+        packLoader.load(R.xml.icons_wrong_icon_size, R.xml.tags_empty)
+    }
+
     @Test
     fun loadIcons_valid() {
         val pack = packLoader.load(R.xml.icons_valid, R.xml.tags_empty)
-        assertEquals(Icon(0, -1, listOf("tag1", "tag2"), "."), pack.icons[0])
-        assertEquals(Icon(1, 0, listOf("_group", "tag1", "tag3"), ".."), pack.icons[1])
-        assertEquals(Icon(2, 0, listOf("_group", "tag1", "tag3"), "..."), pack.icons[2])
+        assertEquals(Icon(0, -1, listOf("tag1", "tag2"), ".", 32, 32), pack.icons[0])
+        assertEquals(Icon(1, 0, listOf("_group", "tag1", "tag3"), "..", 32, 32), pack.icons[1])
+        assertEquals(Icon(2, 0, listOf("_group", "tag1", "tag3"), "...", 32, 32), pack.icons[2])
         assertEquals(Category(0, "catg", 0), pack.categories[0])
         assertEquals(3, pack.icons.size)
         assertEquals(1, pack.categories.size)
@@ -155,8 +160,8 @@ internal class IconPackLoaderTest {
     @Test
     fun loadIcons_valid_flat() {
         val pack = packLoader.load(R.xml.icons_valid_flat, R.xml.tags_empty)
-        assertEquals(Icon(0, 0, emptyList(), "..."), pack.icons[0])
-        assertEquals(Icon(1, 0, emptyList(), "..."), pack.icons[1])
+        assertEquals(Icon(0, 0, emptyList(), "...", 24, 24), pack.icons[0])
+        assertEquals(Icon(1, 0, emptyList(), "...", 32, 32), pack.icons[1])
         assertEquals(Category(0, "catg", 0), pack.categories[0])
     }
 
@@ -164,7 +169,7 @@ internal class IconPackLoaderTest {
     fun loadIcons_override() {
         val parent = packLoader.load(R.xml.icons_override_parent, 0)
         val child = packLoader.load(R.xml.icons_override_child, 0, parent = parent)
-        assertEquals(Icon(0, 1, listOf("tag2"), "child"), child.icons[0])
+        assertEquals(Icon(0, 1, listOf("tag2"), "child", 24, 24), child.icons[0])
         assertEquals(Category(0, "child", 0), child.categories[0])
     }
 

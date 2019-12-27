@@ -89,6 +89,9 @@ class IconPackLoader(context: Context) {
         var documentStarted = false
         var iconStarted = false
 
+        var packWidth = 0
+        var packHeight = 0
+
         val parser = context.resources.getXml(iconsXml)
         var eventType = parser.eventType
         while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -96,6 +99,9 @@ class IconPackLoader(context: Context) {
             if (eventType == XmlPullParser.START_TAG) {
                 if (element == XML_TAG_ICONS) {
                     documentStarted = true
+                    packWidth = parser.getPositiveInt(XML_ATTR_ICON_WIDTH) { "Invalid global icon width '$it'." } ?: 24
+                    packHeight = parser.getPositiveInt(XML_ATTR_ICON_HEIGHT) { "Invalid global icon height '$it'." } ?: 24
+
                 } else {
                     if (!documentStarted) parseError("Invalid root element <$element>.")
                     if (iconStarted) parseError("Icon element cannot have body.")
@@ -111,7 +117,7 @@ class IconPackLoader(context: Context) {
                             newCategories[categoryId] = category
                         }
                         XML_TAG_ICON -> {
-                            val icon = parseIcon(parser, pack, categoryId)
+                            val icon = parseIcon(parser, pack, categoryId, packWidth, packHeight)
                             if (icon.id in newIcons) {
                                 parseError("Duplicate icon ID '${icon.id}' in same file.")
                             }
@@ -139,16 +145,12 @@ class IconPackLoader(context: Context) {
     }
 
     private fun parseCategory(parser: XmlResourceParser, pack: IconPack): Category {
-        val idStr = parser.getAttributeValue(null, XML_ATTR_CATG_ID)
-        val nameStr = parser.getAttributeValue(null, XML_ATTR_CATG_NAME)
-
-        val id = idStr.toIntOrNull() ?: parseError("Invalid category ID literal '$idStr'.")
-        if (id < 0) {
-            parseError("Category ID '$id' must be greater or equal to 0.")
-        }
+        val id = parser.getPositiveInt(XML_ATTR_ICON_ID) { "Invalid category ID '$it'." }
+                ?: parseError("Category must have an ID.")
 
         val nameRes: Int
         val name: String
+        val nameStr = parser.getAttributeValue(null, XML_ATTR_CATG_NAME)
         if (nameStr != null) {
             if (nameStr.startsWith('@')) {
                 nameRes = if (nameStr.startsWith("@string/")) {
@@ -180,18 +182,16 @@ class IconPackLoader(context: Context) {
         return Category(id, name, nameRes)
     }
 
-    private fun parseIcon(parser: XmlResourceParser, pack: IconPack, categoryId: Int): Icon {
-        val idStr = parser.getAttributeValue(null, XML_ATTR_ICON_ID)
-        val tagsStr = parser.getAttributeValue(null, XML_ATTR_ICON_TAGS)
-        val pathStr = parser.getAttributeValue(null, XML_ATTR_ICON_PATH)
-        val catgStr = parser.getAttributeValue(null, XML_ATTR_ICON_CATG)
-
-        val id = idStr.toIntOrNull() ?: parseError("Invalid icon ID literal '$idStr'.")
-        if (id < 0) {
-            parseError("Icon ID '$id' must be greater or equal to 0.")
-        }
+    private fun parseIcon(parser: XmlResourceParser, pack: IconPack,
+                          categoryId: Int, packWidth: Int, packHeight: Int): Icon {
+        val id = parser.getPositiveInt(XML_ATTR_ICON_ID) { "Invalid icon ID '$it'." }
+                ?: parseError("Icon must have an ID.")
         val overriden = pack.getIcon(id)
 
+        val catgId = parser.getPositiveInt(XML_ATTR_ICON_CATG) { "Invalid icon category ID '$it'." }
+                ?: overriden?.categoryId ?: categoryId
+
+        val tagsStr = parser.getAttributeValue(null, XML_ATTR_ICON_TAGS)
         val tags: List<String>
         if (tagsStr != null) {
             tags = tagsStr.split(',')
@@ -207,15 +207,13 @@ class IconPackLoader(context: Context) {
             tags = overriden?.tags ?: emptyList()
         }
 
+        val pathStr = parser.getAttributeValue(null, XML_ATTR_ICON_PATH)
         val pathData = pathStr ?: overriden?.pathData ?: parseError("Icon ID $id has no path data.")
 
-        val category = if (catgStr != null) {
-            catgStr.toIntOrNull() ?: parseError("Invalid icon category ID literal '$idStr'.")
-        } else {
-            overriden?.categoryId ?: categoryId
-        }
+        val width = parser.getPositiveInt(XML_ATTR_ICON_WIDTH) { "Invalid icon width '$it'." } ?: packWidth
+        val height = parser.getPositiveInt(XML_ATTR_ICON_HEIGHT) { "Invalid icon height '$it'." } ?: packHeight
 
-        return Icon(id, category, tags, pathData)
+        return Icon(id, catgId, tags, pathData, width, height)
     }
 
     /**
@@ -309,6 +307,17 @@ class IconPackLoader(context: Context) {
         pack.tags += newTags
     }
 
+    private inline fun XmlResourceParser.getPositiveInt(attr: String,
+                                                        error: (String) -> String): Int? {
+        val str = getAttributeValue(null, attr) ?: return null
+        val value = str.toIntOrNull()
+        if (value == null || value < 0) {
+            parseError(error(str))
+        }
+        return value
+    }
+
+
     companion object {
         // XML elements and attributes
         private const val XML_TAG_ICONS = "icons"
@@ -323,6 +332,8 @@ class IconPackLoader(context: Context) {
         private const val XML_ATTR_ICON_CATG = "category"
         private const val XML_ATTR_ICON_TAGS = "tags"
         private const val XML_ATTR_ICON_PATH = "path"
+        private const val XML_ATTR_ICON_WIDTH = "width"
+        private const val XML_ATTR_ICON_HEIGHT = "height"
 
         private const val XML_TAG_TAG = "tag"
         private const val XML_TAG_ALIAS = "alias"

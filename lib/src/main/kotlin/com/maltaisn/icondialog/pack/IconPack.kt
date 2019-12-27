@@ -60,19 +60,19 @@ class IconPack(val parent: IconPack? = null,
         }
 
     /**
-     * Get an icon from the icon pack. If icon is not found,
+     * Get an icon by [id] from the icon pack. If icon is not found,
      * parent packs are searched recursively. Returns `null` if not found.
      */
     fun getIcon(id: Int): Icon? = icons[id] ?: parent?.getIcon(id)
 
     /**
-     * Get a category from the icon pack. If category is not found,
+     * Get a category by [id] from the icon pack. If category is not found,
      * parent packs are searched recursively. Returns `null` if not found.
      */
     fun getCategory(id: Int): Category? = categories[id] ?: parent?.getCategory(id)
 
     /**
-     * Get a tag from the icon pack. If tag is not found,
+     * Get a tag by [name] from the icon pack. If tag is not found,
      * parent packs are searched recursively. Returns `null` if not found.
      */
     fun getTag(name: String): IconTag? = tags[name] ?: parent?.getTag(name)

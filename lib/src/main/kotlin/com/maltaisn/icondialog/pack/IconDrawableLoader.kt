@@ -43,7 +43,7 @@ open class IconDrawableLoader(context: Context) {
     @SuppressLint("DiscouragedPrivateApi,PrivateApi")
     open fun createDrawable(icon: Icon): Drawable? {
         val drawable: Drawable?
-        val binXml = createDrawableBinaryXml(icon.pathData)
+        val binXml = createDrawableBinaryXml(icon.pathData, icon.width, icon.height)
         try {
             // Get the binary XML parser (XmlBlock.Parser) and use it to create the drawable
             // This should be equivalent to AssetManager#getXml()
@@ -106,12 +106,12 @@ open class IconDrawableLoader(context: Context) {
                 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x00u, 0x14u, 0x00u, 0x14u, 0x00u,
                 0x04u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x06u, 0x00u, 0x00u, 0x00u,
                 0x00u, 0x00u, 0x00u, 0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x05u,
-                0x01u, 0x18u, 0x00u, 0x00u, 0x06u, 0x00u, 0x00u, 0x00u, 0x01u, 0x00u, 0x00u, 0x00u,
-                0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x05u, 0x01u, 0x18u, 0x00u, 0x00u,
+                0x00u, 0x00u, 0x00u, 0x00u, 0x06u, 0x00u, 0x00u, 0x00u, 0x01u, 0x00u, 0x00u, 0x00u,
+                0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x05u, 0x00u, 0x00u, 0x00u, 0x00u,
                 0x06u, 0x00u, 0x00u, 0x00u, 0x02u, 0x00u, 0x00u, 0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu,
-                0x08u, 0x00u, 0x00u, 0x04u, 0x00u, 0x00u, 0xC0u, 0x41u, 0x06u, 0x00u, 0x00u, 0x00u,
+                0x08u, 0x00u, 0x00u, 0x04u, 0x00u, 0x00u, 0x00u, 0x00u, 0x06u, 0x00u, 0x00u, 0x00u,
                 0x03u, 0x00u, 0x00u, 0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x04u,
-                0x00u, 0x00u, 0xC0u, 0x41u, 0x02u, 0x01u, 0x10u, 0x00u, 0x4Cu, 0x00u, 0x00u, 0x00u,
+                0x00u, 0x00u, 0x00u, 0x00u, 0x02u, 0x01u, 0x10u, 0x00u, 0x4Cu, 0x00u, 0x00u, 0x00u,
                 0x00u, 0x00u, 0x00u, 0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu,
                 0x07u, 0x00u, 0x00u, 0x00u, 0x14u, 0x00u, 0x14u, 0x00u, 0x02u, 0x00u, 0x00u, 0x00u,
                 0x00u, 0x00u, 0x00u, 0x00u, 0x06u, 0x00u, 0x00u, 0x00u, 0x04u, 0x00u, 0x00u, 0x00u,
@@ -125,13 +125,10 @@ open class IconDrawableLoader(context: Context) {
 
         /**
          * Create a vector drawable binary XML from [pathData] so that it can be parsed and created.
-         * This is kind of stupid having to write something so that it can immediately be parsed but
-         * there is no other solution that avoid using a thousand XML drawables.
-         * See [https://justanapplication.wordpress.com/category/android/android-binary-xml/].
-         * @param pathData vector path data
-         * @return binary XML byte array
+         * See [https://justanapplication.wordpress.com/category/android/android-binary-xml/] and
+         * [https://stackoverflow.com/a/49920860/5288316].
          */
-        private fun createDrawableBinaryXml(pathData: String): ByteArray {
+        private fun createDrawableBinaryXml(pathData: String, width: Int, height: Int): ByteArray {
             val pathBytes = pathData.toByteArray()
             val pathSpLength = pathBytes.size + if (pathBytes.size > 127) 5 else 3
             var spPaddingLength = (BIN_XML_START.size + pathSpLength) % 4
@@ -156,7 +153,7 @@ open class IconDrawableLoader(context: Context) {
 
             // Write path data
             if (pathBytes.size > 127) {
-                val high = (pathBytes.size and 0xFF00 or 0x8000).ushr(8).toByte()
+                val high = (pathBytes.size and 0xFF00 or 0x8000 ushr 8).toByte()
                 val low = (pathBytes.size and 0xFF).toByte()
                 bb.put(high)
                 bb.put(low)
@@ -176,9 +173,16 @@ open class IconDrawableLoader(context: Context) {
             }
 
             // Write XML tag and attributes data
+            val index = bb.position()
             for (b in BIN_XML_END) {
                 bb.put(b.toByte())
             }
+
+            // Write size attributes
+            bb.putInt(index + 84, (width shl 8) + 1)  // android:width="24dp"
+            bb.putInt(index + 104, (height shl 8) + 1)  // android:height="24dp"
+            bb.putInt(index + 124, width.toFloat().toRawBits())  // android:viewportWidth="24"
+            bb.putInt(index + 144, height.toFloat().toRawBits())  // android:viewportHeight="24"
 
             return bb.array()
         }
