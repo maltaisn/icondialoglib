@@ -73,7 +73,6 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     private lateinit var searchEdt: EditText
     private lateinit var searchClearBtn: ImageView
     private lateinit var noResultTxv: TextView
-    private lateinit var progressBar: ProgressBar
     private lateinit var footerDiv: View
     private lateinit var selectBtn: Button
     private lateinit var cancelBtn: Button
@@ -123,7 +122,6 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         searchEdt = dialogView.findViewById(R.id.icd_edt_search)
         searchClearBtn = dialogView.findViewById(R.id.icd_imv_clear_search)
         noResultTxv = dialogView.findViewById(R.id.icd_txv_no_result)
-        progressBar = dialogView.findViewById(R.id.icd_progress_bar)
 
         // Search
         searchEdt.addTextChangedListener {
@@ -258,10 +256,6 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
 
     override fun setClearBtnVisible(visible: Boolean) {
         clearBtn.isVisible = visible
-    }
-
-    override fun setProgressBarVisible(visible: Boolean) {
-        progressBar.isVisible = visible
     }
 
     override fun setNoResultLabelVisible(visible: Boolean) {

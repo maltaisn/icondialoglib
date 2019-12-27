@@ -41,7 +41,6 @@ internal interface IconDialogContract {
         fun setSearchBarVisible(visible: Boolean)
         fun setClearSearchBtnVisible(visible: Boolean)
         fun setClearBtnVisible(visible: Boolean)
-        fun setProgressBarVisible(visible: Boolean)
         fun setNoResultLabelVisible(visible: Boolean)
         fun setFooterVisible(visible: Boolean)
         fun removeLayoutPadding()

@@ -74,7 +74,6 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
             setSelectBtnEnabled(selectedIconIds.isNotEmpty())
             setClearBtnVisible(settings.showSelectBtn && settings.showClearBtn && selectedIconIds.isNotEmpty())
             setNoResultLabelVisible(false)
-            setProgressBarVisible(false)
 
             val searchVisible = settings.searchVisibility == SearchVisibility.ALWAYS
                     || settings.searchVisibility == SearchVisibility.IF_LANGUAGE_AVAILABLE
