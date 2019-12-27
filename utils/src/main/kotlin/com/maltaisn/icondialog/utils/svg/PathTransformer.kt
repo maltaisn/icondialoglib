@@ -32,11 +32,12 @@ class PathTransformer(private val tx: Double, private val ty: Double,
         val values = mutableListOf<Double>()
         var i = 0
         for (command in tokens.commands) {
+            val absolute = command.isUpperCase()
             for (argType in COMMAND_ARGUMENTS[command.toUpperCase()] ?: continue) {
                 val value = tokens.values[i]
                 values += when (argType) {
-                    POS_X -> (value + tx) * sx
-                    POS_Y -> (value + ty) * sy
+                    POS_X -> if (absolute) (value + tx) * sx else value * sx
+                    POS_Y -> if (absolute) (value + ty) * sy else value * sy
                     DIM_X -> value * sx
                     DIM_Y -> value * sy
                     NONE -> value

@@ -65,4 +65,11 @@ internal class PathFormatterTest {
         assertEquals("M.1.1Q0 .1 0-.1L.1 1.1Z", pathStr)
     }
 
+    @Test
+    fun `minus zero`() {
+        val pathStr = formatter.format(PathTokens(listOf('M'),
+                listOf(-0.0, -0.001)))
+        assertEquals("M0 0", pathStr)
+    }
+
 }

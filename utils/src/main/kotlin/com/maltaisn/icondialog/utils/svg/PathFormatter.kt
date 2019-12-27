@@ -55,8 +55,8 @@ class PathFormatter(private val precision: Int) {
             if (!(lastCommand == command
                     || lastCommand == 'M' && command == 'L'
                     || lastCommand == 'm' && command == 'l')) {
-                // - Command can be ommited if previous command is the same.
-                // - Line to command can be ommited if placed immediately after a move to command.
+                // - Command can be omitted if previous command is the same.
+                // - Line to command can be omitted if placed immediately after a move to command.
                 sb.append(command)
                 lastNbStr = ""
             }
@@ -69,13 +69,16 @@ class PathFormatter(private val precision: Int) {
                 // Format value to string.
                 // Remove leading zero if value is -1 < n < 1 and n != 0
                 var nbStr = numberFmt.format(n)
-                if (n > -1.0 && n != 0.0 && n < 1.0) {
+                if (nbStr == "-0") {
+                    nbStr = "0"
+                }
+                if (n in -1.0..1.0 && '.' in nbStr) {
                     nbStr = nbStr.replaceFirst("0", "")
                 }
 
                 // Append space separator if value has no sign '-' or decimal point '.'
                 // to separate it from previous value, and if value isn't the first after command.
-                if (lastNbStr != "" && n >= 0.0 && ('.' !in lastNbStr || !nbStr.startsWith('.'))) {
+                if (lastNbStr != "" && '-' !in nbStr && ('.' !in lastNbStr || !nbStr.startsWith('.'))) {
                     sb.append(' ')
                 }
 

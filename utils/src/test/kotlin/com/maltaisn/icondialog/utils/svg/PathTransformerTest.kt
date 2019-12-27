@@ -25,10 +25,17 @@ internal class PathTransformerTest {
     private val transformer = PathTransformer(5.0, 10.0, 1.2, 0.8)
 
     @Test
-    fun `transform move to`() {
+    fun `transform move to absolute`() {
         val newTokens = transformer.applyTransform(PathTokens(
                 listOf( 'M'), listOf(10.0, 10.0)))
         assertEquals(listOf(18.0, 16.0), newTokens.values)
+    }
+
+    @Test
+    fun `transform move to relative`() {
+        val newTokens = transformer.applyTransform(PathTokens(
+                listOf( 'm'), listOf(10.0, 10.0)))
+        assertEquals(listOf(12.0, 8.0), newTokens.values)
     }
 
     @Test
@@ -39,56 +46,56 @@ internal class PathTransformerTest {
     }
 
     @Test
-    fun `transform line to`() {
+    fun `transform line to absolute`() {
         val newTokens = transformer.applyTransform(PathTokens(
-                listOf( 'l'), listOf(10.0, 10.0)))
+                listOf( 'L'), listOf(10.0, 10.0)))
         assertEquals(listOf(18.0, 16.0), newTokens.values)
     }
 
     @Test
-    fun `transform horizontal`() {
+    fun `transform horizontal absolute`() {
         val newTokens = transformer.applyTransform(PathTokens(
                 listOf( 'H'), listOf(10.0)))
         assertEquals(listOf(18.0), newTokens.values)
     }
 
     @Test
-    fun `transform vertical`() {
+    fun `transform vertical absolute`() {
         val newTokens = transformer.applyTransform(PathTokens(
-                listOf( 'v'), listOf(10.0)))
+                listOf( 'V'), listOf(10.0)))
         assertEquals(listOf(16.0), newTokens.values)
     }
 
     @Test
-    fun `transform quadratic`() {
+    fun `transform quadratic absolute`() {
         val newTokens = transformer.applyTransform(PathTokens(
                 listOf( 'Q'), listOf(10.0, 10.0, 15.0, 5.0)))
         assertEquals(listOf(18.0, 16.0, 24.0, 12.0), newTokens.values)
     }
 
     @Test
-    fun `transform quadratic shorthand`() {
+    fun `transform quadratic shorthand absolute`() {
         val newTokens = transformer.applyTransform(PathTokens(
-                listOf( 't'), listOf(15.0, 5.0)))
+                listOf( 'T'), listOf(15.0, 5.0)))
         assertEquals(listOf(24.0, 12.0), newTokens.values)
     }
 
     @Test
-    fun `transform cubic`() {
+    fun `transform cubic absolute`() {
         val newTokens = transformer.applyTransform(PathTokens(
-                listOf( 'c'), listOf(10.0, 10.0, 15.0, 5.0, -10.0, -10.0)))
+                listOf( 'C'), listOf(10.0, 10.0, 15.0, 5.0, -10.0, -10.0)))
         assertEquals(listOf(18.0, 16.0, 24.0, 12.0, -6.0, 0.0), newTokens.values)
     }
 
     @Test
-    fun `transform cubic shorthand`() {
+    fun `transform cubic shorthand absolute`() {
         val newTokens = transformer.applyTransform(PathTokens(
                 listOf( 'S'), listOf(15.0, 5.0, 10.0, 10.0)))
         assertEquals(listOf(24.0, 12.0, 18.0, 16.0), newTokens.values)
     }
 
     @Test
-    fun `transform arc`() {
+    fun `transform arc absolute`() {
         val newTokens = transformer.applyTransform(PathTokens(
                 listOf( 'A'), listOf(10.0, 20.0, 30.0, 1.0, 0.0, 20.0, 25.0)))
         assertEquals(listOf(12.0, 16.0, 30.0, 1.0, 0.0, 30.0, 28.0), newTokens.values)
@@ -98,7 +105,7 @@ internal class PathTransformerTest {
     fun `transform multiple`() {
         val newTokens = transformer.applyTransform(PathTokens(
                 listOf('M', 'h', 'v', 'h', 'Z'), listOf(10.0, 10.0, 30.0, 30.0, -30.0)))
-        assertEquals(listOf(18.0, 16.0, 42.0, 32.0, -30.0), newTokens.values)
+        assertEquals(listOf(18.0, 16.0, 36.0, 24.0, -36.0), newTokens.values)
     }
 
 }
