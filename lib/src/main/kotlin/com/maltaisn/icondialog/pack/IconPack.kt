@@ -16,6 +16,7 @@
 
 package com.maltaisn.icondialog.pack
 
+import android.graphics.drawable.Drawable
 import androidx.annotation.XmlRes
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
@@ -77,8 +78,25 @@ class IconPack(val parent: IconPack? = null,
      */
     fun getTag(name: String): IconTag? = tags[name] ?: parent?.getTag(name)
 
+    /**
+     * Get the drawable for an icon [id]. Returns `null` if icon doesn't exist
+     * or if the drawable couldn't be loaded with the [loader].
+     */
+    fun getIconDrawable(id: Int, loader: IconDrawableLoader): Drawable? {
+        return loader.loadDrawable(getIcon(id) ?: return null)
+    }
 
-    override fun toString() = "IconPack(${icons.size} icons, " +
-            "${categories.size} categories, ${tags.size} tags, parent=$parent)"
+    /**
+     * Load all icons in this pack with a [loader].
+     * This is probably best called on another thread than the main thread.
+     */
+    fun loadDrawables(loader: IconDrawableLoader) {
+        for (icon in allIcons) {
+            loader.loadDrawable(icon)
+        }
+    }
+
+    override fun toString() = "IconPack(${icons.size} icons, ${categories.size} categories, " +
+            "${tags.size} tags, locales=$locales, parent=$parent)"
 
 }

@@ -387,6 +387,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     interface Callback {
         /**
          * The icon pack to be displayed by the dialog.
+         * All icon drawables in the pack must have been loaded, or they won't be displayed.
          */
         val iconDialogIconPack: IconPack
 

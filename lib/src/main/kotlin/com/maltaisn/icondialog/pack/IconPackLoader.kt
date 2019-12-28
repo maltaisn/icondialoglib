@@ -121,7 +121,6 @@ class IconPackLoader(context: Context) {
                             if (icon.id in newIcons) {
                                 parseError("Duplicate icon ID '${icon.id}' in same file.")
                             }
-                            icon.drawable = drawableLoader.createDrawable(icon)
                             newIcons[icon.id] = icon
                             iconStarted = true
                         }
@@ -145,7 +144,7 @@ class IconPackLoader(context: Context) {
     }
 
     private fun parseCategory(parser: XmlResourceParser, pack: IconPack): Category {
-        val id = parser.getPositiveInt(XML_ATTR_ICON_ID) { "Invalid category ID '$it'." }
+        val id = parser.getPositiveInt(XML_ATTR_CATG_ID) { "Invalid category ID '$it'." }
                 ?: parseError("Category must have an ID.")
 
         val nameRes: Int

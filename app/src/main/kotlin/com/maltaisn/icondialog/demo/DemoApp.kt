@@ -18,28 +18,14 @@ package com.maltaisn.icondialog.demo
 
 import android.app.Application
 import com.maltaisn.icondialog.pack.IconPack
-import com.maltaisn.icondialog.pack.IconPackLoader
-import com.maltaisn.iconpack.defaultpack.createDefaultIconPack
 
 
 class DemoApp : Application() {
 
-    lateinit var iconPackLoader: IconPackLoader
-    lateinit var iconPacks: List<IconPack>
-
-    override fun onCreate() {
-        super.onCreate()
-
-        // Create and load icon pack
-        iconPackLoader = IconPackLoader(this)
-        iconPacks = listOf(
-                createDefaultIconPack(iconPackLoader))
-    }
-
-    fun reloadIconPackStrings() {
-        for (iconPack in iconPacks) {
-            iconPackLoader.reloadStrings(iconPack)
-        }
-    }
+    /**
+     * Currently selected icon pack, or `null` if none is loaded yet.
+     * This is in the application class so it can survive some activity restarts.
+     */
+    var iconPack: IconPack? = null
 
 }

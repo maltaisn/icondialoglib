@@ -17,6 +17,7 @@
 package com.maltaisn.icondialog.data
 
 import android.graphics.drawable.Drawable
+import com.maltaisn.icondialog.pack.IconDrawableLoader
 
 
 /**
@@ -33,7 +34,8 @@ data class Icon(val id: Int,
 
     /**
      * The icon drawable.
-     * Can be `null` if drawable couldn't be loaded.
+     * Can be `null` if drawable isn't loaded or couldn't be loaded.
+     * Use [IconDrawableLoader] to load this drawable.
      */
     var drawable: Drawable? = null
         internal set

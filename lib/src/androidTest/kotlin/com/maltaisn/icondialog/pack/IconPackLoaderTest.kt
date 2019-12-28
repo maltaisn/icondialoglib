@@ -38,7 +38,7 @@ internal class IconPackLoaderTest {
 
     private val packLoader = IconPackLoader(context).apply {
         drawableLoader = mock()
-        whenever(drawableLoader.createDrawable(any())).thenReturn(mock())
+        whenever(drawableLoader.loadDrawable(any())).thenReturn(mock())
     }
 
     /*

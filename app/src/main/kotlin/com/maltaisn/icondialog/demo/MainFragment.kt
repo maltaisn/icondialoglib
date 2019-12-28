@@ -27,6 +27,7 @@ import android.widget.*
 import androidx.annotation.ArrayRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,33 +38,47 @@ import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.data.NamedTag
 import com.maltaisn.icondialog.filter.DefaultIconFilter
 import com.maltaisn.icondialog.pack.IconPack
+import com.maltaisn.icondialog.pack.IconPackLoader
+import com.maltaisn.iconpack.defaultpack.createDefaultIconPack
+import kotlinx.coroutines.*
 
 
 class MainFragment : Fragment(), IconDialog.Callback {
 
-    private lateinit var iconPack: IconPack
-    private var selectedIcons = emptyList<Icon>()
+    private val app: DemoApp
+        get() = requireActivity().application as DemoApp
+
+    private val coroutineScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+    private var packLoadJob: Job? = null
 
     private lateinit var iconDialog: IconDialog
     private lateinit var iconsAdapter: IconsAdapter
+    private lateinit var iconPackPb: ProgressBar
+    private lateinit var fab: FloatingActionButton
+
+    private lateinit var iconPackLoader: IconPackLoader
+
+    private var selectedIconIds = emptyList<Int>()
+    private var selectedIcons = emptyList<Icon>()
+    private var currentPackIndex = 0
 
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, state: Bundle?): View? {
-        val app = requireActivity().application as DemoApp
-        iconPack = app.iconPacks[0]
-
         val iconFilter = DefaultIconFilter()
         iconFilter.idSearchEnabled = true
 
         iconDialog = childFragmentManager.findFragmentByTag(ICON_DIALOG_TAG) as IconDialog?
                 ?: IconDialog.newInstance(IconDialogSettings())
 
+        iconPackLoader = IconPackLoader(requireContext())
+
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
         setupDropdown(view.findViewById(R.id.dropdown_icon_pack), R.array.icon_packs) {
-            iconPack = app.iconPacks[it]
+            changeIconPack(it)
         }
+        iconPackPb = view.findViewById(R.id.pb_icon_pack)
 
         var titleVisbIndex = 2
         setupDropdown(view.findViewById(R.id.dropdown_title_visibility), R.array.title_visibility) {
@@ -119,8 +134,10 @@ class MainFragment : Fragment(), IconDialog.Callback {
         iconsRcv.adapter = iconsAdapter
         iconsRcv.layoutManager = LinearLayoutManager(context)
 
-        val fab: FloatingActionButton = view.findViewById(R.id.fab)
+        fab = view.findViewById(R.id.fab)
         fab.setOnClickListener {
+            if (app.iconPack == null) return@setOnClickListener
+
             // Create new settings and set them.
             iconDialog.settings = IconDialogSettings {
                 this.iconFilter = iconFilter
@@ -150,7 +167,7 @@ class MainFragment : Fragment(), IconDialog.Callback {
             }
 
             // Set previously selected icon IDs.
-            iconDialog.selectedIconIds = selectedIcons.map { it.id }
+            iconDialog.selectedIconIds = selectedIconIds
 
             // Show icon dialog with child fragment manager.
             iconDialog.show(childFragmentManager, ICON_DIALOG_TAG)
@@ -158,11 +175,19 @@ class MainFragment : Fragment(), IconDialog.Callback {
 
         if (state != null) {
             // Restore state
-            selectedIcons = state.getIntegerArrayList("selectedIconIds")!!
-                    .map { iconPack.getIcon(it)!! }
+            selectedIconIds = state.getIntegerArrayList("selectedIconIds")!!
+            currentPackIndex = state.getInt("currentPackIndex")
         }
 
+        // Load icon pack.
+        loadIconPack()
+
         return view
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        coroutineScope.cancel()
     }
 
     private inline fun setupDropdown(dropdown: AutoCompleteTextView,
@@ -177,17 +202,72 @@ class MainFragment : Fragment(), IconDialog.Callback {
         }
     }
 
+    private fun loadIconPack() {
+        if (app.iconPack != null) {
+            // Icon pack is already loaded.
+            updateSelectedIcons()
+            return
+        }
+
+        app.iconPack = null
+        selectedIcons = emptyList()
+
+        // Start new job to load icon pack.
+        packLoadJob?.cancel()
+        packLoadJob = coroutineScope.launch(Dispatchers.Main) {
+            app.iconPack = withContext(Dispatchers.Default) {
+                // Create pack from XML
+                val pack = when (currentPackIndex) {
+                    0 -> createDefaultIconPack(iconPackLoader)
+                    else -> error("Invalid icon pack index.")
+                }
+
+                // Load drawables
+                pack.loadDrawables(iconPackLoader.drawableLoader)
+
+                pack
+            }
+
+            iconPackPb.isInvisible = true
+            fab.show()
+
+            updateSelectedIcons()
+        }
+    }
+
+    private fun changeIconPack(index: Int) {
+        if (index != currentPackIndex) {
+            // Clear selected icons list
+            selectedIconIds = emptyList()
+            selectedIcons = emptyList()
+            iconsAdapter.notifyDataSetChanged()
+
+            // Change icon pack
+            currentPackIndex = index
+            app.iconPack = null
+            loadIconPack()
+        }
+    }
+
+    private fun updateSelectedIcons() {
+        val pack = app.iconPack ?: return
+        selectedIcons = selectedIconIds.map { pack.getIcon(it)!! }
+        iconsAdapter.notifyDataSetChanged()
+    }
+
     override fun onSaveInstanceState(state: Bundle) {
         super.onSaveInstanceState(state)
-        state.putIntegerArrayList("selectedIconIds", selectedIcons.mapTo(ArrayList()) { it.id })
+        state.putIntegerArrayList("selectedIconIds", ArrayList(selectedIconIds))
+        state.putInt("currentPackIndex", currentPackIndex)
     }
 
     // Called by icon dialog to get the icon pack.
     override val iconDialogIconPack: IconPack
-        get() = iconPack
+        get() = app.iconPack!!
 
     override fun onIconDialogIconsSelected(dialog: IconDialog, icons: List<Icon>) {
         // Called by icon dialog when icons were selected.
+        selectedIconIds = icons.map { it.id }
         selectedIcons = icons
         iconsAdapter.notifyDataSetChanged()
     }
@@ -225,12 +305,12 @@ class MainFragment : Fragment(), IconDialog.Callback {
 
                 // Set information
                 iconIdTxv.text = getString(R.string.icon_id_fmt, icon.id)
-                catgTxv.text = iconPack.getCategory(icon.categoryId)?.name
+                catgTxv.text = app.iconPack?.getCategory(icon.categoryId)?.name
 
                 // Prepare tags text for toast
                 val tags = mutableListOf<String>()
                 for (tagName in icon.tags) {
-                    val tag = iconPack.getTag(tagName) as? NamedTag ?: continue
+                    val tag = app.iconPack?.getTag(tagName) as? NamedTag ?: continue
                     tags += if (tag.value != null) {
                         tag.value!!.value
                     } else {

@@ -38,10 +38,15 @@ open class IconDrawableLoader(context: Context) {
     private val context = context.applicationContext
 
     /**
-     * Create the vector drawable for an [icon].
+     * Create the vector drawable for an [icon] and set it.
      */
     @SuppressLint("DiscouragedPrivateApi,PrivateApi")
-    open fun createDrawable(icon: Icon): Drawable? {
+    open fun loadDrawable(icon: Icon): Drawable? {
+        if (icon.drawable != null) {
+            // Icon drawable is already loaded.
+            return icon.drawable
+        }
+
         val drawable: Drawable?
         val binXml = createDrawableBinaryXml(icon.pathData, icon.width, icon.height)
         try {
@@ -72,7 +77,8 @@ open class IconDrawableLoader(context: Context) {
             return null
         }
 
-        return drawable?.constantState?.newDrawable()
+        icon.drawable = drawable?.constantState?.newDrawable()
+        return icon.drawable
     }
 
     companion object {

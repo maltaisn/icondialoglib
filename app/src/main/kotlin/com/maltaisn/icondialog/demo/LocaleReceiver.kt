@@ -19,6 +19,7 @@ package com.maltaisn.icondialog.demo
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import com.maltaisn.icondialog.pack.IconPackLoader
 
 
 class LocaleReceiver : BroadcastReceiver() {
@@ -26,7 +27,9 @@ class LocaleReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == Intent.ACTION_LOCALE_CHANGED) {
             // Reload icon pack strings on locale change.
-            (context.applicationContext as DemoApp).reloadIconPackStrings()
+            val app = context.applicationContext as DemoApp
+            val loader = IconPackLoader(context)
+            loader.reloadStrings(app.iconPack ?: return)
         }
     }
 
