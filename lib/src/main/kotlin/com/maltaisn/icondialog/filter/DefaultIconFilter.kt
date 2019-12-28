@@ -93,12 +93,7 @@ open class DefaultIconFilter : IconFilter {
             val icon = icons[i]
             for (tagName in icon.tags) {
                 val tag = pack.getTag(tagName) as? NamedTag ?: continue
-                if (tag.value != null) {
-                    if (matchesSearch(tag.value, terms)) {
-                        matches = true
-                        break
-                    }
-                } else if (tag.aliases.any { matchesSearch(it, terms) }) {
+                if (tag.values.any { matchesSearch(it, terms) }) {
                     matches = true
                     break
                 }

@@ -42,7 +42,7 @@ internal class IconDialogPresenterTest {
         for (icon in icons.values) {
             for (tag in icon.tags) {
                 if (tag !in tags) {
-                    tags[tag] = NamedTag(tag, NamedTag.Value(tag, tag.normalize()), emptyList())
+                    tags[tag] = NamedTag(tag, listOf(NamedTag.Value(tag, tag.normalize())))
                 }
             }
             icon.drawable = mock()
@@ -139,9 +139,10 @@ internal class IconDialogPresenterTest {
     fun `icon list blank query`() {
         presenter.attach(view, null)
         clearInvocations(view)
+        presenter.onSearchQueryChanged("    ")
+        verify(view).setClearSearchBtnVisible(true)
         presenter.onSearchQueryEntered("    ")
         verify(view, never()).notifyAllIconsChanged()
-        verify(view).setClearSearchBtnVisible(true)
         assertEquals(7, presenter.itemCount)
     }
 
@@ -149,9 +150,10 @@ internal class IconDialogPresenterTest {
     fun `icon list with query`() {
         presenter.attach(view, null)
         clearInvocations(view)
+        presenter.onSearchQueryChanged("a")
+        verify(view).setClearSearchBtnVisible(true)
         presenter.onSearchQueryEntered("a")
         verify(view).notifyAllIconsChanged()
-        verify(view).setClearSearchBtnVisible(true)
         assertEquals(4, presenter.itemCount)
     }
 

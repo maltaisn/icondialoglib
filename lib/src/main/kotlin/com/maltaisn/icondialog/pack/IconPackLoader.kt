@@ -227,8 +227,8 @@ class IconPackLoader(context: Context) {
         val newTags = mutableMapOf<String, IconTag>()
 
         var tagName: String? = null
-        var tagValue: NamedTag.Value? = null
-        val tagAliases = mutableListOf<NamedTag.Value>()
+        val tagValues = mutableListOf<NamedTag.Value>()
+        var singleValueTag = false
 
         val parser = context.resources.getXml(pack.tagsXml)
         var documentStarted = false
@@ -259,12 +259,13 @@ class IconPackLoader(context: Context) {
                         } else if (tagName in newTags) {
                             parseError("Duplicate tag '$tagName' in same file.")
                         }
+                        singleValueTag = false
 
                     } else if (element == XML_TAG_ALIAS) {
                         if (tagName == null) {
                             parseError("Alias element must be in tag element body.")
                         }
-                        if (tagValue != null) {
+                        if (singleValueTag) {
                             parseError("Tag cannot have both a value and aliases.")
                         }
                         aliasStarted = true
@@ -280,8 +281,13 @@ class IconPackLoader(context: Context) {
                         val text = parser.text.replace('`', '\'')
                         val value = NamedTag.Value(text, text.normalize())
                         when {
-                            aliasStarted -> tagAliases += value
-                            tagAliases.isEmpty() -> tagValue = value
+                            aliasStarted -> {
+                                tagValues += value
+                            }
+                            tagValues.isEmpty() -> {
+                                tagValues += value
+                                singleValueTag = true
+                            }
                             else -> {
                                 parseError("Tag cannot have both a value and aliases.")
                             }
@@ -290,10 +296,10 @@ class IconPackLoader(context: Context) {
                 }
                 XmlPullParser.END_TAG -> if (element == XML_TAG_TAG && tagName != null) {
                     // Add new tag
-                    newTags[tagName] = NamedTag(tagName, tagValue, tagAliases.toList())
+                    newTags[tagName] = NamedTag(tagName, tagValues.toList())
                     tagName = null
-                    tagValue = null
-                    tagAliases.clear()
+                    tagValues.clear()
+                    singleValueTag = false
 
                 } else if (element == XML_TAG_ALIAS) {
                     aliasStarted = false

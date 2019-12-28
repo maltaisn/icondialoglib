@@ -24,7 +24,7 @@ import java.util.*
  * Normalize [this] string, removing all diacritics, all unicode characters, hyphens,
  * apostrophes and more. Resulting text has only lowercase latin letters and digits.
  */
-internal fun String.normalize(): String {
+fun String.normalize(): String {
     var normalized = this.toLowerCase(Locale.ROOT).trim()
     normalized = Normalizer.normalize(normalized, Normalizer.Form.NFKD)
     val sb = StringBuilder()

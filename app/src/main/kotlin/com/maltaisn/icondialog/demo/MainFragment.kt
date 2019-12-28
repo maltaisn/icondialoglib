@@ -311,10 +311,10 @@ class MainFragment : Fragment(), IconDialog.Callback {
                 val tags = mutableListOf<String>()
                 for (tagName in icon.tags) {
                     val tag = app.iconPack?.getTag(tagName) as? NamedTag ?: continue
-                    tags += if (tag.value != null) {
-                        tag.value!!.value
+                    tags += if (tag.values.size == 1) {
+                        tag.values.first().value
                     } else {
-                        "{${tag.aliases.joinToString { it.value }}}"
+                        "{${tag.values.joinToString { it.value }}}"
                     }
                 }
                 if (tags.isNotEmpty()) {

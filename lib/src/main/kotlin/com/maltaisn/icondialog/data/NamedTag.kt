@@ -22,8 +22,7 @@ package com.maltaisn.icondialog.data
  * Aliases can be synonyms or related terms with similar meaning.
  */
 data class NamedTag(override val name: String,
-                    val value: Value?,
-                    val aliases: List<Value>) : IconTag {
+                    val values: List<Value>) : IconTag {
 
     /**
      * A label value, storing both the raw value and the normalized value, used for searching.

@@ -50,12 +50,12 @@ internal class DefaultIconFilterTest {
         categories[2] = testCatg(2)
 
         // Add all tags objects referenced above
-        tags["xyz"] = NamedTag("xyz", null, listOf(
-                NamedTag.Value("xyz", "xyz"), NamedTag.Value("zyx", "zyx")))
+        tags["xyz"] = NamedTag("xyz", listOf(NamedTag.Value("xyz", "xyz"),
+                NamedTag.Value("zyx", "zyx")))
         for (icon in icons.values) {
             for (tag in icon.tags) {
                 if (tag !in tags) {
-                    tags[tag] = NamedTag(tag, NamedTag.Value(tag, tag.normalize()), emptyList())
+                    tags[tag] = NamedTag(tag, listOf(NamedTag.Value(tag, tag.normalize())))
                 }
             }
         }
@@ -96,7 +96,7 @@ internal class DefaultIconFilterTest {
     @Test
     fun `should sort icons correctly`() {
         val icons = filter.queryIcons(pack).sortedWith(filter)
-        assertIconsAre(icons, 6, 0, 3, 1, 2, 4, 5)
+        assertIconsAre(icons, 6, 0, 1, 3, 2, 4, 5)
     }
 
     @Test

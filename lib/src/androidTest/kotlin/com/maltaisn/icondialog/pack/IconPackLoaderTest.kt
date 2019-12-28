@@ -28,7 +28,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 import kotlin.test.assertEquals
-import kotlin.test.assertNull
 
 
 @RunWith(MockitoJUnitRunner::class)
@@ -219,19 +218,18 @@ internal class IconPackLoaderTest {
     @Test
     fun loadTags_singleQuoteEscape() {
         val pack = packLoader.load(R.xml.icons_empty, R.xml.tags_single_quote_escape)
-        assertEquals("Don't do that!", (pack.tags["tag"] as NamedTag).value?.value)
+        assertEquals("Don't do that!", (pack.tags["tag"] as NamedTag).values.first().value)
     }
 
     @Test
     fun loadTags_valid() {
         val pack = packLoader.load(R.xml.icons_empty, R.xml.tags_valid)
-        assertEquals(NamedTag.Value("Tag 1", "tag1"), (pack.tags["tag1"] as NamedTag).value)
-        assertEquals(NamedTag.Value("ȚàĞ ²", "tag2"), (pack.tags["tag2"] as NamedTag).value)
+        assertEquals(NamedTag.Value("Tag 1", "tag1"), (pack.tags["tag1"] as NamedTag).values.first())
+        assertEquals(NamedTag.Value("ȚàĞ ²", "tag2"), (pack.tags["tag2"] as NamedTag).values.first())
 
         val tag3 = pack.tags["tag3"] as NamedTag
-        assertNull(tag3.value)
         assertEquals(listOf(NamedTag.Value("Tag 3", "tag3"),
-                NamedTag.Value("Tàg three", "tagthree")), tag3.aliases)
+                NamedTag.Value("Tàg three", "tagthree")), tag3.values)
 
         assertEquals(3, pack.tags.size)
     }
@@ -240,7 +238,7 @@ internal class IconPackLoaderTest {
     fun loadTags_override() {
         val parent = packLoader.load(R.xml.icons_empty, R.xml.tags_override_parent)
         val child = packLoader.load(R.xml.icons_empty, R.xml.tags_override_child, parent = parent)
-        assertEquals("Child", (child.tags["tag"] as NamedTag).value?.value)
+        assertEquals("Child", (child.tags["tag"] as NamedTag).values.first().value)
     }
 
 }
