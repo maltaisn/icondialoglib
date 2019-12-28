@@ -76,6 +76,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
             setNoResultLabelVisible(false)
 
             val searchVisible = settings.searchVisibility == SearchVisibility.ALWAYS
+                    && iconPack.locales.isNotEmpty()
                     || settings.searchVisibility == SearchVisibility.IF_LANGUAGE_AVAILABLE
                     && view.locale.language in iconPack.locales.map { it.language }
             val titleVisible = settings.titleVisibility == TitleVisibility.ALWAYS
