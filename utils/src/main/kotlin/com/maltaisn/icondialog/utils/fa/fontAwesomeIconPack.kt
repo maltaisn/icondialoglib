@@ -22,12 +22,9 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.maltaisn.icondialog.utils.Category
-import com.maltaisn.icondialog.utils.Icon
-import com.maltaisn.icondialog.utils.createIconsXml
+import com.maltaisn.icondialog.utils.*
 import com.maltaisn.icondialog.utils.fa.data.FaCategory
 import com.maltaisn.icondialog.utils.fa.data.FaIcon
-import com.maltaisn.icondialog.utils.normalizeName
 import com.maltaisn.icondialog.utils.svg.PathFormatter
 import com.maltaisn.icondialog.utils.svg.PathTokenizer
 import com.maltaisn.icondialog.utils.svg.PathTransformer
@@ -86,20 +83,17 @@ fun main(args: Array<String>) {
     }
 
     // 4. Assign ID to each category and set it to icons.
+    // 5. Create pack categories from FA categories
     var catgId = 0
-    for ((name, icons) in iconsByCatg.entries) {
-        val faCatg = faCategories[name] ?: continue
+    val categories = mutableListOf<Category>()
+    for ((catgName, icons) in iconsByCatg.entries) {
+        val faCatg = faCategories[catgName] ?: continue
         faCatg.id = catgId
         for (iconName in icons) {
             faIcons[iconName]?.category = catgId
         }
+        categories += Category(faCatg.id, catgName.normalizeName(), faCatg.name)
         catgId++
-    }
-
-    // 5. Create pack categories from FA categories
-    val categories = iconsByCatg.keys.map { name ->
-        val faCatg = faCategories[name] ?: error("")
-        Category(faCatg.id, name.normalizeName(), faCatg.name)
     }
 
     // STEP 2 - Create a list of icons from FA icons
@@ -118,9 +112,16 @@ fun main(args: Array<String>) {
     val pathTokenizer = PathTokenizer()
     val pathFormatter = PathFormatter(params.precision)
     val icons = mutableListOf<Icon>()
+    val tags = mutableSetOf<Tag>()
     for (faIcon in faIcons.values) {
         // Base icon ID is derived from unicode code point.
         val baseId = faIcon.id.toInt(16) and 0x0FFF
+
+        // Create tags from search terms, icon name and category name
+        val iconTags = getIconTags(faIcon, categories[faIcon.category])
+        val tagNames = iconTags.map { it.name }
+        tags += iconTags
+
         for ((i, variantName) in params.variants.withIndex()) {
             val variant = faIcon.variants[variantName] ?: continue
 
@@ -135,16 +136,40 @@ fun main(args: Array<String>) {
             val transformedPath = pathTransformer.applyTransform(pathTokens)
             val pathData = pathFormatter.format(transformedPath)
 
-            icons += Icon(id, faIcon.category, emptyList(), pathData,
+            icons += Icon(id, faIcon.category, tagNames, pathData,
                     params.iconSize, params.iconSize)
         }
     }
 
     // STEP 3 - Create icon pack files
     println("Exporting icon pack")
-    createIconsXml(icons, categories, File(params.outputDir),
-            params.iconSize, params.iconSize, params.append)
+    val outputDir = File(params.outputDir)
+    createIconsXml(icons, categories, outputDir, params.iconSize, params.iconSize)
+    createTagsXml(tags.sorted(), outputDir)
 
-    println("DONE: ${icons.size} icons, ${categories.size} categories")
+    println("DONE: ${icons.size} icons, ${categories.size} categories, ${tags.size} tags")
 }
 
+private fun getIconTags(icon: FaIcon, category: Category): List<Tag> {
+    val tags = mutableSetOf<Tag>()
+
+    // Add tags from search terms and icon name.
+    icon.search.terms.flatMapTo(tags) { getTagsFromString(it) }
+    tags += getTagsFromString(icon.name)
+
+    // Add tags from category name
+    tags += getTagsFromString(category.nameValue)
+
+    // Discard tags with names of 2 letters or less, and tags with no letters.
+    tags.removeIf {
+        it.name.length <= 2 || "[a-z]".toRegex() !in it.name
+    }
+
+    return tags.toList()
+}
+
+private fun getTagsFromString(str: String) = str.split('-', '_', ' ', '&').map {
+    var name = it
+    if (name.endsWith("'s")) name = name.substring(0, name.length - 2)
+    Tag(name.normalizeName(), listOf(name.normalizeValue()))
+}

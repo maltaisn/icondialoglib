@@ -16,16 +16,48 @@
 
 package com.maltaisn.icondialog.utils
 
+import java.io.File
+
 
 /**
- * Create an `tgs.xml` file from a list of [tags].
- * Files are generated in the [outputDir] directory.
- *
- * @param append Whether to append existing tags, i.e by not removed existing tags that are
- * absent from the list of [tags].
+ * Create an `tas.xml` file from a list of [tags].
+ * File is generated in the [outputDir] directory.
  */
-fun createIconsXml(tags: List<Tag>, append: Boolean) {
-    // TODO
+fun createTagsXml(tags: List<Tag>, outputDir: File) {
+    // Create content
+    val tagsXml = StringBuilder()
+    tagsXml.appendln("<tags>")
+    for (tag in tags) {
+        // Escape invalid XML characters in tag values
+        val values = tag.values.map {
+            it.replace("&", "&amp;")
+                    .replace("'", "`")
+        }
+
+        tagsXml.appendIndent(1)
+        tagsXml.append("""<tag name="${tag.name}">""")
+
+        if (values.size == 1) {
+            // Use single value
+            tagsXml.appendln("${values.first()}</tag>")
+
+        } else if (values.size > 1) {
+            // Use aliases
+            tagsXml.appendln()
+            for (value in values) {
+                tagsXml.appendIndent(2)
+                tagsXml.appendln("<alias>$value</alias>")
+            }
+            tagsXml.appendIndent(1)
+            tagsXml.appendln("</tag>")
+        }
+    }
+    tagsXml.appendln("</tags>")
+
+    // Export file
+    File(outputDir, "tags.xml").writeText(tagsXml.toString())
 }
 
-data class Tag(val name: String, val values: List<String>)
+data class Tag(val name: String, val values: List<String>) : Comparable<Tag> {
+    override fun compareTo(other: Tag) = name.compareTo(other.name)
+}

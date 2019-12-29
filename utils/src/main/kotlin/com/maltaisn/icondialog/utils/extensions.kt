@@ -24,17 +24,43 @@ import java.util.*
  * Normalize [this] string to make it a valid icon pack name for a category or a tag. All diacritics,
  * all unicode characters, hyphens, apostrophes are removed. Common word separators are replaced with
  * underscores. Resulting text has only lowercase latin letters, digits and underscores.
+ * Leading and trailing underscores are also removed.
  */
 fun String.normalizeName(): String {
-    val parts = split('-', '_', ' ', ',', ';', '&', '+', '.').toMutableList()
+    val parts = split('-', '_', ' ', ',', ';', '&', '+', '.')
+            .filter { it.isNotEmpty() }.toMutableList()
     for ((i, part) in parts.withIndex()) {
         var normalized = part.toLowerCase(Locale.ROOT).trim()
         normalized = Normalizer.normalize(normalized, Normalizer.Form.NFKD)
-        parts[i] = normalized.replace("""[^A-Z0-9]""", "")
+        parts[i] = normalized.replace("[^a-z0-9]".toRegex(), "")
     }
     return parts.joinToString("_")
 }
 
+/**
+ * Normalize [this] string used as a tag value.
+ * - Only lowercase letters and digits are kept.
+ * - String is trimmed, all whitespace sequences are converted to a single space.
+ * - "'s" suffix is removed.
+ * - First letter is capitalized.
+ */
+fun String.normalizeValue(): String {
+    var normalized = this.toLowerCase(Locale.ROOT).trim()
+    normalized = Normalizer.normalize(normalized, Normalizer.Form.NFKD)
+    normalized = normalized.replace("""\s+""".toRegex(), " ")
+
+    val sb = StringBuilder()
+    for (c in normalized) {
+        if (c == ' ' || c in 'a'..'z' || c in '0'..'9') {
+            sb.append(c)
+        }
+    }
+    if (sb.isNotEmpty()) {
+        sb[0] = sb[0].toUpperCase()
+    }
+
+    return sb.toString()
+}
 
 /**
  * Append indent up to a [level] to [this] StringBuilder.

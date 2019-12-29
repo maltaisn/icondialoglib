@@ -25,15 +25,9 @@ import java.io.File
  *
  * Icon pack uses [packWidth] and [packHeight] as global icon size. If any icon in list has
  * a different size, it will be defined explicitly in XML.
- *
- * @param append Whether to append existing files if they exist. Old icons not in [icons] are
- * kept and old tags not in new icons are kept.
  */
 fun createIconsXml(icons: List<Icon>, categories: List<Category>, outputDir: File,
-                   packWidth: Int, packHeight: Int,
-                   append: Boolean) {
-    // TODO read existing files and merge with new icons and categories.
-
+                   packWidth: Int, packHeight: Int) {
     // Map categories and icons
     val catgMap = categories.associateBy { it.id }
     val iconsMap = icons.groupBy { it.categoryId }.toSortedMap()
@@ -52,7 +46,7 @@ fun createIconsXml(icons: List<Icon>, categories: List<Category>, outputDir: Fil
             iconsXml.appendIndent(if (catgId == -1) 1 else 2)
             iconsXml.append("""<icon id="${icon.id}"""")
             if (icon.tags.isNotEmpty()) {
-                iconsXml.append("""tags="""")
+                iconsXml.append(""" tags="""")
                 iconsXml.append(icon.tags.joinToString(","))
                 iconsXml.append('"')
             }
@@ -75,8 +69,11 @@ fun createIconsXml(icons: List<Icon>, categories: List<Category>, outputDir: Fil
     val stringsXml = StringBuilder()
     stringsXml.appendln("<resources>")
     for (catg in catgMap.values) {
+        val nameValue = catg.nameValue
+                .replace("&", "&amp;")
+                .replace("'", "&apos;")
         stringsXml.appendIndent(1)
-        stringsXml.appendln("""<string name="catg_${catg.name}">${catg.nameValue}</string>""")
+        stringsXml.appendln("""<string name="catg_${catg.name}">$nameValue</string>""")
     }
     stringsXml.appendln("</resources>")
 

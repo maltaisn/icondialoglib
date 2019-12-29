@@ -41,7 +41,4 @@ class FaParameters {
     @Parameter(names = ["-s", "--iconSize"])
     var iconSize: Int = 24
 
-    @Parameter(names = ["--append"])
-    var append: Boolean = true
-
 }

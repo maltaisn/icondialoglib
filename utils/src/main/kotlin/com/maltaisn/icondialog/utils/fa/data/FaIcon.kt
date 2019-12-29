@@ -22,5 +22,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class FaIcon(
         @JsonProperty("unicode") val id: String,
         @JsonProperty("search") val search: FaIconSearch,
+        @JsonProperty("label") val name: String,
         @JsonProperty("svg") val variants: Map<String, FaIconVariant>,
         @JsonIgnore var category: Int = -1)
