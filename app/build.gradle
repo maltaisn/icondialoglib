@@ -29,6 +29,7 @@ dependencies {
     implementation project(":lib")
 
     implementation project(":iconpacks:iconpack-default")
+    implementation project(":iconpacks:iconpack-fa")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 

@@ -165,7 +165,7 @@ private fun getIconTags(icon: FaIcon, category: Category): List<Tag> {
         it.name.length <= 2 || "[a-z]".toRegex() !in it.name
     }
 
-    return tags.toList()
+    return tags.sorted()
 }
 
 private fun getTagsFromString(str: String) = str.split('-', '_', ' ', '&').map {

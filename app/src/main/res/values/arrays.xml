@@ -19,6 +19,7 @@
 
     <string-array name="icon_packs">
         <item>@string/icon_pack_default</item>
+        <item>@string/icon_pack_fa</item>
     </string-array>
 
     <string-array name="title_visibility">

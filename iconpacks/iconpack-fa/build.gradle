@@ -1,0 +1,37 @@
+plugins {
+    id "com.android.library"
+    id "kotlin-android"
+}
+
+ext {
+    // Auto generate version code based on version name
+    iconPackFaVersionCode = versionToCode(iconPackFaVersion)
+}
+
+android {
+    compileSdkVersion setup.compileSdk
+    buildToolsVersion setup.buildTools
+    defaultConfig {
+        minSdkVersion setup.minSdk
+        targetSdkVersion setup.targetSdk
+        versionCode iconPackFaVersionCode
+        versionName iconPackFaVersion
+    }
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation project(":lib")
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "androidx.annotation:annotation:$annotationsVersion"
+}

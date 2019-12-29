@@ -24,19 +24,19 @@ import com.beust.jcommander.Parameters
 class FaParameters {
 
     @Parameter(names = ["-i", "--icons"])
-    var iconsJson: String = ""
+    var iconsJson: String = "icons.json"
 
     @Parameter(names = ["-c", "--categories"])
-    var categoriesYaml: String = ""
+    var categoriesYaml: String = "categories.yml"
 
     @Parameter(names = ["-o", "--output"])
     var outputDir: String = ""
 
     @Parameter(names = ["-v", "--variants"], variableArity = true)
-    var variants: List<String> = emptyList()
+    var variants: List<String> = listOf("solid")
 
     @Parameter(names = ["-p", "--precision"])
-    var precision: Int = 2
+    var precision: Int = 1
 
     @Parameter(names = ["-s", "--iconSize"])
     var iconSize: Int = 24

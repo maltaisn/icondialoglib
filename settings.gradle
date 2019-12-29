@@ -1,3 +1,4 @@
-include ":app", ":lib"
-include ":iconpacks:iconpack-default"
-include ":utils"
+include ":app", ":lib", ":utils"
+
+include ":iconpacks:iconpack-default",
+        ":iconpacks:iconpack-fa"

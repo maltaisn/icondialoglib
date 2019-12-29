@@ -22,7 +22,6 @@ import java.util.*
 
 /**
  * Create the default icon pack with a icon pack [loader].
- * This operation is blocking and should be called asynchronously.
  */
 fun createDefaultIconPack(loader: IconPackLoader) =
         loader.load(R.xml.iconpack_default_icons, R.xml.iconpack_default_tags,
