@@ -36,7 +36,6 @@ abstract class MinifiedIconPackGenerator(outputDir: File, iconSize: Int)
 
         // Find the number of uses of each tag.
         val tagsUses = mutableMapOf<Tag, Int>()
-
         for (icon in icons) {
             for (tag in icon.tags) {
                 tagsUses[tag] = (tagsUses[tag] ?: 0) + 1
@@ -67,10 +66,41 @@ abstract class MinifiedIconPackGenerator(outputDir: File, iconSize: Int)
 
             i++
         }
+    }
 
-        // Sort icon tags
-        for (icon in icons) {
-            icon.tags.sort()
+    /**
+     * Replace groups of tags used only together with alias values.
+     */
+    fun createTagAliases() {
+        println("Creating tag aliases")
+
+        // Find a list of icons that uses each tag
+        val tagsUses = mutableMapOf<Tag, MutableList<Icon>>()
+        for (catgIcons in iconPack.values) {
+            for (icon in catgIcons) {
+                for (tag in icon.tags) {
+                    tagsUses.getOrPut(tag) { mutableListOf() } += icon
+                }
+            }
+        }
+
+        // Invert map to get a map of icons with common tag groups
+        val aliases = mutableMapOf<List<Icon>, MutableList<Tag>>()
+        for ((tag, iconList) in tagsUses.entries) {
+            if (iconList.size > 1) {
+                aliases.getOrPut(iconList) { mutableListOf() } += tag
+            }
+        }
+
+        // Replace common tag groups with a single tag with alias values.
+        for ((iconList, tags) in aliases) {
+            if (tags.size > 1) {
+                val newTag = Tag(tags.joinToString("_") { it.name }, tags.flatMap { it.values })
+                for (icon in iconList) {
+                    icon.tags -= tags
+                    icon.tags += newTag
+                }
+            }
         }
     }
 

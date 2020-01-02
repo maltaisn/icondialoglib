@@ -30,20 +30,20 @@ abstract class IconPackGenerator(val outputDir: File, val iconSize: Int) {
      * Create `icons.xml`, `strings.xml` and `tags.xml` files for an [iconPack].
      * Files are generated in the [outputDir] directory.
      */
-    fun createFiles() {
+    fun createFiles(indent: Boolean) {
         println("Exporting XML files")
-        createIconsXml()
-        createStringsXml()
-        createTagsXml()
+        createIconsXml(indent)
+        createStringsXml(indent)
+        createTagsXml(indent)
     }
 
-    private fun createIconsXml() {
+    private fun createIconsXml(indent: Boolean) {
         val xml = XmlTag("icons", "width" to iconSize, "height" to iconSize) {
             for ((catg, catgIcons) in iconPack) {
                 // Create icon tags
                 val iconTags = mutableListOf<XmlTag>()
                 for (icon in catgIcons) {
-                    val tags = if (icon.tags.isEmpty()) null else icon.tags.joinToString(",") { it.name }
+                    val tags = if (icon.tags.isEmpty()) null else icon.tags.sorted().joinToString(",") { it.name }
                     val width = if (icon.width == iconSize) null else icon.width
                     val height = if (icon.height == iconSize) null else icon.height
                     iconTags += XmlTag("icon", "id" to icon.id,
@@ -62,10 +62,10 @@ abstract class IconPackGenerator(val outputDir: File, val iconSize: Int) {
                 }
             }
         }
-        File(outputDir, ICONS_XML).writeText(xml.toXml())
+        File(outputDir, ICONS_XML).writeText(xml.toXml(indent))
     }
 
-    private fun createStringsXml() {
+    private fun createStringsXml(indent: Boolean) {
         val categories = iconPack.keys.sortedBy { it.id }
         val xml = XmlTag("resources") {
             for (catg in categories) {
@@ -74,10 +74,10 @@ abstract class IconPackGenerator(val outputDir: File, val iconSize: Int) {
                 }
             }
         }
-        File(outputDir, STRINGS_XML).writeText(xml.toXml())
+        File(outputDir, STRINGS_XML).writeText(xml.toXml(indent))
     }
 
-    private fun createTagsXml() {
+    private fun createTagsXml(indent: Boolean) {
         // Find all tags
         val tags = linkedSetOf<Tag>()
         for (catgIcons in iconPack.values) {
@@ -105,7 +105,7 @@ abstract class IconPackGenerator(val outputDir: File, val iconSize: Int) {
                 }
             }
         }
-        File(outputDir, TAGS_XML).writeText(xml.toXml())
+        File(outputDir, TAGS_XML).writeText(xml.toXml(indent))
     }
 
     data class Category(var id: Int,

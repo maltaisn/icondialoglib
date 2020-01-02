@@ -32,7 +32,8 @@ sealed class XmlElement {
                     children: XmlBuilder.() -> Unit = {}) :
                 this(name, attributes.toMap(), XmlBuilder().apply(children).children)
 
-        fun toXml(): String = toXml(0).toString()
+        fun toXml(indent: Boolean = true) =
+                toXml(if (indent) 0 else INDENT_NONE).toString()
 
         private fun toXml(indent: Int): CharSequence {
             val xml = StringBuilder()
@@ -54,15 +55,17 @@ sealed class XmlElement {
             // Children elements
             if (children.isEmpty()) {
                 // Use self-closing tag
-                xml.appendln("/>")
+                xml.append("/>")
+                if (indent != INDENT_NONE) xml.appendln()
             } else {
                 // Append children elements
                 val isTextOnly = (children.size == 1 && children.first() is XmlText)
                 xml.append('>')
-                if (!isTextOnly) xml.appendln()
+                if (!isTextOnly && indent != INDENT_NONE) xml.appendln()
                 for (child in children) {
                     xml.append(when (child) {
-                        is XmlTag -> child.toXml(indent + 1)
+                        is XmlTag -> child.toXml(
+                                if (indent == INDENT_NONE) INDENT_NONE else indent + 1)
                         is XmlText -> child.text.escapeXml()
                     })
                 }
@@ -71,9 +74,14 @@ sealed class XmlElement {
                 if (!isTextOnly) xml.appendIndent(indent)
                 xml.append("</")
                 xml.append(name)
-                xml.appendln('>')
+                xml.append('>')
+                if (indent != INDENT_NONE) xml.appendln()
             }
             return xml
+        }
+
+        companion object {
+            const val INDENT_NONE = -1
         }
 
     }

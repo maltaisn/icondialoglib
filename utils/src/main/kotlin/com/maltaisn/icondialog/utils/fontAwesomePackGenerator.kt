@@ -56,8 +56,9 @@ private class FontAwesomeIconPackGenerator(
         createIconPack()
 
         assignCategoryIds()
+        createTagAliases()
         shrinkTags()
-        createFiles()
+        createFiles(true)
     }
 
     /** Parse Font Awesome input files. */
@@ -140,7 +141,6 @@ private class FontAwesomeIconPackGenerator(
 
                 // Create tags from search terms and icon name
                 val iconTags = getIconTags(faIcon).toMutableList()
-                iconTags.sort()
 
                 for ((i, variantName) in variants.withIndex()) {
                     val variant = faIcon.variants[variantName] ?: continue
