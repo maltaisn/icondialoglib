@@ -38,7 +38,7 @@ abstract class MinifiedIconPackGenerator(outputDir: File, iconSize: Int)
         val tagsUses = mutableMapOf<Tag, Int>()
         for (icon in icons) {
             for (tag in icon.tags) {
-                tagsUses[tag] = (tagsUses[tag] ?: 0) + 1
+                tagsUses[tag] = tagsUses.getOrDefault(tag, 0) + 1
             }
         }
 

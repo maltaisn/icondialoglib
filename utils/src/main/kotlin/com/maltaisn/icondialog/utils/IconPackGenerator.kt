@@ -22,9 +22,15 @@ import java.text.Normalizer
 import java.util.*
 
 
+/**
+ * Class used to generate an icon pack.
+ *
+ * @param outputDir Destination folder of the generated XML files.
+ * @param iconSize Pack icon viewport size, used by all icons.
+ */
 abstract class IconPackGenerator(val outputDir: File, val iconSize: Int) {
 
-    protected var iconPack = mutableMapOf<Category, MutableList<Icon>>()
+    protected val iconPack = sortedMapOf<Category, MutableList<Icon>>()
 
     /**
      * Create `icons.xml`, `strings.xml` and `tags.xml` files for an [iconPack].
@@ -110,13 +116,17 @@ abstract class IconPackGenerator(val outputDir: File, val iconSize: Int) {
 
     data class Category(var id: Int,
                         val name: String,
-                        val nameValue: String)
+                        val nameValue: String): Comparable<Category> {
+        override fun compareTo(other: Category) = name.compareTo(other.name)
+    }
 
     data class Icon(val id: Int,
                     val tags: MutableList<Tag>,
                     val pathData: String,
                     val width: Int,
-                    val height: Int)
+                    val height: Int): Comparable<Icon> {
+        override fun compareTo(other: Icon) = id.compareTo(other.id)
+    }
 
     data class Tag(val name: String, val values: List<String>) : Comparable<Tag> {
         override fun compareTo(other: Tag) = name.compareTo(other.name)
