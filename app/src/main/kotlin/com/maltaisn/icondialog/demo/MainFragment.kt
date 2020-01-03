@@ -17,7 +17,6 @@
 package com.maltaisn.icondialog.demo
 
 import android.content.Context
-import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +25,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.annotation.ArrayRes
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,6 +50,7 @@ class MainFragment : Fragment(), IconDialog.Callback {
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private var packLoadJob: Job? = null
+    private var progressVisbJob: Job? = null
 
     private lateinit var iconDialog: IconDialog
     private lateinit var iconsAdapter: IconsAdapter
@@ -136,6 +136,7 @@ class MainFragment : Fragment(), IconDialog.Callback {
         iconsRcv.layoutManager = LinearLayoutManager(context)
 
         fab = view.findViewById(R.id.fab)
+        fab.hide()
         fab.setOnClickListener {
             if (app.iconPack == null) return@setOnClickListener
 
@@ -234,6 +235,21 @@ class MainFragment : Fragment(), IconDialog.Callback {
             fab.show()
 
             updateSelectedIcons()
+
+            progressVisbJob?.cancel()
+            progressVisbJob = null
+            packLoadJob = null
+        }
+
+        // Start new job to show progress after some delay.
+        progressVisbJob?.cancel()
+        progressVisbJob = coroutineScope.launch(Dispatchers.Default) {
+            delay(250)
+            withContext(Dispatchers.Main) {
+                iconPackPb.isInvisible = false
+                fab.hide()
+            }
+            progressVisbJob = null
         }
     }
 

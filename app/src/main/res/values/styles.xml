@@ -20,7 +20,7 @@
     <style name="CustomIconDialogStyle" parent="IcdStyle">
         <!--
         <item name="icdIconSize">30dp</item>
-        <item name="icdIconColor">#000000</item>
+        <item name="icdIconColor">@color/custom_color</item>
         <item name="icdListHeaderStyle">@style/CustomHeaderStyle</item>
         -->
     </style>

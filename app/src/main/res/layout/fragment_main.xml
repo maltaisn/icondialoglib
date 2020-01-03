@@ -53,7 +53,9 @@
             android:layout_margin="16dp"
             android:layout_gravity="bottom|end"
             android:src="@drawable/ic_edit"
+            android:visibility="gone"
             app:fabSize="normal"
+            tools:visibility="visible"
             />
 
         <androidx.core.widget.NestedScrollView
