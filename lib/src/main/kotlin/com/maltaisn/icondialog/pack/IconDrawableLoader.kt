@@ -112,8 +112,8 @@ open class IconDrawableLoader(context: Context) {
                 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x00u, 0x14u, 0x00u, 0x14u, 0x00u,
                 0x04u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x06u, 0x00u, 0x00u, 0x00u,
                 0x00u, 0x00u, 0x00u, 0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x05u,
-                0x00u, 0x00u, 0x00u, 0x00u, 0x06u, 0x00u, 0x00u, 0x00u, 0x01u, 0x00u, 0x00u, 0x00u,
-                0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x05u, 0x00u, 0x00u, 0x00u, 0x00u,
+                0x01u, 0x18u, 0x00u, 0x00u, 0x06u, 0x00u, 0x00u, 0x00u, 0x01u, 0x00u, 0x00u, 0x00u,
+                0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x05u, 0x01u, 0x18u, 0x00u, 0x00u,
                 0x06u, 0x00u, 0x00u, 0x00u, 0x02u, 0x00u, 0x00u, 0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu,
                 0x08u, 0x00u, 0x00u, 0x04u, 0x00u, 0x00u, 0x00u, 0x00u, 0x06u, 0x00u, 0x00u, 0x00u,
                 0x03u, 0x00u, 0x00u, 0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0x08u, 0x00u, 0x00u, 0x04u,
@@ -131,8 +131,10 @@ open class IconDrawableLoader(context: Context) {
 
         /**
          * Create a vector drawable binary XML from [pathData] so that it can be parsed and created.
+         * Path data should fit in a viewport of a [width] and a [height].
+         *
          * See [https://justanapplication.wordpress.com/category/android/android-binary-xml/] and
-         * [https://stackoverflow.com/a/49920860/5288316].
+         * [https://stackoverflow.com/a/49920860/5288316] for more documentation.
          */
         private fun createDrawableBinaryXml(pathData: String, width: Int, height: Int): ByteArray {
             val pathBytes = pathData.toByteArray()
@@ -184,11 +186,9 @@ open class IconDrawableLoader(context: Context) {
                 bb.put(b.toByte())
             }
 
-            // Write size attributes
-            bb.putInt(index + 84, (width shl 8) + 1)  // android:width="24dp"
-            bb.putInt(index + 104, (height shl 8) + 1)  // android:height="24dp"
-            bb.putInt(index + 124, width.toFloat().toRawBits())  // android:viewportWidth="24"
-            bb.putInt(index + 144, height.toFloat().toRawBits())  // android:viewportHeight="24"
+            // Write viewport size attributes
+            bb.putInt(index + 124, width.toFloat().toRawBits())  // android:viewportWidth="..."
+            bb.putInt(index + 144, height.toFloat().toRawBits())  // android:viewportHeight="..."
 
             return bb.array()
         }

@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import com.maltaisn.icondialog.utils.generator.MinifiedIconPackGenerator
 import com.maltaisn.icondialog.utils.svg.PathFormatter
 import com.maltaisn.icondialog.utils.svg.PathTokenizer
 import com.maltaisn.icondialog.utils.svg.PathTransformer
@@ -34,8 +35,8 @@ fun main(args: Array<String>) {
     val categoriesYaml = File(args[1])
     val outputDir = File(args[2])
 
-    val generator = FontAwesomeIconPackGenerator(outputDir, 24,
-            listOf("solid"), 1, 4)
+    val generator = FontAwesomeIconPackGenerator(outputDir, 640,
+            listOf("solid"), 0, 4)
     generator.generate(iconsJson, categoriesYaml)
 }
 
