@@ -33,6 +33,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.res.use
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.os.ConfigurationCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
@@ -92,6 +93,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     private var iconSize = 0
     private var iconColorNormal = Color.BLACK
     private var iconColorSelected = Color.BLACK
+
 
     @SuppressLint("InflateParams", "Recycle")
     override fun onCreateDialog(state: Bundle?): Dialog {
@@ -329,13 +331,14 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             }
 
             override fun bindView(icon: Icon, selected: Boolean) {
-                val hasIcon = icon.drawable != null
-                if (hasIcon) {
-                    iconImv.setImageDrawable(icon.drawable)
+                val drawable = icon.drawable
+                if (drawable != null) {
+                    iconImv.setImageDrawable(DrawableCompat.wrap(drawable).mutate())
+                    iconImv.alpha = 1.0f
                 } else {
                     iconImv.setImageResource(R.drawable.icd_ic_unavailable)
+                    iconImv.alpha = 0.3f
                 }
-                iconImv.alpha = if (hasIcon) 1.0f else 0.3f
                 iconImv.setColorFilter(if (selected) iconColorSelected else iconColorNormal,
                         PorterDuff.Mode.SRC_IN)
             }

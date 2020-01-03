@@ -77,7 +77,7 @@ open class IconDrawableLoader(context: Context) {
             return null
         }
 
-        icon.drawable = drawable?.constantState?.newDrawable()
+        icon.drawable = drawable
         return icon.drawable
     }
 

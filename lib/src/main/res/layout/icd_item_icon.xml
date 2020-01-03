@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Copyright 2019 Nicolas Maltais
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,11 +17,12 @@
 <androidx.appcompat.widget.AppCompatImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="?icdIconStyle"
     android:layout_width="?icdIconSize"
     android:layout_height="?icdIconSize"
-    style="?icdIconStyle"
-    tools:layout_width="50dp"
     tools:layout_height="50dp"
+    tools:layout_width="50dp"
     tools:padding="8dp"
     tools:src="@drawable/icd_ic_unavailable"
-    tools:ignore="ContentDescription"/>
+    tools:ignore="ContentDescription"
+    />
