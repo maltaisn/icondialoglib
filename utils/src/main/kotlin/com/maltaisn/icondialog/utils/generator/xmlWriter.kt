@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.maltaisn.icondialog.utils
+package com.maltaisn.icondialog.utils.generator
 
 
 sealed class XmlElement {

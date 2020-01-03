@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.maltaisn.icondialog.utils
+package com.maltaisn.icondialog.utils.generator
 
-import com.maltaisn.icondialog.utils.XmlElement.XmlTag
+import com.maltaisn.icondialog.utils.generator.XmlElement.XmlTag
 import java.io.File
 import java.text.Normalizer
 import java.util.*
