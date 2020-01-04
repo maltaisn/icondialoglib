@@ -28,9 +28,12 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.annotation.ColorRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.res.use
 import androidx.core.graphics.drawable.DrawableCompat
@@ -110,8 +113,8 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             maxDialogWidth = it.getDimensionPixelSize(R.styleable.IconDialog_icdMaxWidth, -1)
             maxDialogHeight = it.getDimensionPixelSize(R.styleable.IconDialog_icdMaxHeight, -1)
             iconSize = it.getDimensionPixelSize(R.styleable.IconDialog_icdIconSize, -1)
-            iconColorNormal = it.getColor(R.styleable.IconDialog_icdIconColor, 0)
-            iconColorSelected = it.getColor(R.styleable.IconDialog_icdSelectedIconColor, 0)
+            iconColorNormal = getColor(it.getResourceId(R.styleable.IconDialog_icdIconColor, 0))
+            iconColorSelected = getColor(it.getResourceId(R.styleable.IconDialog_icdSelectedIconColor, 0))
         }
 
         searchHandler = Handler()
@@ -168,6 +171,9 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
 
         // Dialog
         val dialog = Dialog(contextWrapper)
+        // Needed on API 16 to remove header space, see https://stackoverflow.com/a/41752000/5288316
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+
         dialog.setOnShowListener {
             // Get maximum dialog dimensions
             val fgPadding = Rect()
@@ -200,6 +206,13 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
 
         return dialog
     }
+
+    /**
+     * Inflate color state list with compat library and return default color.
+     * `ContextCompat.getColor` doesn't seem to use compat library.
+     */
+    private fun getColor(@ColorRes color: Int) =
+        AppCompatResources.getColorStateList(requireContext(), color).defaultColor
 
     override fun onSaveInstanceState(state: Bundle) {
         super.onSaveInstanceState(state)

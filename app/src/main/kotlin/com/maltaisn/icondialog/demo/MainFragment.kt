@@ -26,9 +26,10 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.annotation.ArrayRes
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContextCompat
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -138,7 +139,7 @@ class MainFragment : Fragment(), IconDialog.Callback {
         iconsRcv.layoutManager = LinearLayoutManager(context)
 
         fab = view.findViewById(R.id.fab)
-        fab.hide()
+        fab.isVisible = (app.iconPack != null)
         fab.setOnClickListener {
             if (app.iconPack == null) return@setOnClickListener
 
@@ -321,8 +322,8 @@ class MainFragment : Fragment(), IconDialog.Callback {
                 val context = requireContext()
 
                 iconView.setImageDrawable(DrawableCompat.wrap(icon.drawable!!).mutate())
-                iconView.setColorFilter(ContextCompat.getColor(context,
-                        R.color.material_on_background_emphasis_medium), PorterDuff.Mode.SRC_IN)
+                iconView.setColorFilter(AppCompatResources.getColorStateList(context,
+                        R.color.material_on_background_emphasis_medium).defaultColor, PorterDuff.Mode.SRC_IN)
 
                 // Set information
                 iconIdTxv.text = getString(R.string.icon_id_fmt, icon.id)

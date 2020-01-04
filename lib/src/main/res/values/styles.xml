@@ -51,13 +51,13 @@
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
-        <item name="android:background">?colorBackgroundFloating</item>
     </style>
 
     <public name="IcdListStickyHeaderStyle" type="style"/>
     <style name="IcdListStickyHeaderStyle" parent="IcdListHeaderStyle">
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
+        <item name="android:background">?colorBackgroundFloating</item>
     </style>
 
     <style name="IcdListHeaderTextAppearance" parent="TextAppearance.MaterialComponents.Subtitle2">
