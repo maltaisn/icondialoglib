@@ -30,7 +30,7 @@ import java.util.*
  */
 abstract class IconPackGenerator(val outputDir: File, val iconSize: Int) {
 
-    protected val iconPack = sortedMapOf<Category, MutableList<Icon>>()
+    protected val iconPack = mutableMapOf<Category, MutableList<Icon>>()
 
     /**
      * Create `icons.xml`, `strings.xml` and `tags.xml` files for an [iconPack].

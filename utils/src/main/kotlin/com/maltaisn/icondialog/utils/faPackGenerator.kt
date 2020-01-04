@@ -16,7 +16,6 @@
 
 package com.maltaisn.icondialog.utils
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -110,8 +109,8 @@ private class FontAwesomeIconPackGenerator(
         val yamlMapper = ObjectMapper(YAMLFactory()).registerKotlinModule()
 
         // Parse icons and categories
-        faIcons = jsonMapper.readValue<MutableMap<String, FaIcon>>(iconsJson)
-        faCategories = yamlMapper.readValue<MutableMap<String, FaCategory>>(categoriesYaml)
+        faIcons = jsonMapper.readValue(iconsJson)
+        faCategories = yamlMapper.readValue(categoriesYaml)
     }
 
     /** Create initial icon pack with all icons and categories. */
@@ -234,6 +233,11 @@ private class FontAwesomeIconPackGenerator(
             }
             iconPack -= NO_CATEGORY
         }
+
+        // Sort icon pack by category
+        val sortedPack = iconPack.toSortedMap()
+        iconPack.clear()
+        iconPack += sortedPack
     }
 
     /** Reduce the number of categories by moving icons from categories with less icons. */
@@ -323,8 +327,7 @@ private data class FaIcon(
         @JsonProperty("unicode") val codePoint: String,
         @JsonProperty("search") val search: FaIconSearch,
         @JsonProperty("label") val name: String,
-        @JsonProperty("svg") val variants: Map<String, FaIconVariant>,
-        @JsonIgnore var category: Int = -1)
+        @JsonProperty("svg") val variants: Map<String, FaIconVariant>)
 
 private data class FaIconVariant(
         @JsonProperty("width") val width: Int,
@@ -336,5 +339,4 @@ private data class FaIconSearch(
 
 private data class FaCategory(
         @JsonProperty("icons") val icons: List<String>,
-        @JsonProperty("label") val name: String,
-        @JsonIgnore var id: Int = -1)
+        @JsonProperty("label") val name: String)
