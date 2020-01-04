@@ -1,5 +1,30 @@
 # v3.0.0
-- Coming soon.
+- Complete rewrite in Kotlin with MVP architecture.
+- Now based on Google's Material Components with out of the box support for dark theme.
+- Added support for API 14.
+- **Icon packs**
+    - Icons are no longer part of the library, they are contained in icon packs, which can
+    be downloaded as separate artifacts. Available icon packs:
+        - Default: contains the icons from previous version.
+        - Font Awesome: https://fontawesome.com/icons, solid variant only.
+        - Material Design Icons: https://github.com/Templarian/MaterialDesign, minus brand and outline icons.
+    - Icon packs loading is delegated to the user of the library. `IconHelper` was replaced
+    with `IconPackLoader` which loads icon packs from XML. User must load icon packs
+    appropriatedly (for example on application start, asynchronously) and store them.
+    - Overriding icons is now done by specifying a parent icon pack and defining
+    icons or categories with existing IDs.
+- **Icons**
+    - XML root element for tags is now `<icons>` instead of `<list>`.
+    - Icon viewport dimensions can be defined per icon pack or on individual icons.
+- **Tags** ("labels" previously)
+    - Tags no longer have a value or aliases, they only have a list of values.
+    - Tag references in XML are no longer supported.
+    - XML root element for tags is now `<tags>` instead of `<list>`.
+- Dialog no longer uses deprecated `setRetainInstance(true)`.
+- Added `IconDialogSettings` class to configure the dialog appearance and behavior.
+- Removed a few attributes for customization, like dialog button texts.
+- Various icon filter changes. Sorting by category is now delegated to icon dialog.
+- Replaced all IntDefs with enums.
 
 ## v2.5.0
 - Added support for API 16.
@@ -38,7 +63,7 @@
 - Fixed library dependencies not being added to the project
 - Removed unused dependencies
 
-## v2.0.0
+# v2.0.0
 - Breaking change: IconHelper data is now loaded asynchronously (was previously loaded on the UI thread and it took 200 - 600 ms). If trying to get icon, label or category before data is loaded, null will be returned.
 When data is loaded (after the initial call to `getInstance`, `addExtraIcons` or `reloadLabels`), all `LoadCallback`s attached with `addLoadCallback` will be called. If a callback is attached when data is already loaded, it is automatically called. A callback is removed after being called once. To avoid NPEs, do not use any `get` method if you are unsure whether data is loaded or not.
 - Icon dialog shows ProgressBar if data isn't loaded
@@ -73,7 +98,7 @@ When data is loaded (after the initial call to `getInstance`, `addExtraIcons` or
 - Search bar now has search action and keyboard is hidden on enter.
 - Synchronized some methods
 
-## v1.0.0
+# v1.0.0
 - Initial release
 - Customizable styles for almost every part of the dialog
 - Many available options
