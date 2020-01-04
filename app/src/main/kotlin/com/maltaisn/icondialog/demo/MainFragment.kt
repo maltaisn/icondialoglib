@@ -43,6 +43,7 @@ import com.maltaisn.icondialog.pack.IconPack
 import com.maltaisn.icondialog.pack.IconPackLoader
 import com.maltaisn.iconpack.defaultpack.createDefaultIconPack
 import com.maltaisn.iconpack.fa.createFontAwesomeIconPack
+import com.maltaisn.iconpack.mdi.createMaterialDesignIconPack
 import kotlinx.coroutines.*
 
 
@@ -225,6 +226,7 @@ class MainFragment : Fragment(), IconDialog.Callback {
                 val pack = when (currentPackIndex) {
                     0 -> createDefaultIconPack(iconPackLoader)
                     1 -> createFontAwesomeIconPack(iconPackLoader)
+                    2 -> createMaterialDesignIconPack(iconPackLoader)
                     else -> error("Invalid icon pack index.")
                 }
 

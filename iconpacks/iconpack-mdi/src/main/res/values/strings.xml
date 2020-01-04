@@ -1,0 +1,40 @@
+<!--
+    Copyright (c) 2014, Austin Andrews (http://materialdesignicons.com/),
+    with Reserved Font Name Material Design Icons.
+    Copyright (c) 2014, Google (http://www.google.com/design/)
+    uses the license at https://github.com/google/material-design-icons/blob/master/LICENSE
+
+    This Font Software is licensed under the SIL Open Font License, Version 1.1.
+    This license is copied below, and is also available with a FAQ at:
+    http://scripts.sil.org/OFL
+  -->
+<!--@formatter:off-->
+<resources>
+    <string name="catg_arrows">Arrows</string>
+    <string name="catg_characters">Characters &amp; Symbols</string>
+    <string name="catg_clothes">Clothing &amp; Accessories</string>
+    <string name="catg_time">Date &amp; Time</string>
+    <string name="catg_tech">Devices &amp; Hardware</string>
+    <string name="catg_editor">Editing &amp; Formatting</string>
+    <string name="catg_files">Files &amp; Folders</string>
+    <string name="catg_filmtv">Film &amp; TV</string>
+    <string name="catg_food">Food &amp; Drink</string>
+    <string name="catg_games">Games</string>
+    <string name="catg_google">Google</string>
+    <string name="catg_holidays">Holidays</string>
+    <string name="catg_home">Home Automation</string>
+    <string name="catg_player">Media Player Controls</string>
+    <string name="catg_money">Money &amp; Payments</string>
+    <string name="catg_music">Music</string>
+    <string name="catg_nature">Nature &amp; Animals</string>
+    <string name="catg_networking">Networking</string>
+    <string name="catg_places">Places &amp; Landmarks</string>
+    <string name="catg_power">Power</string>
+    <string name="catg_programming">Programming</string>
+    <string name="catg_science">Science &amp; Medicine</string>
+    <string name="catg_sport">Sport</string>
+    <string name="catg_travel">Travel &amp; Transport</string>
+    <string name="catg_users">Users &amp; Accounts</string>
+    <string name="catg_weather">Weather</string>
+    <string name="catg_other">Other</string>
+</resources>
