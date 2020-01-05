@@ -10,7 +10,7 @@ tags for searching.
 ### Gradle dependency
 `implementation 'com.maltaisn:icondialog:X.Y.Z'`
 
-Replace `X.Y.Z` with lastest version number: [![Download](https://api.bintray.com/packages/maltaisn/icon-dialog/icon-dialog/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/icon-dialog/_latestVersion)
+Replace `X.Y.Z` with lastest version number: [![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aicon-dialog/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aicon-dialog/_latestVersion)
 
 **Notes**
 
@@ -23,13 +23,14 @@ The following icon packs are available as of lastest version.
 
 | Name |Dependency<sup>1</sup>|Version|Icons|Size<sup>2</sup>|Languages|
 |:----:|:--------:|:-----:|:---:|:----:|:-------:|
-|Default|`default`|1.0.0|1,045|304 kB|English, French, German, Portuguese, Spanish|
-|[Font Awesome][font-awesome]|`font-awesome`|5.12.0|964|215 kB|Engligh|
-|[Community Material][mdi-community]|`community-material`|4.6.95|3,516|496 kB|English|
+|Default|`default`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/_latestVersion)|1,045|304 kB|English, French, German, Portuguese, Spanish|
+|[Font Awesome][font-awesome]|`font-awesome`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/_latestVersion)|964|215 kB|Engligh|
+|[Community Material][mdi-community]|`community-material`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/_latestVersion)|3,516|496 kB|English|
 
 <sup>1</sup> Dependency uses the following pattern `com.maltais:iconpack-<NAME>:X.Y.Z`, where `<NAME>` is the
 name indicated in the table and `X.Y.Z` is the version. Icon packs use the same version
 as original icons.
+
 <sup>2</sup> As seen in Android Studio's APK analysis, includes icons and tags.
 
 More packs can be added on request. Custom packs and third-party icon packs can easily be created
