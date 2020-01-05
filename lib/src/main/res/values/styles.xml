@@ -102,7 +102,6 @@
         <item name="android:paddingRight">8dp</item>
         <item name="android:paddingTop">4dp</item>
         <item name="android:paddingBottom">4dp</item>
-        <item name="android:text">@string/icd_title</item>
     </style>
 
     <public name="IcdListStyle" type="style"/>

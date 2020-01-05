@@ -28,8 +28,6 @@ import androidx.annotation.ArrayRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,12 +53,10 @@ class MainFragment : Fragment(), IconDialog.Callback {
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private var packLoadJob: Job? = null
-    private var progressVisbJob: Job? = null
 
     private lateinit var iconDialog: IconDialog
     private lateinit var iconsAdapter: IconsAdapter
-    private lateinit var iconPackPb: ProgressBar
-    private lateinit var fab: FloatingActionButton
+    private lateinit var fakeLoadingCheck: CheckBox
 
     private lateinit var iconPackLoader: IconPackLoader
 
@@ -84,7 +80,6 @@ class MainFragment : Fragment(), IconDialog.Callback {
         setupDropdown(view.findViewById(R.id.dropdown_icon_pack), R.array.icon_packs) {
             changeIconPack(it)
         }
-        iconPackPb = view.findViewById(R.id.pb_icon_pack)
 
         var titleVisbIndex = 2
         setupDropdown(view.findViewById(R.id.dropdown_title_visibility), R.array.title_visibility) {
@@ -142,16 +137,15 @@ class MainFragment : Fragment(), IconDialog.Callback {
             })
         }
 
+        fakeLoadingCheck = view.findViewById(R.id.chk_fake_loading)
+
         val iconsRcv: RecyclerView = view.findViewById(R.id.rcv_icon_list)
         iconsAdapter = IconsAdapter()
         iconsRcv.adapter = iconsAdapter
         iconsRcv.layoutManager = LinearLayoutManager(context)
 
-        fab = view.findViewById(R.id.fab)
-        fab.isVisible = (app.iconPack != null)
+        val fab: FloatingActionButton = view.findViewById(R.id.fab)
         fab.setOnClickListener {
-            if (app.iconPack == null) return@setOnClickListener
-
             // Create new settings and set them.
             iconDialog.settings = IconDialogSettings {
                 this.iconFilter = iconFilter
@@ -241,28 +235,16 @@ class MainFragment : Fragment(), IconDialog.Callback {
                 // Load drawables
                 pack.loadDrawables(iconPackLoader.drawableLoader)
 
+                if (fakeLoadingCheck.isChecked) {
+                    delay(4000)
+                }
+
                 pack
             }
 
-            iconPackPb.isInvisible = true
-            fab.show()
-
             updateSelectedIcons()
 
-            progressVisbJob?.cancel()
-            progressVisbJob = null
             packLoadJob = null
-        }
-
-        // Start new job to show progress after some delay.
-        progressVisbJob?.cancel()
-        progressVisbJob = coroutineScope.launch(Dispatchers.Default) {
-            delay(250)
-            withContext(Dispatchers.Main) {
-                iconPackPb.isInvisible = false
-                fab.hide()
-            }
-            progressVisbJob = null
         }
     }
 
@@ -293,8 +275,8 @@ class MainFragment : Fragment(), IconDialog.Callback {
     }
 
     // Called by icon dialog to get the icon pack.
-    override val iconDialogIconPack: IconPack
-        get() = app.iconPack!!
+    override val iconDialogIconPack: IconPack?
+        get() = app.iconPack
 
     override fun onIconDialogIconsSelected(dialog: IconDialog, icons: List<Icon>) {
         // Called by icon dialog when icons were selected.

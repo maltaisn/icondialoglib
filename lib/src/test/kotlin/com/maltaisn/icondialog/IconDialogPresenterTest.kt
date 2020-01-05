@@ -65,6 +65,13 @@ internal class IconDialogPresenterTest {
     // [5] Category 2 header
     // [6] Icon 3
 
+    @Test
+    fun `attach icon pack null`() {
+        whenever(view.iconPack).doReturn(null)
+        presenter.attach(view, null)
+        verify(view).setProgressBarVisible(true)
+        verify(view).postDelayed(any(), any())
+    }
 
     @Test(expected = IllegalStateException::class)
     fun `attach wrong icon id error`() {

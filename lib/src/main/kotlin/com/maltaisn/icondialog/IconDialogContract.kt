@@ -17,6 +17,7 @@
 package com.maltaisn.icondialog
 
 import android.os.Bundle
+import androidx.annotation.StringRes
 import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.pack.IconPack
@@ -27,20 +28,24 @@ internal interface IconDialogContract {
 
     interface View {
         val settings: IconDialogSettings
-        val iconPack: IconPack
+        val iconPack: IconPack?
         val selectedIconIds: List<Int>
         val locale: Locale
+
+        fun postDelayed(delay: Long, action: () -> Unit)
+        fun cancelCallbacks()
 
         fun exit()
         fun hideKeyboard()
 
         fun setCancelResult()
         fun setSelectionResult(selected: List<Icon>)
-
         fun setTitleVisible(visible: Boolean)
+        fun updateTitle(@StringRes titleRes: Int)
         fun setSearchBarVisible(visible: Boolean)
         fun setClearSearchBtnVisible(visible: Boolean)
         fun setClearBtnVisible(visible: Boolean)
+        fun setProgressBarVisible(visible: Boolean)
         fun setNoResultLabelVisible(visible: Boolean)
         fun setFooterVisible(visible: Boolean)
         fun removeLayoutPadding()
