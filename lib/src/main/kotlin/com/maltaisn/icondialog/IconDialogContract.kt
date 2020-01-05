@@ -38,6 +38,7 @@ internal interface IconDialogContract {
         fun setSelectionResult(selected: List<Icon>)
 
         fun setTitleVisible(visible: Boolean)
+        fun updateTitle(@StringRes titleRes: Int)
         fun setSearchBarVisible(visible: Boolean)
         fun setClearSearchBtnVisible(visible: Boolean)
         fun setClearBtnVisible(visible: Boolean)

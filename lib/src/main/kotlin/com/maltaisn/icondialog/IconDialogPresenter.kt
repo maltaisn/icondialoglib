@@ -70,6 +70,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
 
         // Initialize view state
         view.apply {
+            updateTitle(settings.dialogTitle)
             setFooterVisible(settings.showSelectBtn)
             setSelectBtnEnabled(selectedIconIds.isNotEmpty())
             setClearBtnVisible(settings.showSelectBtn && settings.showClearBtn && selectedIconIds.isNotEmpty())

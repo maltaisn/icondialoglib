@@ -259,6 +259,10 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         titleTxv.isVisible = visible
     }
 
+    override fun updateTitle(titleRes: Int) {
+        titleTxv.text = getString(titleRes)
+    }
+
     override fun setSearchBarVisible(visible: Boolean) {
         searchImv.isVisible = visible
         searchEdt.isVisible = visible
