@@ -29,6 +29,7 @@
     <string name="option_show_select_btn">Show select button</string>
     <string name="option_show_clear_btn">Show clear button</string>
     <string name="option_dark_theme">Dark theme</string>
+    <string name="option_fake_loading">Fake loading time</string>
 
     <string name="icon_pack_default">Default</string>
     <string name="icon_pack_fa">Font Awesome</string>

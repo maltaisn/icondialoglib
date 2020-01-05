@@ -63,21 +63,6 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ProgressBar
-        android:id="@+id/pb_icon_pack"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/layout_icon_pack_dropdown"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/layout_icon_pack_dropdown"
-        app:layout_constraintTop_toTopOf="@id/layout_icon_pack_dropdown"
-        android:visibility="invisible"
-        tools:visibility="visible"
-        />
-
     <TextView
         android:id="@+id/txv_title_visibility_label"
         style="@style/OptionTextStyle"
@@ -273,6 +258,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chk_show_clear_btn"
         android:text="@string/option_dark_theme"
+        />
+
+    <CheckBox
+        android:id="@+id/chk_fake_loading"
+        style="@style/OptionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chk_dark_theme"
+        android:text="@string/option_fake_loading"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

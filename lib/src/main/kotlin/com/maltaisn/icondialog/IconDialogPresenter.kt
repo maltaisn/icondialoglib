@@ -31,7 +31,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
     private val settings: IconDialogSettings
         get() = view!!.settings
 
-    private val iconPack: IconPack
+    private val iconPack: IconPack?
         get() = view!!.iconPack
 
     private val listItems = mutableListOf<Item>()
@@ -46,6 +46,43 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
         listItems.clear()
         selectedIconIds.clear()
         searchQuery = ""
+
+        if (iconPack == null) {
+            // Set view state to show progress with no action available.
+            view.apply {
+                updateTitle(settings.dialogTitle)
+                setFooterVisible(settings.showSelectBtn)
+                setProgressBarVisible(true)
+                setSelectBtnEnabled(false)
+                setClearBtnVisible(false)
+                setNoResultLabelVisible(false)
+                notifyAllIconsChanged()
+            }
+            updateSearchAndTitleVisibility()
+
+            // Wait until icon pack is not null.
+            waitForIconPack(view, state)
+
+        } else {
+            // Initialize view state.
+            initialize(view, state)
+        }
+    }
+
+    /** Periodically query icon pack and if it's not null, initialize view. */
+    private fun waitForIconPack(view: View, state: Bundle?) {
+        view.postDelayed(ICON_PACK_CHECK_DELAY) {
+            if (iconPack != null) {
+                initialize(view, state)
+            } else {
+                waitForIconPack(view, state)
+            }
+        }
+    }
+
+    /** Initialize the presenter and the view. */
+    private fun initialize(view: View, state: Bundle?) {
+        val iconPack = iconPack ?: error("Icon pack must be initialized.")
 
         if (state == null) {
             // Check if initial selection is valid.
@@ -69,29 +106,18 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
         }
 
         // Initialize view state
-        view.apply {
-            updateTitle(settings.dialogTitle)
-            setFooterVisible(settings.showSelectBtn)
-            setSelectBtnEnabled(selectedIconIds.isNotEmpty())
-            setClearBtnVisible(settings.showSelectBtn && settings.showClearBtn && selectedIconIds.isNotEmpty())
-            setNoResultLabelVisible(false)
-
-            val searchVisible = settings.searchVisibility == SearchVisibility.ALWAYS
-                    && iconPack.locales.isNotEmpty()
-                    || settings.searchVisibility == SearchVisibility.IF_LANGUAGE_AVAILABLE
-                    && view.locale.language in iconPack.locales.map { it.language }
-            val titleVisible = settings.titleVisibility == TitleVisibility.ALWAYS
-                    || settings.titleVisibility == TitleVisibility.IF_SEARCH_HIDDEN && !searchVisible
-            setSearchBarVisible(searchVisible)
-            setTitleVisible(titleVisible)
-            if (!searchVisible && !titleVisible) {
-                removeLayoutPadding()
-            }
-
-            setClearSearchBtnVisible(searchQuery.isNotEmpty())
+        updateSearchAndTitleVisibility()
+        view.let {
+            it.updateTitle(settings.dialogTitle)
+            it.setFooterVisible(settings.showSelectBtn)
+            it.setSelectBtnEnabled(selectedIconIds.isNotEmpty())
+            it.setClearBtnVisible(settings.showSelectBtn && settings.showClearBtn && selectedIconIds.isNotEmpty())
+            it.setProgressBarVisible(false)
+            it.setNoResultLabelVisible(false)
+            it.setClearSearchBtnVisible(searchQuery.isNotEmpty())
 
             if (settings.headersVisibility == HeadersVisibility.STICKY) {
-                addStickyHeaderDecoration()
+                it.addStickyHeaderDecoration()
             }
         }
 
@@ -107,6 +133,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
     }
 
     override fun detach() {
+        view?.cancelCallbacks()
         view = null
     }
 
@@ -139,8 +166,11 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
     }
 
     override fun onDialogCancelled() {
-        view?.setCancelResult()
-        view?.exit()
+        view?.let {
+            it.cancelCallbacks()
+            it.setCancelResult()
+            it.exit()
+        }
     }
 
     override fun onSearchQueryChanged(query: String) {
@@ -279,6 +309,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
     }
 
     private fun confirmSelection() {
+        val iconPack = iconPack ?: return
         view?.setSelectionResult(selectedIconIds.map { iconPack.getIcon(it)!! })
         view?.exit()
     }
@@ -295,6 +326,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
      */
     private fun updateList() {
         // Get icons matching search
+        val iconPack = iconPack ?: return
         val icons = settings.iconFilter.queryIcons(iconPack, searchQuery)
 
         // Sort icons by category, then use icon filter for secondary sorting rules.
@@ -329,6 +361,23 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
         view?.setNoResultLabelVisible(listItems.isEmpty())
     }
 
+    private fun updateSearchAndTitleVisibility() {
+        val view = view ?: return
+        val locales = iconPack?.locales ?: emptyList()
+
+        val searchVisible = settings.searchVisibility == SearchVisibility.ALWAYS
+                && locales.isNotEmpty()
+                || settings.searchVisibility == SearchVisibility.IF_LANGUAGE_AVAILABLE
+                && view.locale.language in locales.map { it.language }
+        val titleVisible = settings.titleVisibility == TitleVisibility.ALWAYS
+                || settings.titleVisibility == TitleVisibility.IF_SEARCH_HIDDEN && !searchVisible
+        view.setSearchBarVisible(searchVisible)
+        view.setTitleVisible(titleVisible)
+        if (!searchVisible && !titleVisible && iconPack != null) {
+            view.removeLayoutPadding()
+        }
+    }
+
     private interface Item {
         val id: Long
     }
@@ -347,6 +396,8 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
         internal const val ITEM_TYPE_ICON = 0
         internal const val ITEM_TYPE_HEADER = 1
         internal const val ITEM_TYPE_STICKY_HEADER = 2
+
+        private const val ICON_PACK_CHECK_DELAY = 100L
     }
 
 }

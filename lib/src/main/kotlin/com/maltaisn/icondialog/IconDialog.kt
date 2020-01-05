@@ -58,7 +58,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     /** The settings used for the dialog. */
     override lateinit var settings: IconDialogSettings
 
-    override val iconPack: IconPack
+    override val iconPack: IconPack?
         get() = callback.iconDialogIconPack
 
     /**
@@ -77,6 +77,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     private lateinit var searchEdt: EditText
     private lateinit var searchClearBtn: ImageView
     private lateinit var noResultTxv: TextView
+    private lateinit var progressBar: ProgressBar
     private lateinit var footerDiv: View
     private lateinit var selectBtn: Button
     private lateinit var cancelBtn: Button
@@ -85,6 +86,9 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     private lateinit var listRcv: RecyclerView
     private lateinit var listAdapter: IconAdapter
     private lateinit var listLayout: IconLayoutManager
+
+    private lateinit var progressHandler: Handler
+    private var progressCallback: Runnable? = null
 
     private lateinit var searchHandler: Handler
     private val searchCallback = Runnable {
@@ -117,6 +121,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             iconColorSelected = getColor(it.getResourceId(R.styleable.IconDialog_icdSelectedIconColor, 0))
         }
 
+        progressHandler = Handler()
         searchHandler = Handler()
 
         // Create the dialog view
@@ -127,6 +132,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         searchEdt = dialogView.findViewById(R.id.icd_edt_search)
         searchClearBtn = dialogView.findViewById(R.id.icd_imv_clear_search)
         noResultTxv = dialogView.findViewById(R.id.icd_txv_no_result)
+        progressBar = dialogView.findViewById(R.id.icd_progress_bar)
 
         // Search
         searchEdt.addTextChangedListener {
@@ -235,6 +241,17 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         presenter?.onDialogCancelled()
     }
 
+    override fun postDelayed(delay: Long, action: () -> Unit) {
+        val callback = Runnable(action)
+        progressHandler.post(callback)
+        progressCallback = callback
+    }
+
+    override fun cancelCallbacks() {
+        progressHandler.removeCallbacks(progressCallback ?: return)
+        progressCallback = null
+    }
+
     override fun exit() {
         dismiss()
     }
@@ -279,6 +296,10 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
 
     override fun setNoResultLabelVisible(visible: Boolean) {
         noResultTxv.isVisible = visible
+    }
+
+    override fun setProgressBarVisible(visible: Boolean) {
+        progressBar.isVisible = visible
     }
 
     override fun setFooterVisible(visible: Boolean) {
@@ -408,8 +429,11 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         /**
          * The icon pack to be displayed by the dialog.
          * All icon drawables in the pack must have been loaded, or they won't be displayed.
+         *
+         * If `null` is returned, the icon dialog will periodically try to get the icon
+         * pack while showing a progress indicator, until it no longer returns `null`.
          */
-        val iconDialogIconPack: IconPack
+        val iconDialogIconPack: IconPack?
 
         /**
          * Called when icons are selected and user confirms the selection.
