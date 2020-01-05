@@ -23,8 +23,8 @@ The following icon packs are available as of lastest version.
 
 | Name |Dependency<sup>1</sup>|Version|Icons|Size<sup>2</sup>|Languages|
 |:----:|:--------:|:-----:|:---:|:----:|:-------:|
-|Default|`default`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/_latestVersion)|1,045|304 kB|English, French, German, Portuguese, Spanish|
-|[Font Awesome][font-awesome]|`font-awesome`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/_latestVersion)|964|215 kB|Engligh|
+|Default|`default`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/_latestVersion)|1,045|304 kB|5 languages|
+|[Font Awesome][font-awesome]|`font-awesome`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/_latestVersion)|964|215 kB|English|
 |[Community Material][mdi-community]|`community-material`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/_latestVersion)|3,516|496 kB|English|
 
 <sup>1</sup> Dependency uses the following pattern `com.maltais:iconpack-<NAME>:X.Y.Z`, where `<NAME>` is the
@@ -36,7 +36,10 @@ as original icons.
 More packs can be added on request. Custom packs and third-party icon packs can easily be created
 as well.
 
-#### Translation
+## Tutorial
+Coming soon.
+
+## Translation
 Some icon packs are not meant to be translated. These icon packs are auto-generated from
 files provided by the people who manage the original icon collection. Tags don't make any
 sense in a language other than in English, and thus cannot be translated. The scripts
@@ -45,9 +48,6 @@ used for auto-generation are available in the [utils][utils] module.
 The default pack tags can be translated. With over 1,000 labels it takes between 3 and 5 hours
 to translate in my experience. A collection of images with the icons for each label can be downloaded
 [here](default-pack-label-images) to help with translation.
-
-## Tutorial
-Coming soon.
 
 ## Changelog
 View [changelog](https://github.com/maltaisn/icondialoglib/blob/master/CHANGELOG.md) for release notes.

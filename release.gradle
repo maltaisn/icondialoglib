@@ -51,7 +51,9 @@ afterEvaluate { project ->
                 name = versionName
                 vcsTag = versionName
                 released = new Date()
-
+                gpg {
+                    sign = true
+                }
                 mavenCentralSync {
                     sync = true
                     user = project.property("ossrhUsername")
