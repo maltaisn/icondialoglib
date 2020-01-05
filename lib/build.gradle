@@ -1,13 +1,11 @@
 plugins {
     id "com.android.library"
     id "kotlin-android"
-    id "org.jetbrains.dokka"
 }
 
 ext {
     // Auto generate version code based on version name
     libVersionCode = versionToCode(libVersion)
-    allLicenses = [license]
 }
 
 android {
@@ -55,11 +53,6 @@ dependencies {
     androidTestImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$kotlinMockitoVersion"
 }
 
-dokka {
-    outputFormat = "html"
-    outputDirectory = "${rootProject.projectDir}/docs/"
+if (project.hasProperty("publishAll") || project.hasProperty("publishLib")) {
+    apply from: "../release.gradle"
 }
-tasks.withType(Javadoc).all { enabled = false }
-
-apply from: "maven-install.gradle"
-apply from: "bintray.gradle"

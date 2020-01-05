@@ -35,3 +35,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation "androidx.annotation:annotation:$annotationsVersion"
 }
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+if (project.hasProperty("publishAll") || project.hasProperty("publishDefaultPack")) {
+    apply from: "../../release.gradle"
+}

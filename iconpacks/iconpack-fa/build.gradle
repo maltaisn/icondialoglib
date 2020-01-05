@@ -35,3 +35,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation "androidx.annotation:annotation:$annotationsVersion"
 }
+
+if (project.hasProperty("publishAll") || project.hasProperty("publishFaPack")) {
+    apply from: "../../release.gradle"
+}

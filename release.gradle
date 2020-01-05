@@ -1,0 +1,116 @@
+apply plugin: "com.jfrog.bintray"
+
+afterEvaluate { project ->
+    apply plugin: "maven-publish"
+    apply plugin: "com.github.dcendents.android-maven"
+
+    def versionName = android.defaultConfig.versionName
+
+    task androidJavadocs(type: Javadoc) {
+        failOnError = false
+        source = android.sourceSets.main.java.source
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    }
+
+    task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+        classifier = "javadoc"
+        from androidJavadocs.destinationDir
+    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = "sources"
+        from android.sourceSets.main.java.source
+    }
+
+    bintray {
+        dryRun = false
+        publish = true
+        override = true
+        user = project.property("bintray.user")
+        key = project.property("bintray.apikey")
+
+        publications("release")
+
+        pkg {
+            publish = true
+
+            repo = "icon-dialog"
+            name = publishGroupId + ":" + publishArtifactId
+            desc = publishDescription
+
+            websiteUrl = publishRepoUrl
+            issueTrackerUrl = publishRepoIssues
+            vcsUrl = publishRepoUrl
+
+            githubRepo = publishGithubRepo
+            githubReleaseNotesFile = publishGithubReadme
+
+            publicDownloadNumbers = true
+            licenses = [publishLicense]
+            version {
+                name = versionName
+                vcsTag = versionName
+                released = new Date()
+
+                mavenCentralSync {
+                    sync = true
+                    user = project.property("ossrhUsername")
+                    password = project.property("ossrhPassword")
+                    close = "1"
+                }
+            }
+        }
+    }
+
+    def pomConfig = {
+        licenses {
+            license {
+                name publishLicenseName
+                url publishLicenseUrl
+            }
+        }
+        developers {
+            developer {
+                id publishDeveloperId
+            }
+        }
+        scm {
+            url publishRepoUrl
+            connection publishRepoConnection
+            developerConnection publishRepoConnection
+        }
+    }
+
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId publishGroupId
+                artifactId publishArtifactId
+                version versionName
+                artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+                artifact androidSourcesJar
+                artifact androidJavadocsJar
+
+                pom.withXml {
+                    asNode().appendNode("name", publishName)
+                    asNode().appendNode("description", publishDescription)
+                    asNode().appendNode("url", publishRepoUrl)
+                    def dependenciesNode = asNode().appendNode("dependencies")
+                    configurations.implementation.allDependencies.each {
+                        // Ensure dependencies such as fileTree are not included.
+                        if (it.name != "unspecified") {
+                            def dependencyNode = dependenciesNode.appendNode("dependency")
+                            if (it.version != "unspecified") {
+                                dependencyNode.appendNode("groupId", it.group)
+                                dependencyNode.appendNode("artifactId", it.name)
+                                dependencyNode.appendNode("version", it.version)
+                                dependencyNode.appendNode("scope", "compile")
+                            }
+                        }
+                    }
+                    asNode().children().last() + pomConfig
+                }
+            }
+        }
+    }
+}
