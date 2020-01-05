@@ -1,7 +1,7 @@
 # Icon picker dialog
 A fully customizable icon picker dialog that provides easy access to quality icons
-without having to include them individually in your probject. Icons are bundled in
-icon packs which are distributed as separate artifacts. Icon packs are defined by XML,
+without having to include them individually in your project. Icons are bundled in
+icon packs, which are distributed as separate artifacts. Icon packs are defined by XML,
 each icon consisting of an ID, a SVG path, a viewport size, a category and a list of
 tags for searching.
 
@@ -10,7 +10,7 @@ tags for searching.
 ### Gradle dependency
 `implementation 'com.maltaisn:icondialog:X.Y.Z'`
 
-Replace `X.Y.Z` with lastest version number: [![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aicon-dialog/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aicon-dialog/_latestVersion)
+Replace `X.Y.Z` with lastest version number:  [![Download](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aicondialog/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aicondialog/_latestVersion)
 
 **Notes**
 
@@ -27,7 +27,7 @@ The following icon packs are available as of lastest version.
 |[Font Awesome][font-awesome]|`font-awesome`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/_latestVersion)|964|215 kB|English|
 |[Community Material][mdi-community]|`community-material`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/_latestVersion)|3,516|496 kB|English|
 
-<sup>1</sup> Dependency uses the following pattern `com.maltais:iconpack-<NAME>:X.Y.Z`, where `<NAME>` is the
+<sup>1</sup> Dependency uses the following pattern `com.maltaisn:iconpack-<NAME>:X.Y.Z`, where `<NAME>` is the
 name indicated in the table and `X.Y.Z` is the version. Icon packs use the same version
 as original icons.
 
@@ -36,8 +36,10 @@ as original icons.
 More packs can be added on request. Custom packs and third-party icon packs can easily be created
 as well.
 
-## Tutorial
-Coming soon.
+## Usage
+- [**Example application**](https://github.com/maltaisn/icondialoglib/wiki/Example-application): simple application setup to use the icon dialog.
+- [Styling the dialog](https://github.com/maltaisn/icondialoglib/wiki/Styling-the-dialog): styling attributes explained
+- [Custom icon pack](https://github.com/maltaisn/icondialoglib/wiki/Custom-icon-packs): tutorial on how to create custom icon packs.
 
 ## Translation
 Some icon packs are not meant to be translated. These icon packs are auto-generated from
@@ -46,11 +48,11 @@ sense in a language other than in English, and thus cannot be translated. The sc
 used for auto-generation are available in the [utils][utils] module.
 
 The default pack tags can be translated. With over 1,000 labels it takes between 3 and 5 hours
-to translate in my experience. A collection of images with the icons for each label can be downloaded
-[here](default-pack-label-images) to help with translation.
+to translate (in my experience). A collection of images with the icons for each label can be downloaded
+[here][default-pack-label-images] to help with translation.
 
 ## Changelog
-View [changelog](https://github.com/maltaisn/icondialoglib/blob/master/CHANGELOG.md) for release notes.
+View [changelog][changelog] for release notes.
 
 ## Licenses
 - Library core is licensed under Apache License 2.0
@@ -60,5 +62,6 @@ View [changelog](https://github.com/maltaisn/icondialoglib/blob/master/CHANGELOG
 [font-awesome]: https://fontawesome.com/icons
 [mdi-community]: https://materialdesignicons.com/
 
+[changelog]: CHANGELOG.md
 [utils]: utils/
 [default-pack-label-images]: https://github.com/maltaisn/icondialoglib/files/2957686/label-images.zip
