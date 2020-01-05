@@ -52,7 +52,7 @@ to translate (in my experience). A collection of images with the icons for each 
 [here][default-pack-label-images] to help with translation.
 
 ## Changelog
-View [changelog][changelog] for release notes.
+View [changelog][changelog] for the library release notes. Each icon pack module also have their own changelog.
 
 ## Licenses
 - Library core is licensed under Apache License 2.0
