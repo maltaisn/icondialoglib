@@ -1,3 +1,7 @@
+### v3.1.0
+- Added progress bar in dialog for when icon pack is not loaded yet.
+- Fixed `IconDialogSettings.dialogTitle` having no effect.
+
 # v3.0.0
 - Complete rewrite in Kotlin with MVP architecture.
 - Now based on Google's Material Components with out of the box support for dark theme.
