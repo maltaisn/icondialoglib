@@ -30,6 +30,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -107,6 +108,11 @@ class MainFragment : Fragment(), IconDialog.Callback {
             if (actionId == EditorInfo.IME_ACTION_DONE) maxSelInput.clearFocus()
             false
         }
+        maxSelInput.addTextChangedListener {
+            if (it.toString() == "0") {
+                maxSelInput.setText("1")
+            }
+        }
         maxSelCheck.setOnCheckedChangeListener { _, isChecked ->
             maxSelInput.isEnabled = isChecked
         }
@@ -122,6 +128,8 @@ class MainFragment : Fragment(), IconDialog.Callback {
             }
             maxSelCheck.isEnabled = isChecked
             maxSelInput.isEnabled = isChecked
+            showMaxSelMessCheck.isEnabled = isChecked
+            showClearBtnCheck.isEnabled = isChecked
         }
 
         val darkThemeCheck: CheckBox = view.findViewById(R.id.chk_dark_theme)

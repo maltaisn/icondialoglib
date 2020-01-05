@@ -32,7 +32,7 @@
 
     <string name="icon_pack_default">Default</string>
     <string name="icon_pack_fa">Font Awesome</string>
-    <string name="icon_pack_mdi">Material Design Icons</string>
+    <string name="icon_pack_mdi">Community Material</string>
 
     <string name="visibility_never">Never</string>
     <string name="visibility_always">Always</string>
