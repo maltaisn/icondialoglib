@@ -1,4 +1,7 @@
-### v3.1.0
+### v3.1.1
+- Updated material components version to stable 1.0.0.
+
+## v3.1.0
 - Added progress bar in dialog for when icon pack is not loaded yet.
 - Fixed `IconDialogSettings.dialogTitle` having no effect.
 
