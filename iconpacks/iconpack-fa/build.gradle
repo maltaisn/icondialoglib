@@ -33,7 +33,6 @@ dependencies {
     implementation project(":lib")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    implementation "androidx.annotation:annotation:$annotationsVersion"
 }
 
 if (project.hasProperty("publishAll") || project.hasProperty("publishFaPack")) {

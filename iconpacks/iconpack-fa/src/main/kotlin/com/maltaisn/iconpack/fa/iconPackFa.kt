@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:JvmName("IconPackFa")
+
 package com.maltaisn.iconpack.fa
 
 import com.maltaisn.icondialog.pack.IconPackLoader
@@ -25,4 +27,4 @@ import java.util.*
  */
 fun createFontAwesomeIconPack(loader: IconPackLoader) =
         loader.load(R.xml.iconpack_fa_icons, R.xml.iconpack_fa_tags,
-            listOf(Locale("en")))
+                listOf(Locale("en")))

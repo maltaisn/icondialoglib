@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:JvmName("IconPackDefault")
+
 package com.maltaisn.iconpack.defaultpack
 
 import com.maltaisn.icondialog.pack.IconPackLoader
@@ -25,8 +27,8 @@ import java.util.*
  */
 fun createDefaultIconPack(loader: IconPackLoader) =
         loader.load(R.xml.iconpack_default_icons, R.xml.iconpack_default_tags,
-            listOf(Locale("en"),
-                    Locale("fr"),
-                    Locale("es"),
-                    Locale("de"),
-                    Locale("pt")))
+                listOf(Locale("en"),
+                        Locale("fr"),
+                        Locale("es"),
+                        Locale("de"),
+                        Locale("pt")))

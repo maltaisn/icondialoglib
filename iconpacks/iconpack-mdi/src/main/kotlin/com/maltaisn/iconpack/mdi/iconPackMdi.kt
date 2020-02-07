@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
+@file:JvmName("IconPackMdi")
+
 package com.maltaisn.iconpack.mdi
 
 import com.maltaisn.icondialog.pack.IconPackLoader
 import java.util.*
-
 
 /**
  * Create the Material Design Icons icon pack with a icon pack [loader].
@@ -26,4 +27,4 @@ import java.util.*
  */
 fun createMaterialDesignIconPack(loader: IconPackLoader) =
         loader.load(R.xml.iconpack_mdi_icons, R.xml.iconpack_mdi_tags,
-            listOf(Locale("en")))
+                listOf(Locale("en")))
