@@ -16,6 +16,7 @@
 
 package com.maltaisn.icondialog
 
+import android.graphics.drawable.Drawable
 import com.maltaisn.icondialog.data.NamedTag
 import com.maltaisn.icondialog.pack.IconPack
 import com.nhaarman.mockitokotlin2.*
@@ -45,7 +46,15 @@ internal class IconDialogPresenterTest {
                     tags[tag] = NamedTag(tag, listOf(NamedTag.Value(tag, tag.normalize())))
                 }
             }
-            icon.drawable = mock()
+            
+            // This is really painful.
+            val drawable: Drawable = mock()
+            val state: Drawable.ConstantState = mock {
+                on { newDrawable() } doReturn drawable
+            }
+            icon.drawable = mock {
+                on { constantState } doReturn state
+            }
         }
         icons[3]?.drawable = null
     }
