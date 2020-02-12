@@ -1,4 +1,5 @@
 ### v3.1.1
+- Fixed icon drawable sharing mutable state with all drawables of the same icon. This caused problems where tinting one drawable would tint all of them.
 - Updated material components version to stable 1.0.0.
 
 ## v3.1.0
