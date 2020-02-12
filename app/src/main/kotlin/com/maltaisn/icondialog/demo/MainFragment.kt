@@ -27,7 +27,6 @@ import android.widget.*
 import androidx.annotation.ArrayRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -313,7 +312,7 @@ class MainFragment : Fragment(), IconDialog.Callback {
                 // Set icon drawable with correct color
                 val context = requireContext()
 
-                iconView.setImageDrawable(DrawableCompat.wrap(icon.drawable!!).mutate())
+                iconView.setImageDrawable(icon.drawable!!.mutate())
                 iconView.setColorFilter(AppCompatResources.getColorStateList(context,
                         R.color.material_on_background_emphasis_medium).defaultColor, PorterDuff.Mode.SRC_IN)
 

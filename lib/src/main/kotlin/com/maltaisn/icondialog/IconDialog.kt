@@ -36,7 +36,6 @@ import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.res.use
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.os.ConfigurationCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
@@ -371,7 +370,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             override fun bindView(icon: Icon, selected: Boolean) {
                 val drawable = icon.drawable
                 if (drawable != null) {
-                    iconImv.setImageDrawable(DrawableCompat.wrap(drawable).mutate())
+                    iconImv.setImageDrawable(drawable.mutate())
                     iconImv.alpha = 1.0f
                 } else {
                     iconImv.setImageResource(R.drawable.icd_ic_unavailable)

@@ -35,9 +35,13 @@ data class Icon(val id: Int,
     /**
      * The icon drawable.
      * Can be `null` if drawable isn't loaded or couldn't be loaded.
-     * Use [IconDrawableLoader] to load this drawable.
+     * Use [IconDrawableLoader] class to load it.
+     * 
+     * Note that each get call creates a new drawable that shares its constant state with all 
+     * drawables created for this icon. You should also call `drawable.mutate()` before tinting it.
      */
     var drawable: Drawable? = null
         internal set
+        get() = field?.constantState?.newDrawable()
 
 }
