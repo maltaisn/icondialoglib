@@ -83,7 +83,9 @@ class IconPack(val parent: IconPack? = null,
      * or if the drawable couldn't be loaded with the [loader].
      */
     fun getIconDrawable(id: Int, loader: IconDrawableLoader): Drawable? {
-        return loader.loadDrawable(getIcon(id) ?: return null)
+        val icon = getIcon(id) ?: return null
+        loader.loadDrawable(icon)
+        return icon.drawable
     }
 
     /**

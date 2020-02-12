@@ -33,7 +33,7 @@ import java.nio.ByteOrder
  * Class use to load icon drawables.
  * @param context Any context, needed to get resources.
  */
-open class IconDrawableLoader(context: Context) {
+class IconDrawableLoader(context: Context) {
 
     private val context = context.applicationContext
 
@@ -41,10 +41,10 @@ open class IconDrawableLoader(context: Context) {
      * Create the vector drawable for an [icon] and set it.
      */
     @SuppressLint("DiscouragedPrivateApi,PrivateApi")
-    open fun loadDrawable(icon: Icon): Drawable? {
+    fun loadDrawable(icon: Icon) {
         if (icon.drawable != null) {
             // Icon drawable is already loaded.
-            return icon.drawable
+            return
         }
 
         val drawable: Drawable?
@@ -74,11 +74,10 @@ open class IconDrawableLoader(context: Context) {
         } catch (e: Exception) {
             // Could not load icon.
             Log.e(TAG, "Could not create vector drawable for icon ID ${icon.id}.", e)
-            return null
+            return
         }
 
         icon.drawable = drawable
-        return icon.drawable
     }
 
     companion object {
