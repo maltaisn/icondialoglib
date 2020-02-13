@@ -22,6 +22,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.util.Log
 import android.util.Xml
+import androidx.core.content.res.ResourcesCompat
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.maltaisn.icondialog.data.Icon
 import org.xmlpull.v1.XmlPullParser
@@ -48,33 +49,37 @@ class IconDrawableLoader(context: Context) {
         }
 
         val drawable: Drawable?
-        val binXml = createDrawableBinaryXml(icon.pathData, icon.width, icon.height)
-        try {
-            // Get the binary XML parser (XmlBlock.Parser) and use it to create the drawable
-            // This should be equivalent to AssetManager#getXml()
-            val xmlBlock = Class.forName("android.content.res.XmlBlock")
-            val xmlBlockConstr = xmlBlock.getConstructor(ByteArray::class.java)
-            val xmlParserNew = xmlBlock.getDeclaredMethod("newParser")
-            xmlBlockConstr.isAccessible = true
-            xmlParserNew.isAccessible = true
-            val parser = xmlParserNew.invoke(xmlBlockConstr.newInstance(binXml as Any)) as XmlPullParser
+        if (icon.drawableResId != null) {
+            drawable = ResourcesCompat.getDrawable(context.resources, icon.drawableResId, null)
+        } else {
+            val binXml = createDrawableBinaryXml(icon.pathData, icon.width, icon.height)
+            try {
+                // Get the binary XML parser (XmlBlock.Parser) and use it to create the drawable
+                // This should be equivalent to AssetManager#getXml()
+                val xmlBlock = Class.forName("android.content.res.XmlBlock")
+                val xmlBlockConstr = xmlBlock.getConstructor(ByteArray::class.java)
+                val xmlParserNew = xmlBlock.getDeclaredMethod("newParser")
+                xmlBlockConstr.isAccessible = true
+                xmlParserNew.isAccessible = true
+                val parser = xmlParserNew.invoke(xmlBlockConstr.newInstance(binXml as Any)) as XmlPullParser
 
-            if (Build.VERSION.SDK_INT >= 24) {
-                drawable = Drawable.createFromXml(context.resources, parser)
-            } else {
-                // Before API 24, vector drawables aren't rendered correctly without compat lib
-                val attrs = Xml.asAttributeSet(parser)
-                var type = parser.next()
-                while (type != XmlPullParser.START_TAG) {
-                    type = parser.next()
+                if (Build.VERSION.SDK_INT >= 24) {
+                    drawable = Drawable.createFromXml(context.resources, parser)
+                } else {
+                    // Before API 24, vector drawables aren't rendered correctly without compat lib
+                    val attrs = Xml.asAttributeSet(parser)
+                    var type = parser.next()
+                    while (type != XmlPullParser.START_TAG) {
+                        type = parser.next()
+                    }
+                    drawable = VectorDrawableCompat.createFromXmlInner(context.resources, parser, attrs, null)
                 }
-                drawable = VectorDrawableCompat.createFromXmlInner(context.resources, parser, attrs, null)
-            }
 
-        } catch (e: Exception) {
-            // Could not load icon.
-            Log.e(TAG, "Could not create vector drawable for icon ID ${icon.id}.", e)
-            return
+            } catch (e: Exception) {
+                // Could not load icon.
+                Log.e(TAG, "Could not create vector drawable for icon ID ${icon.id}.", e)
+                return
+            }
         }
 
         icon.drawable = drawable

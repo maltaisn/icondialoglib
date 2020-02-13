@@ -30,7 +30,9 @@ data class Icon(val id: Int,
                 val tags: List<String>,
                 val pathData: String,
                 val width: Int,
-                val height: Int) {
+                val height: Int,
+                val drawableResId: Int? = null
+) {
 
     /**
      * The icon drawable.

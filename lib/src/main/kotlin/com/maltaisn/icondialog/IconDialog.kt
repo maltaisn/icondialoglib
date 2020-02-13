@@ -21,8 +21,8 @@ import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.graphics.Rect
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -35,7 +35,9 @@ import android.widget.*
 import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ContextThemeWrapper
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.content.res.use
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.os.ConfigurationCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
@@ -99,6 +101,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     private var iconSize = 0
     private var iconColorNormal = Color.BLACK
     private var iconColorSelected = Color.BLACK
+    private lateinit var unavailableIconDrawable: Drawable
 
 
     @SuppressLint("InflateParams", "Recycle")
@@ -110,6 +113,7 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         }
         val contextWrapper = ContextThemeWrapper(context, style)
         val localInflater = LayoutInflater.from(contextWrapper)
+        unavailableIconDrawable = ResourcesCompat.getDrawable(context.resources, R.drawable.icd_ic_unavailable, null)!!
 
         // Get style attributes values
         contextWrapper.obtainStyledAttributes(R.styleable.IconDialog).use {
@@ -368,16 +372,14 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             }
 
             override fun bindView(icon: Icon, selected: Boolean) {
-                val drawable = icon.drawable
-                if (drawable != null) {
-                    iconImv.setImageDrawable(drawable.mutate())
+                val drawable = DrawableCompat.wrap(icon.drawable ?: unavailableIconDrawable).mutate()
+                iconImv.setImageDrawable(drawable)
+                DrawableCompat.setTint(drawable, if (selected) iconColorSelected else iconColorNormal)
+                if (icon.drawable != null) {
                     iconImv.alpha = 1.0f
                 } else {
-                    iconImv.setImageResource(R.drawable.icd_ic_unavailable)
                     iconImv.alpha = 0.3f
                 }
-                iconImv.setColorFilter(if (selected) iconColorSelected else iconColorNormal,
-                        PorterDuff.Mode.SRC_IN)
             }
         }
 
