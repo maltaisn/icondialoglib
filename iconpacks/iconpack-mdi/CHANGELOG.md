@@ -1,5 +1,9 @@
+## v4.9.95
+- Updated for MDI v4.9.95.
+- Some icons were removed!
+
 ## v4.8.95
-- Updated for MDI v.4.8.95.
+- Updated for MDI v4.8.95.
 
 ## v4.6.95
 - **Initial release**
