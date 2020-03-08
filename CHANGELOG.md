@@ -1,3 +1,7 @@
+## v3.2.0
+- Added `src` attribute to the `<icon>` tag to allow specifying an external drawable resource ID instead of path data. (#29)
+- Fixed NPE in icon dialog when icon pack contained icons without a category.
+
 ### v3.1.1
 - Fixed icon drawable sharing mutable state with all drawables of the same icon. This caused problems where tinting one drawable would tint all of them.
 - Updated material components version to stable 1.0.0.
