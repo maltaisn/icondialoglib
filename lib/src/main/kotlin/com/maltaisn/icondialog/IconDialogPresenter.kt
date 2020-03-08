@@ -17,6 +17,7 @@
 package com.maltaisn.icondialog
 
 import android.os.Bundle
+import androidx.recyclerview.widget.RecyclerView
 import com.maltaisn.icondialog.IconDialog.*
 import com.maltaisn.icondialog.IconDialogContract.View
 import com.maltaisn.icondialog.data.Category
@@ -231,7 +232,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
             }
             i--
         }
-        return -1
+        return RecyclerView.NO_POSITION
     }
 
     override fun onIconItemClicked(pos: Int) {
@@ -349,7 +350,7 @@ internal class IconDialogPresenter : IconDialogContract.Presenter {
             while (i < listItems.size) {
                 val prevId = (listItems.getOrNull(i - 1) as IconItem?)?.icon?.categoryId
                 val currId = (listItems[i] as IconItem).icon.categoryId
-                if (currId != prevId) {
+                if (currId != prevId && currId != Icon.NO_CATEGORY) {
                     listItems.add(i, HeaderItem(iconPack.getCategory(currId)!!))
                     i++
                 }

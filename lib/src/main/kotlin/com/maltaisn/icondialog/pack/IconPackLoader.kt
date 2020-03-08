@@ -84,7 +84,7 @@ class IconPackLoader(context: Context) {
     private fun loadIcons(pack: IconPack, @XmlRes iconsXml: Int) {
         val newIcons = mutableMapOf<Int, Icon>()
         val newCategories = mutableMapOf<Int, Category>()
-        var categoryId: Int = -1
+        var categoryId = Icon.NO_CATEGORY
 
         var documentStarted = false
         var iconStarted = false
@@ -108,7 +108,7 @@ class IconPackLoader(context: Context) {
 
                     when (element) {
                         XML_TAG_CATEGORY -> {
-                            if (categoryId != -1) parseError("Nested category element is not allowed.")
+                            if (categoryId != Icon.NO_CATEGORY) parseError("Nested category element is not allowed.")
                             val category = parseCategory(parser, pack)
                             categoryId = category.id
                             if (categoryId in newCategories) {
@@ -130,7 +130,7 @@ class IconPackLoader(context: Context) {
 
             } else if (eventType == XmlPullParser.END_TAG) {
                 if (element == XML_TAG_CATEGORY) {
-                    categoryId = -1
+                    categoryId = Icon.NO_CATEGORY
                 } else if (element == XML_TAG_ICON) {
                     iconStarted = false
                 }

@@ -17,12 +17,13 @@
 package com.maltaisn.icondialog.data
 
 import android.graphics.drawable.Drawable
+import com.maltaisn.icondialog.data.Icon.Companion.NO_CATEGORY
 import com.maltaisn.icondialog.pack.IconDrawableLoader
 
 
 /**
  * An icon with an unique [id], a [categoryId], a list of [tags] names and SVG [pathData].
- * [categoryId] can be `-1` if the icon has no category.
+ * [categoryId] can be [NO_CATEGORY] if the icon has no category.
  * Icon also have a [width] and a [height] in pixels.
  */
 data class Icon(val id: Int,
@@ -44,5 +45,10 @@ data class Icon(val id: Int,
     var drawable: Drawable? = null
         internal set
         get() = field?.constantState?.newDrawable()
+
+
+    companion object {
+        const val NO_CATEGORY = -1
+    }
 
 }

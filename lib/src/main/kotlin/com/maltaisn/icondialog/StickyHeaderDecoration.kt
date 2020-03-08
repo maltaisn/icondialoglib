@@ -50,7 +50,7 @@ internal class StickyHeaderDecoration(
         val topChildPosition = parent.getChildAdapterPosition(topChild)
         if (topChildPosition == RecyclerView.NO_POSITION) return  // Again, empty list.
 
-        val viewHolder = setHeaderViewHolder(topChildPosition, parent)
+        val viewHolder = setHeaderViewHolder(topChildPosition, parent) ?: return
         val childInContact = getChildInContact(parent, viewHolder.itemView)
         if (childInContact != null) {
             val childInContactPos = parent.getChildAdapterPosition(childInContact)
@@ -84,7 +84,7 @@ internal class StickyHeaderDecoration(
 
     override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) = Unit
 
-    private fun setHeaderViewHolder(position: Int, parent: RecyclerView): RecyclerView.ViewHolder {
+    private fun setHeaderViewHolder(position: Int, parent: RecyclerView): RecyclerView.ViewHolder? {
         var viewHolder = headerViewHolder
         if (viewHolder == null) {
             // Header view holder was not yet created
@@ -94,6 +94,10 @@ internal class StickyHeaderDecoration(
 
         // Bind sticky header view holder data
         val headerPos = callback.getHeaderPositionForItem(position)
+        if (headerPos == RecyclerView.NO_POSITION) {
+            return null
+        }
+
         callback.onBindViewHolder(viewHolder, headerPos)
         if (stickyHeaderHeight == -1) {
             // Measure parent RecyclerView

@@ -33,7 +33,7 @@ interface IconFilter : Comparator<Icon>, Parcelable {
     fun queryIcons(pack: IconPack, query: String? = null): MutableList<Icon>
 
     /**
-     * Compare [icon1] and [icon2], two icons which are of the same category.
+     * Compare [icon1] and [icon2], two icons in the same category.
      */
     override fun compare(icon1: Icon, icon2: Icon): Int
 
