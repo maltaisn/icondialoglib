@@ -21,9 +21,7 @@ import com.maltaisn.icondialog.data.Category
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.data.NamedTag
 import com.maltaisn.icondialog.test.R
-import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
@@ -37,7 +35,6 @@ internal class IconPackLoaderTest {
 
     private val packLoader = IconPackLoader(context).apply {
         drawableLoader = mock()
-        whenever(drawableLoader.loadDrawable(any())).thenReturn(mock())
     }
 
     /*
@@ -143,6 +140,11 @@ internal class IconPackLoaderTest {
     @Test(expected = IconPackParseException::class)
     fun loadIcons_wrongSize_shouldFail() {
         packLoader.load(R.xml.icons_wrong_icon_size, R.xml.tags_empty)
+    }
+
+    @Test(expected = IconPackParseException::class)
+    fun loadIcons_wrongIconData_shouldFail() {
+        packLoader.load(R.xml.icons_wrong_icon_data, R.xml.tags_empty)
     }
 
     @Test

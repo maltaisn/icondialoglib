@@ -34,7 +34,7 @@ import java.nio.ByteOrder
  * Class use to load icon drawables.
  * @param context Any context, needed to get resources.
  */
-class IconDrawableLoader(context: Context) {
+open class IconDrawableLoader(context: Context) {
 
     private val context = context.applicationContext
 
@@ -49,8 +49,9 @@ class IconDrawableLoader(context: Context) {
         }
 
         val drawable: Drawable?
-        if (icon.drawableResId != null) {
-            drawable = ResourcesCompat.getDrawable(context.resources, icon.drawableResId, null)
+        if (icon.srcId != null) {
+            drawable = ResourcesCompat.getDrawable(context.resources, icon.srcId, null)
+
         } else {
             val binXml = createDrawableBinaryXml(icon.pathData, icon.width, icon.height)
             try {

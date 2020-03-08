@@ -208,30 +208,30 @@ class IconPackLoader(context: Context) {
 
         val pathStr = parser.getAttributeValue(null, XML_ATTR_ICON_PATH)
         val pathData = pathStr ?: overriden?.pathData ?: ""
-        val drawableResId = parser.getAttributeValue(null, XML_ATTR_ICON_DRAWABLE_RES_ID)
-                ?.let { parseIconDrawableId(it) } ?: overriden?.drawableResId
+        val srcStr = parser.getAttributeValue(null, XML_ATTR_ICON_SRC)
+        val srcId = srcStr?.let { parseDrawableId(it) } ?: overriden?.srcId
 
-        if (pathData.isBlank() && drawableResId == null)
-            parseError("Icon ID $id has no path data and no valid drawableResId")
+        if (pathData.isBlank() && srcId == null) {
+            parseError("Icon ID $id has no path data and no drawable resource specified.")
+        }
 
         val width = parser.getPositiveInt(XML_ATTR_ICON_WIDTH) { "Invalid icon width '$it'." } ?: packWidth
         val height = parser.getPositiveInt(XML_ATTR_ICON_HEIGHT) { "Invalid icon height '$it'." } ?: packHeight
 
-        return Icon(id, catgId, tags, pathData, width, height, drawableResId)
+        return Icon(id, catgId, tags, pathData, width, height, srcId)
     }
 
-    private fun parseIconDrawableId(drawableIdString: String): Int? {
-        return if (drawableIdString.startsWith('@')) {
-            if (drawableIdString.startsWith("@drawable/")) {
-                context.resources.getIdentifier(
-                        drawableIdString.substring(10), "drawable", context.packageName)
+    private fun parseDrawableId(str: String) =
+            if (str.startsWith('@')) {
+                if (str.startsWith("@drawable/")) {
+                    context.resources.getIdentifier(
+                            str.substring(10), "drawable", context.packageName)
+                } else {
+                    str.substring(1).toIntOrNull()
+                }
             } else {
-                drawableIdString.substring(1).toIntOrNull()
+                null
             }
-        } else {
-            null
-        }
-    }
 
     /**
      * Load tags of a [pack].
@@ -357,7 +357,7 @@ class IconPackLoader(context: Context) {
         private const val XML_ATTR_ICON_PATH = "path"
         private const val XML_ATTR_ICON_WIDTH = "width"
         private const val XML_ATTR_ICON_HEIGHT = "height"
-        private const val XML_ATTR_ICON_DRAWABLE_RES_ID = "drawableResId"
+        private const val XML_ATTR_ICON_SRC = "src"
 
         private const val XML_TAG_TAG = "tag"
         private const val XML_TAG_ALIAS = "alias"

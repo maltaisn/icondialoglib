@@ -31,15 +31,14 @@ data class Icon(val id: Int,
                 val pathData: String,
                 val width: Int,
                 val height: Int,
-                val drawableResId: Int? = null
-) {
+                val srcId: Int? = null) {
 
     /**
      * The icon drawable.
      * Can be `null` if drawable isn't loaded or couldn't be loaded.
      * Use [IconDrawableLoader] class to load it.
-     * 
-     * Note that each get call creates a new drawable that shares its constant state with all 
+     *
+     * Note that each get call creates a new drawable that shares its constant state with all
      * drawables created for this icon. You should also call `drawable.mutate()` before tinting it.
      */
     var drawable: Drawable? = null
