@@ -25,15 +25,17 @@ import com.maltaisn.icondialog.utils.generator.MinifiedIconPackGenerator
 import com.maltaisn.icondialog.utils.svg.PathFormatter
 import com.maltaisn.icondialog.utils.svg.PathTokenizer
 import java.io.File
+import kotlin.random.Random
 
 
 fun main(args: Array<String>) {
     val iconsJson = File(args[0])
     val catgJson = File(args[1])
-    val outputDir = File(args[2])
+    val idMapJson = File(args[2])
+    val outputDir = File(args[3])
 
     val generator = MdiIconPackGenerator(outputDir, 2)
-    generator.generate(iconsJson, catgJson)
+    generator.generate(iconsJson, catgJson, idMapJson)
 }
 
 /**
@@ -46,18 +48,31 @@ private class MdiIconPackGenerator(
         outputDir: File, val precision: Int
 ) : MinifiedIconPackGenerator(outputDir, ICON_SIZE) {
 
+    private val json = ObjectMapper()
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            .registerModule(KotlinModule(
+                    nullToEmptyCollection = true,
+                    nullisSameAsDefault = true))
+
     private var mdiIcons: Map<String, MdiIcon> = emptyMap()
     private var mdiCategories: Map<String, MdiCategory> = emptyMap()
 
+    private var idMap: MutableMap<String, Int> = mutableMapOf()
 
-    fun generate(iconsJson: File, catgJson: File) {
+    private var remapping = true
+
+
+    fun generate(iconsJson: File, catgJson: File, idMapJson: File) {
         // Parse
         println("Parsing input files")
-        parseMdiFile(iconsJson, catgJson)
+        parseMdiFiles(iconsJson, catgJson, idMapJson)
 
         // Create
         println("Creating icon pack")
-        createIconPack()
+        val newIdMap = createIconPack()
+
+        // Update ID map file
+        json.writeValue(idMapJson, newIdMap)
 
         // Shrink
         createTagAliases()
@@ -68,21 +83,22 @@ private class MdiIconPackGenerator(
     }
 
     /** Parse input files. */
-    private fun parseMdiFile(iconsJson: File, catgJson: File) {
-        val jsonMapper = ObjectMapper()
-                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                .registerModule(KotlinModule(
-                        nullToEmptyCollection = true,
-                        nullisSameAsDefault = true))
-        mdiIcons = jsonMapper.readValue(iconsJson)
-        mdiCategories = jsonMapper.readValue(catgJson)
+    private fun parseMdiFiles(iconsJson: File, catgJson: File, idMapJson: File) {
+        mdiIcons = json.readValue(iconsJson)
+        mdiCategories = json.readValue(catgJson)
+
+        idMap.clear()
+        idMap.putAll(json.readValue(idMapJson))
     }
 
-    /** Create icon pack with all icons, categories and tags. */
-    private fun createIconPack() {
+    /**
+     * Create icon pack with all icons, categories and tags.
+     * Returns the new ID map.
+     */
+    private fun createIconPack(): Map<String, Int> {
         iconPack.clear()
 
-        // Filter icons which aren't is specified version or icons in a blacklist.
+        // Filter icons which aren't in specified version or icons in a blacklist.
         val icons = mdiIcons.filter { (name, icon) ->
             icon.codePoint != null && ICON_BLACKLIST.none { it.matches(name) }
                     && icon.categories.none { it in CATEGORY_BLACKLIST }
@@ -101,14 +117,45 @@ private class MdiIconPackGenerator(
         val otherCatg = Category(id, OTHER_CATG, "Other")
         categories[OTHER_CATG] = otherCatg
 
+        // Remap IDs if needed
+        if (remapping) {
+            val newIdMap = mutableMapOf<String, Int>()
+
+            // Remap old icons
+            for ((_, mdiIcon) in icons) {
+                val codePoint = mdiIcon.codePoint!!
+                val iconId = idMap.remove(codePoint.old) ?: continue
+                newIdMap[codePoint.new] = iconId
+            }
+
+            if (idMap.isNotEmpty()) {
+                println("WARNING: ${idMap.size} icons have no ID equivalent after remap: " +
+                        idMap.entries.joinToString { (cp, id) -> "$cp -> $id" })
+            }
+            idMap = newIdMap
+        }
+
         // Create icons
+        val newIdMap = mutableMapOf<String, Int>()
+        val usedIds = idMap.values.toSet()
+
         val pathTokenizer = PathTokenizer()
         val pathFormatter = PathFormatter(precision)
         for ((iconName, mdiIcon) in icons) {
             val catg = categories[mdiIcon.categories.find { categories[it] != null }] ?: otherCatg
 
-            // Derive icon ID from unicode code point
-            val iconId = mdiIcon.codePoint!!.toInt(16)
+            // Get icon ID from map, or derive one from codepoint if not found.
+            val codePoint = mdiIcon.codePoint!!
+            var iconId = idMap.remove(codePoint.new)
+            if (iconId == null) {
+                // This is a new icon.
+                iconId = codePoint.new.toInt(16)
+                while (iconId in usedIds) {
+                    // This ID is already in use! Use a random one.
+                    iconId = Random.nextInt(0xFFFF)
+                }
+            }
+            newIdMap[codePoint.new] = iconId!!
 
             // Create tags from icon name, aliases and keywords
             val tags = mutableSetOf<Tag>()
@@ -124,6 +171,10 @@ private class MdiIconPackGenerator(
             iconPack.getOrPut(catg) { mutableListOf() } += icon
         }
 
+        if (idMap.isNotEmpty()) {
+            println("WARNING: ${idMap.size} icons have been removed in new version!")
+        }
+
         // Sort icon pack by category, with "Other" category last.
         val sortedPack = iconPack.toSortedMap()
         val otherIcons = sortedPack.remove(otherCatg)
@@ -132,6 +183,8 @@ private class MdiIconPackGenerator(
         if (otherIcons != null) {
             this.iconPack[otherCatg] = otherIcons
         }
+
+        return newIdMap
     }
 
     private fun getTagsFromString(str: String) = str.splitToSequence('-', '_', ' ', '&').map {
@@ -153,7 +206,7 @@ private class MdiIconPackGenerator(
 
 private data class MdiIcon(
         @JsonProperty("added") val addedIn: String = "0",
-        @JsonProperty("codepoint") val codePoint: String?,
+        @JsonProperty("codepoint") val codePoint: MdiCodePoint?,
         @JsonProperty("aliases") val aliases: List<String>,
         @JsonProperty("keywords") val keywords: List<String>,
         @JsonProperty("categories") val categories: List<String>,
@@ -162,3 +215,7 @@ private data class MdiIcon(
 private data class MdiCategory(
         @JsonProperty("name") val name: String,
         @JsonProperty("section") val section: Boolean)
+
+private data class MdiCodePoint(
+        @JsonProperty("old") val old: String?,
+        @JsonProperty("new") val new: String)

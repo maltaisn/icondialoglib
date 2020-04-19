@@ -1,3 +1,6 @@
+### v3.2.1
+- Updated Kotlin version to 1.3.72.
+
 ## v3.2.0
 - Added `src` attribute to the `<icon>` tag to allow specifying an external drawable resource ID instead of path data. (#29)
 - Fixed NPE in icon dialog when icon pack contained icons without a category.
