@@ -1,3 +1,6 @@
+### v1.0.1
+- Updated Kotlin version to 1.3.72.
+
 ## v1.0.0
 - **Initial release**
 - Contains the same icons and tags that were previously shipped with
