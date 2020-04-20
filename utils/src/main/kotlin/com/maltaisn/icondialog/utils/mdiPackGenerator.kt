@@ -59,7 +59,7 @@ private class MdiIconPackGenerator(
 
     private var idMap: MutableMap<String, Int> = mutableMapOf()
 
-    private var remapping = true
+    private var remapping = false
 
 
     fun generate(iconsJson: File, catgJson: File, idMapJson: File) {

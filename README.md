@@ -24,7 +24,7 @@ The following icon packs are available as of lastest version.
 | Name |Dependency<sup>1</sup>|Version|Icons|Size<sup>2</sup>|Languages|
 |:----:|:--------:|:-----:|:---:|:----:|:-------:|
 |Default|`default`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/_latestVersion)|1,045|304 kB|5 languages|
-|[Font Awesome][font-awesome]|`font-awesome`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/_latestVersion)|965|215 kB|English|
+|[Font Awesome][font-awesome]|`font-awesome`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/_latestVersion)|996|225 kB|English|
 |[Community Material][mdi-community]|`community-material`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/_latestVersion)|3,732|525 kB|English|
 
 Note that the process to update some icon packs (MDI, Font Awesome) is automated and icons

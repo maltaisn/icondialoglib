@@ -21,7 +21,6 @@
     <string name="catg_beverage">Beverage</string>
     <string name="catg_buildings">Buildings</string>
     <string name="catg_business">Business</string>
-    <string name="catg_camping">Camping</string>
     <string name="catg_charity">Charity</string>
     <string name="catg_chat">Chat</string>
     <string name="catg_chess">Chess</string>
@@ -44,6 +43,7 @@
     <string name="catg_gender">Genders</string>
     <string name="catg_hands">Hands</string>
     <string name="catg_hotel">Hotel</string>
+    <string name="catg_household">Household</string>
     <string name="catg_images">Images</string>
     <string name="catg_interfaces">Interfaces</string>
     <string name="catg_logistics">Logistics</string>
@@ -57,6 +57,7 @@
     <string name="catg_political">Political</string>
     <string name="catg_religion">Religion</string>
     <string name="catg_security">Security</string>
+    <string name="catg_shopping">Shopping</string>
     <string name="catg_spinners">Spinners</string>
     <string name="catg_sports">Sports</string>
     <string name="catg_status">Status</string>
