@@ -1,6 +1,7 @@
 plugins {
     id "com.android.library"
     id "kotlin-android"
+    id "com.github.breadmoirai.github-release"
 }
 
 ext {
@@ -54,5 +55,7 @@ dependencies {
 }
 
 if (project.hasProperty("publishAll") || project.hasProperty("publishLib")) {
-    apply from: "../release.gradle"
+    apply from: "../publishing.gradle"
 }
+
+apply from: "publishing.gradle"

@@ -36,5 +36,5 @@ dependencies {
 }
 
 if (project.hasProperty("publishAll") || project.hasProperty("publishFaPack")) {
-    apply from: "../../release.gradle"
+    apply from: "../../publishing.gradle"
 }

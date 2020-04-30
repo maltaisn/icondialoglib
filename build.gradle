@@ -13,11 +13,12 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:$androidGradleVersion"
+        classpath "com.android.tools.build:gradle:$androidPluginVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 
-        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4"
-        classpath "com.github.dcendents:android-maven-gradle-plugin:2.1"
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintrayPluginVersion"
+        classpath "com.github.dcendents:android-maven-gradle-plugin:$mavenPluginVersion"
+        classpath "com.github.breadmoirai:github-release:$githubReleasePluginVersion"
 
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
     }

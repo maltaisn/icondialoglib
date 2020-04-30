@@ -40,5 +40,5 @@ tasks.withType(Javadoc).all {
 }
 
 if (project.hasProperty("publishAll") || project.hasProperty("publishDefaultPack")) {
-    apply from: "../../release.gradle"
+    apply from: "../../publishing.gradle"
 }
