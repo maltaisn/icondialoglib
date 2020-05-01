@@ -25,4 +25,6 @@
     tools:padding="8dp"
     tools:src="@drawable/icd_ic_unavailable"
     tools:ignore="ContentDescription"
+    tools:tint="@color/material_on_surface_emphasis_medium"
+    tools:tintMode="src_in"
     />

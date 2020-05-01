@@ -38,6 +38,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread_inside"
+        tools:text="@string/icd_title"
         />
 
     <androidx.appcompat.widget.AppCompatImageView

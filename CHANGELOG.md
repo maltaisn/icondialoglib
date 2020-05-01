@@ -1,3 +1,6 @@
+### v3.2.2
+- Fixed crash when using raw color value for `icdIconColor` and `icdSelectedIconColor`.
+
 ### v3.2.1
 - Updated Kotlin version to 1.3.72.
 
