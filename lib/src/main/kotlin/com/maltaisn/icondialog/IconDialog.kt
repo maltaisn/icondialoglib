@@ -211,6 +211,11 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
 
             // Restore layout manager state, which isn't saved by recycler view.
             listLayout.onRestoreInstanceState(state.getParcelable("listLayoutState"))
+
+            // Restore search EditText state, which *should* be restored, but apparently isn't.
+            // The state of the view is actually saved in onSaveInstanceState, and it is still
+            // present here in the "state" bundle, but it doesn't get restored for some reason!
+            searchEdt.onRestoreInstanceState(state.getParcelable("searchEdtState"))
         }
 
         return dialog
@@ -234,11 +239,15 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
 
         state.putParcelable("settings", settings)
         state.putParcelable("listLayoutState", listLayout.onSaveInstanceState())
+
+        state.putParcelable("searchEdtState", searchEdt.onSaveInstanceState())
+
         presenter?.saveState(state)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+
         searchHandler.removeCallbacks(searchCallback)
 
         // Detach the presenter

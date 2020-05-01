@@ -1,5 +1,6 @@
 ### v3.2.2
 - Fixed crash when using raw color value for `icdIconColor` and `icdSelectedIconColor`.
+- Fixed search EditText state sometimes lost when dialog is recreated.
 
 ### v3.2.1
 - Updated Kotlin version to 1.3.72.
