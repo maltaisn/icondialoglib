@@ -1,3 +1,7 @@
+## v5.1.45
+- Updated for MDI v5.1.45.
+- Added 71 icons.
+
 ## v5.0.45
 - Updated for MDI v5.0.45. MDI changed all codepoints in their font, but for the sake of
 compatibility all icon IDs were kept the same in the iconpack.
