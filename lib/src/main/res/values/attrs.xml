@@ -20,23 +20,62 @@
     <attr name="icdStyle" format="reference"/>
     
     <declare-styleable name="IconDialog">
+
+        <!-- Maximum width for the calculator dialog. The dialog will expand to that width. -->
         <attr name="icdMaxWidth" format="dimension|reference"/>
+
+        <!-- Maximum height for the calculator dialog. The dialog will expand to that height. -->
         <attr name="icdMaxHeight" format="dimension|reference"/>
+
+        <!-- Size of the icons displayed in the dialog. This has an influence on the number
+             of spans shown (the number of columns). -->
         <attr name="icdIconSize" format="dimension|reference"/>
+
+        <!-- Style for the icon image views. Note that these views support `android:state_checked`
+             state attribute in color state lists. -->
         <attr name="icdIconStyle" format="reference"/>
+
+        <!-- Style for the icon foreground view.
+             It's used to display the ripple drawable by default. -->
         <attr name="icdIconForegroundStyle" format="reference"/>
+
+        <!-- Normal icon color. Note that color state lists aren't supported as a value of this
+             attribute until API 23. On lower APIs, use attributes or hardcoded colors. -->
         <attr name="icdIconColor" format="color|reference"/>
+
+        <!-- Selected icon color. -->
         <attr name="icdSelectedIconColor" format="color|reference"/>
+
+        <!-- Style for a list header used to display a category name (non sticky). -->
         <attr name="icdListHeaderStyle" format="reference"/>
+
+        <!-- Style for a list header used to display a category name (sticky). -->
         <attr name="icdListStickyHeaderStyle" format="reference"/>
+
+        <!-- Style for the drawable used to separate the header and footer of the dialog. -->
         <attr name="icdDividerDrawable" format="reference"/>
+
+        <!-- Style for the search EditText. -->
         <attr name="icdSearchBarStyle" format="reference"/>
+
+        <!-- Style for the search icon at the start of the search field. -->
         <attr name="icdSearchIconStyle" format="reference"/>
+
+        <!-- Style for the cancel/erase search button at the end of the search field. -->
         <attr name="icdCancelSearchIconStyle" format="reference"/>
+
+        <!-- Style for the text displayed when search returned no results. -->
         <attr name="icdNoResultLabelStyle" format="reference"/>
+
+        <!-- Style for the dialog title text. -->
         <attr name="icdDialogTitleStyle" format="reference"/>
+
+        <!-- Style for the RecyclerView used to display icons. -->
         <attr name="icdDialogListStyle" format="reference"/>
+
+        <!-- Style for the dialog buttons. -->
         <attr name="icdDialogButtonStyle" format="reference"/>
+
     </declare-styleable>
 
 </resources>
