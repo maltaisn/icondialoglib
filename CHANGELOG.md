@@ -1,3 +1,14 @@
+## v3.3.0
+- Icon image view now recognizes the `android:state_checked` state attribute, allowing the user
+to specify state-dependant attributes with `icdIconStyle`. As such, icon tint is now specified with
+`tint` internally, but `icdIconColor` and `icdSelectedIconColor` were kept for backward compatibility.
+- `icdIconColor` now only works on API 23 if the referenced value is a ColorStateList (i.e. `<selector>`).
+This is due to a probable bug with nested color state lists (they weren't nested before so they was no issue),
+see [this issue](https://issuetracker.google.com/issues/157424678).
+- Added `icdIconForegroundStyle` used to show the ripple on top of the icon image view.
+It was previously shown using the ImageView's background, so now icons can have a custom background as well as the ripple.
+- `String.normalize()` extension function now has internal visibility.
+
 ### v3.2.2
 - Fixed crash when using raw color value for `icdIconColor` and `icdSelectedIconColor`.
 - Fixed search EditText state sometimes lost when dialog is recreated.

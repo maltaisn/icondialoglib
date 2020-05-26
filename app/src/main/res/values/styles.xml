@@ -18,9 +18,9 @@
 
     <!-- Your custom dialog style, don't forget to specify the parent style! -->
     <style name="CustomIconDialogStyle" parent="IcdStyle">
+<!--        <item name="icdSelectedIconColor">?colorSecondary</item>-->
         <!--
         <item name="icdIconSize">30dp</item>
-        <item name="icdIconColor">@color/custom_color</item>
         <item name="icdListHeaderStyle">@style/CustomHeaderStyle</item>
         -->
     </style>

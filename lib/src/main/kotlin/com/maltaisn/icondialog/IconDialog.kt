@@ -20,8 +20,6 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
-import android.content.res.TypedArray
-import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -33,7 +31,6 @@ import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.content.res.use
@@ -99,8 +96,6 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
     private var maxDialogWidth = 0
     private var maxDialogHeight = 0
     private var iconSize = 0
-    private var iconColorNormal = Color.BLACK
-    private var iconColorSelected = Color.BLACK
     private lateinit var unavailableIconDrawable: Drawable
 
 
@@ -120,8 +115,6 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             maxDialogWidth = it.getDimensionPixelSize(R.styleable.IconDialog_icdMaxWidth, -1)
             maxDialogHeight = it.getDimensionPixelSize(R.styleable.IconDialog_icdMaxHeight, -1)
             iconSize = it.getDimensionPixelSize(R.styleable.IconDialog_icdIconSize, -1)
-            iconColorNormal = it.getColorCompat(R.styleable.IconDialog_icdIconColor)
-            iconColorSelected = it.getColorCompat(R.styleable.IconDialog_icdSelectedIconColor)
         }
 
         progressHandler = Handler()
@@ -219,19 +212,6 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
         }
 
         return dialog
-    }
-
-    /**
-     * Inflate color state list with compat library and return default color.
-     * `ContextCompat.getColor` doesn't seem to use compat library.
-     */
-    private fun TypedArray.getColorCompat(index: Int): Int {
-        val resId = this.getResourceId(index, 0)
-        return if (resId == 0) {
-            this.getColor(index, 0)
-        } else {
-            AppCompatResources.getColorStateList(requireContext(), resId).defaultColor
-        }
     }
 
     override fun onSaveInstanceState(state: Bundle) {
@@ -376,12 +356,13 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             setHasStableIds(true)
         }
 
-        inner class IconViewHolder(view: View) :
-                RecyclerView.ViewHolder(view), IconItemView {
-            private val iconImv = view as ImageView
+        inner class IconViewHolder(itemView: View) :
+                RecyclerView.ViewHolder(itemView), IconItemView {
+            private val iconImv: IconImageView = itemView.findViewById(R.id.icd_imv_icon)
+            private val iconForeground: View = itemView.findViewById(R.id.icd_icon_foreground)
 
             init {
-                iconImv.setOnClickListener {
+                iconForeground.setOnClickListener {
                     presenter?.onIconItemClicked(adapterPosition)
                 }
             }
@@ -389,12 +370,10 @@ class IconDialog : DialogFragment(), IconDialogContract.View {
             override fun bindView(icon: Icon, selected: Boolean) {
                 val drawable = DrawableCompat.wrap(icon.drawable
                         ?: unavailableIconDrawable).mutate()
-                iconImv.setImageDrawable(drawable)
-                DrawableCompat.setTint(drawable, if (selected) iconColorSelected else iconColorNormal)
-                if (icon.drawable != null) {
-                    iconImv.alpha = 1.0f
-                } else {
-                    iconImv.alpha = 0.3f
+                iconImv.apply {
+                    setImageDrawable(drawable)
+                    checked = selected
+                    alpha = if (icon.drawable != null) 1.0f else 0.3f
                 }
             }
         }

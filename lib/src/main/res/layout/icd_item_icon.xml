@@ -14,17 +14,36 @@
   limitations under the License.
   -->
 
-<androidx.appcompat.widget.AppCompatImageView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="?icdIconStyle"
     android:layout_width="?icdIconSize"
     android:layout_height="?icdIconSize"
     tools:layout_height="50dp"
     tools:layout_width="50dp"
-    tools:padding="8dp"
-    tools:src="@drawable/icd_ic_unavailable"
-    tools:ignore="ContentDescription"
-    tools:tint="@color/material_on_surface_emphasis_medium"
-    tools:tintMode="src_in"
-    />
+    >
+
+    <com.maltaisn.icondialog.IconImageView
+        android:id="@+id/icd_imv_icon"
+        style="?icdIconStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ContentDescription"
+        tools:padding="8dp"
+        tools:src="@drawable/icd_ic_unavailable"
+        tools:tint="@color/material_on_surface_emphasis_medium"
+        tools:tintMode="src_in"
+        />
+
+    <!-- android:foreground on FrameLayout didn't work so good on all API versions.
+         On newer APIs, the circle of the selectableItemBackgroundBorderless didn't
+         appear (so it appeared the same as selectableItemBackground). On older APIs,
+         nothing appeared at all. Using a View with background works for all APIs. -->
+    <View
+        android:id="@+id/icd_icon_foreground"
+        style="?icdIconForegroundStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</FrameLayout>

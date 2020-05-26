@@ -18,12 +18,15 @@
 <resources>
 
     <public name="IcdStyle" type="style"/>
-    <style name="IcdStyle">
+    <style name="IcdStyle" parent="BaseIcdStyle"/>
+
+    <style name="BaseIcdStyle">
         <item name="icdMaxWidth">@dimen/icd_dialog_max_width</item>
         <item name="icdMaxHeight">@dimen/icd_dialog_max_height</item>
         <item name="icdIconSize">@dimen/icd_dialog_icon_size</item>
         <item name="icdIconStyle">@style/IcdIconStyle</item>
-        <item name="icdIconColor">@color/material_on_background_emphasis_medium</item>
+        <item name="icdIconForegroundStyle">@style/IcdIconForegroundStyle</item>
+        <item name="icdIconColor">@color/icd_icon_color_normal</item>
         <item name="icdSelectedIconColor">?colorPrimary</item>
         <item name="icdListHeaderStyle">@style/IcdListHeaderStyle</item>
         <item name="icdListStickyHeaderStyle">@style/IcdListStickyHeaderStyle</item>
@@ -40,7 +43,14 @@
     <public name="IcdIconStyle" type="style"/>
     <style name="IcdIconStyle">
         <item name="android:padding">8dp</item>
+        <item name="tint">@color/icd_icon_color</item>
+    </style>
+
+    <public name="IcdIconForegroundStyle" type="style"/>
+    <style name="IcdIconForegroundStyle">
         <item name="android:background">?selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
     </style>
 
     <public name="IcdListHeaderStyle" type="style"/>

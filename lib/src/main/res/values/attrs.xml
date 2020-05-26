@@ -24,6 +24,7 @@
         <attr name="icdMaxHeight" format="dimension|reference"/>
         <attr name="icdIconSize" format="dimension|reference"/>
         <attr name="icdIconStyle" format="reference"/>
+        <attr name="icdIconForegroundStyle" format="reference"/>
         <attr name="icdIconColor" format="color|reference"/>
         <attr name="icdSelectedIconColor" format="color|reference"/>
         <attr name="icdListHeaderStyle" format="reference"/>
