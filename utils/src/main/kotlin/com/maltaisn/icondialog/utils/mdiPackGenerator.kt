@@ -172,7 +172,7 @@ private class MdiIconPackGenerator(
         }
 
         if (idMap.isNotEmpty()) {
-            println("WARNING: ${idMap.size} icons have been removed in new version!")
+            println("WARNING: ${idMap.size} icons have been removed in new version! $idMap")
         }
 
         // Sort icon pack by category, with "Other" category last.

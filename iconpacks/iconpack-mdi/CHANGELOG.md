@@ -1,3 +1,8 @@
+## v5.3.45
+- Removed 2 icons:
+    - ID 63127 `do-not-disturb`, duplicate of ID 62326.
+    - ID 63128 `do-not-disturb-off`, duplicate of ID 988249.
+
 ## v5.1.45
 - Updated for MDI v5.1.45.
 - Added 71 icons.
