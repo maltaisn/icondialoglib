@@ -27,33 +27,33 @@
     >
 
     <TextView
-        android:id="@+id/txv_icon_pack_label"
+        android:id="@+id/icon_pack_label_txv"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/layout_icon_pack_dropdown"
+        app:layout_constraintBottom_toBottomOf="@id/icon_pack_dropdown_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/layout_icon_pack_dropdown"
-        android:labelFor="@id/dropdown_icon_pack"
+        app:layout_constraintTop_toTopOf="@id/icon_pack_dropdown_layout"
+        android:labelFor="@id/icon_pack_dropdown"
         android:text="@string/option_icon_pack"
         />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_icon_pack_dropdown"
+        android:id="@+id/icon_pack_dropdown_layout"
         style="@style/DropdownLayoutStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/txv_icon_pack_label"
+        app:layout_constraintStart_toEndOf="@id/icon_pack_label_txv"
         app:layout_constraintTop_toTopOf="parent"
         >
 
         <AutoCompleteTextView
-            android:id="@+id/dropdown_icon_pack"
+            android:id="@+id/icon_pack_dropdown"
             style="@style/DropdownStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -64,21 +64,21 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/txv_title_visibility_label"
+        android:id="@+id/title_visibility_label_txv"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginLeft="6dp"
         android:layout_marginStart="6dp"
-        app:layout_constraintBottom_toBottomOf="@id/layout_title_visibility_dropdown"
+        app:layout_constraintBottom_toBottomOf="@id/title_visibility_dropdown_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/layout_title_visibility_dropdown"
-        android:labelFor="@id/dropdown_title_visibility"
+        app:layout_constraintTop_toTopOf="@id/title_visibility_dropdown_layout"
+        android:labelFor="@id/title_visibility_dropdown"
         android:text="@string/option_title_visibility"
         />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_title_visibility_dropdown"
+        android:id="@+id/title_visibility_dropdown_layout"
         style="@style/DropdownLayoutStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,12 +87,12 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/txv_title_visibility_label"
-        app:layout_constraintTop_toBottomOf="@id/layout_icon_pack_dropdown"
+        app:layout_constraintStart_toEndOf="@id/title_visibility_label_txv"
+        app:layout_constraintTop_toBottomOf="@id/icon_pack_dropdown_layout"
         >
 
         <AutoCompleteTextView
-            android:id="@+id/dropdown_title_visibility"
+            android:id="@+id/title_visibility_dropdown"
             style="@style/DropdownStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -103,21 +103,21 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/txv_search_visibility_label"
+        android:id="@+id/search_visibility_label_txv"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginLeft="6dp"
         android:layout_marginStart="6dp"
-        app:layout_constraintBottom_toBottomOf="@id/layout_search_visibility_dropdown"
+        app:layout_constraintBottom_toBottomOf="@id/search_visibility_dropdown_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/layout_search_visibility_dropdown"
-        android:labelFor="@id/dropdown_search_visibility"
+        app:layout_constraintTop_toTopOf="@id/search_visibility_dropdown_layout"
+        android:labelFor="@id/search_visibility_dropdown"
         android:text="@string/option_search_visibility"
         />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_search_visibility_dropdown"
+        android:id="@+id/search_visibility_dropdown_layout"
         style="@style/DropdownLayoutStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -126,12 +126,12 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/txv_search_visibility_label"
-        app:layout_constraintTop_toBottomOf="@id/layout_title_visibility_dropdown"
+        app:layout_constraintStart_toEndOf="@id/search_visibility_label_txv"
+        app:layout_constraintTop_toBottomOf="@id/title_visibility_dropdown_layout"
         >
 
         <AutoCompleteTextView
-            android:id="@+id/dropdown_search_visibility"
+            android:id="@+id/search_visibility_dropdown"
             style="@style/DropdownStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -142,21 +142,21 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/txv_headers_visibility_label"
+        android:id="@+id/headers_visibility_label_txv"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginLeft="6dp"
         android:layout_marginStart="6dp"
-        app:layout_constraintBottom_toBottomOf="@id/layout_headers_visibility_dropdown"
+        app:layout_constraintBottom_toBottomOf="@id/headers_visibility_dropdown_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/layout_headers_visibility_dropdown"
-        android:labelFor="@id/dropdown_headers_visibility"
+        app:layout_constraintTop_toTopOf="@id/headers_visibility_dropdown_layout"
+        android:labelFor="@id/headers_visibility_dropdown"
         android:text="@string/option_headers_visibility"
         />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_headers_visibility_dropdown"
+        android:id="@+id/headers_visibility_dropdown_layout"
         style="@style/DropdownLayoutStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -165,12 +165,12 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/txv_headers_visibility_label"
-        app:layout_constraintTop_toBottomOf="@id/layout_search_visibility_dropdown"
+        app:layout_constraintStart_toEndOf="@id/headers_visibility_label_txv"
+        app:layout_constraintTop_toBottomOf="@id/search_visibility_dropdown_layout"
         >
 
         <AutoCompleteTextView
-            android:id="@+id/dropdown_headers_visibility"
+            android:id="@+id/headers_visibility_dropdown"
             style="@style/DropdownStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -181,20 +181,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
-        android:id="@+id/chk_max_selection"
+        android:id="@+id/max_selection_chk"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/layout_max_selection_input"
+        app:layout_constraintBottom_toBottomOf="@id/max_selection_input_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/layout_max_selection_input"
+        app:layout_constraintTop_toTopOf="@id/max_selection_input_layout"
         android:checked="true"
-        android:labelFor="@id/input_max_selection"
+        android:labelFor="@id/max_selection_input"
         android:text="@string/option_max_selection"
         />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_max_selection_input"
+        android:id="@+id/max_selection_input_layout"
         style="@style/InputLayoutStyle"
         android:layout_width="56dp"
         android:layout_height="wrap_content"
@@ -203,12 +203,12 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/chk_max_selection"
-        app:layout_constraintTop_toBottomOf="@id/layout_headers_visibility_dropdown"
+        app:layout_constraintStart_toEndOf="@id/max_selection_chk"
+        app:layout_constraintTop_toBottomOf="@id/headers_visibility_dropdown_layout"
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_max_selection"
+            android:id="@+id/max_selection_input"
             style="@style/InputStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -219,54 +219,54 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
-        android:id="@+id/chk_show_max_sel_message"
+        android:id="@+id/show_max_sel_message_chk"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_max_selection_input"
+        app:layout_constraintTop_toBottomOf="@id/max_selection_input_layout"
         android:text="@string/option_show_max_sel_message"
         />
 
     <CheckBox
-        android:id="@+id/chk_show_select_btn"
+        android:id="@+id/show_select_btn_chk"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chk_show_max_sel_message"
+        app:layout_constraintTop_toBottomOf="@id/show_max_sel_message_chk"
         android:checked="true"
         android:text="@string/option_show_select_btn"
         />
 
     <CheckBox
-        android:id="@+id/chk_show_clear_btn"
+        android:id="@+id/show_clear_btn_chk"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chk_show_select_btn"
+        app:layout_constraintTop_toBottomOf="@id/show_select_btn_chk"
         android:text="@string/option_show_clear_btn"
         />
 
     <CheckBox
-        android:id="@+id/chk_dark_theme"
+        android:id="@+id/dark_theme_chk"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chk_show_clear_btn"
+        app:layout_constraintTop_toBottomOf="@id/show_clear_btn_chk"
         android:text="@string/option_dark_theme"
         />
 
     <CheckBox
-        android:id="@+id/chk_fake_loading"
+        android:id="@+id/fake_loading_chk"
         style="@style/OptionTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chk_dark_theme"
+        app:layout_constraintTop_toBottomOf="@id/dark_theme_chk"
         android:text="@string/option_fake_loading"
         />
 

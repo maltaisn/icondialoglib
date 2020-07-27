@@ -28,7 +28,7 @@
     >
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imv_icon"
+        android:id="@+id/icon_imv"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,15 +40,15 @@
         />
 
     <TextView
-        android:id="@+id/txv_icon_id"
+        android:id="@+id/icon_id_txv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/imv_icon"
+        app:layout_constraintLeft_toRightOf="@id/icon_imv"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imv_icon"
+        app:layout_constraintStart_toEndOf="@id/icon_imv"
         app:layout_constraintTop_toTopOf="parent"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         android:textSize="16dp"
@@ -56,17 +56,17 @@
         />
 
     <TextView
-        android:id="@+id/txv_icon_catg"
+        android:id="@+id/icon_catg_txv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/imv_icon"
+        app:layout_constraintLeft_toRightOf="@id/icon_imv"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imv_icon"
-        app:layout_constraintTop_toBottomOf="@id/txv_icon_id"
+        app:layout_constraintStart_toEndOf="@id/icon_imv"
+        app:layout_constraintTop_toBottomOf="@id/icon_id_txv"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         android:textColor="@color/material_on_surface_emphasis_medium"
         android:textSize="14dp"

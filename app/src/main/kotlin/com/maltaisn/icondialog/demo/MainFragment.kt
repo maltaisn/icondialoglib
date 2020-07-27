@@ -23,7 +23,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.Filter
+import android.widget.Toast
 import androidx.annotation.ArrayRes
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.content.res.AppCompatResources
@@ -31,19 +34,26 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.maltaisn.icondialog.IconDialog
 import com.maltaisn.icondialog.IconDialogSettings
 import com.maltaisn.icondialog.data.Icon
 import com.maltaisn.icondialog.data.NamedTag
+import com.maltaisn.icondialog.demo.databinding.FragmentMainBinding
+import com.maltaisn.icondialog.demo.databinding.ItemIconBinding
 import com.maltaisn.icondialog.filter.DefaultIconFilter
 import com.maltaisn.icondialog.pack.IconPack
 import com.maltaisn.icondialog.pack.IconPackLoader
 import com.maltaisn.iconpack.defaultpack.createDefaultIconPack
 import com.maltaisn.iconpack.fa.createFontAwesomeIconPack
 import com.maltaisn.iconpack.mdi.createMaterialDesignIconPack
-import kotlinx.coroutines.*
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainFragment : Fragment(), IconDialog.Callback {
 
@@ -55,7 +65,6 @@ class MainFragment : Fragment(), IconDialog.Callback {
 
     private lateinit var iconDialog: IconDialog
     private lateinit var iconsAdapter: IconsAdapter
-    private lateinit var fakeLoadingCheck: CheckBox
 
     private lateinit var iconPackLoader: IconPackLoader
 
@@ -63,40 +72,46 @@ class MainFragment : Fragment(), IconDialog.Callback {
     private var selectedIcons = emptyList<Icon>()
     private var currentPackIndex = 0
 
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?, state: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, state: Bundle?) {
         val iconFilter = DefaultIconFilter()
         iconFilter.idSearchEnabled = true
 
         iconDialog = childFragmentManager.findFragmentByTag(ICON_DIALOG_TAG) as IconDialog?
-                ?: IconDialog.newInstance(IconDialogSettings())
+            ?: IconDialog.newInstance(IconDialogSettings())
 
         iconPackLoader = IconPackLoader(requireContext())
 
-        val view = inflater.inflate(R.layout.fragment_main, container, false)
+        val optionsLayout = binding.optionsLayout
 
-        setupDropdown(view.findViewById(R.id.dropdown_icon_pack), R.array.icon_packs) {
+        setupDropdown(optionsLayout.iconPackDropdown, R.array.icon_packs) {
             changeIconPack(it)
         }
 
         var titleVisbIndex = 2
-        setupDropdown(view.findViewById(R.id.dropdown_title_visibility), R.array.title_visibility) {
+        setupDropdown(optionsLayout.titleVisibilityDropdown, R.array.title_visibility) {
             titleVisbIndex = it
         }
 
         var searchVisbIndex = 2
-        setupDropdown(view.findViewById(R.id.dropdown_search_visibility), R.array.search_visibility) {
+        setupDropdown(optionsLayout.searchVisibilityDropdown, R.array.search_visibility) {
             searchVisbIndex = it
         }
 
         var headersVisbIndex = 2
-        setupDropdown(view.findViewById(R.id.dropdown_headers_visibility), R.array.headers_visibility) {
+        setupDropdown(optionsLayout.headersVisibilityDropdown, R.array.headers_visibility) {
             headersVisbIndex = it
         }
 
-        val maxSelCheck: CheckBox = view.findViewById(R.id.chk_max_selection)
-        val maxSelInput: EditText = view.findViewById(R.id.input_max_selection)
+        val maxSelCheck = optionsLayout.maxSelectionChk
+        val maxSelInput = optionsLayout.maxSelectionInput
         maxSelInput.setText("1")
         maxSelInput.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) maxSelInput.clearFocus()
@@ -111,10 +126,10 @@ class MainFragment : Fragment(), IconDialog.Callback {
             maxSelInput.isEnabled = isChecked
         }
 
-        val showMaxSelMessCheck: CheckBox = view.findViewById(R.id.chk_show_max_sel_message)
-        val showClearBtnCheck: CheckBox = view.findViewById(R.id.chk_show_clear_btn)
+        val showMaxSelMessCheck = optionsLayout.showMaxSelMessageChk
+        val showClearBtnCheck = optionsLayout.showClearBtnChk
 
-        val showSelectBtnCheck: CheckBox = view.findViewById(R.id.chk_show_select_btn)
+        val showSelectBtnCheck = optionsLayout.showSelectBtnChk
         showSelectBtnCheck.setOnCheckedChangeListener { _, isChecked ->
             if (!isChecked) {
                 maxSelCheck.isChecked = true
@@ -126,7 +141,7 @@ class MainFragment : Fragment(), IconDialog.Callback {
             showClearBtnCheck.isEnabled = isChecked
         }
 
-        val darkThemeCheck: CheckBox = view.findViewById(R.id.chk_dark_theme)
+        val darkThemeCheck = optionsLayout.darkThemeChk
         darkThemeCheck.setOnCheckedChangeListener { _, isChecked ->
             // Enable or disable dark theme without restarting the app.
             AppCompatDelegate.setDefaultNightMode(if (isChecked) {
@@ -136,15 +151,12 @@ class MainFragment : Fragment(), IconDialog.Callback {
             })
         }
 
-        fakeLoadingCheck = view.findViewById(R.id.chk_fake_loading)
-
-        val iconsRcv: RecyclerView = view.findViewById(R.id.rcv_icon_list)
+        val iconsRcv = binding.iconListRcv
         iconsAdapter = IconsAdapter()
         iconsRcv.adapter = iconsAdapter
         iconsRcv.layoutManager = LinearLayoutManager(context)
 
-        val fab: FloatingActionButton = view.findViewById(R.id.fab)
-        fab.setOnClickListener {
+        binding.fab.setOnClickListener {
             // Create new settings and set them.
             iconDialog.settings = IconDialogSettings {
                 this.iconFilter = iconFilter
@@ -188,8 +200,6 @@ class MainFragment : Fragment(), IconDialog.Callback {
 
         // Load icon pack.
         loadIconPack()
-
-        return view
     }
 
     override fun onDestroy() {
@@ -197,9 +207,11 @@ class MainFragment : Fragment(), IconDialog.Callback {
         coroutineScope.cancel()
     }
 
-    private inline fun setupDropdown(dropdown: AutoCompleteTextView,
-                                     @ArrayRes items: Int,
-                                     crossinline onItemSelected: (pos: Int) -> Unit = {}) {
+    private inline fun setupDropdown(
+        dropdown: AutoCompleteTextView,
+        @ArrayRes items: Int,
+        crossinline onItemSelected: (pos: Int) -> Unit = {}
+    ) {
         val context = requireContext()
         val adapter = DropdownAdapter(context, context.resources.getStringArray(items).toList())
         dropdown.setAdapter(adapter)
@@ -234,7 +246,7 @@ class MainFragment : Fragment(), IconDialog.Callback {
                 // Load drawables
                 pack.loadDrawables(iconPackLoader.drawableLoader)
 
-                if (fakeLoadingCheck.isChecked) {
+                if (binding.optionsLayout.fakeLoadingChk.isChecked) {
                     delay(4000)
                 }
 
@@ -288,7 +300,7 @@ class MainFragment : Fragment(), IconDialog.Callback {
      * Custom AutoCompleteTextView adapter to disable filtering since we want it to act like a spinner.
      */
     private class DropdownAdapter(context: Context, items: List<String> = mutableListOf()) :
-            ArrayAdapter<String>(context, R.layout.item_dropdown, items) {
+        ArrayAdapter<String>(context, R.layout.item_dropdown, items) {
 
         override fun getFilter() = object : Filter() {
             override fun performFiltering(constraint: CharSequence?) = null
@@ -302,23 +314,20 @@ class MainFragment : Fragment(), IconDialog.Callback {
             setHasStableIds(true)
         }
 
-        private inner class IconViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-            private val iconView: ImageView = view.findViewById(R.id.imv_icon)
-            private val iconIdTxv: TextView = view.findViewById(R.id.txv_icon_id)
-            private val catgTxv: TextView = view.findViewById(R.id.txv_icon_catg)
+        private inner class IconViewHolder(private val binding: ItemIconBinding) :
+            RecyclerView.ViewHolder(binding.root) {
 
             fun bind(icon: Icon) {
                 // Set icon drawable with correct color
                 val context = requireContext()
 
-                iconView.setImageDrawable(icon.drawable!!.mutate())
-                iconView.setColorFilter(AppCompatResources.getColorStateList(context,
-                        R.color.material_on_background_emphasis_medium).defaultColor, PorterDuff.Mode.SRC_IN)
+                binding.iconImv.setImageDrawable(icon.drawable!!.mutate())
+                binding.iconImv.setColorFilter(AppCompatResources.getColorStateList(context,
+                    R.color.material_on_background_emphasis_medium).defaultColor, PorterDuff.Mode.SRC_IN)
 
                 // Set information
-                iconIdTxv.text = getString(R.string.icon_id_fmt, icon.id)
-                catgTxv.text = app.iconPack?.getCategory(icon.categoryId)?.name
+                binding.iconIdTxv.text = getString(R.string.icon_id_fmt, icon.id)
+                binding.iconCatgTxv.text = app.iconPack?.getCategory(icon.categoryId)?.name
 
                 // Prepare tags text for toast
                 val tags = mutableListOf<String>()
@@ -346,15 +355,13 @@ class MainFragment : Fragment(), IconDialog.Callback {
         override fun getItemId(pos: Int) = selectedIcons[pos].id.toLong()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-                IconViewHolder(layoutInflater.inflate(R.layout.item_icon, parent, false))
+            IconViewHolder(ItemIconBinding.inflate(layoutInflater, parent, false))
 
         override fun onBindViewHolder(holder: IconViewHolder, pos: Int) =
-                holder.bind(selectedIcons[pos])
-
+            holder.bind(selectedIcons[pos])
     }
 
     companion object {
         private const val ICON_DIALOG_TAG = "icon-dialog"
     }
-
 }

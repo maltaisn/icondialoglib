@@ -25,13 +25,13 @@
     >
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/layout_main_fragment"
+        android:id="@+id/main_fragment_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/layout_toolbar"
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="?toolbarThemeOverlay"
@@ -47,21 +47,21 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/scv_content"
+            android:id="@+id/content_scv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             >
 
             <LinearLayout
-                android:id="@+id/layout_content"
+                android:id="@+id/content_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 >
 
                 <TextView
-                    android:id="@+id/txv_subtitle_options"
+                    android:id="@+id/options_subtitle_txv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
@@ -70,14 +70,14 @@
                     />
 
                 <include
-                    android:id="@+id/layout_options"
+                    android:id="@+id/options_layout"
                     layout="@layout/layout_options"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />
 
                 <TextView
-                    android:id="@+id/txv_subtitle_icons"
+                    android:id="@+id/icons_subtitle_txv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -87,7 +87,7 @@
                     />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcv_icon_list"
+                    android:id="@+id/icon_list_rcv"
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
                     tools:itemCount="4"
