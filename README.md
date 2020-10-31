@@ -62,6 +62,12 @@ View [changelog][changelog] for the library release notes. Each icon pack module
 - Library core is licensed under Apache License 2.0
 - For icons, see LICENSE file in each icon pack module.
 
+### Credits
+- Thanks to the following people for translation the default icon pack:
+    - Portuguese: @ciceromsjr
+    - German: @guger
+    - Spanish: @hieudev
+    - Russian: @Beya360
 
 [font-awesome]: https://fontawesome.com/icons
 [mdi-community]: https://materialdesignicons.com/

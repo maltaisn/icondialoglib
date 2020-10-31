@@ -47,4 +47,9 @@ internal class StringNormalizeTest {
         assertEquals("1720", "⑰⑳".normalize())
     }
 
+    @Test
+    fun `should keep cyrillic`() {
+        assertEquals("модульное", "Модульное".normalize())
+    }
+
 }
