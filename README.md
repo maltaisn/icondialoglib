@@ -23,7 +23,7 @@ The following icon packs are available as of lastest version.
 
 | Name |Dependency<sup>1</sup>|Version|Icons|Size<sup>2</sup>|Languages|
 |:----:|:--------:|:-----:|:---:|:----:|:-------:|
-|Default|`default`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/_latestVersion)|1,045|304 kB|5 languages|
+|Default|`default`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-default/_latestVersion)|1,045|304 kB|6 languages|
 |[Font Awesome][font-awesome]|`font-awesome`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-font-awesome/_latestVersion)|996|225 kB|English|
 |[Community Material][mdi-community]|`community-material`|[![Lastest version](https://api.bintray.com/packages/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/images/download.svg)](https://bintray.com/maltaisn/icon-dialog/com.maltaisn%3Aiconpack-community-material/_latestVersion)|3,941|555 kB|English|
 
@@ -63,11 +63,11 @@ View [changelog][changelog] for the library release notes. Each icon pack module
 - For icons, see LICENSE file in each icon pack module.
 
 ### Credits
-- Thanks to the following people for translation the default icon pack:
-    - Portuguese: @ciceromsjr
-    - German: @guger
-    - Spanish: @hieudev
-    - Russian: @Beya360
+- Thanks to the following people for translating the default icon pack:
+    - Portuguese: [@ciceromsjr](https://github.com/ciceromsjr)
+    - German: [@guger](https://github.com/guger)
+    - Spanish: [@hieudev](https://github.com/hieudev)
+    - Russian: [@Beya360](https://github.com/Beya360)
 
 [font-awesome]: https://fontawesome.com/icons
 [mdi-community]: https://materialdesignicons.com/
