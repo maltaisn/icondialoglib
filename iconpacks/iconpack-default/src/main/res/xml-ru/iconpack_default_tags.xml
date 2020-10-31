@@ -1,0 +1,1459 @@
+<!--
+  Copyright 2019 Nicolas Maltais
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<!--@formatter:off-->
+<tags>
+    <tag name="3d">3Д</tag>
+    <tag name="accessibility">Доступность</tag>
+    <tag name="account">Счет</tag>
+    <tag name="add">Добавить</tag>
+    <tag name="agriculture">Сельское хозяйство</tag>
+    <tag name="air_conditioner">Кондиционер</tag>
+    <tag name="airplane">Самолет</tag>
+    <tag name="airport">Аэропорт</tag>
+    <tag name="alarm">
+        <alias>Будильник</alias>
+        <alias>Тревога</alias>
+    </tag>
+    <tag name="album">Альбом</tag>
+    <tag name="alert">Предупреждение</tag>
+    <tag name="alien">Инопланетянин</tag>
+    <tag name="all">Все</tag>
+    <tag name="altimeter">Высотомер</tag>
+    <tag name="ambulance">Скорая помощь</tag>
+    <tag name="ampersand">Амперсанд</tag>
+    <tag name="amplifier">Усилитель мощности</tag>
+    <tag name="angle">Угол</tag>
+    <tag name="angry">Сердитый</tag>
+    <tag name="animal">Животное</tag>
+    <tag name="anvil">Наковальня</tag>
+    <tag name="apple">Яблоко</tag>
+    <tag name="application">Приложение</tag>
+    <tag name="arrow">Стрелка</tag>
+    <tag name="art">
+        <alias>Искусство</alias>
+        <alias>Художество</alias>
+    </tag>
+    <tag name="artificial_intelligence">Искусственный интеллект</tag>
+    <tag name="artist">Художник</tag>
+    <tag name="asterisk">Звездочка</tag>
+    <tag name="at_sign">
+        <alias>Собака</alias>
+        <alias>Коммерческое Эт</alias>
+    </tag>
+    <tag name="atom">Атом</tag>
+    <tag name="audio">
+        <alias>Аудио</alias>
+        <alias>Музыка</alias>
+        <alias>Звук</alias>
+    </tag>
+    <tag name="avenue">Авеню</tag>
+    <tag name="axe">Топор</tag>
+    <tag name="baby">Малыш</tag>
+    <tag name="backspace">Backspace</tag>
+    <tag name="backup">Резервное копирование</tag>
+    <tag name="badminton">Бадминтон</tag>
+    <tag name="ball">Мяч</tag>
+    <tag name="balloon">Воздушный шар</tag>
+    <tag name="ballot">Бюллетень</tag>
+    <tag name="bank">Банк</tag>
+    <tag name="barcode">Штрих код</tag>
+    <tag name="barley">Ячмень</tag>
+    <tag name="barn">
+        <alias>Сарай</alias>
+        <alias>Амбар</alias>
+    </tag>
+    <tag name="barrel">
+        <alias>Бочка</alias>
+        <alias>Бочонок</alias>
+    </tag>
+    <tag name="baseball">Бейсбол</tag>
+    <tag name="baseball_bat">Бейсбольная бита</tag>
+    <tag name="basket">Корзина</tag>
+    <tag name="basketball">Баскетбол</tag>
+    <tag name="basketball_hoop">Баскетбольное кольцо</tag>
+    <tag name="bath">
+        <alias>Ванна</alias>
+        <alias>Купание</alias>
+        <alias>Баня</alias>
+    </tag>
+    <tag name="battery">
+        <alias>Аккумулятор</alias>
+        <alias>Батарея</alias>
+    </tag>
+    <tag name="bauble">Безделушка</tag>
+    <tag name="beach">Пляж</tag>
+    <tag name="beaker">
+        <alias>Мензурка</alias>
+        <alias>Стакан</alias>
+    </tag>
+    <tag name="bear">Медведь</tag>
+    <tag name="bed">Постель</tag>
+    <tag name="beer">Пиво</tag>
+    <tag name="beetle">Жук</tag>
+    <tag name="bell">
+        <alias>Звонок</alias>
+        <alias>Колокол</alias>
+    </tag>
+    <tag name="bible">Библия</tag>
+    <tag name="bicycle">
+        <alias>Велик</alias>
+        <alias>Велосипед</alias>
+    </tag>
+    <tag name="binary">
+        <alias>Двоичный</alias>
+        <alias>Бинарный</alias>
+    </tag>
+    <tag name="binoculars">Бинокль</tag>
+    <tag name="biology">Биология</tag>
+    <tag name="bird">Птица</tag>
+    <tag name="birthday">
+        <alias>День рождения</alias>
+        <alias>Годовщина</alias>
+        <alias>Юбилей</alias>
+    </tag>
+    <tag name="blacksmith">Кузнец</tag>
+    <tag name="blank">Пусто</tag>
+    <tag name="blind">Слепой</tag>
+    <tag name="bluetooth">Bluetooth</tag>
+    <tag name="boat">Лодка</tag>
+    <tag name="bomb">Бомба</tag>
+    <tag name="bone">Кость</tag>
+    <tag name="book">Книга</tag>
+    <tag name="bookmark">Закладка</tag>
+    <tag name="boombox">Бумбокс</tag>
+    <tag name="bottle">Бутылка</tag>
+    <tag name="boulevard">Бульвар</tag>
+    <tag name="bounce">Отскок</tag>
+    <tag name="bow_tie">Галстук бабочка</tag>
+    <tag name="bowl">Миска</tag>
+    <tag name="bowling">Боулинг</tag>
+    <tag name="box">Коробка</tag>
+    <tag name="braces">Фигурные скобки</tag>
+    <tag name="brackets">Квадратные скобки</tag>
+    <tag name="braille">Шрифт Брайля</tag>
+    <tag name="brain">Мозг</tag>
+    <tag name="branch">Филиал</tag>
+    <tag name="bread">Хлеб</tag>
+    <tag name="breakfast">Завтрак</tag>
+    <tag name="bricks">Кирпичи</tag>
+    <tag name="bridge">Мост</tag>
+    <tag name="briefcase">Портфель</tag>
+    <tag name="brightness">Яркость</tag>
+    <tag name="broken">Сломанный</tag>
+    <tag name="broom">Метла</tag>
+    <tag name="brush">Щетка</tag>
+    <tag name="bubble">Пузырь</tag>
+    <tag name="bucket">Ведро</tag>
+    <tag name="buddhism">Буддизм</tag>
+    <tag name="buggy">Детская коляска</tag>
+    <tag name="building">Здание</tag>
+    <tag name="bulldozer">Бульдозер</tag>
+    <tag name="bulletin_board">Доска объявлений</tag>
+    <tag name="bullhorn">
+        <alias>Рупор</alias>
+        <alias>Мегафон</alias>
+    </tag>
+    <tag name="bullseye">Яблочко</tag>
+    <tag name="bus">Автобус</tag>
+    <tag name="business">Бизнес</tag>
+    <tag name="cable_car">
+        <alias>Канатная дорога</alias>
+        <alias>Гондольный подъемник</alias>
+    </tag>
+    <tag name="cactus">Кактус</tag>
+    <tag name="cake">Торт</tag>
+    <tag name="calculator">Калькулятор</tag>
+    <tag name="calendar">Календарь</tag>
+    <tag name="call">Вызов</tag>
+    <tag name="camcorder">Видеокамера</tag>
+    <tag name="camera">Камера</tag>
+    <tag name="camping">Отдых на природе</tag>
+    <tag name="cancel">Отмена</tag>
+    <tag name="candle">Свеча</tag>
+    <tag name="candy">Конфеты</tag>
+    <tag name="candycane">Леденец</tag>
+    <tag name="cannabis">
+        <alias>Каннабис</alias>
+        <alias>Марихуана</alias>
+    </tag>
+    <tag name="car">
+        <alias>Автомобиль</alias>
+        <alias>Машина</alias>
+    </tag>
+    <tag name="car_convertable">Кабриолет</tag>
+    <tag name="car_estate">Универсал</tag>
+    <tag name="car_hatchback">Хэтчбек</tag>
+    <tag name="car_jeep">Джип</tag>
+    <tag name="car_pickup">Пикап</tag>
+    <tag name="car_sport">Спортивная машина</tag>
+    <tag name="caravan">Караван</tag>
+    <tag name="card">Идентификационная карта</tag>
+    <tag name="cards_club">Трефы</tag>
+    <tag name="cards_diamond">
+        <alias>Бубны</alias>
+        <alias>Буби</alias>
+    </tag>
+    <tag name="cards_heart">Черви</tag>
+    <tag name="cards_spade">Пики</tag>
+    <tag name="carrot">Морковь</tag>
+    <tag name="cart">Корзина</tag>
+    <tag name="cash">Наличные</tag>
+    <tag name="cassette">Кассета</tag>
+    <tag name="castle">Замок</tag>
+    <tag name="cat">Кошка</tag>
+    <tag name="category">Категория</tag>
+    <tag name="ceiling">Потолок</tag>
+    <tag name="celsius">Цельсия</tag>
+    <tag name="center">Центр</tag>
+    <tag name="certificate">Сертификат</tag>
+    <tag name="chain">Цепь</tag>
+    <tag name="chair">Стул</tag>
+    <tag name="champagne">Шампанское</tag>
+    <tag name="chandelier">Люстра</tag>
+    <tag name="charge_battery">Заряд</tag>
+    <tag name="chart">Диаграмма</tag>
+    <tag name="chart_arc">Дуговая диаграмма</tag>
+    <tag name="chart_bar">Гистограмма</tag>
+    <tag name="chart_bubble">Пузырьковая диаграмма</tag>
+    <tag name="chart_line">
+        <alias>График</alias>
+        <alias>Диаграммы линии</alias>
+    </tag>
+    <tag name="chart_pie">Круговая диаграмма</tag>
+    <tag name="chat">Чат</tag>
+    <tag name="check">
+        <alias>Галочка</alias>
+        <alias>Чек</alias>
+        <alias>Проверить</alias>
+    </tag>
+    <tag name="checkerboard">Шахматная доска</tag>
+    <tag name="chemical">Химическии</tag>
+    <tag name="chemistry">Химия</tag>
+    <tag name="chess">Шахматы</tag>
+    <tag name="chess_bishop">Слон</tag>
+    <tag name="chess_king">Король</tag>
+    <tag name="chess_knight">Конь</tag>
+    <tag name="chess_pawn">Пешка</tag>
+    <tag name="chess_queen">Ферзь</tag>
+    <tag name="chess_rook">Ладья</tag>
+    <tag name="chessboard">Шахматная доска</tag>
+    <tag name="chevron">Шеврон</tag>
+    <tag name="child">
+        <alias>Ребенок</alias>
+        <alias>Дитя</alias>
+        <alias>Малыш</alias>
+    </tag>
+    <tag name="chili_food">Красный перец</tag>
+    <tag name="christianism">Христианство</tag>
+    <tag name="christmas">Рождество</tag>
+    <tag name="church">Церковь</tag>
+    <tag name="cinema">
+        <alias>Кино</alias>
+        <alias>Кинотеатр</alias>
+    </tag>
+    <tag name="circle">Круг</tag>
+    <tag name="city">Город</tag>
+    <tag name="click">Щелчок</tag>
+    <tag name="clipboard">Буфер обмена</tag>
+    <tag name="clock">Часы</tag>
+    <tag name="closed">Закрыто</tag>
+    <tag name="clothes">Одежда</tag>
+    <tag name="cloud">Облако</tag>
+    <tag name="clover">Клевер</tag>
+    <tag name="co2">
+        <alias>СО2</alias>
+        <alias>Углекислый газ</alias>
+    </tag>
+    <tag name="cocktail">Коктейль</tag>
+    <tag name="coffee">Кофе</tag>
+    <tag name="coin">Монета</tag>
+    <tag name="cold">Холод</tag>
+    <tag name="collapse_content">Свернуть</tag>
+    <tag name="comparison">Сравнение</tag>
+    <tag name="compass">Компас</tag>
+    <tag name="computer">Компьютер</tag>
+    <tag name="computer_storage">
+        <alias>Хранилище</alias>
+        <alias>Память</alias>
+    </tag>
+    <tag name="computer_tower">Компьютерный корпус</tag>
+    <tag name="confirm">Подтвердить</tag>
+    <tag name="confirmation">Подтверждение</tag>
+    <tag name="conifer">
+        <alias>Ёлка</alias>
+        <alias>Ель</alias>
+    </tag>
+    <tag name="connected">Подключена</tag>
+    <tag name="connection">
+        <alias>Связь</alias>
+        <alias>Соединение</alias>
+        <alias>Подключение</alias>
+    </tag>
+    <tag name="console">
+        <alias>Приставка</alias>
+        <alias>Консоль</alias>
+    </tag>
+    <tag name="console_controller">Консольный контроллер</tag>
+    <tag name="construction">Строительство</tag>
+    <tag name="cook">Готовить</tag>
+    <tag name="cookie">Печенье</tag>
+    <tag name="cool_qualitative">
+        <alias>Круто</alias>
+        <alias>Классно</alias>
+        <alias>Клёво</alias>
+        <alias>Супер</alias>
+    </tag>
+    <tag name="copyright">Авторские права</tag>
+    <tag name="corn">Кукуруза</tag>
+    <tag name="counter">Счетчик</tag>
+    <tag name="couple">Пара</tag>
+    <tag name="coupon">Купон</tag>
+    <tag name="cow">Корова</tag>
+    <tag name="cowboy">Ковбой</tag>
+    <tag name="crane">Кран</tag>
+    <tag name="creation">Создание</tag>
+    <tag name="credit_card">Кредитная карта</tag>
+    <tag name="croissant">Круассан</tag>
+    <tag name="crop">Обрезать</tag>
+    <tag name="cross">Пересекать</tag>
+    <tag name="crosshairs">Перекрестие</tag>
+    <tag name="crown">Корона</tag>
+    <tag name="cry">
+        <alias>Плач</alias>
+        <alias>Плакать</alias>
+    </tag>
+    <tag name="cryptocurrency">Криптовалюта</tag>
+    <tag name="cube">Куб</tag>
+    <tag name="cup">
+        <alias>Стакан</alias>
+        <alias>Чашка</alias>
+    </tag>
+    <tag name="cupcake">Кекс</tag>
+    <tag name="curling">Керлинг</tag>
+    <tag name="curr_bdt">Бангладешская така</tag>
+    <tag name="curr_btc">Биткойн</tag>
+    <tag name="curr_chf">Швейцарский франк</tag>
+    <tag name="curr_cny">Китайский юань</tag>
+    <tag name="curr_dollar">Доллар</tag>
+    <tag name="curr_eur">Евро</tag>
+    <tag name="curr_gbp">
+        <alias>Британский фунт</alias>
+        <alias>Фунт стерлингов</alias>
+    </tag>
+    <tag name="curr_inr">Индийская рупия</tag>
+    <tag name="curr_jpy">Японская иена</tag>
+    <tag name="curr_krw">Южнокорейский вон</tag>
+    <tag name="curr_kzt">Казахстане тенге</tag>
+    <tag name="curr_ngn">Нигерийская найра</tag>
+    <tag name="curr_php">Филиппинское песо</tag>
+    <tag name="curr_rub">Русский рубль</tag>
+    <tag name="curr_try">Турецкая лира</tag>
+    <tag name="curr_twd">Тайваньский доллар</tag>
+    <tag name="currency">Валюта</tag>
+    <tag name="current_ac">
+        <alias>AC</alias>
+        <alias>Переменный ток</alias>
+    </tag>
+    <tag name="current_dc">
+        <alias>DC</alias>
+        <alias>Постоянный ток</alias>
+    </tag>
+    <tag name="curve">Кривая</tag>
+    <tag name="cut">Разрез</tag>
+    <tag name="cutter">Нож канцелярский</tag>
+    <tag name="cycling">Велоспорт</tag>
+    <tag name="cylinder">Цилиндр</tag>
+    <tag name="danger">Опасность</tag>
+    <tag name="darts">Дартс</tag>
+    <tag name="data">Данные</tag>
+    <tag name="database">База данных</tag>
+    <tag name="death">Смерть</tag>
+    <tag name="decimal">Десятичный</tag>
+    <tag name="decision">Решение</tag>
+    <tag name="delete">Удалить</tag>
+    <tag name="delivery">Доставка</tag>
+    <tag name="dentist">
+        <alias>Зубной врач</alias>
+        <alias>дантист</alias>
+    </tag>
+    <tag name="deposit">Депозит</tag>
+    <tag name="desert">Пустыня</tag>
+    <tag name="desk">Стол письменный</tag>
+    <tag name="dessert">Десерт</tag>
+    <tag name="details">Детали</tag>
+    <tag name="developer">Разработчик</tag>
+    <tag name="devil">Дьявол</tag>
+    <tag name="dial">Набор номера</tag>
+    <tag name="diamond">Алмаз</tag>
+    <tag name="dice">Игральная кость</tag>
+    <tag name="diesel">Дизель</tag>
+    <tag name="direction">Направление</tag>
+    <tag name="disconnected">Отключен</tag>
+    <tag name="dishwasher">
+        <alias>Посудомойка</alias>
+        <alias>Посудомоечная машина</alias>
+    </tag>
+    <tag name="disk">Диск</tag>
+    <tag name="dislike">
+        <alias>Дизлайк</alias>
+        <alias>Не нравится</alias>
+        <alias>Неприязнь</alias>
+    </tag>
+    <tag name="distance">Расстояние</tag>
+    <tag name="dna">ДНК</tag>
+    <tag name="dock">
+        <alias>Док</alias>
+        <alias>Пристань</alias>
+        <alias>Причал</alias>
+        <alias>Пирс</alias>
+    </tag>
+    <tag name="doctor">Доктор</tag>
+    <tag name="document">Документ</tag>
+    <tag name="dog">Собака</tag>
+    <tag name="donkey">Осел</tag>
+    <tag name="door">Дверь</tag>
+    <tag name="dots">Точки</tag>
+    <tag name="down">Вниз</tag>
+    <tag name="download">
+        <alias>Скачать</alias>
+        <alias>Загрузить</alias>
+    </tag>
+    <tag name="draw">Рисовать</tag>
+    <tag name="dribble">Дриблинг</tag>
+    <tag name="drink">Напиток</tag>
+    <tag name="drone">Дрон</tag>
+    <tag name="dropper">Пипетка</tag>
+    <tag name="drug">
+        <alias>Наркотик</alias>
+        <alias>Средство</alias>
+    </tag>
+    <tag name="drying_machine">
+        <alias>Сушилка</alias>
+        <alias>Сушильная машина</alias>
+    </tag>
+    <tag name="duck">Утка</tag>
+    <tag name="dumbbell">Гантели</tag>
+    <tag name="duration">
+        <alias>Продолжительность</alias>
+        <alias>Период</alias>
+        <alias>Промежуток</alias>
+    </tag>
+    <tag name="ear">Ухо</tag>
+    <tag name="earth">Земля</tag>
+    <tag name="easter">Пасха</tag>
+    <tag name="eclipse">Затмение</tag>
+    <tag name="editing">Редактирование</tag>
+    <tag name="education">Образование</tag>
+    <tag name="egg">Яйцо</tag>
+    <tag name="egg_cell">Яйцеклетка</tag>
+    <tag name="eject">Извлечь</tag>
+    <tag name="election">Выборы</tag>
+    <tag name="electric_guitar">Электрогитара</tag>
+    <tag name="electric_power">Электроэнергия</tag>
+    <tag name="electrical_plug">Электрическая вилка</tag>
+    <tag name="electrical_socket">Электрическая розетка</tag>
+    <tag name="electricity">Электричество</tag>
+    <tag name="electronic_chip">Электрический чип</tag>
+    <tag name="electronic_circuit">Электрическая цепь</tag>
+    <tag name="elephant">Слон</tag>
+    <tag name="ellipsis">Многоточие</tag>
+    <tag name="email">Электронная почта</tag>
+    <tag name="emoticon">Смайлик</tag>
+    <tag name="empty">Пусто</tag>
+    <tag name="engine">Двигатель</tag>
+    <tag name="environment">Окружающая среда</tag>
+    <tag name="equality">Равенство</tag>
+    <tag name="eraser">Ластик</tag>
+    <tag name="erlenmeyer">Эрленмейер</tag>
+    <tag name="event">Событие</tag>
+    <tag name="evil">Зло</tag>
+    <tag name="exclamation_mark">Восклицательный знак</tag>
+    <tag name="expand_content">Развернуть</tag>
+    <tag name="export">Экспортировать</tag>
+    <tag name="extension">Расширение</tag>
+    <tag name="eye">Глаз</tag>
+    <tag name="face">Лицо</tag>
+    <tag name="factory">
+        <alias>Завод</alias>
+        <alias>Фабрика</alias>
+    </tag>
+    <tag name="fahrenheit">Фаренгейт</tag>
+    <tag name="fan">Вентилятор</tag>
+    <tag name="farm">Ферма</tag>
+    <tag name="fast">Быстро</tag>
+    <tag name="fastfood">
+        <alias>Фастфуд</alias>
+        <alias>Джанкфуд</alias>
+        <alias>Быстрое питание</alias>
+    </tag>
+    <tag name="fax">Факс</tag>
+    <tag name="feather">Перо</tag>
+    <tag name="female">Женский</tag>
+    <tag name="fence">Забор</tag>
+    <tag name="fencing">Фехтование</tag>
+    <tag name="ferry">Паром</tag>
+    <tag name="field">Поле</tag>
+    <tag name="fighting">Борьба</tag>
+    <tag name="file">Файл</tag>
+    <tag name="fill">Заполнить</tag>
+    <tag name="film">Фильм</tag>
+    <tag name="filter">Фильтр</tag>
+    <tag name="finance">Финансы</tag>
+    <tag name="fingerprint">Отпечаток пальца</tag>
+    <tag name="fir_tree">Пихта</tag>
+    <tag name="fire">Огонь</tag>
+    <tag name="fire_truck">Пожарная машина</tag>
+    <tag name="firework">
+        <alias>Фейерверк</alias>
+        <alias>Салют</alias>
+    </tag>
+    <tag name="fish">Рыба</tag>
+    <tag name="fish_hook">Рыболовный крючок</tag>
+    <tag name="fishing">Рыбалка</tag>
+    <tag name="fitness">Фитнес</tag>
+    <tag name="flag">Флаг</tag>
+    <tag name="flash">Вспышка</tag>
+    <tag name="flashlight">Фонарик</tag>
+    <tag name="flask">Колба</tag>
+    <tag name="floor">Пол</tag>
+    <tag name="floppy_disk">Дискета</tag>
+    <tag name="flower">Цветок</tag>
+    <tag name="fog">Туман</tag>
+    <tag name="folder">Папка</tag>
+    <tag name="font">Шрифт</tag>
+    <tag name="food">
+        <alias>Еда</alias>
+        <alias>Питание</alias>
+        <alias>Пища</alias>
+    </tag>
+    <tag name="foot">Фут</tag>
+    <tag name="football">Футбол</tag>
+    <tag name="fork">Вилка</tag>
+    <tag name="fork_content">
+        <alias>Развилка</alias>
+        <alias>Ответвление</alias>
+    </tag>
+    <tag name="forklift">Вилочный погрузчик</tag>
+    <tag name="form">Форма</tag>
+    <tag name="fortuneteller">Гадалка</tag>
+    <tag name="forum">Форум</tag>
+    <tag name="fountain">Фонтан</tag>
+    <tag name="frame">Рамка</tag>
+    <tag name="fridge">Холодильник</tag>
+    <tag name="front">Перед</tag>
+    <tag name="fruit">Фрукты</tag>
+    <tag name="fuel">Топливо</tag>
+    <tag name="full">Полный</tag>
+    <tag name="fullscreen">Полноэкранный</tag>
+    <tag name="funnel">Воронка</tag>
+    <tag name="future">Будущее</tag>
+    <tag name="gambling">Азартная игра</tag>
+    <tag name="game">Игра</tag>
+    <tag name="game_console">Игровая консоль</tag>
+    <tag name="garage">Гараж</tag>
+    <tag name="gas">Газ</tag>
+    <tag name="gate">Ворота</tag>
+    <tag name="gauge">Измерительный прибор</tag>
+    <tag name="gavel">Молоток</tag>
+    <tag name="gear">Шестерни</tag>
+    <tag name="gem">Драгоценный камень</tag>
+    <tag name="gender">Пол</tag>
+    <tag name="genetic">Генетика</tag>
+    <tag name="geometry">Геометрия</tag>
+    <tag name="gesture">Жест</tag>
+    <tag name="ghost">
+        <alias>Призрак</alias>
+        <alias>Привидение</alias>
+    </tag>
+    <tag name="gift">Подарок</tag>
+    <tag name="giftcard">Подарочная карта</tag>
+    <tag name="glass">Стекло</tag>
+    <tag name="glass_flute">Стеклянная флейта</tag>
+    <tag name="glasses">Очки</tag>
+    <tag name="golf">Гольф</tag>
+    <tag name="gps">GPS</tag>
+    <tag name="grade">Оценка</tag>
+    <tag name="graduation">Выпускной</tag>
+    <tag name="graffiti">Граффити</tag>
+    <tag name="grease_pen">Ручка для смазки</tag>
+    <tag name="greek_letter">Греческая буква</tag>
+    <tag name="greek_letter_alpha">Альфа</tag>
+    <tag name="greek_letter_beta">Бета</tag>
+    <tag name="greek_letter_delta">Дельта</tag>
+    <tag name="greek_letter_lambda">Лямбда</tag>
+    <tag name="greek_letter_omega">Омега</tag>
+    <tag name="greek_letter_sigma">Сигма</tag>
+    <tag name="greeting">Приветствие</tag>
+    <tag name="grid">
+        <alias>Сетка</alias>
+        <alias>Решетка</alias>
+    </tag>
+    <tag name="grocery">
+        <alias>Бакалея</alias>
+        <alias>Продукты</alias>
+        <alias>Покупки</alias>
+        <alias>Товары</alias>
+    </tag>
+    <tag name="group">Группа</tag>
+    <tag name="guitar">Гитара</tag>
+    <tag name="gun">Пистолет</tag>
+    <tag name="h2o">
+        <alias>H2O</alias>
+        <alias>Вода</alias>
+    </tag>
+    <tag name="hamburger">Гамбургер</tag>
+    <tag name="hammer">Молоток</tag>
+    <tag name="hand">Рука</tag>
+    <tag name="hanger">Вешалка</tag>
+    <tag name="happy">
+        <alias>Счастье</alias>
+        <alias>Счастливый</alias>
+        <alias>Довольный</alias>
+    </tag>
+    <tag name="hard_disk">Жесткий диск</tag>
+    <tag name="hat">
+        <alias>Шапка</alias>
+        <alias>Шляпа</alias>
+    </tag>
+    <tag name="headphones">
+        <alias>Наушники</alias>
+        <alias>Гарнитура</alias>
+    </tag>
+    <tag name="health">Здоровье</tag>
+    <tag name="hear">Слышать</tag>
+    <tag name="hearing">Слух</tag>
+    <tag name="heart">Сердце</tag>
+    <tag name="heat">
+        <alias>Тепло</alias>
+        <alias>Жар</alias>
+    </tag>
+    <tag name="heavy">Тяжелый</tag>
+    <tag name="helicopter">Вертолет</tag>
+    <tag name="helmet">Шлем</tag>
+    <tag name="help">Помощь</tag>
+    <tag name="hexagon">Шестиугольник</tag>
+    <tag name="hidden">Скрытый</tag>
+    <tag name="hierarchy">Иерархия</tag>
+    <tag name="high">Высоко</tag>
+    <tag name="high_heel">Высокий каблук</tag>
+    <tag name="highlighter">
+        <alias>Маркер</alias>
+        <alias>Хайлайтер</alias>
+    </tag>
+    <tag name="highway">Шоссе</tag>
+    <tag name="hinduism">Индуизм</tag>
+    <tag name="histogram">Гистограмма</tag>
+    <tag name="history">История</tag>
+    <tag name="hockey">Хоккей</tag>
+    <tag name="hockey_puck">Хоккейная шайба</tag>
+    <tag name="hockey_stick">Хоккейная клюшка</tag>
+    <tag name="home">Дом</tag>
+    <tag name="home_appliance">Бытовая техника</tag>
+    <tag name="horn">Рог</tag>
+    <tag name="horse">Лошадь</tag>
+    <tag name="horseshoe">Подкова</tag>
+    <tag name="hospital">
+        <alias>Больница</alias>
+        <alias>Госпиталь</alias>
+    </tag>
+    <tag name="hot">Горячи</tag>
+    <tag name="hot_air_balloon">Воздушный шар</tag>
+    <tag name="hot_tub">Джакузи</tag>
+    <tag name="hotdog">Хотдог</tag>
+    <tag name="hotel">
+        <alias>Отель</alias>
+        <alias>Гостиница</alias>
+    </tag>
+    <tag name="hour">Час</tag>
+    <tag name="hourglass">Песочные часы</tag>
+    <tag name="house">Дом</tag>
+    <tag name="housework">Уборка</tag>
+    <tag name="human">Человек</tag>
+    <tag name="hurricane">Ураган</tag>
+    <tag name="hyperlink">Гиперссылка</tag>
+    <tag name="icecream">Мороженое</tag>
+    <tag name="icecream_cone">Рожок мороженого</tag>
+    <tag name="icecube">Кубик льда</tag>
+    <tag name="image">
+        <alias>Картина</alias>
+        <alias>Рисунок</alias>
+        <alias>Изображение</alias>
+        <alias>Фотография</alias>
+    </tag>
+    <tag name="import">Импортировать</tag>
+    <tag name="incognito">Инкогнито</tag>
+    <tag name="infinity">Бесконечность</tag>
+    <tag name="information">Информация</tag>
+    <tag name="insect">Насекомое</tag>
+    <tag name="insomnia">Бессонница</tag>
+    <tag name="instrument">Инструмент</tag>
+    <tag name="insurance">Страхование</tag>
+    <tag name="internet">Интернет</tag>
+    <tag name="intersection">
+        <alias>Пересечение</alias>
+        <alias>Перекресток</alias>
+    </tag>
+    <tag name="inverse">Обратный</tag>
+    <tag name="investment">Инвестиции</tag>
+    <tag name="islam">Ислам</tag>
+    <tag name="items">Предметы</tag>
+    <tag name="json">JSON</tag>
+    <tag name="judaism">Иудаизм</tag>
+    <tag name="jupiter">Юпитер</tag>
+    <tag name="karate">Каратэ</tag>
+    <tag name="kelvin">Кельвин</tag>
+    <tag name="kettle">Чайник</tag>
+    <tag name="key">Ключ</tag>
+    <tag name="keyboard">Клавиатура</tag>
+    <tag name="kg">КГ</tag>
+    <tag name="king">Король</tag>
+    <tag name="kiss">
+        <alias>Поцелуй</alias>
+        <alias>Целовать</alias>
+    </tag>
+    <tag name="knife">Нож</tag>
+    <tag name="label">
+        <alias>Этикетка</alias>
+        <alias>Ярлык</alias>
+        <alias>Метка</alias>
+        <alias>Тег</alias>
+    </tag>
+    <tag name="ladybug">Божья коровка</tag>
+    <tag name="lamp">Фонарь</tag>
+    <tag name="landing">Посадка</tag>
+    <tag name="landscape">
+        <alias>Пейзаж</alias>
+        <alias>Ландшафт</alias>
+    </tag>
+    <tag name="language">Язык</tag>
+    <tag name="laptop">Ноутбук</tag>
+    <tag name="layer">Слой</tag>
+    <tag name="leaf">Лист</tag>
+    <tag name="leaking">Утечка</tag>
+    <tag name="left">Налево</tag>
+    <tag name="leg">Нога</tag>
+    <tag name="length">Длина</tag>
+    <tag name="letter">Письмо</tag>
+    <tag name="library">Библиотека</tag>
+    <tag name="license">Водительское удостоверение</tag>
+    <tag name="license_copyright">Лицензия</tag>
+    <tag name="lifebuoy">Спасательный круг</tag>
+    <tag name="lightbulb">Лампочка</tag>
+    <tag name="lighthouse">Маяк</tag>
+    <tag name="lightning">Освещение</tag>
+    <tag name="lightning_led">Светодиод</tag>
+    <tag name="like">
+        <alias>Нравиться</alias>
+        <alias>Лайк</alias>
+    </tag>
+    <tag name="link">Ссылка</tag>
+    <tag name="liquid">Жидкость</tag>
+    <tag name="list">Список</tag>
+    <tag name="livestock">Скот</tag>
+    <tag name="loading">Загрузка</tag>
+    <tag name="location">
+        <alias>Место расположения</alias>
+        <alias>Местонахождение</alias>
+    </tag>
+    <tag name="lock">Замок</tag>
+    <tag name="locked">
+        <alias>Заблокировано</alias>
+        <alias>Заперты</alias>
+    </tag>
+    <tag name="logic_gate">Логический вентиль</tag>
+    <tag name="loop">Петля</tag>
+    <tag name="love">
+        <alias>Любовь</alias>
+        <alias>Люблю</alias>
+    </tag>
+    <tag name="low">Низкий</tag>
+    <tag name="luck">
+        <alias>Удача</alias>
+        <alias>Везение</alias>
+    </tag>
+    <tag name="magic">
+        <alias>Магия</alias>
+        <alias>Волшебство</alias>
+    </tag>
+    <tag name="magnet">Магнит</tag>
+    <tag name="magnifying_glass">Увеличительное стекло</tag>
+    <tag name="mail">Почта</tag>
+    <tag name="mailbox">Почтовый ящик</tag>
+    <tag name="male">Мужчина</tag>
+    <tag name="mallet">Киянка</tag>
+    <tag name="man">Мужчина</tag>
+    <tag name="map">Карта</tag>
+    <tag name="maple">Клен</tag>
+    <tag name="martial_arts">Боевые искусства</tag>
+    <tag name="martini">Мартини</tag>
+    <tag name="mask">Маска</tag>
+    <tag name="math">Математика</tag>
+    <tag name="math_addition">
+        <alias>Дополнение</alias>
+        <alias>Добавление</alias>
+    </tag>
+    <tag name="math_division">Деление</tag>
+    <tag name="math_equal">Равно</tag>
+    <tag name="math_exponent">
+        <alias>Экспонента</alias>
+        <alias>Степень</alias>
+    </tag>
+    <tag name="math_formula">Формула</tag>
+    <tag name="math_function">Функция</tag>
+    <tag name="math_multiplication">Умножение</tag>
+    <tag name="math_not_equal">Не равный</tag>
+    <tag name="math_square">Площадь</tag>
+    <tag name="math_square_root">Квадратный корень</tag>
+    <tag name="math_subtraction">Вычитание</tag>
+    <tag name="meal">Питание</tag>
+    <tag name="measurement">Измерение</tag>
+    <tag name="measuring_tape">Рулетка</tag>
+    <tag name="medal">Медаль</tag>
+    <tag name="media">Медиа</tag>
+    <tag name="media_fast_forward">
+        <alias>Перемотать</alias>
+        <alias>Быстрая перемотка вперед</alias>
+    </tag>
+    <tag name="media_pause">Пауза</tag>
+    <tag name="media_play">Играть</tag>
+    <tag name="media_player">Проигрыватель медиа</tag>
+    <tag name="media_resume">Продолжить</tag>
+    <tag name="media_rewind">
+        <alias>Перемотать</alias>
+        <alias>Быстрая перемотка назад</alias>
+    </tag>
+    <tag name="media_shuffle">Перемешать</tag>
+    <tag name="media_skip_backward">Назад</tag>
+    <tag name="media_skip_forward">Далее</tag>
+    <tag name="media_skip_next">Следующий</tag>
+    <tag name="media_skip_previous">Предыдущий</tag>
+    <tag name="medication">
+        <alias>Медикамент</alias>
+        <alias>Лекарство</alias>
+        <alias>Препарат</alias>
+        <alias>Средство</alias>
+    </tag>
+    <tag name="medium">Средний</tag>
+    <tag name="membership">Членство</tag>
+    <tag name="memory">Память</tag>
+    <tag name="menu">Меню</tag>
+    <tag name="merge">Объединить</tag>
+    <tag name="message">Сообщение</tag>
+    <tag name="metronome">Метроном</tag>
+    <tag name="microorganism">Микроорганизм</tag>
+    <tag name="microphone">Микрофон</tag>
+    <tag name="microscope">Микроскоп</tag>
+    <tag name="military">Военные</tag>
+    <tag name="milk">Молоко</tag>
+    <tag name="mining">Добыча</tag>
+    <tag name="minus">Минус</tag>
+    <tag name="missed">Пропущенный</tag>
+    <tag name="mobile">Мобильный</tag>
+    <tag name="money">Деньги</tag>
+    <tag name="monitor">Монитор</tag>
+    <tag name="moon">Луна</tag>
+    <tag name="more_options">Дополнительное меню</tag>
+    <tag name="mortgage">Ипотека</tag>
+    <tag name="motorbike">Мотоцикл</tag>
+    <tag name="mountain">Гора</tag>
+    <tag name="mouse">Компьютерная мышь</tag>
+    <tag name="mouse_pointer">
+        <alias>Указатель</alias>
+        <alias>Курсор</alias>
+    </tag>
+    <tag name="movement">Движение</tag>
+    <tag name="movie">Кинофильм</tag>
+    <tag name="muffin">Маффин</tag>
+    <tag name="mug">Кружка</tag>
+    <tag name="multiple">Множественный</tag>
+    <tag name="mushroom">Гриб</tag>
+    <tag name="music">Музыка</tag>
+    <tag name="mute">Без звука</tag>
+    <tag name="nature">Природа</tag>
+    <tag name="navigation">Навигация</tag>
+    <tag name="needle">Игла</tag>
+    <tag name="network">Сеть</tag>
+    <tag name="neutral">Нейтральный</tag>
+    <tag name="news">Новости</tag>
+    <tag name="newspaper">Газета</tag>
+    <tag name="ninja">Ниндзя</tag>
+    <tag name="none">Ничего</tag>
+    <tag name="note">Заметка</tag>
+    <tag name="notebook">Ноутбук</tag>
+    <tag name="notification">Уведомление</tag>
+    <tag name="nuclear">Ядерная</tag>
+    <tag name="nucleus">Ядро</tag>
+    <tag name="nuke">Ядерная бомба</tag>
+    <tag name="number">Число</tag>
+    <tag name="numeric">Числовой</tag>
+    <tag name="nurse">
+        <alias>Медсестра</alias>
+        <alias>Медбрат</alias>
+    </tag>
+    <tag name="nut">Орех</tag>
+    <tag name="nutrition">Питание</tag>
+    <tag name="oar">Весло</tag>
+    <tag name="octagon">Восьмиугольник</tag>
+    <tag name="off">Выключен</tag>
+    <tag name="oil">Масло</tag>
+    <tag name="on">Включен</tag>
+    <tag name="onion">Лук</tag>
+    <tag name="opened">Открыт</tag>
+    <tag name="orbit">Орбита</tag>
+    <tag name="order_content">Порядок</tag>
+    <tag name="ornament">Орнамент</tag>
+    <tag name="outdoors">
+        <alias>На улице</alias>
+        <alias>На открытом воздухе</alias>
+    </tag>
+    <tag name="owl">Сова</tag>
+    <tag name="package">Упаковка</tag>
+    <tag name="paint">Краска</tag>
+    <tag name="palette">Палитра</tag>
+    <tag name="palm_tree">Пальма</tag>
+    <tag name="panda">Панда</tag>
+    <tag name="panorama">Панорама</tag>
+    <tag name="paper">Бумага</tag>
+    <tag name="paperclip">Скрепка</tag>
+    <tag name="parachute">Парашют</tag>
+    <tag name="parentheses">Круглые скобки</tag>
+    <tag name="park">Парк</tag>
+    <tag name="parking">
+        <alias>Стоянка</alias>
+        <alias>Парковка</alias>
+    </tag>
+    <tag name="passport">Пасспорт</tag>
+    <tag name="password">Пароль</tag>
+    <tag name="past">Прошлое</tag>
+    <tag name="pasta">Макароны</tag>
+    <tag name="paste">Вставить</tag>
+    <tag name="pastry">
+        <alias>Выпечка</alias>
+        <alias>Кондитерские изделия</alias>
+    </tag>
+    <tag name="pathway">Путь</tag>
+    <tag name="paw">Лапа</tag>
+    <tag name="peace">Мир</tag>
+    <tag name="pen">Ручка</tag>
+    <tag name="pencil">Карандаш</tag>
+    <tag name="penguin">Пингвин</tag>
+    <tag name="pentagon">Пентагон</tag>
+    <tag name="pepper">Перец</tag>
+    <tag name="percent">Процент</tag>
+    <tag name="periodic_table">Периодическая таблица</tag>
+    <tag name="person">
+        <alias>Человек</alias>
+        <alias>Люди</alias>
+        <alias>Лицо</alias>
+    </tag>
+    <tag name="pet">Домашнее животное</tag>
+    <tag name="petrol">
+        <alias>Нефть</alias>
+        <alias>Бензин</alias>
+        <alias>Масло</alias>
+        <alias>Газ</alias>
+    </tag>
+    <tag name="optics">Оптика</tag>
+    <tag name="pharmacy">Аптека</tag>
+    <tag name="phone">
+        <alias>Телефон</alias>
+        <alias>Сотовый</alias>
+    </tag>
+    <tag name="photo">Фото</tag>
+    <tag name="physics">Физика</tag>
+    <tag name="pi">Число Пи</tag>
+    <tag name="piano">Фортепиано</tag>
+    <tag name="pick">Выбирать</tag>
+    <tag name="pickaxe">Кирка</tag>
+    <tag name="pie">Пирог</tag>
+    <tag name="pig">Свинья</tag>
+    <tag name="piggy_bank">Копилка</tag>
+    <tag name="pill">Таблетка</tag>
+    <tag name="pillar">Столб</tag>
+    <tag name="pin">Штырь</tag>
+    <tag name="pine_tree">Сосна</tag>
+    <tag name="pipe">Труба</tag>
+    <tag name="pirate">Пират</tag>
+    <tag name="pistol">Пистолет</tag>
+    <tag name="pizza">Пицца</tag>
+    <tag name="place">Место</tag>
+    <tag name="planet">Планета</tag>
+    <tag name="planned">Запланированный</tag>
+    <tag name="plant">Растение</tag>
+    <tag name="playing_cards">Игральные карты</tag>
+    <tag name="playlist">Плейлист</tag>
+    <tag name="plugin">Плагин</tag>
+    <tag name="plus">Плюс</tag>
+    <tag name="pocket">Карман</tag>
+    <tag name="poker">Покер</tag>
+    <tag name="police">Полиция</tag>
+    <tag name="pollution">Загрязнение</tag>
+    <tag name="polygon">Многоугольник</tag>
+    <tag name="pool">Бассейн</tag>
+    <tag name="popcorn">Попкорн</tag>
+    <tag name="postage_stamp">Почтовая марка</tag>
+    <tag name="pot">Горшок</tag>
+    <tag name="pound">Фунт</tag>
+    <tag name="power_state">Состояние питания</tag>
+    <tag name="precipitation">Осадки</tag>
+    <tag name="pregnant">Беременная</tag>
+    <tag name="presentation">Презентация</tag>
+    <tag name="printer">Принтер</tag>
+    <tag name="prize">
+        <alias>Приз</alias>
+        <alias>Награда</alias>
+    </tag>
+    <tag name="profile">Профиль</tag>
+    <tag name="programming">
+        <alias>Программирование</alias>
+        <alias>Код</alias>
+    </tag>
+    <tag name="programming_c">C</tag>
+    <tag name="programming_cplusplus">C++</tag>
+    <tag name="programming_csharp">C#</tag>
+    <tag name="programming_html">HTML</tag>
+    <tag name="programming_javascript">JavaScript</tag>
+    <tag name="programming_language">Язык программирования</tag>
+    <tag name="programming_lua">Lua</tag>
+    <tag name="programming_php">PHP</tag>
+    <tag name="programming_python">Python</tag>
+    <tag name="programming_swift">Swift</tag>
+    <tag name="programming_xml">XML</tag>
+    <tag name="prohibition">
+        <alias>Запрет</alias>
+        <alias>Запрещен</alias>
+        <alias>Нельзя</alias>
+        <alias>Нет</alias>
+    </tag>
+    <tag name="projector">Проектор</tag>
+    <tag name="pulse">Пульс</tag>
+    <tag name="pump">Насос</tag>
+    <tag name="puzzle">Головоломка</tag>
+    <tag name="qrcode">QR код</tag>
+    <tag name="quadcopter">Квадрокоптер</tag>
+    <tag name="question">Вопрос</tag>
+    <tag name="question_mark">Вопросительный знак</tag>
+    <tag name="rabbit">
+        <alias>Кролик</alias>
+        <alias>Заяц</alias>
+    </tag>
+    <tag name="radar">Радар</tag>
+    <tag name="radiator">
+        <alias>Радиатор</alias>
+        <alias>Обогрев</alias>
+        <alias>Отопление</alias>
+    </tag>
+    <tag name="radio">Радио</tag>
+    <tag name="radioactivity">Радиоактивный</tag>
+    <tag name="rainbow">Радуга</tag>
+    <tag name="raspberrypi">Raspberry Pi</tag>
+    <tag name="reaction">Реакция</tag>
+    <tag name="reading">Чтение</tag>
+    <tag name="recycling">Переработка</tag>
+    <tag name="redo">Повторить</tag>
+    <tag name="religion">Религия</tag>
+    <tag name="reminder">Напоминание</tag>
+    <tag name="remote">
+        <alias>Удаленный</alias>
+        <alias>Пультик</alias>
+    </tag>
+    <tag name="renewable_energy">Возобновляемая энергия</tag>
+    <tag name="repeat">
+        <alias>Повторение</alias>
+        <alias>Обновить</alias>
+        <alias>Перезагрузить</alias>
+        <alias>Перезапустить</alias>
+        <alias>Цикл</alias>
+    </tag>
+    <tag name="reproduction">Размножение</tag>
+    <tag name="rescue">Спасение</tag>
+    <tag name="rest">Отдых</tag>
+    <tag name="restaurant">Ресторан</tag>
+    <tag name="restore">Восстановить</tag>
+    <tag name="review">
+        <alias>Отзыв</alias>
+        <alias>Обзор</alias>
+        <alias>Рейтинг</alias>
+    </tag>
+    <tag name="rhombus">Ромб</tag>
+    <tag name="ribbon">Лента</tag>
+    <tag name="rice">Рис</tag>
+    <tag name="right">Направо</tag>
+    <tag name="ring">Кольцо</tag>
+    <tag name="road">Дорога</tag>
+    <tag name="robot">Робот</tag>
+    <tag name="rocket">Ракета</tag>
+    <tag name="roller">Валик</tag>
+    <tag name="rope">
+        <alias>Веревка</alias>
+        <alias>Нитка</alias>
+        <alias>Струна</alias>
+        <alias>Трос</alias>
+        <alias>Канат</alias>
+    </tag>
+    <tag name="rotation">Вращение</tag>
+    <tag name="router">Маршрутизатор</tag>
+    <tag name="rowing">Гребля</tag>
+    <tag name="ruler">Линейка</tag>
+    <tag name="run">Бегать</tag>
+    <tag name="sad">
+        <alias>Печальный</alias>
+        <alias>Грустный</alias>
+        <alias>Унылый</alias>
+    </tag>
+    <tag name="safe">Сейф</tag>
+    <tag name="sandcastle">Песчаный замок</tag>
+    <tag name="satellite">Спутник</tag>
+    <tag name="sauce">Соус</tag>
+    <tag name="sausage">Колбаса</tag>
+    <tag name="save">Сохранить</tag>
+    <tag name="savings">Сбережения</tag>
+    <tag name="saw">Пила</tag>
+    <tag name="saxophone">Саксофон</tag>
+    <tag name="scale">Весы</tag>
+    <tag name="scan">Сканировать</tag>
+    <tag name="scanner">Сканер</tag>
+    <tag name="school">Школа</tag>
+    <tag name="schredder">Шредер</tag>
+    <tag name="science">Наука</tag>
+    <tag name="scissors">Ножницы</tag>
+    <tag name="screen">Экран</tag>
+    <tag name="screen_cast">
+        <alias>Скринкастинг</alias>
+        <alias>Вещание</alias>
+    </tag>
+    <tag name="screwdriver">Отвертка</tag>
+    <tag name="script">Свиток</tag>
+    <tag name="sd_card">
+        <alias>SD карта</alias>
+        <alias>Микро SD карта</alias>
+        <alias>Память</alias>
+    </tag>
+    <tag name="seal">Эмблема</tag>
+    <tag name="search">
+        <alias>Поиск</alias>
+        <alias>Найти</alias>
+        <alias>Искать</alias>
+    </tag>
+    <tag name="seat">Сиденье</tag>
+    <tag name="seatbelt">Ремень безобасности</tag>
+    <tag name="security">
+        <alias>Безопасность</alias>
+        <alias>Охрана</alias>
+        <alias>Защита</alias>
+    </tag>
+    <tag name="select">Выбрать</tag>
+    <tag name="send">Отправить</tag>
+    <tag name="server">Сервер</tag>
+    <tag name="settings">
+        <alias>Настройки</alias>
+        <alias>Параметры</alias>
+        <alias>Конфигурация</alias>
+        <alias>Опции</alias>
+    </tag>
+    <tag name="shape">Фигура</tag>
+    <tag name="share">Делить</tag>
+    <tag name="sheep">Овца</tag>
+    <tag name="sheet_music">Ноты</tag>
+    <tag name="shield">Щит</tag>
+    <tag name="ship">Корабль</tag>
+    <tag name="ship_anchor">Якорь</tag>
+    <tag name="shoe">Обувь</tag>
+    <tag name="shopping">Покупка</tag>
+    <tag name="shovel">Лопата</tag>
+    <tag name="shower">Душ</tag>
+    <tag name="sign">Знак</tag>
+    <tag name="signal">
+        <alias>Сигнал</alias>
+        <alias>Связь</alias>
+        <alias>5г</alias>
+        <alias>4г</alias>
+        <alias>3г</alias>
+    </tag>
+    <tag name="sim_card">Сим карта</tag>
+    <tag name="sit">Сидеть</tag>
+    <tag name="skull">Череп</tag>
+    <tag name="sleep">Спать</tag>
+    <tag name="smile">Улыбка</tag>
+    <tag name="smog">Смог</tag>
+    <tag name="smoke">Дым</tag>
+    <tag name="smoking">Курение</tag>
+    <tag name="snooze">Отложить</tag>
+    <tag name="snow">Снег</tag>
+    <tag name="snowflake">Снежинка</tag>
+    <tag name="snowman">Снеговик</tag>
+    <tag name="soccer">Футболь</tag>
+    <tag name="sock">
+        <alias>Носок</alias>
+        <alias>Чулок</alias>
+    </tag>
+    <tag name="sofa">
+        <alias>Диван</alias>
+        <alias>Кушетка</alias>
+        <alias>Софа</alias>
+    </tag>
+    <tag name="solar_power">Солнечная энергия</tag>
+    <tag name="sort">
+        <alias>Сортировать</alias>
+        <alias>Упорядочить</alias>
+    </tag>
+    <tag name="sound">Звук</tag>
+    <tag name="sound_ring">Звон</tag>
+    <tag name="source">Источник</tag>
+    <tag name="space">Космос</tag>
+    <tag name="speak">Говорить</tag>
+    <tag name="speaker">
+        <alias>Спикер</alias>
+        <alias>Громкоговоритель</alias>
+    </tag>
+    <tag name="speed">Скорость</tag>
+    <tag name="speedometer">Спидометр</tag>
+    <tag name="spellcheck">
+        <alias>Проверка правописания</alias>
+        <alias>Проверка орфографии</alias>
+    </tag>
+    <tag name="spermatozoid">Сперматозоид</tag>
+    <tag name="spicy">Острый</tag>
+    <tag name="spoon">Ложка</tag>
+    <tag name="sport">Спорт</tag>
+    <tag name="spotlight">Прожектор</tag>
+    <tag name="spray">
+        <alias>Распылитель</alias>
+        <alias>Пульверизатор</alias>
+    </tag>
+    <tag name="spreadsheet">Таблица</tag>
+    <tag name="spy">Шпион</tag>
+    <tag name="square">Kвадрат</tag>
+    <tag name="stack">Стек</tag>
+    <tag name="stadium">Стадион</tag>
+    <tag name="stairs">Лестница</tag>
+    <tag name="stamper">Штамп</tag>
+    <tag name="standing">Стоя</tag>
+    <tag name="star">Звезда</tag>
+    <tag name="steering">Рулевое колесо</tag>
+    <tag name="stethoscope">Стетоскоп</tag>
+    <tag name="sticker">Наклейка</tag>
+    <tag name="stop">
+        <alias>Стоп</alias>
+        <alias>Остановить</alias>
+    </tag>
+    <tag name="stopwatch">Секундомер</tag>
+    <tag name="store">
+        <alias>Магазин</alias>
+        <alias>Универмаг</alias>
+    </tag>
+    <tag name="storm">Гроза</tag>
+    <tag name="stove">
+        <alias>Плита</alias>
+        <alias>Духовка</alias>
+    </tag>
+    <tag name="street">Улица</tag>
+    <tag name="structure">Структура</tag>
+    <tag name="style">Стиль</tag>
+    <tag name="subtitles">Субтитры</tag>
+    <tag name="subway">
+        <alias>Метрополитен</alias>
+        <alias>Подземка</alias>
+    </tag>
+    <tag name="suit">Костюм</tag>
+    <tag name="summit">Вершина</tag>
+    <tag name="sunglasses">Солнцезащитные очки</tag>
+    <tag name="sunrise">Восход солнца</tag>
+    <tag name="sunset">Заход солнца</tag>
+    <tag name="superscript">Надстрочный</tag>
+    <tag name="surveillance">Наблюдение</tag>
+    <tag name="swap">Обмен</tag>
+    <tag name="swimming">Плавание</tag>
+    <tag name="switch">Переключатель</tag>
+    <tag name="sword">Меч</tag>
+    <tag name="symbol">Символ</tag>
+    <tag name="synchronisation">Синхронизация</tag>
+    <tag name="syringe">Шприц</tag>
+    <tag name="table">Таблица</tag>
+    <tag name="tablet">Планшет</tag>
+    <tag name="taco">Тако</tag>
+    <tag name="taekwondo">Тхэквондо</tag>
+    <tag name="take_off">Взлет</tag>
+    <tag name="talking">
+        <alias>Говорить</alias>
+        <alias>Говорящий</alias>
+    </tag>
+    <tag name="tank_container">Танк</tag>
+    <tag name="taxi">Такси</tag>
+    <tag name="tea">Чай</tag>
+    <tag name="teach">Учить</tag>
+    <tag name="teapot">Заварочный чайник</tag>
+    <tag name="technology">Технология</tag>
+    <tag name="telescope">Телескоп</tag>
+    <tag name="television">
+        <alias>Телевидение</alias>
+        <alias>ТВ</alias>
+    </tag>
+    <tag name="temperature">Температура</tag>
+    <tag name="tennis">Теннис</tag>
+    <tag name="tent">Палатка</tag>
+    <tag name="terminal">Терминал</tag>
+    <tag name="terrain">Местность</tag>
+    <tag name="test_tube">Пробирка</tag>
+    <tag name="text">Текст</tag>
+    <tag name="textbox">Текстовое окно</tag>
+    <tag name="theater">Театр</tag>
+    <tag name="thermometer">Термометр</tag>
+    <tag name="thermostat">Термостат</tag>
+    <tag name="think">Думать</tag>
+    <tag name="thought">Думал</tag>
+    <tag name="thumb">Большой палец</tag>
+    <tag name="thunderstorm">Гроза</tag>
+    <tag name="ticket">Билет</tag>
+    <tag name="tie">Галстук</tag>
+    <tag name="tilde">Тильда</tag>
+    <tag name="time">Время</tag>
+    <tag name="time_day">День</tag>
+    <tag name="time_night">Ночь</tag>
+    <tag name="timeline">Лента новостей</tag>
+    <tag name="timer">
+        <alias>Таймер</alias>
+        <alias>Хронометр</alias>
+        <alias>Секундомер</alias>
+    </tag>
+    <tag name="toggle">Переключать</tag>
+    <tag name="toilet">Туалет</tag>
+    <tag name="tongue">Язык</tag>
+    <tag name="tool">Инструмент</tag>
+    <tag name="toolbox">Ящик для инструментов</tag>
+    <tag name="tooth">Зуб</tag>
+    <tag name="tortoise">Черепаха</tag>
+    <tag name="touch_screen">Коснуться</tag>
+    <tag name="tower">Башня</tag>
+    <tag name="towing">Буксировка</tag>
+    <tag name="toy">Игрушка</tag>
+    <tag name="tractor">Трактор</tag>
+    <tag name="traffic">Движение</tag>
+    <tag name="traffic_light">Светофор</tag>
+    <tag name="trailer">Трейлер</tag>
+    <tag name="train">Поезд</tag>
+    <tag name="tramway">Трамвай</tag>
+    <tag name="transfer">Перевод</tag>
+    <tag name="transgender">Трансгендер</tag>
+    <tag name="transit">
+        <alias>Транзит</alias>
+        <alias>Прохождение</alias>
+        <alias>Перевоз</alias>
+    </tag>
+    <tag name="translate">Перевести</tag>
+    <tag name="transport">Транспорт</tag>
+    <tag name="trash">Мусор</tag>
+    <tag name="travel">Путешествовать</tag>
+    <tag name="tree">Дерево</tag>
+    <tag name="trending">В тренде</tag>
+    <tag name="triangle">Треугольник</tag>
+    <tag name="trophy">Трофей</tag>
+    <tag name="truck">Грузовик</tag>
+    <tag name="tshirt">Футболка</tag>
+    <tag name="tulip">Тюльпан</tag>
+    <tag name="turbine">Турбина</tag>
+    <tag name="turtle">Черепаха</tag>
+    <tag name="typing">
+        <alias>Печатание</alias>
+        <alias>Набор текста</alias>
+    </tag>
+    <tag name="umbrella_rain">Зонтик</tag>
+    <tag name="umbrella_sun">Зонтик</tag>
+    <tag name="undo">Отменить</tag>
+    <tag name="unmerge">Разъединить</tag>
+    <tag name="up">Вверх</tag>
+    <tag name="update">Обновить</tag>
+    <tag name="usb">USB</tag>
+    <tag name="user">Пользователь</tag>
+    <tag name="utensil">
+        <alias>Утварь</alias>
+        <alias>Посуда</alias>
+    </tag>
+    <tag name="vacation">Отпуск</tag>
+    <tag name="vaccine">Вакцина</tag>
+    <tag name="van">Фургон</tag>
+    <tag name="vanish">Исчезнуть</tag>
+    <tag name="variable">Переменная</tag>
+    <tag name="vegetable">Овощ</tag>
+    <tag name="vehicle">Транспортное средство</tag>
+    <tag name="vehicle_wheel">Рулевое колесо</tag>
+    <tag name="vibrate">
+        <alias>Вибрировать</alias>
+        <alias>Вибрация</alias>
+    </tag>
+    <tag name="video">Видео</tag>
+    <tag name="violin">Скрипка</tag>
+    <tag name="virus">Вирус</tag>
+    <tag name="vision">Видение</tag>
+    <tag name="volleyball">Волейбол</tag>
+    <tag name="volume">Громкость</tag>
+    <tag name="vote">Голос</tag>
+    <tag name="walking">Ходьба</tag>
+    <tag name="wall">Стена</tag>
+    <tag name="wallet">Кошелек</tag>
+    <tag name="wand">Волшебная палочка</tag>
+    <tag name="wash">Стирка</tag>
+    <tag name="washing_machine">
+        <alias>Стиралка</alias>
+        <alias>Стиральная машина</alias>
+    </tag>
+    <tag name="watch">Часы</tag>
+    <tag name="water">Вода</tag>
+    <tag name="wave">Волна</tag>
+    <tag name="weapon">Оружие</tag>
+    <tag name="weather">Погода</tag>
+    <tag name="weather_hail">Град</tag>
+    <tag name="weather_lightning">Молнии</tag>
+    <tag name="weather_rainy">Дождливый</tag>
+    <tag name="weather_snowy">Снежный</tag>
+    <tag name="weather_sunny">Солнечный</tag>
+    <tag name="web">Интернет</tag>
+    <tag name="webcam">ВЭБ-камера</tag>
+    <tag name="wedding">Свадьба</tag>
+    <tag name="week">Неделя</tag>
+    <tag name="weight">
+        <alias>Вес</alias>
+        <alias>Масса</alias>
+    </tag>
+    <tag name="wheat">Пшеницы</tag>
+    <tag name="wheelchair">Инвалидное кресло</tag>
+    <tag name="whistle">Свисток</tag>
+    <tag name="wifi">Wi-Fi</tag>
+    <tag name="wind">Ветер</tag>
+    <tag name="wind_power">Ветроэнергетика</tag>
+    <tag name="wind_turbine">Ветряная турбина</tag>
+    <tag name="windmill">Мельница</tag>
+    <tag name="window">Окно</tag>
+    <tag name="wine">Вино</tag>
+    <tag name="wink">Подмигнуть</tag>
+    <tag name="winter">Зима</tag>
+    <tag name="wired">Проводной</tag>
+    <tag name="wireless">Беспроводной</tag>
+    <tag name="withdraw">Снять со счета</tag>
+    <tag name="woman">Женщина</tag>
+    <tag name="work">Работа</tag>
+    <tag name="worker">Рабочий</tag>
+    <tag name="wrench">Гаечный ключ</tag>
+    <tag name="writing">Письменно</tag>
+    <tag name="yeast">Дрожжи</tag>
+    <tag name="yin_yang">Инь Янь</tag>
+    <tag name="zoom">
+        <alias>Масштаб</alias>
+        <alias>Увеличить</alias>
+        <alias>Приблизить</alias>
+    </tag>
+</tags>

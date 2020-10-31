@@ -31,4 +31,5 @@ fun createDefaultIconPack(loader: IconPackLoader) =
                         Locale("fr"),
                         Locale("es"),
                         Locale("de"),
-                        Locale("pt")))
+                        Locale("pt"),
+                        Locale("ru")))

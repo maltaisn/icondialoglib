@@ -29,7 +29,7 @@ internal fun String.normalize(): String {
     normalized = Normalizer.normalize(normalized, Normalizer.Form.NFKD)
     val sb = StringBuilder()
     for (c in normalized) {
-        if (c in 'a'..'z' || c in '0'..'9') {
+        if (c in 'a'..'z' || c in 'а'..'я' || c in '0'..'9') {
             sb.append(c)
         }
     }
